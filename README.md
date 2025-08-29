@@ -1,62 +1,125 @@
-# Astro Starter Kit: Blog
+# Heilgendorff - Professionelle Dienstleistungen
 
-```sh
-pnpm create astro@latest -- --template blog
-```
+Die offizielle Website von Heilgendorff - Ihr Partner für professionelle Dienstleistungen in den Bereichen Beratung, Entwicklung und Support.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Über das Projekt
 
-Features:
+Diese Website wurde mit [Astro](https://astro.build) entwickelt und bietet:
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- ✅ Moderne, responsive Benutzeroberfläche
+- ✅ Optimale Performance (100/100 Lighthouse Score)
+- ✅ SEO-optimiert mit kanonischen URLs und OpenGraph-Daten
+- ✅ Sitemap-Unterstützung
+- ✅ RSS-Feed für Blog-Beiträge
+- ✅ Markdown & MDX Support für Content Management
+- ✅ Deutsche Lokalisierung
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🏗️ Projektstruktur
 
 ```text
-├── public/
+├── public/                 # Statische Assets (Bilder, Fonts, etc.)
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/         # Wiederverwendbare Astro-Komponenten
+│   ├── content/           # Content Collections (Blog-Beiträge)
+│   ├── layouts/           # Seiten-Layouts
+│   ├── pages/             # Seiten-Routen
+│   ├── styles/            # Globale Styles
+│   └── consts.ts          # Globale Konstanten
+├── astro.config.mjs       # Astro-Konfiguration
+├── package.json           # Projekt-Abhängigkeiten
+└── tsconfig.json          # TypeScript-Konfiguration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠️ Entwicklung
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Voraussetzungen
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+- Node.js (Version 18 oder höher)
+- pnpm (empfohlen) oder npm
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Installation
 
-## 🧞 Commands
+```bash
+# Dependencies installieren
+pnpm install
 
-All commands are run from the root of the project, from a terminal:
+# Entwicklungsserver starten
+pnpm dev
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+# Produktions-Build erstellen
+pnpm build
 
-## 👀 Want to learn more?
+# Build lokal testen
+pnpm preview
+```
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Verfügbare Befehle
 
-## Credit
+| Befehl                   | Aktion                                           |
+| :---------------------- | :----------------------------------------------- |
+| `pnpm install`          | Installiert alle Dependencies                    |
+| `pnpm dev`              | Startet den lokalen Dev-Server auf `localhost:4321` |
+| `pnpm build`            | Erstellt den Produktions-Build in `./dist/`     |
+| `pnpm preview`          | Zeigt den Build lokal an, vor dem Deployment    |
+| `pnpm astro ...`        | Führt CLI-Befehle aus wie `astro add`, `astro check` |
+| `pnpm astro -- --help`  | Zeigt Hilfe für die Astro CLI an                |
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## 📝 Content Management
+
+### Blog-Beiträge
+
+Blog-Beiträge werden in `src/content/blog/` als Markdown-Dateien gespeichert. Jeder Beitrag benötigt:
+
+```yaml
+---
+title: "Titel des Beitrags"
+description: "Kurze Beschreibung"
+pubDate: 2024-01-01
+updatedDate: 2024-01-01
+heroImage: "/blog-placeholder-1.jpg"
+---
+```
+
+### Seiten bearbeiten
+
+- **Startseite**: `src/pages/index.astro`
+- **Über uns**: `src/pages/about.astro`
+- **Blog**: `src/pages/blog/index.astro`
+- **Blog-Beiträge**: `src/pages/blog/[...slug].astro`
+
+## 🎨 Styling
+
+Das Design verwendet CSS-Variablen für konsistente Farben und Styling:
+
+- Hauptfarbe: `--accent` (#3b82f6)
+- Dunkle Akzentfarbe: `--accent-dark` (#000d8a)
+- Globale Styles: `src/styles/global.css`
+
+## 📞 Kontakt
+
+**Heilgendorff**  
+Musterstraße 123  
+12345 Musterstadt  
+Deutschland
+
+- **Telefon**: +49 (0) 123 456789
+- **E-Mail**: info@heilgendorff.de
+
+## 🤝 Beitragen
+
+1. Fork das Repository
+2. Erstelle einen Feature-Branch (`git checkout -b feature/AmazingFeature`)
+3. Committe deine Änderungen (`git commit -m 'Add some AmazingFeature'`)
+4. Push zum Branch (`git push origin feature/AmazingFeature`)
+5. Öffne einen Pull Request
+
+## 📄 Lizenz
+
+Dieses Projekt ist proprietär und gehört Heilgendorff.
+
+## 🛠️ Technologie-Stack
+
+- [Astro](https://astro.build) - Web Framework
+- [TypeScript](https://www.typescriptlang.org/) - Programmiersprache
+- [Markdown](https://www.markdownguide.org/) - Content Format
+- [MDX](https://mdxjs.com/) - Erweiterte Markdown-Funktionalität
