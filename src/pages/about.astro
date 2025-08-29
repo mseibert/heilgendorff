@@ -1,63 +1,222 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title={`Über uns - ${SITE_TITLE}`} description="Erfahren Sie mehr über Heilgendorff - unser Team, unsere Geschichte und unsere Werte" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Über Heilgendorff</h1>
+			
+			<section class="company-intro">
+				<h2>Unser Unternehmen</h2>
+				<p>
+					Heilgendorff ist ein etabliertes Unternehmen mit langjähriger Erfahrung in der Branche. 
+					Seit unserer Gründung haben wir uns auf die Bereitstellung hochwertiger Dienstleistungen 
+					für unsere Kunden spezialisiert.
+				</p>
+				<p>
+					Wir setzen auf Qualität, Zuverlässigkeit und innovative Lösungen, um unseren Kunden 
+					den bestmöglichen Service zu bieten. Unser Team besteht aus erfahrenen Fachleuten, 
+					die sich kontinuierlich weiterbilden und mit den neuesten Technologien und Trends vertraut sind.
+				</p>
+			</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+			<section class="values">
+				<h2>Unsere Werte</h2>
+				<div class="values-grid">
+					<div class="value-card">
+						<h3>Qualität</h3>
+						<p>Wir legen höchsten Wert auf die Qualität unserer Arbeit und streben in jedem Projekt nach Exzellenz.</p>
+					</div>
+					<div class="value-card">
+						<h3>Zuverlässigkeit</h3>
+						<p>Unsere Kunden können sich auf uns verlassen. Wir halten unsere Versprechen und liefern pünktlich.</p>
+					</div>
+					<div class="value-card">
+						<h3>Innovation</h3>
+						<p>Wir bleiben am Puls der Zeit und integrieren innovative Lösungen in unsere Dienstleistungen.</p>
+					</div>
+					<div class="value-card">
+						<h3>Kundenorientierung</h3>
+						<p>Der Erfolg unserer Kunden steht im Mittelpunkt unseres Handelns. Wir verstehen ihre Bedürfnisse.</p>
+					</div>
+				</div>
+			</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+			<section class="team">
+				<h2>Unser Team</h2>
+				<p>
+					Unser Team besteht aus motivierten und qualifizierten Fachleuten, die sich durch 
+					ihre Expertise und ihr Engagement auszeichnen. Gemeinsam arbeiten wir daran, 
+					unseren Kunden die bestmöglichen Lösungen zu bieten.
+				</p>
+				<div class="team-grid">
+					<div class="team-member">
+						<h3>Max Mustermann</h3>
+						<p class="position">Geschäftsführer</p>
+						<p>Über 15 Jahre Erfahrung in der Branche mit Fokus auf strategische Beratung und Projektmanagement.</p>
+					</div>
+					<div class="team-member">
+						<h3>Anna Schmidt</h3>
+						<p class="position">Senior Beraterin</p>
+						<p>Spezialisiert auf Prozessoptimierung und Change Management mit umfassender Branchenerfahrung.</p>
+					</div>
+					<div class="team-member">
+						<h3>Tom Weber</h3>
+						<p class="position">Technischer Leiter</p>
+						<p>Experte für Softwareentwicklung und IT-Infrastruktur mit fundierten Kenntnissen moderner Technologien.</p>
+					</div>
+				</div>
+			</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+			<section class="contact-section">
+				<h2>Kontaktieren Sie uns</h2>
+				<p>
+					Haben Sie Fragen zu unserem Unternehmen oder möchten Sie mehr über unsere 
+					Dienstleistungen erfahren? Wir freuen uns darauf, von Ihnen zu hören.
+				</p>
+				<div class="contact-details">
+					<div class="contact-item">
+						<strong>Telefon:</strong> +49 (0) 123 456789
+					</div>
+					<div class="contact-item">
+						<strong>E-Mail:</strong> info@heilgendorff.de
+					</div>
+					<div class="contact-item">
+						<strong>Adresse:</strong> Musterstraße 123, 12345 Musterstadt
+					</div>
+					<div class="contact-item">
+						<strong>Geschäftszeiten:</strong> Mo-Fr 9:00-18:00 Uhr
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+<style>
+	.company-intro {
+		margin-bottom: 3rem;
+	}
+
+	.company-intro h2 {
+		color: var(--accent);
+		margin-bottom: 1.5rem;
+	}
+
+	.values {
+		margin-bottom: 4rem;
+	}
+
+	.values h2 {
+		color: var(--accent);
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.values-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.value-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: var(--box-shadow);
+		text-align: center;
+		border-top: 4px solid var(--accent);
+	}
+
+	.value-card h3 {
+		color: var(--accent);
+		margin-bottom: 1rem;
+	}
+
+	.team {
+		margin-bottom: 4rem;
+	}
+
+	.team h2 {
+		color: var(--accent);
+		margin-bottom: 2rem;
+	}
+
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.team-member {
+		background: #f8f9fa;
+		padding: 2rem;
+		border-radius: 10px;
+		border-left: 4px solid var(--accent);
+	}
+
+	.team-member h3 {
+		color: var(--accent);
+		margin-bottom: 0.5rem;
+	}
+
+	.position {
+		font-weight: bold;
+		color: var(--gray-dark);
+		margin-bottom: 1rem;
+		font-style: italic;
+	}
+
+	.contact-section {
+		background: white;
+		padding: 3rem;
+		border-radius: 10px;
+		box-shadow: var(--box-shadow);
+	}
+
+	.contact-section h2 {
+		color: var(--accent);
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.contact-details {
+		background: #f8f9fa;
+		padding: 2rem;
+		border-radius: 5px;
+		margin-top: 2rem;
+	}
+
+	.contact-item {
+		margin-bottom: 1rem;
+		padding: 0.5rem 0;
+		border-bottom: 1px solid #e9ecef;
+	}
+
+	.contact-item:last-child {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 720px) {
+		.values-grid,
+		.team-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-section {
+			padding: 2rem 1rem;
+		}
+	}
+</style>

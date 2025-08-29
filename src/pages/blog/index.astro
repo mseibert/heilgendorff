@@ -1,11 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -13,102 +12,104 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`Blog - ${SITE_TITLE}`} description="Aktuelle Nachrichten und Artikel von Heilgendorff" />
+
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+			<h1>Blog</h1>
+			<p class="blog-intro">
+				Hier finden Sie aktuelle Nachrichten, Fachartikel und Insights aus der Welt der 
+				professionellen Dienstleistungen. Bleiben Sie informiert über die neuesten Trends 
+				und Entwicklungen in unserer Branche.
+			</p>
+			
+			<div class="posts">
+				{posts.map((post) => (
+					<article class="post">
+						<h2>
+							<a href={`/blog/${post.id}`}>{post.data.title}</a>
+						</h2>
+						<FormattedDate date={post.data.pubDate} />
+						<p>{post.data.description}</p>
+						<a href={`/blog/${post.id}`} class="read-more">Weiterlesen →</a>
+					</article>
+				))}
+			</div>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.blog-intro {
+		font-size: 1.2em;
+		color: var(--gray-dark);
+		margin-bottom: 3rem;
+		text-align: center;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.posts {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.post {
+		background: white;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: var(--box-shadow);
+		border-left: 4px solid var(--accent);
+	}
+
+	.post h2 {
+		margin-bottom: 0.5rem;
+	}
+
+	.post h2 a {
+		color: var(--accent);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.post h2 a:hover {
+		color: var(--accent-dark);
+	}
+
+	.post time {
+		color: var(--gray);
+		font-size: 0.9em;
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	.post p {
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.read-more {
+		display: inline-block;
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: bold;
+		transition: color 0.3s ease;
+	}
+
+	.read-more:hover {
+		color: var(--accent-dark);
+	}
+
+	@media (max-width: 720px) {
+		.post {
+			padding: 1.5rem;
+		}
+	}
+</style>
