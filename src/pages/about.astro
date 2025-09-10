@@ -1,3 +1,4 @@
+
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -77,10 +78,12 @@ import { SITE_TITLE } from '../consts';
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		overflow-x: hidden;
+		margin-top: 0;
 	}
 
 	.hero-content {
-		padding-top: 60px;
+		padding-top: 0;
 	}
 
 	.hero h1 {
@@ -222,6 +225,19 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	@media (max-width: 720px) {
+		.hero {
+			width: 100vw;
+			max-width: 100vw;
+			overflow-x: hidden;
+		}
+
+		.hero-content {
+			width: 100%;
+			max-width: 100vw;
+			padding: 0 1rem;
+			box-sizing: border-box;
+		}
+
 		.hero h1 {
 			font-size: 2em;
 		}
@@ -232,11 +248,13 @@ import { SITE_TITLE } from '../consts';
 
 		.content-container {
 			padding: 0 1rem;
+			text-align: left;
 		}
 
 		.main-content {
 			flex-direction: column;
 			gap: 2rem;
+			text-align: left;
 		}
 
 		.founder-section {

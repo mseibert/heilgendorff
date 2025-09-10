@@ -59,10 +59,12 @@ import Footer from '../components/Footer.astro';
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		overflow-x: hidden;
+		margin-top: 0;
 	}
 
 	.hero-content {
-		padding-top: 60px;
+		padding-top: 0;
 	}
 
 	.hero h1 {
@@ -179,9 +181,23 @@ import Footer from '../components/Footer.astro';
 	}
 
 	@media (max-width: 720px) {
+		.hero {
+			width: 100vw;
+			max-width: 100vw;
+			overflow-x: hidden;
+		}
+
+		.hero-content {
+			width: 100%;
+			max-width: 100vw;
+			padding: 0 1rem;
+			box-sizing: border-box;
+		}
+
 		.kanzlei-drive-section {
 			flex-direction: column;
 			gap: 2rem;
+			text-align: left;
 		}
 
 		.kanzlei-drive-image {

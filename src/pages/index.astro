@@ -79,7 +79,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		background-repeat: no-repeat;
 		color: white;
 		width: 100vw;
-		height: 100vh;
+		height: calc(100vh - 55px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -88,10 +88,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		overflow-x: hidden;
+		margin-top: -5px;
 	}
 
 	.hero-content {
-		padding-top: 60px;
+		padding-top: 0;
 	}
 
 	.hero h1 {
@@ -109,16 +111,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	.tabs {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1.6rem;
-		margin: 3.2rem calc(-50vw + 50%) 0 calc(-50vw + 50%);
-		padding: 3.2rem 1.6rem 0 1.6rem;
-		width: 100vw;
+		gap: 1.44rem;
+		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+		padding: 2.88rem 1.44rem 0 1.44rem;
+		width: 90vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
+		margin-left: -45vw;
+		margin-right: -45vw;
 		background: #f8f9fa;
+		transform: translateX(-20px);
 	}
 
 	.tab {
@@ -174,16 +177,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	.info-sections {
 		display: flex;
 		flex-direction: column;
-		gap: 1.6rem;
-		margin: 3.2rem calc(-50vw + 50%) 0 calc(-50vw + 50%);
-		padding: 3.2rem 1.6rem 0 1.6rem;
-		width: 100vw;
+		gap: 1.44rem;
+		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+		padding: 2.88rem 1.44rem 0 1.44rem;
+		width: 90vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
+		margin-left: -45vw;
+		margin-right: -45vw;
 		background: white;
+		transform: translateX(-20px);
 	}
 
 	.info-card-with-image {
@@ -252,6 +256,19 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 
 	@media (max-width: 720px) {
+		.hero {
+			width: 100vw;
+			max-width: 100vw;
+			overflow-x: hidden;
+		}
+
+		.hero-content {
+			width: 100%;
+			max-width: 100vw;
+			padding: 0 1rem;
+			box-sizing: border-box;
+		}
+
 		.hero h1 {
 			font-size: 2em;
 		}
@@ -262,16 +279,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 		.tabs {
 			grid-template-columns: 1fr;
-			gap: 1.2rem;
-			margin: 1.6rem 0;
+			gap: 0.6rem;
+			margin: 0.8rem 0;
+			padding: 0.8rem 0;
+			text-align: left;
+			width: calc(50% + 100px);
+			margin-left: -125px;
 		}
 
 		.tab {
-			padding: 1.2rem;
+			padding: 0.6rem;
+			text-align: left;
 		}
 
 		.tab h2 {
 			font-size: 1.3em;
+			text-align: center;
 		}
 
 		.tab-image {
@@ -279,9 +302,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 
 		.info-sections {
-			gap: 1.2rem;
-			margin: 1.6rem calc(-50vw + 50%);
-			padding: 1.6rem 0.8rem;
+			gap: 0.6rem;
+			margin: 0.8rem 0;
+			padding: 0.8rem 0;
+			text-align: left;
+			width: calc(50% + 100px);
+			margin-left: -125px;
 		}
 
 		.info-card-with-image {
