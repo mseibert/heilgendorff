@@ -51,11 +51,11 @@ import Logo from '../assets/images/logo.png';
 							<a href="/steuererklärvideos" data-translate="taxVideos">Steuererklärvideos</a>
 						</div>
 					</div>
-				</div>
-				<div class="header-right">
 					<div class="phone-number">
 						<a href="tel:+49611391320">+49 (0) 611 391320</a>
 					</div>
+				</div>
+				<div class="header-right">
 					<div class="language-switcher">
 						<button class="lang-button active" data-lang="de">DE</button>
 						<button class="lang-button" data-lang="en">ENG</button>
@@ -144,6 +144,7 @@ import Logo from '../assets/images/logo.png';
 		width: auto;
 		max-width: 120px;
 		margin-top: 10px;
+		transform: translateY(-3px);
 	}
 
 	.logo a {
@@ -162,7 +163,7 @@ import Logo from '../assets/images/logo.png';
 		width: 100%;
 		margin: auto;
 		padding: 0.4rem 2rem;
-		height: 55px;
+		height: 57px;
 		box-sizing: border-box;
 	}
 
@@ -181,6 +182,7 @@ import Logo from '../assets/images/logo.png';
 		justify-content: center;
 		width: 100%;
 		gap: 0;
+		height: 57px;
 	}
 
 	.mobile-menu-toggle {
@@ -223,7 +225,7 @@ import Logo from '../assets/images/logo.png';
 	.mobile-nav {
 		display: none;
 		position: fixed;
-		top: 55px;
+		top: 57px;
 		left: 50%;
 		transform: translateX(-50%);
 		width: 80vw;
@@ -339,22 +341,30 @@ import Logo from '../assets/images/logo.png';
 	
 	nav a {
 		font-family: "IBM Plex Sans", sans-serif;
-		padding: 0.5em 0.5em;
+		font-size: 1.1rem;
+		font-weight: 500;
+		padding: 0.7em 0.8em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		height: 55px;
 	}
 	
 	nav a:hover {
 		color: var(--accent);
 		border-bottom-color: var(--accent);
+		font-weight: 700;
 	}
 	
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: transparent;
-		color: var(--accent);
+	nav a.active,
+	nav .active {
+		text-decoration: none !important;
+		border-bottom-color: var(--accent) !important;
+		color: var(--accent) !important;
+		font-weight: 700;
 	}
 
 	.internal-links {
@@ -362,6 +372,12 @@ import Logo from '../assets/images/logo.png';
 		gap: 0.5rem;
 		flex-wrap: nowrap;
 		justify-content: center;
+		align-items: center;
+		height: 55px;
+	}
+
+	.phone-number {
+		margin-left: 1rem;
 	}
 
 	.dropdown {
@@ -370,17 +386,21 @@ import Logo from '../assets/images/logo.png';
 	}
 
 	.dropdown-content {
-		display: none;
 		position: absolute;
 		background-color: white;
 		min-width: 200px;
 		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		z-index: 1000;
+		z-index: 1001;
 		border-radius: 8px;
 		top: 100%;
-		left: 50%;
-		transform: translateX(-50%);
+		left: 0;
 		margin-top: 0.5rem;
+		border: 1px solid #e0e0e0;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all 0.3s ease;
+		pointer-events: none;
 	}
 
 	.dropdown-content a {
@@ -402,20 +422,36 @@ import Logo from '../assets/images/logo.png';
 		color: var(--accent);
 	}
 
+	/* Desktop dropdown hover effect */
 	.dropdown:hover .dropdown-content {
-		display: block;
+		opacity: 1 !important;
+		visibility: visible !important;
+		transform: translateY(0) !important;
+		z-index: 1002 !important;
+		pointer-events: auto !important;
 	}
 
-	.dropdown:hover .dropdown > a {
-		color: var(--accent);
+	.dropdown > a {
+		color: var(--black);
+		text-decoration: none;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-weight: 500;
+		font-size: 1.1rem;
+		transition: color 0.3s ease;
+		padding: 0.7em 0.8em;
+		display: flex;
+		align-items: center;
+		height: 55px;
+		white-space: nowrap;
+		gap: 0.3em;
+		border-bottom: 4px solid transparent;
 	}
 
 	.arrow {
-		font-size: 1em;
-		margin-left: 0.2em;
+		font-size: 0.8em;
 		opacity: 0.7;
-		vertical-align: middle;
 		transition: transform 0.3s ease, opacity 0.3s ease;
+		display: inline-block;
 	}
 
 	.dropdown:hover .arrow {
@@ -423,10 +459,19 @@ import Logo from '../assets/images/logo.png';
 		opacity: 1;
 	}
 
+	.dropdown:hover .dropdown > a {
+		color: var(--accent);
+		border-bottom-color: var(--accent);
+		font-weight: 700;
+	}
+
+
 	.header-right {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;
+		height: 55px;
+		margin-left: 1rem;
 	}
 
 	.phone-number a {
@@ -434,19 +479,27 @@ import Logo from '../assets/images/logo.png';
 		text-decoration: none;
 		font-family: "IBM Plex Sans", sans-serif;
 		font-weight: 500;
-		font-size: 0.9rem;
+		font-size: 1.1rem;
 		transition: color 0.3s ease;
+		padding: 0.7em 0.8em;
+		display: flex;
+		align-items: center;
+		height: 55px;
+		border-bottom: 4px solid transparent;
 	}
 
 	.phone-number a:hover {
-		color: var(--accent-dark);
+		color: var(--accent);
+		border-bottom-color: var(--accent);
+		font-weight: 700;
 	}
 
 	.language-switcher {
 		display: flex;
-		border: 1px solid #e0e0e0;
-		border-radius: 4px;
+		border: 1px solid #d0d0d0;
+		border-radius: 0;
 		overflow: hidden;
+		background: white;
 	}
 
 	.lang-button {
@@ -457,17 +510,103 @@ import Logo from '../assets/images/logo.png';
 		font-size: 0.8rem;
 		cursor: pointer;
 		transition: all 0.3s ease;
-		color: rgb(var(--gray-dark));
+		color: #666;
+		font-weight: 500;
+		border-right: 1px solid #d0d0d0;
+	}
+
+	.lang-button:last-child {
+		border-right: none;
 	}
 
 	.lang-button.active {
 		background: var(--accent);
 		color: white;
+		font-weight: 600;
 	}
 
 	.lang-button:hover:not(.active) {
-		background: #f8f9fa;
+		background: #f5f5f5;
 		color: var(--accent);
+	}
+
+	/* Tablet styles (iPad) */
+	@media (max-width: 1024px) and (min-width: 721px) {
+		nav {
+			height: 36px;
+			padding: 0.2rem 1rem;
+		}
+
+		.logo-image {
+			height: 18px;
+			max-width: 70px;
+			transform: translateY(-3px);
+		}
+
+		.internal-links {
+			gap: 0.2rem;
+			align-items: center;
+			margin-right: 1.5rem;
+		}
+
+		nav a {
+			padding: 0.3em 0.2em;
+			font-size: 0.75rem;
+			display: flex;
+			align-items: center;
+			height: 32px;
+		}
+
+		.dropdown {
+			display: flex;
+			align-items: center;
+		}
+
+		.dropdown > a {
+			height: 32px;
+			font-size: 0.75rem;
+			padding: 0.3em 0.2em;
+		}
+
+		.phone-number {
+			display: flex;
+			align-items: center;
+			height: 32px;
+		}
+
+		.phone-number a {
+			font-size: 0.75rem;
+			display: flex;
+			align-items: center;
+			height: 32px;
+			padding: 0.3em 0.2em;
+		}
+
+		.lang-button {
+			padding: 0.2rem 0.28rem;
+			font-size: 0.44rem;
+			height: 22px;
+			display: flex;
+			align-items: center;
+		}
+
+		.header-right {
+			gap: 0.7rem;
+			align-items: center;
+		}
+
+		.desktop-nav {
+			align-items: center;
+		}
+
+		/* Enable dropdowns in tablet view */
+		.dropdown:hover .dropdown-content {
+			opacity: 1 !important;
+			visibility: visible !important;
+			transform: translateY(0) !important;
+			z-index: 1002 !important;
+			pointer-events: auto !important;
+		}
 	}
 
 	@media (max-width: 720px) {
@@ -499,10 +638,11 @@ import Logo from '../assets/images/logo.png';
 
 		.logo-image {
 			height: 35px;
+			transform: translateY(-2px) translateX(0px);
 		}
 
 		.mobile-nav {
-			top: 55px;
+			top: 57px;
 		}
 	}
 </style>

@@ -1,0 +1,475 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<BaseHead title="Kontakt - Steuerbüro Heilgendorff" description="Kontaktieren Sie das Steuerbüro Heilgendorff in Wiesbaden. Terminvereinbarung, Anfahrt und Kontaktinformationen. Wir sind für Sie da!" />
+	</head>
+	<body>
+		<Header />
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1 data-translate="contactHeroTitle">Kontakt</h1>
+					<p class="hero-subtitle" data-translate="contactHeroSubtitle">Wir freuen uns, von Ihnen zu hören – melden Sie sich!</p>
+				</div>
+			</section>
+
+			<!-- Contact Info Section -->
+			<section class="contact-info-section">
+				<div class="container">
+					<div class="contact-content">
+						<div class="contact-details">
+							<div class="contact-text">
+								<h2>Steuerbüro Heilgendorff</h2>
+								<div class="contact-item">
+									Unter den Eichen 7 (Gebäude F)<br>
+									65195 Wiesbaden<br>
+									Tel.: (+49) 611 – 3913200<br>
+									E-Mail: kanzlei@heilgendorff.de
+								</div>
+								
+								<div class="opening-hours">
+									<h3>Zu folgenden <strong>Zeiten</strong> sind wir für Sie verfügbar:</h3>
+									<p><strong>Mo – Do:</strong> 9:00 – 16:00</p>
+									<p><strong>Fr:</strong> 9:00 – 14:00</p>
+								</div>
+								
+								<p class="appointment-note">Besuche in Kanzlei nur mit vorheriger telefonischer Anmeldung.</p>
+							</div>
+							<div class="contact-image">
+								<img src="/IMG_0057-scaled.jpg" alt="Steuerbüro Heilgendorff Kontakt" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Form Section -->
+			<section class="contact-form-section">
+				<div class="container">
+					<div class="form-content">
+						<h2>Möchten Sie einen <strong>Termin</strong> mit uns vereinbaren?</h2>
+						<p>Dann nutzen Sie gerne auch unser Anfrageformular. Füllen Sie einfach die verbindlichen Felder aus, und wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
+						<p class="required-note">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
+						
+						<form class="contact-form">
+							<div class="form-group">
+								<label for="name">Name*</label>
+								<input type="text" id="name" name="name" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="email">E-Mail-Adresse*</label>
+								<input type="email" id="email" name="email" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="phone">Telefonnummer*</label>
+								<input type="tel" id="phone" name="phone" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="message">Nachricht*</label>
+								<textarea id="message" name="message" rows="5" required></textarea>
+							</div>
+							
+							<div class="form-group">
+								<label for="captcha">5 + 11 = *</label>
+								<input type="number" id="captcha" name="captcha" required>
+							</div>
+							
+							<button type="submit" class="submit-btn">Senden</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<!-- Directions Section -->
+			<section class="directions-section">
+				<div class="container">
+					<h2>Anfahrt</h2>
+					<p>Unser Büro in der Wiesbadener Innenstadt erreichen Sie sowohl mit öffentlichen Verkehrsmitteln als auch mit dem Auto ohne Probleme.</p>
+					<p>Den genauen Anfahrtsweg beschreiben wir Ihnen hier im Detail.</p>
+					
+					<div class="directions-content">
+						<div class="direction-method">
+							<h3><strong>Mit dem Auto</strong></h3>
+							<ul>
+								<li>In der scharfen Rechts- oder Linkskurve (entsprechend der Anfahrtsrichtung) abbiegen in den Carl-von-Ibell-Weg (ausgeschildert Arbeitsamt).</li>
+								<li>Das erste Gebäude auf der rechten Seite ist Unter den Eichen 7, Gebäude F.</li>
+								<li>Zu den Parkplätzen vor dem Gebäude rechts in die Einfahrt zum Parkplatz.</li>
+								<li>Unsere Parkplätze sind mit „Heilgendorff" beschildert.</li>
+							</ul>
+						</div>
+						
+						<div class="direction-method">
+							<h3><strong>Mit den öffentlichen Verkehrsmitteln</strong></h3>
+							<ul>
+								<li>Einsteigen an der Haltestelle „Platz der Deutschen Einheit", Bussteig E in die ESWE-Linie 3 Richtung Nordfriedhof.</li>
+								<li>Aussteigen an der Haltestelle „Unter den Eichen".</li>
+								<li>Nach dem Aussteigen auf die andere Straßenseite wechseln und bergab weitergehen in entgegengesetzter Richtung der Busweiterfahrt.</li>
+								<li>Nach etwa 250 Metern befindet sich das Gebäude „Unter den Eichen 7".</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<Footer />
+
+		<style>
+			/* Hero Section */
+			.hero {
+				text-align: center;
+				background: white;
+				color: var(--black);
+				width: 100vw;
+				padding: 4rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				left: 50%;
+				transform: translateY(-5px);
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				overflow-x: hidden;
+				margin-top: 0;
+			}
+
+			.hero-content {
+				padding-top: 0;
+			}
+
+			.hero h1 {
+				font-size: 2.8em;
+				margin-bottom: 0.8rem;
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+			}
+
+			.hero-subtitle {
+				font-size: 1.2em;
+				opacity: 0.8;
+				margin: 0;
+				color: var(--black);
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Container */
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			/* Full-width sections like homepage */
+			.contact-info-section,
+			.contact-form-section,
+			.directions-section {
+				margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+				padding: 2.88rem 1.44rem 0 1.44rem;
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+			}
+
+
+			/* Contact Info Section */
+			.contact-info-section {
+				background: white;
+			}
+
+			.contact-details {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: start;
+			}
+
+			.contact-text h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 2rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.contact-image {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.contact-image img {
+				width: 70%;
+				height: auto;
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			.contact-item {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 2rem;
+				color: var(--black);
+			}
+
+			.opening-hours {
+				margin-bottom: 2rem;
+			}
+
+			.opening-hours h3 {
+				color: var(--accent);
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.opening-hours p {
+				font-size: 1.1rem;
+				margin-bottom: 0.5rem;
+				color: var(--black);
+			}
+
+			.closure-notice {
+				background: #fff3cd;
+				border: 1px solid #ffeaa7;
+				border-radius: 8px;
+				padding: 1rem;
+				margin-top: 1rem;
+			}
+
+			.closure-notice p {
+				margin-bottom: 0.5rem;
+				color: #856404;
+			}
+
+			.appointment-note {
+				font-style: italic;
+				color: var(--accent);
+				font-weight: 500;
+			}
+
+			/* Contact Form Section */
+			.contact-form-section {
+				background: var(--light-gray);
+			}
+
+			.form-content h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 1rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.form-content > p {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 1rem;
+				color: var(--black);
+			}
+
+			.required-note {
+				font-size: 0.9rem;
+				color: #666;
+				margin-bottom: 2rem;
+			}
+
+			.contact-form {
+				max-width: 700px;
+				background: white;
+				padding: 2rem;
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+
+			.form-group label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				color: var(--black);
+			}
+
+			.form-group input,
+			.form-group textarea {
+				width: calc(100% - 20px);
+				margin-left: 20px;
+				padding: 0.75rem;
+				border: 2px solid #e0e0e0;
+				border-radius: 8px;
+				font-size: 1rem;
+				font-family: inherit;
+				transition: border-color 0.3s ease;
+			}
+
+			.form-group input:focus,
+			.form-group textarea:focus {
+				outline: none;
+				border-color: var(--accent);
+			}
+
+			.submit-btn {
+				background: var(--accent);
+				color: white;
+				padding: 1rem 2rem;
+				border: none;
+				border-radius: 8px;
+				font-size: 1.1rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+
+			.submit-btn:hover {
+				background: #0056b3;
+			}
+
+			/* Directions Section */
+			.directions-section {
+				background: white;
+			}
+
+			.directions-section h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 1rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.directions-section > p {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 2rem;
+				color: var(--black);
+			}
+
+			.directions-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				margin-top: 2rem;
+			}
+
+			.direction-method h3 {
+				color: var(--accent);
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				font-family: "Merriweather", serif;
+			}
+
+
+			.direction-method ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.direction-method li {
+				padding: 0.75rem 0;
+				border-bottom: 1px solid #e0e0e0;
+				color: var(--black);
+				line-height: 1.6;
+			}
+
+			.direction-method li:last-child {
+				border-bottom: none;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 1024px) and (min-width: 721px) {
+				.hero {
+					padding: 3rem 0;
+				}
+				
+				.hero h1 {
+					font-size: 2.4em;
+				}
+				
+				.contact-info-section,
+				.contact-form-section,
+				.directions-section {
+					width: calc(50% + 100px);
+					margin-left: calc(-125px - 10px);
+					margin-right: 0;
+					padding: 0.8rem 0;
+				}
+
+
+				.contact-details {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				
+				.directions-content {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+			}
+
+			@media (max-width: 720px) {
+				.hero {
+					padding: 2rem 0;
+				}
+				
+				.hero h1 {
+					font-size: 2em;
+				}
+				
+				.hero-subtitle {
+					font-size: 1rem;
+				}
+				
+				.container {
+					padding: 0 1rem;
+				}
+				
+				.contact-info-section,
+				.contact-form-section,
+				.directions-section {
+					width: 100%;
+					margin: 0.8rem 0;
+					padding: 0.8rem 0;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+				}
+
+				.direction-content {
+					grid-template-columns: 1fr;
+					gap: 1rem;
+				}
+
+				.contact-details {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+				
+				.contact-form {
+					padding: 1.5rem;
+				}
+				
+				.directions-content {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+			}
+		</style>
+	</body>
+</html>

@@ -6,7 +6,7 @@ import { SITE_TITLE } from '../consts';
 	<div class="footer-content">
 		<div class="footer-left">
 			<h4 data-translate="navigation">Navigation</h4>
-			<p><a href="/about" data-translate="ourCompany">Unser Unternehmen</a></p>
+			<p><a href="/about" data-translate="aboutUs">Über uns</a></p>
 			<p><a href="/kontakt" data-translate="contact">Kontakt</a></p>
 			<p><a href="/impressum" data-translate="imprint">Impressum</a></p>
 			<p><a href="/datenschutz" data-translate="privacy">Datenschutz</a></p>
@@ -40,9 +40,6 @@ import { SITE_TITLE } from '../consts';
 		<div class="footer-bottom-grid">
 			<div class="footer-bottom-left">
 				<p>&copy; 2025 {SITE_TITLE}. <span data-translate="copyright">Alle Rechte vorbehalten.</span></p>
-			</div>
-			<div class="footer-bottom-center">
-				<!-- Empty center column for spacing -->
 			</div>
 			<div class="footer-bottom-right">
 				<div class="social-buttons">
@@ -89,8 +86,8 @@ import { SITE_TITLE } from '../consts';
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: -30vw;
-		margin-right: -30vw;
+		margin-left: calc(-30vw - 50px);
+		margin-right: calc(-30vw - 100px);
 	}
 
 	.footer-left h4,
@@ -144,16 +141,15 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	.footer-bottom-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 3rem;
+		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		width: 60vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: -30vw;
-		margin-right: -30vw;
+		margin-left: calc(-30vw - 50px);
+		margin-right: calc(-30vw - 100px);
 		padding: 0 4rem;
 	}
 
@@ -161,9 +157,6 @@ import { SITE_TITLE } from '../consts';
 		text-align: left;
 	}
 
-	.footer-bottom-center {
-		/* Empty center column for spacing */
-	}
 
 	.footer-bottom-right {
 		text-align: right;
@@ -210,6 +203,47 @@ import { SITE_TITLE } from '../consts';
 		border-color: #bc1888;
 	}
 
+	/* Tablet styles (iPad) */
+	@media (max-width: 1024px) and (min-width: 721px) {
+		.footer-content {
+			width: 56vw;
+			margin-left: -35vw;
+			margin-right: -35vw;
+		}
+
+		.footer-bottom-grid {
+			width: 56vw;
+			margin-left: -35vw;
+			margin-right: -35vw;
+		}
+
+		.footer-left h4,
+		.footer-center h4,
+		.footer-right h4 {
+			font-size: 0.95rem;
+			margin-bottom: 0.9rem;
+		}
+
+		.footer-left p,
+		.footer-center p {
+			font-size: 0.9rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.logo-img {
+			max-width: 110px;
+		}
+
+		.social-button {
+			padding: 0.5rem 0.9rem;
+			font-size: 0.85rem;
+		}
+
+		.footer-bottom p {
+			font-size: 0.9rem;
+		}
+	}
+
 	@media (max-width: 720px) {
 		.footer-content {
 			grid-template-columns: 1fr;
@@ -243,6 +277,8 @@ import { SITE_TITLE } from '../consts';
 
 		.social-buttons {
 			justify-content: center;
+			flex-direction: column;
+			gap: 0.5rem;
 		}
 	}
 </style>

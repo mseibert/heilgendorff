@@ -48,7 +48,7 @@ class LanguageSwitcher {
         coronaText: "Informieren Sie sich über die aktuellen Regelungen zu Corona Sofortzurückzahlungen. Wir unterstützen Sie bei der korrekten Beantragung und Abwicklung aller notwendigen Formalitäten.",
         learnMore: "Mehr dazu",
         careerSection: "Karriere",
-        careerTitle: "Bewerbung und Karriere",
+        careerTitle: "Bewerbung",
         careerText: "Werden Sie Teil unseres Teams! Wir suchen engagierte Steuerberater und Fachkräfte, die gemeinsam mit uns die Zukunft der Steuerberatung gestalten möchten.",
         toCareerPage: "Zur Karriere-Seite",
         digital: "Digital",
@@ -87,7 +87,44 @@ class LanguageSwitcher {
         email: "E-Mail: kontakt@heilgendorff.de",
         address: "Adresse: Unter den Eichen 7F, 65195 Wiesbaden",
         certifications: "Zertifizierungen",
-        copyright: "Alle Rechte vorbehalten."
+        copyright: "Alle Rechte vorbehalten.",
+        // Homepage specific translations
+        heroTitle: "Steuerbüro Heilgendorff",
+        heroSubtitle: "Ihr zuverlässiger Partner aus Wiesbaden",
+        uniqueTitle: "Was uns einzigartig macht",
+        uniqueText: "Wir sind eine moderne Steuerberatungskanzlei mit über 20 Jahren Erfahrung. Unser Team aus qualifizierten Steuerberatern und Fachkräften steht Ihnen mit Kompetenz und Leidenschaft zur Seite.",
+        testimonialsTitle: "Unsere zufriedenen Mandanten",
+        testimonial1: "Seit Jahren vertraue ich dem Steuerbüro Heilgendorff meine Steuerangelegenheiten an. Die Beratung ist stets kompetent und die Abwicklung sehr professionell.",
+        testimonial1Author: "Martin Seibert, Seibert Group GmbH",
+        testimonial2: "Das Team von Heilgendorff hat uns bei der Unternehmensgründung hervorragend unterstützt. Besonders die digitale Zusammenarbeit funktioniert einwandfrei.",
+        testimonial2Author: "Mario Becke, Becke Consulting",
+        testimonial3: "Mit dem Steuerbüro Heilgendorff haben wir einen sehr zuverlässigen, kompetenten und pragmatischen Partner zur Seite, der es uns als junges Unternehmen ermöglicht uns auf unsere Produkte und Kunden zu konzentrieren.",
+        testimonial3Author: "Adil Nasri, Junovi UG",
+        // Career page translations
+        careerHeroTitle: "Karriere",
+        careerHeroSubtitle: "Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit",
+        careerIntro: "Wir sind eine modern eingerichtete Kanzlei mit 10 Mitarbeitern und beraten Mandanten aus allen Branchen. Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften.",
+        careerIntro2: "Dabei nutzen wir die DATEV-Software und modernste Kommunikationsmittel. Da wir große Unterstützer der papierlosen Bürokratie sind, ist bei unseren Mandanten DATEV Unternehmen Online Standard.",
+        careerHighlights: "Besondere Schwerpunkte legen wir auf:",
+        careerHighlight1: "die Weiterbildung unserer Mitarbeiter",
+        careerHighlight2: "ein gutes Arbeitsklima",
+        careerHighlight3: "die Möglichkeit zur Selbstverwirklichung",
+        careerHighlight4: "Aufstiegsmöglichkeiten",
+        careerHighlight5: "die Digitalisierung unseres Unternehmens",
+        jobOpenings: "Wir stellen ein:",
+        applyNow: "Jetzt bewerben",
+        // About page translations
+        aboutHeroTitle: "Über uns",
+        aboutHeroSubtitle: "Erfahren Sie mehr über unser Team, unsere Werte und unsere Leidenschaft für die Steuerberatung",
+        // Contact page translations
+        contactHeroTitle: "Kontakt",
+        contactHeroSubtitle: "Kontaktieren Sie uns für eine persönliche Beratung",
+        // Services page translations
+        servicesHeroTitle: "Leistungen",
+        servicesHeroSubtitle: "Umfassende Steuerberatung für Privatpersonen und Unternehmen",
+        // News page translations
+        newsHeroTitle: "Aktuelles",
+        newsHeroSubtitle: "Aktuelle Informationen und Neuigkeiten aus der Steuerberatung"
       },
       en: {
         home: "Home",
@@ -112,7 +149,7 @@ class LanguageSwitcher {
         coronaText: "Find out about the current regulations for Corona emergency refunds. We support you with the correct application and processing of all necessary formalities.",
         learnMore: "Learn more",
         careerSection: "Career",
-        careerTitle: "Application and Career",
+        careerTitle: "Application",
         careerText: "Become part of our team! We are looking for committed tax advisors and specialists who want to shape the future of tax consulting together with us.",
         toCareerPage: "To Career Page",
         digital: "Digital",
@@ -151,7 +188,44 @@ class LanguageSwitcher {
         email: "Email: kontakt@heilgendorff.de",
         address: "Address: Unter den Eichen 7F, 65195 Wiesbaden",
         certifications: "Certifications",
-        copyright: "All rights reserved."
+        copyright: "All rights reserved.",
+        // Homepage specific translations
+        heroTitle: "Heilgendorff Tax Office",
+        heroSubtitle: "Your reliable partner from Wiesbaden",
+        uniqueTitle: "What makes us unique",
+        uniqueText: "We are a modern tax consulting firm with over 20 years of experience. Our team of qualified tax advisors and specialists is at your side with competence and passion.",
+        testimonialsTitle: "Our satisfied clients",
+        testimonial1: "For years I have trusted Heilgendorff Tax Office with my tax matters. The advice is always competent and the processing very professional.",
+        testimonial1Author: "Martin Seibert, Seibert Group GmbH",
+        testimonial2: "The Heilgendorff team supported us excellently in setting up the company. The digital collaboration works particularly well.",
+        testimonial2Author: "Mario Becke, Becke Consulting",
+        testimonial3: "With Heilgendorff Tax Office we have a very reliable, competent and pragmatic partner at our side who enables us as a young company to focus on our products and customers.",
+        testimonial3Author: "Adil Nasri, Junovi UG",
+        // Career page translations
+        careerHeroTitle: "Career",
+        careerHeroSubtitle: "Become part of our team and help shape the future of tax consulting",
+        careerIntro: "We are a modern law firm with 10 employees and advise clients from all industries. Our team consists of tax advisors, tax assistants, tax specialists, business economists and financial and payroll accountants as well as trainees and student assistants.",
+        careerIntro2: "We use DATEV software and the most modern communication tools. Since we are big supporters of paperless bureaucracy, DATEV Unternehmen Online is standard for our clients.",
+        careerHighlights: "We place particular emphasis on:",
+        careerHighlight1: "the further training of our employees",
+        careerHighlight2: "a good working atmosphere",
+        careerHighlight3: "the possibility for self-realization",
+        careerHighlight4: "career opportunities",
+        careerHighlight5: "the digitalization of our company",
+        jobOpenings: "We are hiring:",
+        applyNow: "Apply now",
+        // About page translations
+        aboutHeroTitle: "About us",
+        aboutHeroSubtitle: "Learn more about our team, our values and our passion for tax consulting",
+        // Contact page translations
+        contactHeroTitle: "Contact",
+        contactHeroSubtitle: "Contact us for personal advice",
+        // Services page translations
+        servicesHeroTitle: "Services",
+        servicesHeroSubtitle: "Comprehensive tax consulting for individuals and companies",
+        // News page translations
+        newsHeroTitle: "News",
+        newsHeroSubtitle: "Current information and news from tax consulting"
       }
     };
   }

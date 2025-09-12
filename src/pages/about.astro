@@ -16,7 +16,8 @@ import { SITE_TITLE } from '../consts';
 		<main>
 			<section class="hero">
 				<div class="hero-content">
-					<h1 data-translate="aboutTitle">Über uns</h1>
+					<h1 data-translate="aboutHeroTitle">Über uns</h1>
+					<p class="hero-subtitle" data-translate="aboutHeroSubtitle">Erfahren Sie mehr über unser Team, unsere Werte und unsere Leidenschaft für die Steuerberatung</p>
 				</div>
 			</section>
 
@@ -44,17 +45,19 @@ import { SITE_TITLE } from '../consts';
 						</div>
 					</div>
 
-					<div class="languages-section">
-						<h3>Unser Sprachenrepertoire</h3>
-						<ul class="languages-list">
-							<li>Deutsch</li>
-							<li>Englisch</li>
-							<li>Französisch</li>
-						</ul>
-					</div>
+					<div class="languages-team-section">
+						<div class="team-section">
+							<p>Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften. Zusätzlich unterstützen wir unsere Angestellten, Auszubildenden und Studenten, indem wir zahlreiche Fortbildungsmaßnahmen bieten und ein duales Studium ermöglichen.</p>
+						</div>
 
-					<div class="team-section">
-						<p>Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften. Zusätzlich unterstützen wir unsere Angestellten, Auszubildenden und Studenten, indem wir zahlreiche Fortbildungsmaßnahmen bieten und ein duales Studium ermöglichen.</p>
+						<div class="languages-section">
+							<h3>Unser Sprachenrepertoire</h3>
+							<ul class="languages-list">
+								<li>Deutsch</li>
+								<li>Englisch</li>
+								<li>Französisch</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -75,6 +78,7 @@ import { SITE_TITLE } from '../consts';
 		justify-content: center;
 		position: relative;
 		left: 50%;
+		transform: translateY(-5px);
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
@@ -93,6 +97,14 @@ import { SITE_TITLE } from '../consts';
 		font-family: "Merriweather", serif;
 	}
 
+	.hero-subtitle {
+		font-size: 1.2em;
+		opacity: 0.8;
+		margin: 0;
+		color: var(--black);
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+
 	.content-section {
 		padding: 4rem 0 0 0;
 		background: white;
@@ -103,9 +115,9 @@ import { SITE_TITLE } from '../consts';
 		margin: 0 auto;
 		padding: 0 2rem;
 		position: relative;
-		left: 50%;
+		left: calc(50% - 50px);
 		right: 50%;
-		margin-left: -37.5vw;
+		margin-left: calc(-37.5vw - 50px);
 		margin-right: -37.5vw;
 	}
 
@@ -179,16 +191,23 @@ import { SITE_TITLE } from '../consts';
 		margin: 0;
 	}
 
-	.languages-section {
+	.languages-team-section {
+		display: flex;
+		gap: 3rem;
+		align-items: flex-start;
 		margin-bottom: 3rem;
-		width: 300px;
+	}
+
+	.languages-section {
+		flex: 0 0 50%;
 	}
 
 	.languages-section h3 {
-		font-size: 1.5em;
+		font-size: 1.2em;
 		margin-bottom: 1rem;
 		color: var(--accent);
 		font-family: "Merriweather", serif;
+		white-space: nowrap;
 	}
 
 	.languages-list {
@@ -214,6 +233,7 @@ import { SITE_TITLE } from '../consts';
 		padding: 2rem;
 		border-radius: 8px;
 		border: 1px solid #e9ecef;
+		flex: 0 0 50%;
 	}
 
 	.team-section p {
@@ -265,6 +285,21 @@ import { SITE_TITLE } from '../consts';
 			flex-direction: column;
 			text-align: center;
 			gap: 1rem;
+		}
+
+		.languages-team-section {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.languages-section {
+			flex: none;
+			width: 100%;
+		}
+
+		.team-section {
+			flex: none;
+			width: 100%;
 		}
 
 		.founder-section,
