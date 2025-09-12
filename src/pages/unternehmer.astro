@@ -444,14 +444,14 @@ import Footer from '../components/Footer.astro';
 
 			.service-tab {
 				background: var(--light-gray);
-				padding: 1.5rem;
+				padding: 1rem;
 				border-radius: 12px;
 				text-align: center;
 				transition: all 0.3s ease;
 				cursor: pointer;
 				border: 2px solid transparent;
-				min-width: 200px;
-				flex-shrink: 0;
+				min-width: 0;
+				flex: 1;
 			}
 
 			.service-tab:hover {
@@ -472,16 +472,16 @@ import Footer from '../components/Footer.astro';
 
 			.service-tab h3 {
 				color: var(--accent);
-				font-size: 1.1rem;
-				margin-bottom: 0.5rem;
+				font-size: 0.95rem;
+				margin-bottom: 0.4rem;
 				font-family: "Merriweather", serif;
 			}
 
 			.service-tab p {
 				color: var(--black);
-				line-height: 1.6;
+				line-height: 1.4;
 				margin: 0;
-				font-size: 0.9rem;
+				font-size: 0.8rem;
 			}
 
 			.service-details-container {
@@ -606,8 +606,9 @@ import Footer from '../components/Footer.astro';
 				}
 
 				.service-tab {
-					min-width: 180px;
+					min-width: 0;
 					flex: 1;
+					padding: 0.8rem;
 				}
 			}
 
