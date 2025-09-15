@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -16,54 +17,65 @@ import Footer from '../components/Footer.astro';
 			<!-- Hero Section -->
 			<section class="hero">
 				<div class="hero-content">
-					<h1>Leistungen für Unternehmer</h1>
-					<p class="hero-subtitle">Professionelle Steuerberatung für Ihr Unternehmen</p>
+					<h1 data-translate="entrepreneursTitle">Leistungen für Unternehmer</h1>
+					<p class="hero-subtitle" data-translate="entrepreneursSubtitle">Professionelle Steuerberatung für Ihr Unternehmen</p>
 				</div>
 			</section>
 
 			<!-- Digital Section -->
 			<section class="digital-section">
 				<div class="container">
-					<h2>Digital unterwegs</h2>
+					<h2 data-translate="entrepreneursDigitalTitle">Digital unterwegs</h2>
 					<div class="content-wrapper">
 						<div class="text-content">
-							<p>Das digitale Zeitalter ist da – mit all seinen Herausforderungen, aber auch seinen Vorzügen. Wir wollen, dass auch Sie davon profitieren.</p>
+							<p data-translate="entrepreneursDigitalDescription1">Das digitale Zeitalter ist da – mit all seinen Herausforderungen, aber auch seinen Vorzügen. Wir wollen, dass auch Sie davon profitieren.</p>
 							
-							<p>Unternehmen online schafft individuelle Möglichkeiten der Zusammenarbeit zwischen Ihnen und dem Steuerbüro Heilgendorff über die DATEV-Cloud – sowohl für die Finanzbuchführung als auch die Lohnabrechnung.</p>
+							<p data-translate="entrepreneursDigitalDescription2">Unternehmen online schafft individuelle Möglichkeiten der Zusammenarbeit zwischen Ihnen und dem Steuerbüro Heilgendorff über die DATEV-Cloud – sowohl für die Finanzbuchführung als auch die Lohnabrechnung.</p>
 							
-							<p>Wirken Sie bei Ihrer Finanzbuchführung mit! Sie können jederzeit auf Ihre Daten zugreifen und Belege hochladen und sind dadurch so nah am Geschehen wie noch nie.</p>
+							<p data-translate="entrepreneursDigitalDescription3">Wirken Sie bei Ihrer Finanzbuchführung mit! Sie können jederzeit auf Ihre Daten zugreifen und Belege hochladen und sind dadurch so nah am Geschehen wie noch nie.</p>
 						</div>
 					</div>
 					
 					<div class="features-grid">
 						<div class="feature-card">
-							<h3>Diese Möglichkeiten bietet Unternehmen online:</h3>
+							<h3 data-translate="entrepreneursFeaturesTitle">Diese Möglichkeiten bietet Unternehmen online:</h3>
 							<ul>
-								<li>Ein System für den kompletten kaufmännischen Prozess sowie für die vor- und nachgelagerten Prozesse bei der Lohnabrechnung</li>
-								<li>Originalbelege und Dokumente bleiben im Unternehmen – ein revisionssicheres elektronisches Belegarchiv steht jederzeit zur Verfügung</li>
-								<li>Schneller Zugriff auf aussagekräftige und differenzierte betriebs- und personalwirtschaftliche Auswertungen</li>
-								<li>Führen eines elektronischen Kassenbuchs</li>
-								<li>Sparen von Portokosten</li>
-								<li>Schneller Austausch und Transparenz</li>
+								<li data-translate="entrepreneursFeature1">Ein System für den kompletten kaufmännischen Prozess sowie für die vor- und nachgelagerten Prozesse bei der Lohnabrechnung</li>
+								<li data-translate="entrepreneursFeature2">Originalbelege und Dokumente bleiben im Unternehmen – ein revisionssicheres elektronisches Belegarchiv steht jederzeit zur Verfügung</li>
+								<li data-translate="entrepreneursFeature3">Schneller Zugriff auf aussagekräftige und differenzierte betriebs- und personalwirtschaftliche Auswertungen</li>
+								<li data-translate="entrepreneursFeature4">Führen eines elektronischen Kassenbuchs</li>
+								<li data-translate="entrepreneursFeature5">Sparen von Portokosten</li>
+								<li data-translate="entrepreneursFeature6">Schneller Austausch und Transparenz</li>
 							</ul>
 						</div>
 					</div>
 					
 					<div class="datev-info">
-						<p>Haben Sie weitere Fragen zu DATEV Unternehmen Online?<br>
-						Weitere Informationen finden sie hier im <a href="#" class="datev-link">DATEV Hilfsportal</a>.</p>
+						<p data-translate="entrepreneursDatevInfo">Haben Sie weitere Fragen zu DATEV Unternehmen Online?</p>
+						<p data-translate="entrepreneursDatevHelpText">Weitere Informationen finden sie hier im <a href="https://help-center.apps.datev.de/products/datev-unternehmen-online" class="datev-link" target="_blank" rel="noopener noreferrer" data-translate="entrepreneursDatevHelpLink">DATEV Hilfecenter</a>.</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- DATEV Section -->
-			<section class="datev-section">
+			<!-- DATEV and Quote Section -->
+			<section class="datev-quote-section">
 				<div class="container">
-					<div class="datev-content">
-						<h2>Digitalisierung mit DATEV Unternehmen Online</h2>
-						<p>Erhalten Sie weitere Veranschaulichungen und Informationen zur DATEV Software.</p>
-						<div class="datev-button">
-							<a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" class="btn-primary" target="_blank" rel="noopener noreferrer">DATEV Unternehmen Online</a>
+					<div class="datev-quote-wrapper">
+						<div class="datev-content">
+							<h2>
+								<span data-translate="entrepreneursDatevTitle1">Digitalisierung mit</span><br>
+								<span data-translate="entrepreneursDatevTitle2">DATEV Unternehmen Online</span>
+							</h2>
+							<p data-translate="entrepreneursDatevDescription">Erhalten Sie weitere Veranschaulichungen und Informationen zur DATEV Software.</p>
+							<div class="datev-button">
+								<a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" class="btn-primary" target="_blank" rel="noopener noreferrer" data-translate="entrepreneursDatevButton">DATEV Unternehmen Online</a>
+							</div>
+						</div>
+						<div class="quote-content">
+							<blockquote class="quote">
+								<p data-translate="entrepreneursQuote">"Die Zahlung von Steuern kann nicht aus Gewissensgründen abgelehnt werden."</p>
+								<cite data-translate="entrepreneursQuoteAuthor">Urteil des BFH vom 06.12.1991, BStBl 1992 II Seite 303</cite>
+							</blockquote>
 						</div>
 					</div>
 				</div>
@@ -72,166 +84,161 @@ import Footer from '../components/Footer.astro';
 			<!-- Services Overview -->
 			<section class="services-overview">
 				<div class="container">
-					<blockquote class="quote">
-						<p>"Die Zahlung von Steuern kann nicht aus Gewissensgründen abgelehnt werden."</p>
-						<cite>Urteil des BFH vom 06.12.1991, BStBl 1992 II Seite 303</cite>
-					</blockquote>
-					
-					<h2>Unser Leistungsumfang:</h2>
+					<h2 data-translate="entrepreneursServicesTitle">Unser Leistungsumfang:</h2>
 					
 					<div class="services-tabs">
 						<div class="service-tab" data-service="buchfuehrung">
-							<h3>Digitale Buchführung</h3>
-							<p>Professionelle Buchhaltung mit modernen digitalen Tools</p>
+							<h3 data-translate="entrepreneursService1Title">Digitale Buchführung</h3>
+							<p data-translate="entrepreneursService1Description">Professionelle Buchhaltung mit modernen digitalen Tools</p>
 						</div>
 						<div class="service-tab" data-service="lohnbuchfuehrung">
-							<h3>Digitale Lohnbuchführung</h3>
-							<p>Effiziente Lohn- und Gehaltsabrechnung</p>
+							<h3 data-translate="entrepreneursService2Title">Digitale Lohnbuchführung</h3>
+							<p data-translate="entrepreneursService2Description">Effiziente Lohn- und Gehaltsabrechnung</p>
 						</div>
 						<div class="service-tab" data-service="jahresabschluss">
-							<h3>Jahresabschluss oder Gewinnermittlung</h3>
-							<p>Transparente und saubere Jahresabschlüsse</p>
+							<h3 data-translate="entrepreneursService3Title">Jahresabschluss oder Gewinnermittlung</h3>
+							<p data-translate="entrepreneursService3Description">Transparente und saubere Jahresabschlüsse</p>
 						</div>
 						<div class="service-tab" data-service="existenzgruendung">
-							<h3>Beratung bei Existenzgründung</h3>
-							<p>Professionelle Unterstützung von der Idee bis zur Umsetzung</p>
+							<h3 data-translate="entrepreneursService4Title">Beratung bei Existenzgründung</h3>
+							<p data-translate="entrepreneursService4Description">Professionelle Unterstützung von der Idee bis zur Umsetzung</p>
 						</div>
 						<div class="service-tab" data-service="betriebspruefung">
-							<h3>Begleitung bei Betriebsprüfung</h3>
-							<p>Kompetente Unterstützung bei Prüfungen</p>
+							<h3 data-translate="entrepreneursService5Title">Begleitung bei Betriebsprüfung</h3>
+							<p data-translate="entrepreneursService5Description">Kompetente Unterstützung bei Prüfungen</p>
 						</div>
 					</div>
 					
 					<!-- Detailed Content Areas -->
 					<div class="service-details-container">
 						<div class="service-detail" id="buchfuehrung-detail">
-							<h2>Digitale Buchführung</h2>
+							<h2 data-translate="entrepreneursService1DetailTitle">Digitale Buchführung</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
-									<p>Wir haben schon seit mehr als 10 Jahren Erfahrung mit digitaler Buchführung und setzen seit 4 Jahren DATEV Unternehmen online ein.</p>
+									<p data-translate="entrepreneursService1DetailText1">Wir haben schon seit mehr als 10 Jahren Erfahrung mit digitaler Buchführung und setzen seit 4 Jahren DATEV Unternehmen online ein.</p>
 									
-									<p>Das Finanzamt verlangt eine sauber gebuchte und zeitnahe Finanzführung. Mittels digitaler Lösungen gestalten wir auch für Sie die Buchführung so unkompliziert wie möglich. Die Zauberworte sind hier der <strong>digitale Belegtransfer</strong> und der <strong>elektronische Abruf von Kontoumsätzen</strong>.</p>
+									<p data-translate="entrepreneursService1DetailText2">Das Finanzamt verlangt eine sauber gebuchte und zeitnahe Finanzführung. Mittels digitaler Lösungen gestalten wir auch für Sie die Buchführung so unkompliziert wie möglich. Die Zauberworte sind hier der <strong>digitale Belegtransfer</strong> und der <strong>elektronische Abruf von Kontoumsätzen</strong>.</p>
 									
-									<p>Die Belege können Sie gemütlich bei sich im Unternehmen digital erfassen und dann online direkt an uns übermitteln. Darüber hinaus gibt es die App „DATEV Upload mobil", mit der Sie z.B. Kassenbons o.Ä. direkt mit Ihrem Smartphone noch unterwegs digital erfassen können. Die Belege werden bei Eingang erfasst und müssen nicht mehr aufwendig sortiert werden. Dies bringt eine deutliche Zeitersparnis bei der Vorbereitung der Buchführung mit sich!</p>
+									<p data-translate="entrepreneursService1DetailText3">Die Belege können Sie gemütlich bei sich im Unternehmen digital erfassen und dann online direkt an uns übermitteln. Darüber hinaus gibt es die App „DATEV Upload mobil", mit der Sie z.B. Kassenbons o.Ä. direkt mit Ihrem Smartphone noch unterwegs digital erfassen können. Die Belege werden bei Eingang erfasst und müssen nicht mehr aufwendig sortiert werden. Dies bringt eine deutliche Zeitersparnis bei der Vorbereitung der Buchführung mit sich!</p>
 									
-									<p>Der elektronische Abruf von Kontoumsätzen und der Belegtransfer ermöglichen uns eine zeitnahe Buchhaltung, bei der Sie Ihre Forderungen und Verbindlichkeiten immer genau im Blick haben.</p>
+									<p data-translate="entrepreneursService1DetailText4">Der elektronische Abruf von Kontoumsätzen und der Belegtransfer ermöglichen uns eine zeitnahe Buchhaltung, bei der Sie Ihre Forderungen und Verbindlichkeiten immer genau im Blick haben.</p>
 								</div>
 							</div>
 							
 							<div class="services-details">
-								<h3>Neben der Verbuchung Ihrer Belege bieten wir Ihnen u.a. folgende Leistungen an:</h3>
+								<h3 data-translate="entrepreneursService1DetailSubtitle">Neben der Verbuchung Ihrer Belege bieten wir Ihnen u.a. folgende Leistungen an:</h3>
 								<ul>
-									<li>Eine monatliche Erfassung der Abschreibungen</li>
-									<li>Eine monatliche Erfassung aller Privatanteile</li>
-									<li>Die Erfassung von kalkulatorischen Kosten (kalkulatorische Miete, kalkulatorischer Unternehmerlohn, kalkulatorische Abschreibung, etc.)</li>
-									<li>Die Erfassung von Soll-Werten</li>
-									<li>Die Kostenrechnung</li>
-									<li>Eine Erinnerung an offene Posten</li>
+									<li data-translate="entrepreneursService1DetailItem1">Eine monatliche Erfassung der Abschreibungen</li>
+									<li data-translate="entrepreneursService1DetailItem2">Eine monatliche Erfassung aller Privatanteile</li>
+									<li data-translate="entrepreneursService1DetailItem3">Die Erfassung von kalkulatorischen Kosten (kalkulatorische Miete, kalkulatorischer Unternehmerlohn, kalkulatorische Abschreibung, etc.)</li>
+									<li data-translate="entrepreneursService1DetailItem4">Die Erfassung von Soll-Werten</li>
+									<li data-translate="entrepreneursService1DetailItem5">Die Kostenrechnung</li>
+									<li data-translate="entrepreneursService1DetailItem6">Eine Erinnerung an offene Posten</li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="service-detail" id="lohnbuchfuehrung-detail">
-							<h2>Digitale Lohnbuchführung</h2>
+							<h2 data-translate="entrepreneursService2DetailTitle">Digitale Lohnbuchführung</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
-									<p>Auch bei den Lohn- und Gehaltsabrechnungen kann der Prozess bei uns mit Hilfe von Unternehmen Online vollständig digitalisiert ablaufen.</p>
+									<p data-translate="entrepreneursService2DetailText1">Auch bei den Lohn- und Gehaltsabrechnungen kann der Prozess bei uns mit Hilfe von Unternehmen Online vollständig digitalisiert ablaufen.</p>
 									
-									<p>Sie können hierbei alle relevanten Unterlagen, z.B. wie Personalfragebögen, Stundenzettel der Mitarbeiter, Urlaubstage, Arbeitsunfähigkeitsbescheinigungen usw. direkt in die Digitale Personalakte hochladen und müssen keine gesonderten Listen mehr im Blick behalten. Auch Änderungen der Stammdaten und die Erfassung neuer Mitarbeiter im Unternehmen können problemlos in Unternehmen Online vorgenommen werden.</p>
+									<p data-translate="entrepreneursService2DetailText2">Sie können hierbei alle relevanten Unterlagen, z.B. wie Personalfragebögen, Stundenzettel der Mitarbeiter, Urlaubstage, Arbeitsunfähigkeitsbescheinigungen usw. direkt in die Digitale Personalakte hochladen und müssen keine gesonderten Listen mehr im Blick behalten. Auch Änderungen der Stammdaten und die Erfassung neuer Mitarbeiter im Unternehmen können problemlos in Unternehmen Online vorgenommen werden.</p>
 									
-									<p>Die Lohnauswertungen bekommen Sie nach der Datenverarbeitung unverzüglich in Unternehmen Online digital bereitgestellt und können diese überall und jederzeit einsehen.</p>
+									<p data-translate="entrepreneursService2DetailText3">Die Lohnauswertungen bekommen Sie nach der Datenverarbeitung unverzüglich in Unternehmen Online digital bereitgestellt und können diese überall und jederzeit einsehen.</p>
 									
-									<p>Auch einige gemütliche Automatisierungen sind möglich. Auf Wunsch können wir für Sie die Zahlung der Sozialversicherungsbeiträge und Löhne / Gehälter direkt aus dem System vornehmen. Hierfür wird ein Überweisungsträger für Ihre Hausbank erstellt und bei dieser eingereicht. Nach erfolgreicher Abrechnung können Sie die Lohnzahlung freigeben und Ihre Hausbank führt diese dann als Sammelüberweisung aus. Einzelne Überweisungen fallen somit für Sie weg.</p>
+									<p data-translate="entrepreneursService2DetailText4">Auch einige gemütliche Automatisierungen sind möglich. Auf Wunsch können wir für Sie die Zahlung der Sozialversicherungsbeiträge und Löhne / Gehälter direkt aus dem System vornehmen. Hierfür wird ein Überweisungsträger für Ihre Hausbank erstellt und bei dieser eingereicht. Nach erfolgreicher Abrechnung können Sie die Lohnzahlung freigeben und Ihre Hausbank führt diese dann als Sammelüberweisung aus. Einzelne Überweisungen fallen somit für Sie weg.</p>
 									
-									<p>Darüber hinaus werden alle übermittelten Daten digital im Datev Rechenzentrum abgespeichert und somit sicher archiviert. Bei Bedarf sind diese Unterlagen schnell für Sie und Ihre Mitarbeiter reproduziert.</p>
+									<p data-translate="entrepreneursService2DetailText5">Darüber hinaus werden alle übermittelten Daten digital im Datev Rechenzentrum abgespeichert und somit sicher archiviert. Bei Bedarf sind diese Unterlagen schnell für Sie und Ihre Mitarbeiter reproduziert.</p>
 									
-									<p>Für Ihre Mitarbeiter gibt es das Modul „Arbeitnehmer Online". Hierüber können Ihre Mitarbeiter ihre eigenen Lohnunterlagen online abrufen. Somit wird Papier und Zeit gespart.</p>
+									<p data-translate="entrepreneursService2DetailText6">Für Ihre Mitarbeiter gibt es das Modul „Arbeitnehmer Online". Hierüber können Ihre Mitarbeiter ihre eigenen Lohnunterlagen online abrufen. Somit wird Papier und Zeit gespart.</p>
 									
-									<p>Wir bearbeiten Stundenlöhne, Festgehälter und Baulöhne, stellen Anträge wie A1-Bescheinigungen und helfen Ihnen das optimale Nettogehalt zu bestimmen.</p>
+									<p data-translate="entrepreneursService2DetailText7">Wir bearbeiten Stundenlöhne, Festgehälter und Baulöhne, stellen Anträge wie A1-Bescheinigungen und helfen Ihnen das optimale Nettogehalt zu bestimmen.</p>
 								</div>
 							</div>
 							
 							<div class="services-details">
-								<h3>Unser Leistungsspektrum umfasst auszugsweise:</h3>
+								<h3 data-translate="entrepreneursService2DetailSubtitle">Unser Leistungsspektrum umfasst auszugsweise:</h3>
 								<ul>
-									<li>Die Einrichtung Ihrer Lohn- und Gehaltsbuchführung</li>
-									<li>Die Anfertigung der laufenden Lohn- und Gehaltsabrechnungen</li>
-									<li>Die Erfassung und Führung von Urlaubstagen</li>
-									<li>Die Berechnung von unentgeltlichen Wertabgaben</li>
-									<li>Die sorgfältige Pflege der Personalstammdaten</li>
-									<li>Die Führung der Jahreslohnjournale</li>
-									<li>Die gewissenhafte Übermittlung der Beitragsnachweise und der Lohnsteuer-Anmeldung</li>
-									<li>Die Antragstellung auf Lohnfortzahlung im Krankheitsfall und Mutterschaftsgeld</li>
+									<li data-translate="entrepreneursService2DetailItem1">Die Einrichtung Ihrer Lohn- und Gehaltsbuchführung</li>
+									<li data-translate="entrepreneursService2DetailItem2">Die Anfertigung der laufenden Lohn- und Gehaltsabrechnungen</li>
+									<li data-translate="entrepreneursService2DetailItem3">Die Erfassung und Führung von Urlaubstagen</li>
+									<li data-translate="entrepreneursService2DetailItem4">Die Berechnung von unentgeltlichen Wertabgaben</li>
+									<li data-translate="entrepreneursService2DetailItem5">Die sorgfältige Pflege der Personalstammdaten</li>
+									<li data-translate="entrepreneursService2DetailItem6">Die Führung der Jahreslohnjournale</li>
+									<li data-translate="entrepreneursService2DetailItem7">Die gewissenhafte Übermittlung der Beitragsnachweise und der Lohnsteuer-Anmeldung</li>
+									<li data-translate="entrepreneursService2DetailItem8">Die Antragstellung auf Lohnfortzahlung im Krankheitsfall und Mutterschaftsgeld</li>
 								</ul>
-								<p><strong>Unsere Lohnexpertin steht Ihnen jederzeit zur Verfügung.</strong></p>
+								<p><strong data-translate="entrepreneursService2DetailExpert">Unsere Lohnexpertin steht Ihnen jederzeit zur Verfügung.</strong></p>
 							</div>
 						</div>
 
 						<div class="service-detail" id="jahresabschluss-detail">
-							<h2>Jahresabschluss oder Gewinnermittlung</h2>
+							<h2 data-translate="entrepreneursService3DetailTitle">Jahresabschluss oder Gewinnermittlung</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
-									<p>Nach 12 Monaten wird ein Schlussstrich unter das Geschäftsjahr gezogen: Ein transparenter und sauberer Jahresabschluss muss her. An einem Jahresabschluss haben in der Regel mehrere Adressatenkreise Interesse. Die Veröffentlichung des Jahresabschlusses selbst und auch die Art und Weise dessen sind darüber hinaus auch rechtsform- und größenabhängig. Unter Umständen muss nur eine Bilanz hinterlegt werden.</p>
+									<p data-translate="entrepreneursService3DetailText1">Nach 12 Monaten wird ein Schlussstrich unter das Geschäftsjahr gezogen: Ein transparenter und sauberer Jahresabschluss muss her. An einem Jahresabschluss haben in der Regel mehrere Adressatenkreise Interesse. Die Veröffentlichung des Jahresabschlusses selbst und auch die Art und Weise dessen sind darüber hinaus auch rechtsform- und größenabhängig. Unter Umständen muss nur eine Bilanz hinterlegt werden.</p>
 									
-									<p>Neben der vorausgesetzten Einreichung beim Finanzamt und der Veröffentlichung beim Bundesamt für Justiz, dienen der Jahresabschluss und die Bilanz aber vor allem als Steuerungselement für Ihren Unternehmenserfolg. Denn der Jahresabschluss und die Bilanz geben Aufschluss über die Entwicklung Ihres Unternehmens in der Vergangenheit und somit auch Impulse für künftige unternehmerische Aktivitäten und zielgerichtete Entscheidungen.</p>
+									<p data-translate="entrepreneursService3DetailText2">Neben der vorausgesetzten Einreichung beim Finanzamt und der Veröffentlichung beim Bundesamt für Justiz, dienen der Jahresabschluss und die Bilanz aber vor allem als Steuerungselement für Ihren Unternehmenserfolg. Denn der Jahresabschluss und die Bilanz geben Aufschluss über die Entwicklung Ihres Unternehmens in der Vergangenheit und somit auch Impulse für künftige unternehmerische Aktivitäten und zielgerichtete Entscheidungen.</p>
 									
-									<p>Wir schauen, welche Anforderungen an ihr Unternehmen gestellt sind. Durch unsere jahrelange Erfahrung fertigen wir nicht nur Ihren Abschluss an, sondern beraten Sie zudem individuell hinsichtlich erfolgsversprechender Maßnahmen für die Zukunft.</p>
+									<p data-translate="entrepreneursService3DetailText3">Wir schauen, welche Anforderungen an ihr Unternehmen gestellt sind. Durch unsere jahrelange Erfahrung fertigen wir nicht nur Ihren Abschluss an, sondern beraten Sie zudem individuell hinsichtlich erfolgsversprechender Maßnahmen für die Zukunft.</p>
 								</div>
 							</div>
 							
 							<div class="services-details">
-								<h3>Wir erstellen für Sie:</h3>
+								<h3 data-translate="entrepreneursService3DetailSubtitle">Wir erstellen für Sie:</h3>
 								<ul>
-									<li>Die Bilanzen nach HGB und Steuerbilanzen</li>
-									<li>Einen ausführlichen Bilanzbericht</li>
-									<li>Die Gewinnermittlung und den Jahresabschluss</li>
-									<li>Die Übermittlungen für den elektronischen Bundesanzeiger</li>
+									<li data-translate="entrepreneursService3DetailItem1">Die Bilanzen nach HGB und Steuerbilanzen</li>
+									<li data-translate="entrepreneursService3DetailItem2">Einen ausführlichen Bilanzbericht</li>
+									<li data-translate="entrepreneursService3DetailItem3">Die Gewinnermittlung und den Jahresabschluss</li>
+									<li data-translate="entrepreneursService3DetailItem4">Die Übermittlungen für den elektronischen Bundesanzeiger</li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="service-detail" id="existenzgruendung-detail">
-							<h2>Existenzgründung</h2>
+							<h2 data-translate="entrepreneursService4DetailTitle">Existenzgründung</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
-									<p>Die Neugründung eines Unternehmens fordert einige wichtige Entscheidungen von Ihnen als Existenzgründer. Wir freuen uns auch in diesem Feld unsere langjährige Expertise anbieten zu können.</p>
+									<p data-translate="entrepreneursService4DetailText1">Die Neugründung eines Unternehmens fordert einige wichtige Entscheidungen von Ihnen als Existenzgründer. Wir freuen uns auch in diesem Feld unsere langjährige Expertise anbieten zu können.</p>
 									
-									<p>In einem individuellen Beratungsgespräch besprechen wir mit Ihnen die wesentlichen zu beachtenden Themen zu Ihrer bevorstehenden Existenzgründung. Auf alle im Verlauf dieses Erstgespräches anfallenden Detailfragen werden wir Ihnen in einem weiteren Gespräch beantworten oder lassen Sie Ihnen auf Wunsch auch gerne unkompliziert zukommen.</p>
+									<p data-translate="entrepreneursService4DetailText2">In einem individuellen Beratungsgespräch besprechen wir mit Ihnen die wesentlichen zu beachtenden Themen zu Ihrer bevorstehenden Existenzgründung. Auf alle im Verlauf dieses Erstgespräches anfallenden Detailfragen werden wir Ihnen in einem weiteren Gespräch beantworten oder lassen Sie Ihnen auf Wunsch auch gerne unkompliziert zukommen.</p>
 								</div>
 							</div>
 							
 							<div class="services-details">
-								<h3>Schwerpunkte unserer Beratung sind:</h3>
+								<h3 data-translate="entrepreneursService4DetailSubtitle">Schwerpunkte unserer Beratung sind:</h3>
 								<ul>
-									<li>Die Realisierbarkeitsprüfung</li>
-									<li>Die Beratung zur optimalen Rechtsform und Verträgen wie Gesellschaftsverträge usw.</li>
-									<li>Die Haftungsrisiken und eine Steuer-Vorausplanung</li>
-									<li>Die Beratung bei Finanzierungsmöglichkeiten und Unterstützung bei Finanzierungsbeschaffung</li>
-									<li>Die Beantragung von Fördermitteln und dem Existenzgründungszuschuss</li>
-									<li>Die Gestaltung des betrieblichen Rechnungswesens</li>
-									<li>Die Beratung zur Absicherung privater Risiken wie Krankheit, Erwerbsunfähigkeit oder Tod</li>
+									<li data-translate="entrepreneursService4DetailItem1">Die Realisierbarkeitsprüfung</li>
+									<li data-translate="entrepreneursService4DetailItem2">Die Beratung zur optimalen Rechtsform und Verträgen wie Gesellschaftsverträge usw.</li>
+									<li data-translate="entrepreneursService4DetailItem3">Die Haftungsrisiken und eine Steuer-Vorausplanung</li>
+									<li data-translate="entrepreneursService4DetailItem4">Die Beratung bei Finanzierungsmöglichkeiten und Unterstützung bei Finanzierungsbeschaffung</li>
+									<li data-translate="entrepreneursService4DetailItem5">Die Beantragung von Fördermitteln und dem Existenzgründungszuschuss</li>
+									<li data-translate="entrepreneursService4DetailItem6">Die Gestaltung des betrieblichen Rechnungswesens</li>
+									<li data-translate="entrepreneursService4DetailItem7">Die Beratung zur Absicherung privater Risiken wie Krankheit, Erwerbsunfähigkeit oder Tod</li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="service-detail" id="betriebspruefung-detail">
-							<h2>Betriebsprüfungen</h2>
+							<h2 data-translate="entrepreneursService5DetailTitle">Betriebsprüfungen</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
-									<p>Darüber hinaus stehen wir natürlich auch in den unangenehmen und schwierigen Situationen an Ihrer Seite.</p>
+									<p data-translate="entrepreneursService5DetailText1">Darüber hinaus stehen wir natürlich auch in den unangenehmen und schwierigen Situationen an Ihrer Seite.</p>
 									
-									<p>Wir unterstützen Sie bei den Betriebsprüfungen durch Finanzämter, Sozialversicherungsträger und andere Behörden. Von der Anmeldung des Prüfers, über die laufende Prüfung selbst, bis zur Schlussbesprechung sind wir als kompetenter Ansprechpartner mit dabei. Anschließend prüfen wir die Betriebsprüfungsberichte und werten die Ergebnisse aus. Wir sorgen für einen reibungslosen Ablauf.</p>
+									<p data-translate="entrepreneursService5DetailText2">Wir unterstützen Sie bei den Betriebsprüfungen durch Finanzämter, Sozialversicherungsträger und andere Behörden. Von der Anmeldung des Prüfers, über die laufende Prüfung selbst, bis zur Schlussbesprechung sind wir als kompetenter Ansprechpartner mit dabei. Anschließend prüfen wir die Betriebsprüfungsberichte und werten die Ergebnisse aus. Wir sorgen für einen reibungslosen Ablauf.</p>
 								</div>
 							</div>
 							
 							<div class="services-details">
-								<h3>In diesen Bereichen begleiten wir Sie:</h3>
+								<h3 data-translate="entrepreneursService5DetailSubtitle">In diesen Bereichen begleiten wir Sie:</h3>
 								<ul>
-									<li>Betriebsprüfung</li>
-									<li>Lohnsteueraußenprüfung</li>
-									<li>Umsatzsteuersonderprüfung und -nachschau</li>
-									<li>Kassennachschau</li>
-									<li>Sozialversicherungsprüfung</li>
+									<li data-translate="entrepreneursService5DetailItem1">Betriebsprüfung</li>
+									<li data-translate="entrepreneursService5DetailItem2">Lohnsteueraußenprüfung</li>
+									<li data-translate="entrepreneursService5DetailItem3">Umsatzsteuersonderprüfung und -nachschau</li>
+									<li data-translate="entrepreneursService5DetailItem4">Kassennachschau</li>
+									<li data-translate="entrepreneursService5DetailItem5">Sozialversicherungsprüfung</li>
 								</ul>
 							</div>
 						</div>
@@ -292,7 +299,7 @@ import Footer from '../components/Footer.astro';
 
 			/* Full-width sections like homepage */
 			.digital-section,
-			.datev-section,
+			.datev-quote-section,
 			.services-overview,
 			.buchfuehrung-section,
 			.lohnbuchfuehrung-section,
@@ -370,8 +377,13 @@ import Footer from '../components/Footer.astro';
 			}
 
 			.datev-info p {
-				margin: 0;
+				margin: 0 0 0.5rem 0;
 				color: var(--black);
+				line-height: 1.6;
+			}
+
+			.datev-info p:last-child {
+				margin-bottom: 0;
 			}
 
 			.datev-link {
@@ -385,8 +397,20 @@ import Footer from '../components/Footer.astro';
 			}
 
 			/* DATEV Section */
-			.datev-section {
+			/* DATEV and Quote Section */
+			.datev-quote-section {
 				background: var(--light-gray);
+			}
+
+			.datev-quote-wrapper {
+				display: flex;
+				gap: 3rem;
+				align-items: flex-start;
+			}
+
+
+			.datev-content {
+				flex: 1;
 			}
 
 			.datev-content h2 {
@@ -394,6 +418,18 @@ import Footer from '../components/Footer.astro';
 				font-size: 2.2rem;
 				margin-bottom: 1rem;
 				font-family: "Merriweather", serif;
+			}
+
+			.quote-content {
+				flex: 0 0 40%;
+				display: flex;
+				align-items: flex-start;
+				padding-top: 0.5rem;
+			}
+
+			.quote-content .quote {
+				margin: 0;
+				width: 100%;
 			}
 
 			.datev-content p {
@@ -404,7 +440,7 @@ import Footer from '../components/Footer.astro';
 			}
 
 			.datev-button {
-				text-align: center;
+				text-align: left;
 			}
 
 			.btn-primary {
@@ -439,7 +475,7 @@ import Footer from '../components/Footer.astro';
 				gap: 1rem;
 				margin-bottom: 2rem;
 				overflow-x: auto;
-				padding-bottom: 1rem;
+				padding: 1rem 0 1rem 0;
 			}
 
 			.service-tab {
@@ -457,6 +493,7 @@ import Footer from '../components/Footer.astro';
 			.service-tab:hover {
 				transform: translateY(-5px);
 				border-color: var(--accent);
+				border-top: 4px solid var(--accent);
 			}
 
 			.service-tab.active {
@@ -587,7 +624,7 @@ import Footer from '../components/Footer.astro';
 				}
 				
 				.digital-section,
-				.datev-section,
+				.datev-quote-section,
 				.services-overview,
 				.buchfuehrung-section,
 				.lohnbuchfuehrung-section,
@@ -598,6 +635,15 @@ import Footer from '../components/Footer.astro';
 					margin-left: calc(-125px - 50px);
 					margin-right: 0;
 					padding: 0.8rem 0;
+				}
+
+				.datev-quote-wrapper {
+					flex-direction: column;
+					gap: 2rem;
+				}
+
+				.quote-content {
+					flex: 1;
 				}
 
 				.services-tabs {
@@ -630,7 +676,7 @@ import Footer from '../components/Footer.astro';
 				}
 				
 				.digital-section,
-				.datev-section,
+				.datev-quote-section,
 				.services-overview,
 				.buchfuehrung-section,
 				.lohnbuchfuehrung-section,
@@ -644,6 +690,15 @@ import Footer from '../components/Footer.astro';
 					right: 0;
 					margin-left: 0;
 					margin-right: 0;
+				}
+
+				.datev-quote-wrapper {
+					flex-direction: column;
+					gap: 1.5rem;
+				}
+
+				.quote-content {
+					flex: 1;
 				}
 
 				.services-tabs {
@@ -693,5 +748,7 @@ import Footer from '../components/Footer.astro';
 				});
 			});
 		</script>
+
+		<CookieBanner />
 	</body>
 </html>

@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -14,100 +15,100 @@ import Footer from '../components/Footer.astro';
 		<main>
 			<section class="hero">
 				<div class="hero-content">
-					<h1>Cookie-Richtlinie (EU)</h1>
+					<h1 data-translate="cookieTitle">Cookie-Richtlinie (EU)</h1>
 				</div>
 			</section>
 
 			<section class="content-section">
 				<div class="container">
-					<h2>Cookie-Richtlinie</h2>
+					<h2 data-translate="cookiePolicyTitle">Cookie-Richtlinie</h2>
 					
 					<div class="cookie-content">
 						<div class="cookie-item">
-							<h3>Was sind Cookies?</h3>
-							<p>Cookies sind kleine Textdateien, die auf Ihrem Computer oder mobilen Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie werden weit verbreitet eingesetzt, um Websites funktionsfähig zu machen oder effizienter zu machen, sowie um Berichtsinformationen bereitzustellen.</p>
+							<h3 data-translate="cookieSection1Title">Was sind Cookies?</h3>
+							<p data-translate="cookieSection1Text">Cookies sind kleine Textdateien, die auf Ihrem Computer oder mobilen Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie werden weit verbreitet eingesetzt, um Websites funktionsfähig zu machen oder effizienter zu machen, sowie um Berichtsinformationen bereitzustellen.</p>
 							
-							<h4>Neue Cookie-Verordnungen 2025</h4>
-							<p>Ab 2025 treten neue Verordnungen zur Einwilligungsverwaltung in Kraft, die eine zentrale Verwaltung von Cookie-Präferenzen ermöglichen. Dies soll die Anzahl der Cookie-Banner reduzieren und Nutzern eine einheitliche Verwaltung ihrer Präferenzen ermöglichen.</p>
+							<h4 data-translate="cookieSection1NewTitle">Neue Cookie-Verordnungen 2025</h4>
+							<p data-translate="cookieSection1NewText">Ab 2025 treten neue Verordnungen zur Einwilligungsverwaltung in Kraft, die eine zentrale Verwaltung von Cookie-Präferenzen ermöglichen. Dies soll die Anzahl der Cookie-Banner reduzieren und Nutzern eine einheitliche Verwaltung ihrer Präferenzen ermöglichen.</p>
 						</div>
 
 						<div class="cookie-item">
-							<h3>Wie verwenden wir Cookies?</h3>
-							<p>Wir verwenden Cookies, um unsere Website und unseren Service zu optimieren. Wir verwenden verschiedene Arten von Cookies:</p>
+							<h3 data-translate="cookieSection2Title">Wie verwenden wir Cookies?</h3>
+							<p data-translate="cookieSection2Text">Wir verwenden Cookies, um unsere Website und unseren Service zu optimieren. Wir verwenden verschiedene Arten von Cookies:</p>
 							
 							<div class="cookie-types">
 								<div class="cookie-type">
-									<h4>Funktional</h4>
-									<p>Die technische Speicherung oder der Zugriff ist unbedingt erforderlich für den rechtmäßigen Zweck, die Nutzung eines bestimmten, vom Teilnehmer oder Nutzer ausdrücklich gewünschten Dienstes zu ermöglichen oder für den alleinigen Zweck, die Übertragung einer Nachricht über ein elektronisches Kommunikationsnetz durchzuführen.</p>
+									<h4 data-translate="cookieSection2FunctionalTitle">Funktional</h4>
+									<p data-translate="cookieSection2FunctionalText">Die technische Speicherung oder der Zugriff ist unbedingt erforderlich für den rechtmäßigen Zweck, die Nutzung eines bestimmten, vom Teilnehmer oder Nutzer ausdrücklich gewünschten Dienstes zu ermöglichen oder für den alleinigen Zweck, die Übertragung einer Nachricht über ein elektronisches Kommunikationsnetz durchzuführen.</p>
 								</div>
 
 								<div class="cookie-type">
-									<h4>Vorlieben</h4>
-									<p>Die technische Speicherung oder der Zugriff ist für den rechtmäßigen Zweck der Speicherung von Vorlieben erforderlich, die nicht vom Abonnenten oder Nutzer angefordert wurden.</p>
+									<h4 data-translate="cookieSection2PreferencesTitle">Vorlieben</h4>
+									<p data-translate="cookieSection2PreferencesText">Die technische Speicherung oder der Zugriff ist für den rechtmäßigen Zweck der Speicherung von Vorlieben erforderlich, die nicht vom Abonnenten oder Nutzer angefordert wurden.</p>
 								</div>
 
 								<div class="cookie-type">
-									<h4>Statistiken</h4>
-									<p>Die technische Speicherung oder der Zugriff, der ausschließlich zu statistischen Zwecken erfolgt. Die technische Speicherung oder der Zugriff, der ausschließlich zu anonymen statistischen Zwecken erfolgt. Ohne eine Vorladung, die freiwillige Zustimmung Ihres Internetdienstanbieters oder zusätzliche Aufzeichnungen von Dritten können die zu diesem Zweck allein gespeicherten oder abgerufenen Informationen in der Regel nicht zu Ihrer Identifizierung verwendet werden.</p>
+									<h4 data-translate="cookieSection2StatisticsTitle">Statistiken</h4>
+									<p data-translate="cookieSection2StatisticsText">Die technische Speicherung oder der Zugriff, der ausschließlich zu statistischen Zwecken erfolgt. Die technische Speicherung oder der Zugriff, der ausschließlich zu anonymen statistischen Zwecken erfolgt. Ohne eine Vorladung, die freiwillige Zustimmung Ihres Internetdienstanbieters oder zusätzliche Aufzeichnungen von Dritten können die zu diesem Zweck allein gespeicherten oder abgerufenen Informationen in der Regel nicht zu Ihrer Identifizierung verwendet werden.</p>
 								</div>
 
 								<div class="cookie-type">
-									<h4>Marketing</h4>
-									<p>Die technische Speicherung oder der Zugriff ist erforderlich, um Nutzerprofile zu erstellen, um Werbung zu versenden oder um den Nutzer auf einer Website oder über mehrere Websites hinweg für ähnliche Marketingzwecke zu verfolgen.</p>
+									<h4 data-translate="cookieSection2MarketingTitle">Marketing</h4>
+									<p data-translate="cookieSection2MarketingText">Die technische Speicherung oder der Zugriff ist erforderlich, um Nutzerprofile zu erstellen, um Werbung zu versenden oder um den Nutzer auf einer Website oder über mehrere Websites hinweg für ähnliche Marketingzwecke zu verfolgen.</p>
 								</div>
 							</div>
 						</div>
 
 						<div class="cookie-item">
-							<h3>Cookie-Management</h3>
-							<p>Sie können Ihre Cookie-Einstellungen jederzeit verwalten. Die meisten Webbrowser akzeptieren Cookies automatisch, aber Sie können Ihre Browser-Einstellungen so konfigurieren, dass Cookies abgelehnt werden, wenn Sie dies bevorzugen.</p>
+							<h3 data-translate="cookieSection3Title">Cookie-Management</h3>
+							<p data-translate="cookieSection3Text">Sie können Ihre Cookie-Einstellungen jederzeit verwalten. Die meisten Webbrowser akzeptieren Cookies automatisch, aber Sie können Ihre Browser-Einstellungen so konfigurieren, dass Cookies abgelehnt werden, wenn Sie dies bevorzugen.</p>
 							
-							<h4>Zentrale Einwilligungsverwaltung (ab 2025)</h4>
-							<p>Ab 2025 können Sie Ihre Cookie-Präferenzen über zentrale Dienste zur Einwilligungsverwaltung verwalten. Diese ermöglichen es Ihnen, Ihre Präferenzen einmal zu setzen und diese dann auf verschiedenen Websites zu nutzen, ohne bei jedem Besuch erneut entscheiden zu müssen.</p>
+							<h4 data-translate="cookieSection3CentralTitle">Zentrale Einwilligungsverwaltung (ab 2025)</h4>
+							<p data-translate="cookieSection3CentralText">Ab 2025 können Sie Ihre Cookie-Präferenzen über zentrale Dienste zur Einwilligungsverwaltung verwalten. Diese ermöglichen es Ihnen, Ihre Präferenzen einmal zu setzen und diese dann auf verschiedenen Websites zu nutzen, ohne bei jedem Besuch erneut entscheiden zu müssen.</p>
 							
 							<div class="management-options">
-								<h4>Browser-Einstellungen</h4>
-								<p>Sie können Cookies in Ihrem Browser blockieren oder löschen. Hier sind die Anweisungen für die gängigsten Browser:</p>
+								<h4 data-translate="cookieSection3BrowserTitle">Browser-Einstellungen</h4>
+								<p data-translate="cookieSection3BrowserText">Sie können Cookies in Ihrem Browser blockieren oder löschen. Hier sind die Anweisungen für die gängigsten Browser:</p>
 								<ul>
-									<li><strong>Chrome:</strong> Einstellungen > Erweitert > Datenschutz und Sicherheit > Cookies und andere Websitedaten</li>
-									<li><strong>Firefox:</strong> Einstellungen > Datenschutz & Sicherheit > Cookies und Website-Daten</li>
-									<li><strong>Safari:</strong> Einstellungen > Datenschutz > Cookies und Website-Daten verwalten</li>
-									<li><strong>Edge:</strong> Einstellungen > Cookies und Websiteberechtigungen > Cookies und gespeicherte Daten verwalten</li>
+									<li data-translate="cookieSection3BrowserChrome"><strong>Chrome:</strong> Einstellungen > Erweitert > Datenschutz und Sicherheit > Cookies und andere Websitedaten</li>
+									<li data-translate="cookieSection3BrowserFirefox"><strong>Firefox:</strong> Einstellungen > Datenschutz & Sicherheit > Cookies und Website-Daten</li>
+									<li data-translate="cookieSection3BrowserSafari"><strong>Safari:</strong> Einstellungen > Datenschutz > Cookies und Website-Daten verwalten</li>
+									<li data-translate="cookieSection3BrowserEdge"><strong>Edge:</strong> Einstellungen > Cookies und Websiteberechtigungen > Cookies und gespeicherte Daten verwalten</li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="cookie-item">
-							<h3>Drittanbieter-Cookies</h3>
-							<p>Unsere Website kann Cookies von Drittanbietern verwenden. Diese werden von anderen Unternehmen gesetzt, die auf unserer Website Dienstleistungen anbieten. Wir haben keine Kontrolle über diese Cookies.</p>
+							<h3 data-translate="cookieSection4Title">Drittanbieter-Cookies</h3>
+							<p data-translate="cookieSection4Text">Unsere Website kann Cookies von Drittanbietern verwenden. Diese werden von anderen Unternehmen gesetzt, die auf unserer Website Dienstleistungen anbieten. Wir haben keine Kontrolle über diese Cookies.</p>
 							
 							<div class="third-party-cookies">
-								<h4>Google Analytics</h4>
-								<p>Wir verwenden Google Analytics, um zu verstehen, wie Besucher mit unserer Website interagieren. Google Analytics verwendet Cookies, um diese Informationen zu sammeln. Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung</a>.</p>
+								<h4 data-translate="cookieSection4AnalyticsTitle">Google Analytics</h4>
+								<p data-translate="cookieSection4AnalyticsText">Wir verwenden Google Analytics, um zu verstehen, wie Besucher mit unserer Website interagieren. Google Analytics verwendet Cookies, um diese Informationen zu sammeln. Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-translate="cookieSection4AnalyticsLink">Google-Datenschutzerklärung</a>.</p>
 								
-								<h4>Google Maps</h4>
-								<p>Wir verwenden Google Maps, um Standortinformationen anzuzeigen. Google Maps kann Cookies setzen, um diese Funktionalität zu ermöglichen.</p>
+								<h4 data-translate="cookieSection4MapsTitle">Google Maps</h4>
+								<p data-translate="cookieSection4MapsText">Wir verwenden Google Maps, um Standortinformationen anzuzeigen. Google Maps kann Cookies setzen, um diese Funktionalität zu ermöglichen.</p>
 							</div>
 						</div>
 
 						<div class="cookie-item">
-							<h3>Ihre Rechte</h3>
-							<p>Nach der DSGVO haben Sie verschiedene Rechte bezüglich Ihrer personenbezogenen Daten:</p>
+							<h3 data-translate="cookieSection5Title">Ihre Rechte</h3>
+							<p data-translate="cookieSection5Text">Nach der DSGVO haben Sie verschiedene Rechte bezüglich Ihrer personenbezogenen Daten:</p>
 							<ul>
-								<li><strong>Recht auf Auskunft:</strong> Sie haben das Recht zu erfahren, welche personenbezogenen Daten wir über Sie verarbeiten.</li>
-								<li><strong>Recht auf Berichtigung:</strong> Sie haben das Recht, die Berichtigung unrichtiger oder unvollständiger Daten zu verlangen.</li>
-								<li><strong>Recht auf Löschung:</strong> Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen.</li>
-								<li><strong>Recht auf Einschränkung:</strong> Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-								<li><strong>Recht auf Datenübertragbarkeit:</strong> Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
-								<li><strong>Widerspruchsrecht:</strong> Sie haben das Recht, der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen.</li>
+								<li data-translate="cookieSection5Right1"><strong>Recht auf Auskunft:</strong> Sie haben das Recht zu erfahren, welche personenbezogenen Daten wir über Sie verarbeiten.</li>
+								<li data-translate="cookieSection5Right2"><strong>Recht auf Berichtigung:</strong> Sie haben das Recht, die Berichtigung unrichtiger oder unvollständiger Daten zu verlangen.</li>
+								<li data-translate="cookieSection5Right3"><strong>Recht auf Löschung:</strong> Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen.</li>
+								<li data-translate="cookieSection5Right4"><strong>Recht auf Einschränkung:</strong> Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+								<li data-translate="cookieSection5Right5"><strong>Recht auf Datenübertragbarkeit:</strong> Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
+								<li data-translate="cookieSection5Right6"><strong>Widerspruchsrecht:</strong> Sie haben das Recht, der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen.</li>
 							</ul>
 						</div>
 
 						<div class="cookie-item">
-							<h3>Kontakt</h3>
-							<p>Wenn Sie Fragen zu unserer Cookie-Richtlinie haben oder Ihre Rechte ausüben möchten, können Sie uns kontaktieren:</p>
+							<h3 data-translate="cookieSection6Title">Kontakt</h3>
+							<p data-translate="cookieSection6Text">Wenn Sie Fragen zu unserer Cookie-Richtlinie haben oder Ihre Rechte ausüben möchten, können Sie uns kontaktieren:</p>
 							<div class="contact-info">
-								<p><strong>Dipl.Kfm. Steuerberater Burghard Heilgendorff</strong><br>
+								<p data-translate="cookieSection6Contact"><strong>Dipl.Kfm. Steuerberater Burghard Heilgendorff</strong><br>
 								Unter den Eichen 7 (Gebäude F)<br>
 								65195 Wiesbaden<br>
 								Telefon: 0611-3913200<br>
@@ -116,10 +117,10 @@ import Footer from '../components/Footer.astro';
 						</div>
 
 						<div class="cookie-item">
-							<h3>Änderungen dieser Richtlinie</h3>
-							<p>Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen und das "Letzte Aktualisiert"-Datum am Ende dieser Richtlinie aktualisieren.</p>
-							<p><strong>Letzte Aktualisierung:</strong> Januar 2025</p>
-							<p><em>Diese Cookie-Richtlinie wurde aktualisiert, um den neuen Verordnungen zur Einwilligungsverwaltung ab 2025 Rechnung zu tragen.</em></p>
+							<h3 data-translate="cookieSection7Title">Änderungen dieser Richtlinie</h3>
+							<p data-translate="cookieSection7Text">Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen und das "Letzte Aktualisiert"-Datum am Ende dieser Richtlinie aktualisieren.</p>
+							<p data-translate="cookieSection7LastUpdate"><strong>Letzte Aktualisierung:</strong> Januar 2025</p>
+							<p data-translate="cookieSection7Note"><em>Diese Cookie-Richtlinie wurde aktualisiert, um den neuen Verordnungen zur Einwilligungsverwaltung ab 2025 Rechnung zu tragen.</em></p>
 						</div>
 					</div>
 				</div>
@@ -394,5 +395,7 @@ import Footer from '../components/Footer.astro';
 				}
 			}
 		</style>
+
+		<CookieBanner />
 	</body>
 </html>

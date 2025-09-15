@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -24,10 +25,10 @@ import Footer from '../components/Footer.astro';
 					<div class="news-articles">
 						<article class="news-article">
 							<div class="article-header" onclick="toggleArticle(this)">
-								<h2>Corona-Soforthilfe-Rückforderung</h2>
+								<h2 data-translate="newsArticle1Title">Corona-Soforthilfe-Rückforderung</h2>
 								<div class="article-meta">
-									<span class="article-date">12. September 2025</span>
-									<span class="article-category">Steuerrecht</span>
+									<span class="article-date" data-translate="newsArticle1Date">12. September 2025</span>
+									<span class="article-category" data-translate="newsArticle1Category">Steuerrecht</span>
 								</div>
 								<div class="expand-icon">+</div>
 							</div>
@@ -38,45 +39,45 @@ import Footer from '../components/Footer.astro';
 								</div>
 								
 								<div class="article-text">
-									<h3>Rückforderung der Corona-Soforthilfen: Aktuelle Entwicklungen</h3>
-									<p>Viele hessische Unternehmerinnen und Unternehmer haben kürzlich Post vom Regierungspräsidium Kassel erhalten. Fünf Jahre nach der Corona-Pandemie verlangt das Land eine sogenannte „Rückmeldung" zu den damals ausgezahlten Corona-Soforthilfen. Im schlimmsten Fall droht eine Rückforderung der Soforthilfe.</p>
+									<h3 data-translate="newsArticle1Subtitle">Rückforderung der Corona-Soforthilfen: Aktuelle Entwicklungen</h3>
+									<p data-translate="newsArticle1Intro">Viele hessische Unternehmerinnen und Unternehmer haben kürzlich Post vom Regierungspräsidium Kassel erhalten. Fünf Jahre nach der Corona-Pandemie verlangt das Land eine sogenannte „Rückmeldung" zu den damals ausgezahlten Corona-Soforthilfen. Im schlimmsten Fall droht eine Rückforderung der Soforthilfe.</p>
 									
-									<h4>Warum jetzt Rückforderungen?</h4>
-									<p>Die Corona-Soforthilfen aus dem Frühjahr 2020 sollten Unternehmen unbürokratisch vor einer wirtschaftlichen Notlage schützen. Das Versprechen war schnelle Hilfe ohne langes Prüfverfahren. Doch die Bewilligungen standen <strong>unter Vorbehalt</strong>: Wer später keinen echten <strong>Liquiditätsengpass</strong> nachweisen konnte, sollte die Corona-Hilfe zurückzahlen.</p>
+									<h4 data-translate="newsArticle1Section1Title">Warum jetzt Rückforderungen?</h4>
+									<p data-translate="newsArticle1Section1Text1">Die Corona-Soforthilfen aus dem Frühjahr 2020 sollten Unternehmen unbürokratisch vor einer wirtschaftlichen Notlage schützen. Das Versprechen war schnelle Hilfe ohne langes Prüfverfahren. Doch die Bewilligungen standen <strong>unter Vorbehalt</strong>: Wer später keinen echten <strong>Liquiditätsengpass</strong> nachweisen konnte, sollte die Corona-Hilfe zurückzahlen.</p>
 									
-									<p>Das Regierungspräsidium Kassel hat hierfür ein digitales Rückmeldeportal eingerichtet. Unternehmer müssen dort ihre Einnahmen, Ausgaben und Eigenmittel für die Monate März bis Mai 2020 angeben.</p>
+									<p data-translate="newsArticle1Section1Text2">Das Regierungspräsidium Kassel hat hierfür ein digitales Rückmeldeportal eingerichtet. Unternehmer müssen dort ihre Einnahmen, Ausgaben und Eigenmittel für die Monate März bis Mai 2020 angeben.</p>
 									
-									<h4>Aktuelle Rechtsprechung: Rückforderung nicht immer rechtmäßig</h4>
-									<p>Seit 2021 beschäftigen die Rückforderungen die Verwaltungsgerichte bundesweit. Die Urteile sind uneinheitlich – und das eröffnet Betroffenen Chancen:</p>
+									<h4 data-translate="newsArticle1Section2Title">Aktuelle Rechtsprechung: Rückforderung nicht immer rechtmäßig</h4>
+									<p data-translate="newsArticle1Section2Intro">Seit 2021 beschäftigen die Rückforderungen die Verwaltungsgerichte bundesweit. Die Urteile sind uneinheitlich – und das eröffnet Betroffenen Chancen:</p>
 									<ul>
-										<li><strong>OVG NRW, Beschluss v. 17.03.2023</strong>: Rückforderungen nur zulässig, wenn tatsächlich kein Liquiditätsengpass vorlag</li>
-										<li><strong>VG Düsseldorf, Urteil v. 16.08.2022</strong>: Für die Beurteilung der Rechtmäßigkeit kam es auf die Förderpraxis des Landes während des Antragsverfahrens an</li>
-										<li><strong>VG Karlsruhe, Urteil v. 11.10.2024</strong>: Bescheide können nicht mit der Begründung widerrufen werden, die Mittel seien nicht zur Überwindung eines Liquiditätsengpasses eingesetzt worden</li>
+										<li data-translate="newsArticle1Section2Item1"><strong>OVG NRW, Beschluss v. 17.03.2023</strong>: Rückforderungen nur zulässig, wenn tatsächlich kein Liquiditätsengpass vorlag</li>
+										<li data-translate="newsArticle1Section2Item2"><strong>VG Düsseldorf, Urteil v. 16.08.2022</strong>: Für die Beurteilung der Rechtmäßigkeit kam es auf die Förderpraxis des Landes während des Antragsverfahrens an</li>
+										<li data-translate="newsArticle1Section2Item3"><strong>VG Karlsruhe, Urteil v. 11.10.2024</strong>: Bescheide können nicht mit der Begründung widerrufen werden, die Mittel seien nicht zur Überwindung eines Liquiditätsengpasses eingesetzt worden</li>
 									</ul>
 									
-									<h4>Rechtliche Angriffspunkte gegen Rückforderungen</h4>
-									<p>Betroffene Unternehmer haben verschiedene Ansatzpunkte:</p>
+									<h4 data-translate="newsArticle1Section3Title">Rechtliche Angriffspunkte gegen Rückforderungen</h4>
+									<p data-translate="newsArticle1Section3Intro">Betroffene Unternehmer haben verschiedene Ansatzpunkte:</p>
 									<ul>
-										<li><strong>Verjährung</strong>: Rückforderungen könnten bereits verjährt sein (§ 195 BGB)</li>
-										<li><strong>Verwirkung</strong>: Fünf Jahre Untätigkeit können Vertrauensschutz begründen</li>
-										<li><strong>Unklare Bedingungen</strong>: Widersprüchliche Formulierungen aus 2020 sprechen für den Unternehmer</li>
-										<li><strong>Formelle Fehler</strong>: Pauschale oder schlecht begründete Bescheide sind angreifbar</li>
-										<li><strong>Verhältnismäßigkeit</strong>: Behörden müssen prüfen, ob Rückforderungen existenzbedrohend wirken</li>
+										<li data-translate="newsArticle1Section3Item1"><strong>Verjährung</strong>: Rückforderungen könnten bereits verjährt sein (§ 195 BGB)</li>
+										<li data-translate="newsArticle1Section3Item2"><strong>Verwirkung</strong>: Fünf Jahre Untätigkeit können Vertrauensschutz begründen</li>
+										<li data-translate="newsArticle1Section3Item3"><strong>Unklare Bedingungen</strong>: Widersprüchliche Formulierungen aus 2020 sprechen für den Unternehmer</li>
+										<li data-translate="newsArticle1Section3Item4"><strong>Formelle Fehler</strong>: Pauschale oder schlecht begründete Bescheide sind angreifbar</li>
+										<li data-translate="newsArticle1Section3Item5"><strong>Verhältnismäßigkeit</strong>: Behörden müssen prüfen, ob Rückforderungen existenzbedrohend wirken</li>
 									</ul>
 									
-									<h4>Was Unternehmer jetzt tun sollten</h4>
+									<h4 data-translate="newsArticle1Section4Title">Was Unternehmer jetzt tun sollten</h4>
 									<ol>
-										<li><strong>Fristen beachten:</strong> Widerspruchs- und Klagefristen nicht verpassen</li>
-										<li><strong>Unterlagen sichern:</strong> Bescheide, Anträge, Korrespondenz, Buchhaltung 2020</li>
-										<li><strong>Bescheid prüfen lassen:</strong> Nicht vorschnell zahlen – anwaltliche Prüfung lohnt sich</li>
-										<li><strong>Ratenzahlung nutzen:</strong> Wenn Rückzahlung unvermeidbar ist, Liquidität schonen</li>
-										<li><strong>Frühzeitig beraten lassen:</strong> Eilrechtsschutzverfahren können Zahlungen stoppen</li>
+										<li data-translate="newsArticle1Section4Item1"><strong>Fristen beachten:</strong> Widerspruchs- und Klagefristen nicht verpassen</li>
+										<li data-translate="newsArticle1Section4Item2"><strong>Unterlagen sichern:</strong> Bescheide, Anträge, Korrespondenz, Buchhaltung 2020</li>
+										<li data-translate="newsArticle1Section4Item3"><strong>Bescheid prüfen lassen:</strong> Nicht vorschnell zahlen – anwaltliche Prüfung lohnt sich</li>
+										<li data-translate="newsArticle1Section4Item4"><strong>Ratenzahlung nutzen:</strong> Wenn Rückzahlung unvermeidbar ist, Liquidität schonen</li>
+										<li data-translate="newsArticle1Section4Item5"><strong>Frühzeitig beraten lassen:</strong> Eilrechtsschutzverfahren können Zahlungen stoppen</li>
 									</ol>
 									
 									<div class="article-cta">
-										<p><strong>Haben Sie Post vom Regierungspräsidium Kassel erhalten?</strong></p>
-										<p>Nicht jede Corona-Soforthilfe muss zurückgezahlt werden. Mit anwaltlicher Unterstützung lassen sich Rückforderungen abwehren oder zumindest reduzieren. Wir prüfen Ihren Bescheid schnell, rechtssicher und mit Blick auf Ihre wirtschaftliche Situation.</p>
-										<a href="/kontakt" class="btn-primary">Jetzt beraten lassen</a>
+										<p><strong data-translate="newsArticle1CTATitle">Haben Sie Post vom Regierungspräsidium Kassel erhalten?</strong></p>
+										<p data-translate="newsArticle1CTAText">Nicht jede Corona-Soforthilfe muss zurückgezahlt werden. Mit anwaltlicher Unterstützung lassen sich Rückforderungen abwehren oder zumindest reduzieren. Wir prüfen Ihren Bescheid schnell, rechtssicher und mit Blick auf Ihre wirtschaftliche Situation.</p>
+										<a href="/kontakt" class="btn-primary" data-translate="newsArticle1CTAButton">Jetzt beraten lassen</a>
 									</div>
 								</div>
 							</div>
@@ -84,35 +85,35 @@ import Footer from '../components/Footer.astro';
 
 						<article class="news-article">
 							<div class="article-header" onclick="toggleArticle(this)">
-								<h2>Neue Steuererklärung 2024</h2>
+								<h2 data-translate="newsArticle2Title">Neue Steuererklärung 2024</h2>
 								<div class="article-meta">
-									<span class="article-date">10. Januar 2025</span>
-									<span class="article-category">Steuererklärung</span>
+									<span class="article-date" data-translate="newsArticle2Date">10. Januar 2025</span>
+									<span class="article-category" data-translate="newsArticle2Category">Steuererklärung</span>
 								</div>
 								<div class="expand-icon">+</div>
 							</div>
 							
 							<div class="article-content">
 								<div class="article-text">
-									<h3>Wichtige Änderungen bei der Steuererklärung 2024</h3>
-									<p>Ab sofort können Sie Ihre Steuererklärung für das Jahr 2024 einreichen. Es gibt einige wichtige Änderungen, die Sie beachten sollten.</p>
+									<h3 data-translate="newsArticle2Subtitle">Wichtige Änderungen bei der Steuererklärung 2024</h3>
+									<p data-translate="newsArticle2Intro">Ab sofort können Sie Ihre Steuererklärung für das Jahr 2024 einreichen. Es gibt einige wichtige Änderungen, die Sie beachten sollten.</p>
 									
-									<h4>Neue Freibeträge 2024</h4>
+									<h4 data-translate="newsArticle2Section1Title">Neue Freibeträge 2024</h4>
 									<ul>
-										<li>Grundfreibetrag: 11.604 Euro (2023: 10.908 Euro)</li>
-										<li>Arbeitnehmer-Pauschbetrag: 1.230 Euro (unverändert)</li>
-										<li>Werbungskosten-Pauschbetrag: 1.230 Euro (unverändert)</li>
+										<li data-translate="newsArticle2Section1Item1">Grundfreibetrag: 11.604 Euro (2023: 10.908 Euro)</li>
+										<li data-translate="newsArticle2Section1Item2">Arbeitnehmer-Pauschbetrag: 1.230 Euro (unverändert)</li>
+										<li data-translate="newsArticle2Section1Item3">Werbungskosten-Pauschbetrag: 1.230 Euro (unverändert)</li>
 									</ul>
 									
-									<h4>Wichtige Termine</h4>
+									<h4 data-translate="newsArticle2Section2Title">Wichtige Termine</h4>
 									<ul>
-										<li>Abgabefrist für Steuererklärung 2024: 31. Juli 2025</li>
-										<li>Bei Steuerberatung: 28. Februar 2026</li>
+										<li data-translate="newsArticle2Section2Item1">Abgabefrist für Steuererklärung 2024: 31. Juli 2025</li>
+										<li data-translate="newsArticle2Section2Item2">Bei Steuerberatung: 28. Februar 2026</li>
 									</ul>
 									
 									<div class="article-cta">
-										<p><strong>Benötigen Sie Hilfe bei Ihrer Steuererklärung?</strong></p>
-										<a href="/kontakt" class="btn-primary">Termin vereinbaren</a>
+										<p><strong data-translate="newsArticle2CTATitle">Benötigen Sie Hilfe bei Ihrer Steuererklärung?</strong></p>
+										<a href="/kontakt" class="btn-primary" data-translate="newsArticle2CTAButton">Termin vereinbaren</a>
 									</div>
 								</div>
 							</div>
@@ -470,5 +471,7 @@ import Footer from '../components/Footer.astro';
 				}, 100);
 			});
 		</script>
+
+		<CookieBanner />
 	</body>
 </html>

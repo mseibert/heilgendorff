@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -22,17 +23,17 @@ import Footer from '../components/Footer.astro';
 			<section class="content-section">
 				<div class="kanzlei-drive-section">
 					<div class="kanzlei-drive-text">
-						<h2>Kanzlei Drive</h2>
-						<p>Für die digitale Zusammenarbeit mit unseren Mandanten setzen wir auf Kanzlei Drive – eine sichere und benutzerfreundliche Plattform zum Austausch von Unterlagen und Informationen.</p>
+						<h2 data-translate="kanzleiDriveTitle">Kanzlei Drive</h2>
+						<p data-translate="kanzleiDriveDescription">Für die digitale Zusammenarbeit mit unseren Mandanten setzen wir auf Kanzlei Drive – eine sichere und benutzerfreundliche Plattform zum Austausch von Unterlagen und Informationen.</p>
 						
 						<div class="cta-box">
-							<p>Über den folgenden Link gelangen Sie direkt zur Anmeldung:</p>
+							<p data-translate="kanzleiDriveLoginText">Über den folgenden Link gelangen Sie direkt zur Anmeldung:</p>
 							<a href="https://app.kanzleidrive.de/login" target="_blank" rel="noopener noreferrer" class="cta-button">
-								👉 Jetzt bei Kanzlei Drive anmelden
+								<span data-translate="kanzleiDriveLoginButton">👉 Jetzt bei Kanzlei Drive anmelden</span>
 							</a>
 						</div>
 						
-						<p>Mit Kanzlei Drive haben Sie jederzeit Zugriff auf Ihre Dokumente – schnell, geschützt und zuverlässig.</p>
+						<p data-translate="kanzleiDriveAccess">Mit Kanzlei Drive haben Sie jederzeit Zugriff auf Ihre Dokumente – schnell, geschützt und zuverlässig.</p>
 					</div>
 					<div class="kanzlei-drive-image">
 						<img src="/Mock-Up-Laptop-und-iPhone-1536x993-1.png" alt="Laptop und iPhone Mock-Up" />
@@ -225,3 +226,5 @@ import Footer from '../components/Footer.astro';
 
 	}
 </style>
+
+<CookieBanner />

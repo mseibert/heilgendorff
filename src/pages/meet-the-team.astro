@@ -1,0 +1,372 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<BaseHead title="Meet The Team - Steuerbüro Heilgendorff" description="Lernen Sie unser Team kennen - erfahrene Steuerberater und kompetente Mitarbeiter für Ihre steuerlichen Anliegen." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1 data-translate="teamHeroTitle">Meet The Team</h1>
+					<p class="hero-subtitle" data-translate="teamHeroSubtitle">Lernen Sie unser kompetentes Team kennen</p>
+				</div>
+			</section>
+
+			<!-- Team Leadership and Advisors Section -->
+			<section class="team-leadership-section">
+				<div class="content-container">
+					<div class="leadership-advisors-grid">
+						<!-- Left: Burghard Heilgendorff -->
+						<div class="leadership-card">
+							<div class="leadership-image">
+								<img src="/DJI_20220227_173057_505-2.png" alt="Burghard Heilgendorff" />
+							</div>
+							<div class="leadership-content">
+								<h3 data-translate="teamLeaderName">Burghard Heilgendorff</h3>
+								<p class="leadership-title" data-translate="teamLeaderTitle">Diplom-Kaufmann & Steuerberater</p>
+								<p class="leadership-role" data-translate="teamLeaderRole">Kanzleiinhaber</p>
+								<div class="leadership-description">
+									<p data-translate="teamLeaderDescription1">Mit über 20 Jahren Erfahrung in der Steuerberatung leitet Burghard Heilgendorff unser Steuerbüro mit Leidenschaft und Kompetenz.</p>
+									<p data-translate="teamLeaderDescription2">Sein umfassendes Fachwissen und seine persönliche Herangehensweise machen ihn zu einem vertrauensvollen Partner für unsere Mandanten.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Right: Unsere Steuerberater -->
+						<div class="advisors-card">
+							<div class="advisors-image">
+								<img src="/IMG_1802-scaled.jpg" alt="Unsere Steuerberater" />
+							</div>
+							<div class="advisors-content">
+								<h3 data-translate="teamSectionTitle">Unsere Steuerberater</h3>
+								<p class="advisors-intro" data-translate="teamIntro">Unser erfahrenes Team aus qualifizierten Steuerberatern steht Ihnen mit Fachkompetenz und Engagement zur Seite.</p>
+								<div class="advisors-description">
+									<p data-translate="teamDescription1">Gemeinsam bilden wir ein starkes Team, das sich durch langjährige Erfahrung und kontinuierliche Weiterbildung auszeichnet.</p>
+									<p data-translate="teamDescription2">Wir arbeiten Hand in Hand, um für jeden Mandanten die bestmögliche steuerliche Beratung und Betreuung zu gewährleisten.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Full Width Team Image Section -->
+			<section class="team-image-section">
+				<div class="team-image-container">
+					<img src="/temp_image_for_default_share_1-scaled.jpg" alt="Unser Team" />
+					<div class="team-image-overlay">
+						<h2 data-translate="teamImageTitle">Unser Team</h2>
+						<p data-translate="teamImageSubtitle">Gemeinsam für Ihren Erfolg</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+
+		<CookieBanner />
+
+		<style>
+			/* Hero Section - Same as About page */
+			.hero {
+				text-align: center;
+				background: white;
+				color: var(--black);
+				width: 100vw;
+				padding: 4rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				left: 50%;
+				transform: translateY(-5px);
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				overflow-x: hidden;
+				margin-top: 0;
+			}
+
+			.hero-content {
+				padding-top: 0;
+			}
+
+			.hero h1 {
+				font-size: 2.8em;
+				margin-bottom: 0.8rem;
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+			}
+
+			.hero-subtitle {
+				font-size: 1.2em;
+				opacity: 0.8;
+				margin: 0;
+				color: var(--black);
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Content Container - Same as About page */
+			.content-container {
+				width: 75vw;
+				margin: 0 auto;
+				padding: 0 2rem;
+				position: relative;
+				left: calc(50% - 50px);
+				right: 50%;
+				margin-left: calc(-37.5vw - 50px);
+				margin-right: -37.5vw;
+			}
+
+			/* Team Leadership and Advisors Grid */
+			.leadership-advisors-grid {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 3rem;
+				align-items: stretch;
+			}
+
+			.leadership-card {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 8px;
+				border-left: 4px solid var(--accent);
+				display: flex;
+				flex-direction: column;
+			}
+
+			.leadership-image {
+				margin-bottom: 1.5rem;
+				text-align: center;
+				overflow: hidden;
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				height: 300px;
+			}
+
+			.leadership-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: -60px center;
+				transform: scale(1.54);
+				transform-origin: center;
+			}
+
+			.advisors-card {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 8px;
+				border-left: 4px solid var(--accent);
+				display: flex;
+				flex-direction: column;
+				margin-right: -100px;
+			}
+
+			.advisors-image {
+				margin-bottom: 1.5rem;
+				text-align: center;
+				overflow: hidden;
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				height: 300px;
+			}
+
+			.advisors-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center -100px;
+			}
+
+			/* Full Width Team Image Section */
+			.team-image-section {
+				padding: 0;
+				background: white;
+			}
+
+			.team-image-container {
+				position: relative;
+				width: 100vw;
+				left: 50%;
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				overflow: hidden;
+			}
+
+			.team-image-container img {
+				width: 100%;
+				height: 700px;
+				object-fit: cover;
+			}
+
+			.team-image-overlay {
+				position: absolute;
+				bottom: calc(20% - 30px);
+				left: 50%;
+				transform: translateX(-50%);
+				text-align: center;
+				color: white;
+				background: rgba(0, 0, 0, 0.5);
+				padding: 2rem 3rem;
+				border-radius: 12px;
+			}
+
+			.team-image-overlay h2 {
+				font-size: 2.5rem;
+				margin: 0 0 1rem 0;
+				color: white;
+				font-family: "Merriweather", serif;
+			}
+
+			.team-image-overlay p {
+				font-size: 1.2rem;
+				margin: 0;
+				opacity: 0.9;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Container */
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			/* Team Leadership Section */
+			.team-leadership-section {
+				padding: 4rem 0;
+				background: white;
+			}
+
+			.leadership-content h3 {
+				color: var(--accent);
+				font-size: 1.5em;
+				margin: 2rem 0 0.5rem 0;
+				font-family: "Merriweather", serif;
+			}
+
+			.leadership-title {
+				font-size: 1.1em;
+				color: #666;
+				margin-bottom: 0.5rem;
+				font-weight: 500;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			.leadership-role {
+				font-size: 1em;
+				color: var(--accent);
+				margin-bottom: 1.5rem;
+				font-weight: 600;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			.leadership-description p {
+				font-size: 1.1em;
+				line-height: 1.6;
+				color: var(--black);
+				margin-bottom: 1rem;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			.advisors-content h3 {
+				color: var(--accent);
+				font-size: 1.5em;
+				margin: 0 0 1rem 0;
+				font-family: "Merriweather", serif;
+			}
+
+			.advisors-intro {
+				font-size: 1.1em;
+				color: var(--black);
+				margin-bottom: 1.5rem;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			.advisors-description p {
+				font-size: 1em;
+				line-height: 1.6;
+				color: var(--black);
+				margin-bottom: 1rem;
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 720px) {
+				.hero {
+					width: 100vw;
+					max-width: 100vw;
+					overflow-x: hidden;
+				}
+
+				.hero-content {
+					width: 100%;
+					max-width: 100vw;
+					padding: 0 1rem;
+					box-sizing: border-box;
+				}
+
+				.hero h1 {
+					font-size: 2em;
+				}
+
+				.hero-subtitle {
+					font-size: 1.1em;
+				}
+
+				.content-container {
+					padding: 0 1rem;
+					text-align: left;
+				}
+
+				.leadership-advisors-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+
+				.leadership-image,
+				.advisors-image {
+					height: 250px;
+				}
+
+				.advisors-card {
+					margin-right: 0;
+				}
+
+				.leadership-card,
+				.advisors-card {
+					padding: 1.5rem;
+				}
+
+				.team-image-container img {
+					height: 600px;
+				}
+
+				.team-image-overlay {
+					padding: 1.5rem 2rem;
+					bottom: calc(15% - 30px);
+				}
+
+				.team-image-overlay h2 {
+					font-size: 2rem;
+				}
+
+				.team-image-overlay p {
+					font-size: 1rem;
+				}
+			}
+		</style>
+	</body>
+</html>

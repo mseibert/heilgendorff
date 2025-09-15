@@ -3,6 +3,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -27,35 +28,35 @@ import { SITE_TITLE } from '../consts';
 					
 					<div class="main-content">
 						<div class="text-content">
-							<p>Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen. Unsere Fachgebiete sind die Steuererklärungsberatung, die Steuerdurchsetzungsberatung und die gestaltende Steuerberatung.</p>
+							<p data-translate="aboutText1">Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen. Unsere Fachgebiete sind die Steuererklärungsberatung, die Steuerdurchsetzungsberatung und die gestaltende Steuerberatung.</p>
 							
-							<p>Steuerbüro Heilgendorff bietet seinen Mandanten zusätzlich den Zugriff auf den Terminalserver der Kanzlei, um die Kommunikation so einfach und komfortabel wie möglich zu gestalten.</p>
+							<p data-translate="aboutText2">Steuerbüro Heilgendorff bietet seinen Mandanten zusätzlich den Zugriff auf den Terminalserver der Kanzlei, um die Kommunikation so einfach und komfortabel wie möglich zu gestalten.</p>
 							
-							<p>Unsere Erfahrung mit unserem branchenübergreifenden Leistungspektrum ermöglicht es uns, schnell und effizient Ihr Anliegen zu bearbeiten.</p>
+							<p data-translate="aboutText3">Unsere Erfahrung mit unserem branchenübergreifenden Leistungspektrum ermöglicht es uns, schnell und effizient Ihr Anliegen zu bearbeiten.</p>
 						</div>
 
 						<div class="founder-section">
 							<div class="founder-header">
-								<h3>Burghard Heilgendorff, Kanzleiinhaber</h3>
+								<h3 data-translate="founderTitle">Burghard Heilgendorff, Kanzleiinhaber</h3>
 								<div class="founder-image">
 									<img src="/1630348104042.jpeg" alt="Burghard Heilgendorff" />
 								</div>
 							</div>
-							<p>Die Begleitung eines Unternehmens vom Startup über alle Unternehmensphasen hinweg bietet für mich die größte Herausforderung. Der Mandant wird betreut von der Unternehmensgründung, dem Vermögensaufbau bis zur Altersabsicherung und erbschaftsteuerlichen Gestaltung</p>
+							<p data-translate="founderText">Die Begleitung eines Unternehmens vom Startup über alle Unternehmensphasen hinweg bietet für mich die größte Herausforderung. Der Mandant wird betreut von der Unternehmensgründung, dem Vermögensaufbau bis zur Altersabsicherung und erbschaftsteuerlichen Gestaltung</p>
 						</div>
 					</div>
 
 					<div class="languages-team-section">
 						<div class="team-section">
-							<p>Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften. Zusätzlich unterstützen wir unsere Angestellten, Auszubildenden und Studenten, indem wir zahlreiche Fortbildungsmaßnahmen bieten und ein duales Studium ermöglichen.</p>
+							<p data-translate="teamText">Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften. Zusätzlich unterstützen wir unsere Angestellten, Auszubildenden und Studenten, indem wir zahlreiche Fortbildungsmaßnahmen bieten und ein duales Studium ermöglichen.</p>
 						</div>
 
 						<div class="languages-section">
-							<h3>Unser Sprachenrepertoire</h3>
+							<h3 data-translate="languages">Unser Sprachenrepertoire</h3>
 							<ul class="languages-list">
-								<li>Deutsch</li>
-								<li>Englisch</li>
-								<li>Französisch</li>
+								<li data-translate="german">Deutsch</li>
+								<li data-translate="english">Englisch</li>
+								<li data-translate="french">Französisch</li>
 							</ul>
 						</div>
 					</div>
@@ -308,3 +309,5 @@ import { SITE_TITLE } from '../consts';
 		}
 	}
 </style>
+
+<CookieBanner />

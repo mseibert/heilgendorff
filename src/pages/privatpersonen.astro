@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -16,121 +17,129 @@ import Footer from '../components/Footer.astro';
 			<!-- Hero Section -->
 			<section class="hero">
 				<div class="hero-content">
-					<h1>Leistungen für Privatpersonen</h1>
-					<p class="hero-subtitle">Professionelle Steuerberatung für Ihre persönlichen Angelegenheiten</p>
+					<h1 data-translate="individualsTitle">Leistungen für Privatpersonen</h1>
+					<p class="hero-subtitle" data-translate="individualsSubtitle">Professionelle Steuerberatung für Ihre persönlichen Angelegenheiten</p>
 				</div>
 			</section>
 
-			<!-- Services Overview -->
-			<section class="services-overview">
+			<!-- DATEV and Quote Section -->
+			<section class="datev-quote-section">
 				<div class="container">
-					<div class="services-intro">
-						<h2>Wir bieten Ihnen:</h2>
-						<ul class="services-list">
-							<li>Erstellung von Einkommensteuererklärungen</li>
-							<li>Private Vermögensplanung</li>
-							<li>Erbschaftssteuererklärungen</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<!-- DATEV Section -->
-			<section class="datev-section">
-				<div class="container">
-					<div class="datev-content">
-						<h2>DATEV meine Steuern</h2>
-						<p>Klicken Sie hier, um mehr über "DATEV Meine Steuern" zu erfahren.</p>
-						<p>Zum <strong>Login</strong> für "DATEV Meine Steuern" gelangen Sie hier.</p>
-						<blockquote class="quote">
-							<p>"Wer die Pflicht hat, Steuern zu zahlen, der hat auch das Recht, Steuern zu sparen."</p>
-							<cite>Helmut Schmidt</cite>
-						</blockquote>
-					</div>
-				</div>
-			</section>
-
-			<!-- Einkommensteuer Section -->
-			<section class="einkommensteuer-section">
-				<div class="container">
-					<h2>Einkommensteuererklärungen</h2>
-					<div class="content-wrapper">
-						<div class="text-content">
-							<p>Die Erstellung von Einkommensteuererklärungen kann für Privatpersonen eine große Herausforderung darstellen, insbesondere wenn viele <strong>verschiedene Einkunftsarten</strong> vorliegen. So bleiben meist viele steuerliche Chancen ungenutzt.</p>
-							
-							<p>Bei uns steht die fachgerechte Erstellung Ihrer Einkommensteuererklärung mit Gestaltungs- und Sparmöglichkeiten im Vordergrund. Wir nehmen uns Zeit für Ihre individuelle Beratung und begleiten Sie von der Einreichung Ihrer Belege bis hin zur Überprüfung des Steuerbescheids.</p>
-							
-							<p>Die <strong>Einreichung der Belege</strong> wird im Zuge der Digitalisierung zunehmend vereinfacht: So arbeiten wir im Steuerbüro Heilgendorff mit dem Programm "<strong>DATEV Meine Steuern</strong>", durch welches Sie die Möglichkeit erhalten, Ihre steuerrelevanten Unterlagen schnell und einfach an uns weiterzuleiten. Darüber hinaus akzeptieren wir selbstverständlich auch noch die klassische Einreichung der Belege in Papierform.</p>
+					<div class="datev-quote-wrapper">
+						<div class="datev-content">
+							<h2 data-translate="individualsDatevTitle">DATEV meine Steuern</h2>
+							<p data-translate="individualsDatevDescription1">Klicken Sie hier, um mehr über "DATEV Meine Steuern" zu erfahren.</p>
+							<p data-translate="individualsDatevDescription2">Zum <strong>Login</strong> für "DATEV Meine Steuern" gelangen Sie hier.</p>
+							<a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" class="btn-primary" target="_blank" rel="noopener noreferrer" data-translate="individualsDatevLoginButton">DATEV Meine Steuern Login</a>
+						</div>
+						<div class="quote-content">
+							<blockquote class="quote">
+								<p data-translate="individualsQuote">"Wer die Pflicht hat, Steuern zu zahlen, der hat auch das Recht, Steuern zu sparen."</p>
+								<cite data-translate="individualsQuoteAuthor">Helmut Schmidt</cite>
+							</blockquote>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<!-- Services Tabs Section -->
+			<section class="services-tabs-section">
+				<div class="container">
+					<h2 data-translate="individualsServicesTitle">Unser Leistungsumfang:</h2>
 					
-					<div class="services-details">
-						<h3>Folgende Leistungen stehen im Zusammenhang mit der Erstellung Ihrer Einkommensteuererklärung:</h3>
-						<ul>
-							<li>Ihre <strong>außergewöhnlichen Belastungen</strong> und Kosten für <strong>haushaltsnahe Dienstleistungen und Handwerkerleistungen</strong> erfassen wir korrekt und vollständig</li>
-							<li><strong>Kinderbetreuungskosten</strong> und <strong>Schulgeld</strong> setzen wir steuermindernd an</li>
-							<li>Ihre <strong>Altersvorsorgeaufwendungen</strong> und <strong>Riester-Rente</strong> berücksichtigen wir optimal</li>
-							<li><strong>Spenden</strong> und <strong>Kirchensteuer</strong> werden korrekt erfasst</li>
-							<li>Wir optimieren Ihre <strong>Werbungskosten</strong> und <strong>Sonderausgaben</strong></li>
-							<li>Bei <strong>Verkäufen von Immobilien</strong> oder <strong>Wertpapieren</strong> ermitteln wir die steuerlichen Folgen</li>
-						</ul>
+					<div class="services-tabs">
+						<div class="service-tab" data-service="einkommensteuer">
+							<h3 data-translate="individualsService1Title">Erstellung von Einkommensteuererklärungen</h3>
+							<p data-translate="individualsService1Description">Professionelle Erstellung Ihrer Steuererklärung</p>
+						</div>
+						<div class="service-tab" data-service="vermoegensplanung">
+							<h3 data-translate="individualsService3Title">Private Vermögensplanung</h3>
+							<p data-translate="individualsService3Description">Strategische Beratung für Ihre Finanzen</p>
+						</div>
+						<div class="service-tab" data-service="erbschaftssteuer">
+							<h3 data-translate="individualsService2Title">Erbschaftssteuererklärungen</h3>
+							<p data-translate="individualsService2Description">Kompetente Unterstützung bei Erbschaftsangelegenheiten</p>
+						</div>
+					</div>
+
+					<!-- Detailed Content Areas -->
+					<div class="service-details-container">
+						<div class="service-detail" id="einkommensteuer-detail">
+							<h2 data-translate="individualsService1DetailTitle">Erstellung von Einkommensteuererklärungen</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="individualsService1DetailText1">Die Erstellung von Einkommensteuererklärungen kann für Privatpersonen eine große Herausforderung darstellen, insbesondere wenn viele <strong>verschiedene Einkunftsarten</strong> vorliegen. So bleiben meist viele steuerliche Chancen ungenutzt.</p>
+									
+									<p data-translate="individualsService1DetailText2">Bei uns steht die fachgerechte Erstellung Ihrer Einkommensteuererklärung mit Gestaltungs- und Sparmöglichkeiten im Vordergrund. Wir nehmen uns Zeit für Ihre individuelle Beratung und begleiten Sie von der Einreichung Ihrer Belege bis hin zur Überprüfung des Steuerbescheids.</p>
+									
+									<p data-translate="individualsService1DetailText3">Die <strong>Einreichung der Belege</strong> wird im Zuge der Digitalisierung zunehmend vereinfacht: So arbeiten wir im Steuerbüro Heilgendorff mit dem Programm "<strong>DATEV Meine Steuern</strong>", durch welches Sie die Möglichkeit erhalten, Ihre steuerrelevanten Unterlagen schnell und einfach an uns weiterzuleiten. Darüber hinaus akzeptieren wir selbstverständlich auch noch die klassische Einreichung der Belege in Papierform.</p>
+								</div>
+							</div>
+							
+							<div class="services-details">
+								<h3 data-translate="individualsService1DetailSubtitle">Folgende Leistungen stehen im Zusammenhang mit der Erstellung Ihrer Einkommensteuererklärung:</h3>
+								<ul>
+									<li data-translate="individualsService1DetailItem1">Ihre <strong>außergewöhnlichen Belastungen</strong> und Kosten für <strong>haushaltsnahe Dienstleistungen und Handwerkerleistungen</strong> erfassen wir korrekt und vollständig</li>
+									<li data-translate="individualsService1DetailItem2"><strong>Kinderbetreuungskosten</strong> und <strong>Schulgeld</strong> setzen wir steuermindernd an</li>
+									<li data-translate="individualsService1DetailItem3">Ihre <strong>Altersvorsorgeaufwendungen</strong> und <strong>Riester-Rente</strong> berücksichtigen wir optimal</li>
+									<li data-translate="individualsService1DetailItem4"><strong>Spenden</strong> und <strong>Kirchensteuer</strong> werden korrekt erfasst</li>
+									<li data-translate="individualsService1DetailItem5">Wir optimieren Ihre <strong>Werbungskosten</strong> und <strong>Sonderausgaben</strong></li>
+									<li data-translate="individualsService1DetailItem6">Bei <strong>Verkäufen von Immobilien</strong> oder <strong>Wertpapieren</strong> ermitteln wir die steuerlichen Folgen</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="service-detail" id="vermoegensplanung-detail">
+							<h2 data-translate="individualsService2DetailTitle">Private Vermögensplanung</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="individualsService2DetailText1">Eine durchdachte Vermögensplanung ist der Grundstein für finanzielle Sicherheit und Wohlstand. Wir unterstützen Sie dabei, Ihre finanziellen Ziele zu erreichen und dabei steuerlich optimal zu agieren.</p>
+									
+									<p data-translate="individualsService2DetailText2">Unsere Beratung umfasst die Analyse Ihrer aktuellen Vermögenssituation, die Identifikation von Optimierungspotenzialen und die Entwicklung einer maßgeschneiderten Strategie für Ihre persönlichen Ziele.</p>
+								</div>
+							</div>
+							
+							<div class="services-details">
+								<h3 data-translate="individualsService2DetailSubtitle">Unsere Leistungen in der privaten Vermögensplanung:</h3>
+								<ul>
+									<li data-translate="individualsService2DetailItem1">Analyse Ihrer aktuellen Vermögenssituation</li>
+									<li data-translate="individualsService2DetailItem2">Steueroptimierte Anlagestrategien</li>
+									<li data-translate="individualsService2DetailItem3">Beratung zu Altersvorsorgeprodukten</li>
+									<li data-translate="individualsService2DetailItem4">Optimierung von Versicherungsstrukturen</li>
+									<li data-translate="individualsService2DetailItem5">Strategische Beratung zu Immobilieninvestitionen</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="service-detail" id="erbschaftssteuer-detail">
+							<h2 data-translate="individualsService3DetailTitle">Erbschaftssteuererklärungen</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="individualsService3DetailText1">Erbschafts- und Schenkungssteuererklärungen erfordern besondere Sorgfalt und Fachkenntnis. Wir unterstützen Sie bei der korrekten Erstellung und helfen dabei, steuerliche Fallstricke zu vermeiden.</p>
+									
+									<p data-translate="individualsService3DetailText2">Dabei arbeiten wir gern auch mit Ihrem Anwalt/Notar zusammen. Mit unserer Hilfe minimieren Sie sowohl die ertragssteuerlichen Folgen als auch Erbschaft- und Schenkungssteuer.</p>
+								</div>
+							</div>
+							
+							<div class="services-details">
+								<h3 data-translate="individualsService3DetailSubtitle">Unsere Leistungen bei Erbschaftssteuererklärungen:</h3>
+								<ul>
+									<li data-translate="individualsService3DetailItem1">Erstellung von Erbschaftssteuererklärungen</li>
+									<li data-translate="individualsService3DetailItem2">Beratung zu Schenkungssteuer</li>
+									<li data-translate="individualsService3DetailItem3">Optimierung von Erbschaftsstrukturen</li>
+									<li data-translate="individualsService3DetailItem4">Zusammenarbeit mit Notaren und Anwälten</li>
+									<li data-translate="individualsService3DetailItem5">Beratung zu steuerlichen Gestaltungsmöglichkeiten</li>
+								</ul>
+							</div>
+							
+							<div class="recommendation">
+								<p><strong data-translate="individualsService3DetailRecommendation">Empfehlung: Sollten Sie sich dennoch für die selbstständige Erstellung Ihrer Einkommensteuererklärung entscheiden, empfehlen wir Ihnen die Verwendung von Klartax.</strong></p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- Private Vermögensplanung Section -->
-			<section class="vermoegensplanung-section">
-				<div class="container">
-					<h2>Private Vermögensplanung</h2>
-					<div class="content-wrapper">
-						<div class="text-content">
-							<p>Eine durchdachte Vermögensplanung ist der Grundstein für finanzielle Sicherheit und Wohlstand. Wir unterstützen Sie dabei, Ihre finanziellen Ziele zu erreichen und dabei steuerlich optimal zu agieren.</p>
-							
-							<p>Unsere Beratung umfasst die Analyse Ihrer aktuellen Vermögenssituation, die Identifikation von Optimierungspotenzialen und die Entwicklung einer maßgeschneiderten Strategie für Ihre persönlichen Ziele.</p>
-						</div>
-					</div>
-					
-					<div class="services-details">
-						<h3>Unsere Leistungen in der privaten Vermögensplanung:</h3>
-						<ul>
-							<li>Analyse Ihrer aktuellen Vermögenssituation</li>
-							<li>Steueroptimierte Anlagestrategien</li>
-							<li>Beratung zu Altersvorsorgeprodukten</li>
-							<li>Optimierung von Versicherungsstrukturen</li>
-							<li>Strategische Beratung zu Immobilieninvestitionen</li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-			<!-- Erbschaftssteuer Section -->
-			<section class="erbschaftssteuer-section">
-				<div class="container">
-					<h2>Erbschaftssteuererklärungen</h2>
-					<div class="content-wrapper">
-						<div class="text-content">
-							<p>Erbschafts- und Schenkungssteuererklärungen erfordern besondere Sorgfalt und Fachkenntnis. Wir unterstützen Sie bei der korrekten Erstellung und helfen dabei, steuerliche Fallstricke zu vermeiden.</p>
-							
-							<p>Dabei arbeiten wir gern auch mit Ihrem Anwalt/Notar zusammen. Mit unserer Hilfe minimieren Sie sowohl die ertragssteuerlichen Folgen als auch Erbschaft- und Schenkungssteuer.</p>
-						</div>
-					</div>
-					
-					<div class="services-details">
-						<h3>Unsere Leistungen bei Erbschaftssteuererklärungen:</h3>
-						<ul>
-							<li>Erstellung von Erbschaftssteuererklärungen</li>
-							<li>Beratung zu Schenkungssteuer</li>
-							<li>Optimierung von Erbschaftsstrukturen</li>
-							<li>Zusammenarbeit mit Notaren und Anwälten</li>
-							<li>Beratung zu steuerlichen Gestaltungsmöglichkeiten</li>
-						</ul>
-					</div>
-					
-					<div class="recommendation">
-						<p><strong>Empfehlung:</strong> Sollten Sie sich dennoch für die selbstständige Erstellung Ihrer Einkommensteuererklärung entscheiden, empfehlen wir Ihnen die Verwendung von Klartax.</p>
-					</div>
-				</div>
-			</section>
 		</main>
 
 		<Footer />
@@ -183,11 +192,8 @@ import Footer from '../components/Footer.astro';
 			}
 
 			/* Full-width sections like homepage */
-			.services-overview,
-			.datev-section,
-			.einkommensteuer-section,
-			.vermoegensplanung-section,
-			.erbschaftssteuer-section {
+			.datev-quote-section,
+			.services-tabs-section {
 				margin: 2.88rem calc(-40vw + 50%) 0 calc(-45vw + 50%);
 				padding: 2.88rem 1.44rem 0 1.44rem;
 				width: 90vw;
@@ -198,32 +204,120 @@ import Footer from '../components/Footer.astro';
 				margin-right: -45vw;
 			}
 
-			/* Services Overview */
-			.services-overview {
-				background: white;
+			/* DATEV and Quote Section */
+			.datev-quote-section {
+				background: var(--light-gray);
 			}
 
-			.services-intro h2 {
+			.datev-quote-wrapper {
+				display: flex;
+				gap: 3rem;
+				align-items: flex-start;
+			}
+
+			.datev-content {
+				flex: 1;
+			}
+
+			.quote-content {
+				flex: 0 0 40%;
+			}
+
+			/* Services Tabs Section */
+			.services-tabs-section {
+				background: var(--light-gray);
+			}
+
+			.services-tabs-section h2 {
 				color: var(--accent);
 				font-size: 2.2rem;
-				margin-bottom: 1rem;
+				margin-bottom: 2rem;
 				font-family: "Merriweather", serif;
 			}
 
-			.services-list {
-				font-size: 1.2rem;
-				list-style: none;
-				padding: 0;
+			.services-tabs {
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 2rem;
+				overflow-x: auto;
+				padding: 1rem 0 1rem 0;
 			}
 
-			.services-list li {
-				padding: 0.5rem 0;
-				border-bottom: 1px solid #e0e0e0;
+			.service-tab {
+				background: var(--light-gray);
+				padding: 1rem;
+				border-radius: 12px;
+				text-align: center;
+				transition: all 0.3s ease;
+				cursor: pointer;
+				border: 2px solid transparent;
+				min-width: 0;
+				flex: 1;
+			}
+
+			.service-tab:hover {
+				transform: translateY(-5px);
+				border-color: var(--accent);
+				border-top: 4px solid var(--accent);
+			}
+
+			.service-tab.active {
+				background: var(--accent);
+				color: white;
+				border-color: var(--accent);
+			}
+
+			.service-tab.active h3,
+			.service-tab.active p {
+				color: white;
+			}
+
+			.service-tab h3 {
+				color: var(--accent);
+				font-size: 0.95rem;
+				margin-bottom: 0.4rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.service-tab p {
 				color: var(--black);
+				line-height: 1.4;
+				margin: 0;
+				font-size: 0.8rem;
 			}
 
-			.services-list li:last-child {
-				border-bottom: none;
+			.service-details-container {
+				margin-top: 2rem;
+			}
+
+			.service-detail {
+				display: none;
+				background: white;
+				padding: 2rem;
+				border-radius: 12px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+
+			.service-detail.active {
+				display: block;
+			}
+
+			.service-detail h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 1.5rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.content-wrapper {
+				margin-bottom: 2rem;
+			}
+
+			.text-content p {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
+				color: var(--black);
 			}
 
 			/* DATEV Section */
@@ -327,6 +421,24 @@ import Footer from '../components/Footer.astro';
 				font-size: 1.1rem;
 			}
 
+			/* Button Styles */
+			.btn-primary {
+				display: inline-block;
+				background: var(--accent);
+				color: white;
+				padding: 1rem 2rem;
+				border-radius: 8px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				margin-top: 1rem;
+			}
+
+			.btn-primary:hover {
+				background: #0056b3;
+				transform: translateY(-2px);
+			}
+
 			/* Responsive Design */
 			@media (max-width: 1024px) and (min-width: 721px) {
 				.hero {
@@ -337,15 +449,32 @@ import Footer from '../components/Footer.astro';
 					font-size: 2.4em;
 				}
 				
-				.services-overview,
-				.datev-section,
-				.einkommensteuer-section,
-				.vermoegensplanung-section,
-				.erbschaftssteuer-section {
+				.datev-quote-section,
+				.services-tabs-section {
 					width: calc(50% + 100px);
 					margin-left: calc(-125px - 50px);
 					margin-right: 0;
 					padding: 0.8rem 0;
+				}
+
+				.datev-quote-wrapper {
+					flex-direction: column;
+					gap: 2rem;
+				}
+
+				.quote-content {
+					flex: 1;
+				}
+
+				.services-tabs {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+				.service-tab {
+					min-width: 0;
+					flex: 1;
+					padding: 0.8rem;
 				}
 			}
 
@@ -366,11 +495,8 @@ import Footer from '../components/Footer.astro';
 					padding: 0 1rem;
 				}
 				
-				.services-overview,
-				.datev-section,
-				.einkommensteuer-section,
-				.vermoegensplanung-section,
-				.erbschaftssteuer-section {
+				.datev-quote-section,
+				.services-tabs-section {
 					width: 100%;
 					margin: 0.8rem 0;
 					padding: 0.8rem 0;
@@ -379,7 +505,63 @@ import Footer from '../components/Footer.astro';
 					margin-left: 0;
 					margin-right: 0;
 				}
+
+				.datev-quote-wrapper {
+					flex-direction: column;
+					gap: 1.5rem;
+				}
+
+				.quote-content {
+					flex: 1;
+				}
+
+				.services-tabs {
+					flex-direction: column;
+					gap: 0.5rem;
+				}
+
+				.service-tab {
+					min-width: auto;
+					width: 100%;
+				}
 			}
 		</style>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', function() {
+				const serviceTabs = document.querySelectorAll('.service-tab');
+				const serviceDetails = document.querySelectorAll('.service-detail');
+
+				// Set first tab as active by default
+				if (serviceTabs.length > 0) {
+					serviceTabs[0].classList.add('active');
+					const firstService = serviceTabs[0].getAttribute('data-service');
+					const firstDetail = document.getElementById(firstService + '-detail');
+					if (firstDetail) {
+						firstDetail.classList.add('active');
+					}
+				}
+
+				serviceTabs.forEach(tab => {
+					tab.addEventListener('click', function() {
+						// Remove active class from all tabs and details
+						serviceTabs.forEach(t => t.classList.remove('active'));
+						serviceDetails.forEach(d => d.classList.remove('active'));
+
+						// Add active class to clicked tab
+						this.classList.add('active');
+
+						// Show corresponding detail
+						const serviceType = this.getAttribute('data-service');
+						const detail = document.getElementById(serviceType + '-detail');
+						if (detail) {
+							detail.classList.add('active');
+						}
+					});
+				});
+			});
+		</script>
+
+		<CookieBanner />
 	</body>
 </html>

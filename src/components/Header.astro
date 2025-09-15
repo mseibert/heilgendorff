@@ -27,7 +27,7 @@ import Logo from '../assets/images/logo.png';
 					<HeaderLink href="/" data-translate="home">Home</HeaderLink>
 					<HeaderLink href="/mandantenbereich" data-translate="clientArea">Mandantenbereich</HeaderLink>
 					<div class="dropdown">
-						<HeaderLink href="/about" data-translate="about">Über Uns <span class="arrow">⌄</span></HeaderLink>
+						<HeaderLink href="/about" data-translate="about">Über Uns <span class="arrow">▼</span></HeaderLink>
 						<div class="dropdown-content">
 							<a href="/meet-the-team" data-translate="meetTheTeam">Meet the Team</a>
 							<a href="/referenzen" data-translate="references">Referenzen</a>
@@ -35,7 +35,7 @@ import Logo from '../assets/images/logo.png';
 						</div>
 					</div>
 					<div class="dropdown">
-						<HeaderLink href="/leistungen" data-translate="services">Leistungen <span class="arrow">⌄</span></HeaderLink>
+						<HeaderLink href="/leistungen" data-translate="services">Leistungen <span class="arrow">▼</span></HeaderLink>
 						<div class="dropdown-content">
 							<a href="/privatpersonen" data-translate="individuals">Privatpersonen</a>
 							<a href="/unternehmer" data-translate="entrepreneurs">Unternehmer</a>
@@ -44,7 +44,7 @@ import Logo from '../assets/images/logo.png';
 					<HeaderLink href="/karriere" data-translate="career">Karriere</HeaderLink>
 					<HeaderLink href="/kontakt" data-translate="contact">Kontakt</HeaderLink>
 					<div class="dropdown">
-						<HeaderLink href="/aktuelles" data-translate="news">Aktuelles <span class="arrow">⌄</span></HeaderLink>
+						<HeaderLink href="/aktuelles" data-translate="news">Aktuelles <span class="arrow">▼</span></HeaderLink>
 						<div class="dropdown-content">
 							<a href="/datev-news" data-translate="datevNews">Datev News</a>
 							<a href="/downloads" data-translate="downloads">Downloads</a>
@@ -52,7 +52,7 @@ import Logo from '../assets/images/logo.png';
 						</div>
 					</div>
 					<div class="phone-number">
-						<a href="tel:+49611391320">+49 (0) 611 391320</a>
+						<a href="tel:+496113913200">+49 (0) 611 3913200</a>
 					</div>
 				</div>
 				<div class="header-right">
@@ -105,7 +105,7 @@ import Logo from '../assets/images/logo.png';
 					
 					<div class="mobile-header-right">
 						<div class="mobile-phone">
-							<a href="tel:+49611391320">+49 (0) 611 391320</a>
+							<a href="tel:+496113913200">+49 (0) 611 3913200</a>
 						</div>
 						<div class="mobile-language-switcher">
 							<button class="lang-button active" data-lang="de">DE</button>
@@ -127,7 +127,7 @@ import Logo from '../assets/images/logo.png';
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 1000;
+		z-index: 10000;
 		width: 100vw;
 		overflow-x: hidden;
 	}
@@ -380,71 +380,32 @@ import Logo from '../assets/images/logo.png';
 		margin-left: 1rem;
 	}
 
+	/* Desktop Dropdown Styles */
 	.dropdown {
 		position: relative;
 		display: inline-block;
 	}
 
-	.dropdown-content {
-		position: absolute;
-		background-color: white;
-		min-width: 200px;
-		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		z-index: 1001;
-		border-radius: 8px;
-		top: 100%;
-		left: 0;
-		margin-top: 0.5rem;
-		border: 1px solid #e0e0e0;
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(-10px);
-		transition: all 0.3s ease;
-		pointer-events: none;
-	}
-
-	.dropdown-content a {
-		color: rgb(var(--gray-dark));
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		font-family: "IBM Plex Sans", sans-serif;
-		border-bottom: 2px solid #e0e0e0;
-		transition: background-color 0.3s ease;
-	}
-
-	.dropdown-content a:last-child {
-		border-bottom: none;
-	}
-
-	.dropdown-content a:hover {
-		background-color: #f8f9fa;
-		color: var(--accent);
-	}
-
-	/* Desktop dropdown hover effect */
-	.dropdown:hover .dropdown-content {
-		opacity: 1 !important;
-		visibility: visible !important;
-		transform: translateY(0) !important;
-		z-index: 1002 !important;
-		pointer-events: auto !important;
-	}
-
-	.dropdown > a {
+	.dropdown a {
 		color: var(--black);
 		text-decoration: none;
 		font-family: "IBM Plex Sans", sans-serif;
 		font-weight: 500;
 		font-size: 1.1rem;
-		transition: color 0.3s ease;
+		transition: all 0.3s ease;
 		padding: 0.7em 0.8em;
 		display: flex;
 		align-items: center;
-		height: 55px;
+		height: 57px;
 		white-space: nowrap;
 		gap: 0.3em;
 		border-bottom: 4px solid transparent;
+	}
+
+	.dropdown:hover a {
+		color: var(--accent);
+		border-bottom-color: var(--accent);
+		font-weight: 700;
 	}
 
 	.arrow {
@@ -452,6 +413,7 @@ import Logo from '../assets/images/logo.png';
 		opacity: 0.7;
 		transition: transform 0.3s ease, opacity 0.3s ease;
 		display: inline-block;
+		margin-left: 0.2em;
 	}
 
 	.dropdown:hover .arrow {
@@ -459,7 +421,67 @@ import Logo from '../assets/images/logo.png';
 		opacity: 1;
 	}
 
-	.dropdown:hover .dropdown > a {
+	.dropdown-content {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: white;
+		min-width: 220px;
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-8px);
+		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		pointer-events: none;
+		z-index: 10001;
+		overflow: hidden;
+		display: block;
+	}
+
+	.dropdown:hover .dropdown-content {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.dropdown-content a {
+		display: block;
+		padding: 14px 20px;
+		color: #374151;
+		text-decoration: none;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-size: 0.95rem;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		border-bottom: 1px solid #f3f4f6;
+		position: relative;
+	}
+
+	.dropdown-content a:last-child {
+		border-bottom: none;
+	}
+
+	.dropdown-content a:hover {
+		background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+		color: var(--accent);
+		padding-left: 24px;
+	}
+
+	.dropdown-content a:hover::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 3px;
+		background: var(--accent);
+	}
+
+	/* Active dropdown state */
+	.dropdown:hover a {
 		color: var(--accent);
 		border-bottom-color: var(--accent);
 		font-weight: 700;
@@ -562,7 +584,7 @@ import Logo from '../assets/images/logo.png';
 			align-items: center;
 		}
 
-		.dropdown > a {
+		.dropdown a {
 			height: 32px;
 			font-size: 0.75rem;
 			padding: 0.3em 0.2em;
@@ -601,11 +623,10 @@ import Logo from '../assets/images/logo.png';
 
 		/* Enable dropdowns in tablet view */
 		.dropdown:hover .dropdown-content {
-			opacity: 1 !important;
-			visibility: visible !important;
-			transform: translateY(0) !important;
-			z-index: 1002 !important;
-			pointer-events: auto !important;
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+			pointer-events: auto;
 		}
 	}
 
@@ -647,9 +668,168 @@ import Logo from '../assets/images/logo.png';
 	}
 </style>
 
-<script src="/src/scripts/language-switcher.js"></script>
 
 <script>
+// Language Switcher Script
+class LanguageSwitcher {
+  constructor() {
+    this.currentLanguage = this.getStoredLanguage() || 'de';
+    this.translations = null;
+    this.init();
+  }
+
+  init() {
+    this.translations = this.loadTranslations();
+    this.setupEventListeners();
+    this.updateLanguage(this.currentLanguage);
+  }
+
+  loadTranslations() {
+    // Use inline translations with all available keys
+    return this.getInlineTranslations();
+  }
+
+  getInlineTranslations() {
+    return {
+      de: {
+        // Navigation
+        home: "Home",
+        clientArea: "Mandantenbereich",
+        about: "Über Uns",
+        meetTheTeam: "Meet the Team",
+        references: "Referenzen",
+        ourTraining: "Unsere Weiterbildungen",
+        services: "Leistungen",
+        individuals: "Privatpersonen",
+        entrepreneurs: "Unternehmer",
+        career: "Karriere",
+        contact: "Kontakt",
+        news: "Aktuelles",
+        datevNews: "Datev News",
+        downloads: "Downloads",
+        taxVideos: "Steuererklärvideos",
+        
+        // Meet The Team translations
+        teamHeroTitle: "Meet The Team",
+        teamHeroSubtitle: "Lernen Sie unser kompetentes Team kennen",
+        teamLeadershipTitle: "Kanzleileitung",
+        teamLeaderName: "Burghard Heilgendorff",
+        teamLeaderTitle: "Diplom-Kaufmann & Steuerberater",
+        teamLeaderRole: "Kanzleiinhaber",
+        teamLeaderDescription1: "Mit über 20 Jahren Erfahrung in der Steuerberatung leitet Burghard Heilgendorff unser Steuerbüro mit Leidenschaft und Kompetenz.",
+        teamLeaderDescription2: "Sein umfassendes Fachwissen und seine persönliche Herangehensweise machen ihn zu einem vertrauensvollen Partner für unsere Mandanten.",
+        teamSectionTitle: "Unsere Steuerberater",
+        teamIntro: "Unser erfahrenes Team aus qualifizierten Steuerberatern steht Ihnen mit Fachkompetenz und Engagement zur Seite.",
+        teamDescription1: "Gemeinsam bilden wir ein starkes Team, das sich durch langjährige Erfahrung und kontinuierliche Weiterbildung auszeichnet.",
+        teamDescription2: "Wir arbeiten Hand in Hand, um für jeden Mandanten die bestmögliche steuerliche Beratung und Betreuung zu gewährleisten.",
+        teamImageTitle: "Unser Team",
+        teamImageSubtitle: "Gemeinsam für Ihren Erfolg",
+      },
+      en: {
+        // Navigation
+        home: "Home",
+        clientArea: "Client Area",
+        about: "About Us",
+        meetTheTeam: "Meet the Team",
+        references: "References",
+        ourTraining: "Our Training",
+        services: "Services",
+        individuals: "Individuals",
+        entrepreneurs: "Entrepreneurs",
+        career: "Career",
+        contact: "Contact",
+        news: "News",
+        datevNews: "Datev News",
+        downloads: "Downloads",
+        taxVideos: "Tax Declaration Videos",
+        
+        // Meet The Team translations
+        teamHeroTitle: "Meet The Team",
+        teamHeroSubtitle: "Get to know our competent team",
+        teamLeadershipTitle: "Office Management",
+        teamLeaderName: "Burghard Heilgendorff",
+        teamLeaderTitle: "Diploma in Business Administration & Tax Advisor",
+        teamLeaderRole: "Office Owner",
+        teamLeaderDescription1: "With over 20 years of experience in tax consulting, Burghard Heilgendorff leads our tax office with passion and competence.",
+        teamLeaderDescription2: "His comprehensive expertise and personal approach make him a trustworthy partner for our clients.",
+        teamSectionTitle: "Our Tax Advisors",
+        teamIntro: "Our experienced team of qualified tax advisors is at your side with expertise and commitment.",
+        teamDescription1: "Together we form a strong team that is characterized by many years of experience and continuous training.",
+        teamDescription2: "We work hand in hand to ensure the best possible tax advice and support for every client.",
+        teamImageTitle: "Our Team",
+        teamImageSubtitle: "Together for Your Success",
+      }
+    };
+  }
+
+  getStoredLanguage() {
+    return localStorage.getItem('preferred-language');
+  }
+
+  setStoredLanguage(language) {
+    localStorage.setItem('preferred-language', language);
+  }
+
+  setupEventListeners() {
+    const deButtons = document.querySelectorAll('[data-lang="de"]');
+    const enButtons = document.querySelectorAll('[data-lang="en"]');
+    
+    deButtons.forEach(button => {
+      button.addEventListener('click', () => this.switchLanguage('de'));
+    });
+    
+    enButtons.forEach(button => {
+      button.addEventListener('click', () => this.switchLanguage('en'));
+    });
+  }
+
+  switchLanguage(language) {
+    this.currentLanguage = language;
+    this.setStoredLanguage(language);
+    this.updateLanguage(language);
+  }
+
+  updateLanguage(language) {
+    if (!this.translations || !this.translations[language]) {
+      console.error('Translations not available for language:', language);
+      return;
+    }
+
+    const elements = document.querySelectorAll('[data-translate]');
+    
+    elements.forEach(element => {
+      const key = element.getAttribute('data-translate');
+      if (this.translations[language][key]) {
+        element.textContent = this.translations[language][key];
+      }
+    });
+
+    // Update active language button
+    this.updateActiveLanguageButton(language);
+  }
+
+  updateActiveLanguageButton(language) {
+    const deButtons = document.querySelectorAll('[data-lang="de"]');
+    const enButtons = document.querySelectorAll('[data-lang="en"]');
+    
+    // Remove active class from all buttons
+    deButtons.forEach(button => button.classList.remove('active'));
+    enButtons.forEach(button => button.classList.remove('active'));
+    
+    // Add active class to the correct buttons
+    if (language === 'de') {
+      deButtons.forEach(button => button.classList.add('active'));
+    } else {
+      enButtons.forEach(button => button.classList.add('active'));
+    }
+  }
+}
+
+// Initialize the language switcher when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  new LanguageSwitcher();
+});
+
 	document.addEventListener('DOMContentLoaded', function() {
 		const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 		const mobileNav = document.getElementById('mobileNav');

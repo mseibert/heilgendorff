@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -27,21 +28,21 @@ import Footer from '../components/Footer.astro';
 					<div class="contact-content">
 						<div class="contact-details">
 							<div class="contact-text">
-								<h2>Steuerbüro Heilgendorff</h2>
+								<h2 data-translate="contactOfficeName">Steuerbüro Heilgendorff</h2>
 								<div class="contact-item">
-									Unter den Eichen 7 (Gebäude F)<br>
-									65195 Wiesbaden<br>
-									Tel.: (+49) 611 – 3913200<br>
-									E-Mail: kanzlei@heilgendorff.de
+									<span data-translate="contactAddress1">Unter den Eichen 7 (Gebäude F)</span><br>
+									<span data-translate="contactAddress2">65195 Wiesbaden</span><br>
+									<span data-translate="contactPhoneLabel">Tel.:</span> <span data-translate="contactPhoneNumber">+49 (0) 611 39 132 00</span><br>
+									<span data-translate="contactEmailLabel">E-Mail:</span> <span data-translate="contactEmailAddress">kontakt@heilgendorff.de</span>
 								</div>
 								
 								<div class="opening-hours">
-									<h3>Zu folgenden <strong>Zeiten</strong> sind wir für Sie verfügbar:</h3>
-									<p><strong>Mo – Do:</strong> 9:00 – 16:00</p>
-									<p><strong>Fr:</strong> 9:00 – 14:00</p>
+									<h3 data-translate="contactOpeningHoursTitle">Zu folgenden <strong>Zeiten</strong> sind wir für Sie verfügbar:</h3>
+									<p><strong data-translate="contactWeekdays">Mo – Do:</strong> <span data-translate="contactWeekdaysHours">9:00 – 16:00</span></p>
+									<p><strong data-translate="contactFriday">Fr:</strong> <span data-translate="contactFridayHours">9:00 – 14:00</span></p>
 								</div>
 								
-								<p class="appointment-note">Besuche in Kanzlei nur mit vorheriger telefonischer Anmeldung.</p>
+								<p class="appointment-note" data-translate="contactAppointmentNote">Besuche in Kanzlei nur mit vorheriger telefonischer Anmeldung.</p>
 							</div>
 							<div class="contact-image">
 								<img src="/IMG_0057-scaled.jpg" alt="Steuerbüro Heilgendorff Kontakt" />
@@ -51,73 +52,101 @@ import Footer from '../components/Footer.astro';
 				</div>
 			</section>
 
-			<!-- Contact Form Section -->
-			<section class="contact-form-section">
+			<!-- Directions Section -->
+			<section class="directions-section">
 				<div class="container">
-					<div class="form-content">
-						<h2>Möchten Sie einen <strong>Termin</strong> mit uns vereinbaren?</h2>
-						<p>Dann nutzen Sie gerne auch unser Anfrageformular. Füllen Sie einfach die verbindlichen Felder aus, und wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
-						<p class="required-note">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
+					<h2 data-translate="contactDirectionsTitle">Anfahrt</h2>
+					<p data-translate="contactDirectionsDescription1">Unser Büro in der Wiesbadener Innenstadt erreichen Sie sowohl mit öffentlichen Verkehrsmitteln als auch mit dem Auto ohne Probleme.</p>
+					<p data-translate="contactDirectionsDescription2">Den genauen Anfahrtsweg beschreiben wir Ihnen hier im Detail.</p>
+					
+					<div class="google-maps-section">
+						<div class="google-maps-widget">
+							<iframe 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.5!2d8.234567!3d50.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd123456789abc%3A0x1234567890abcdef!2sUnter%20den%20Eichen%207%2C%2065195%20Wiesbaden!5e0!3m2!1sde!2sde!4v1234567890123!5m2!1sde!2sde"
+								width="100%" 
+								height="400" 
+								style="border:0;" 
+								allowfullscreen="" 
+								loading="lazy" 
+								referrerpolicy="no-referrer-when-downgrade"
+								title="Steuerbüro Heilgendorff Standort">
+							</iframe>
+						</div>
 						
-						<form class="contact-form">
-							<div class="form-group">
-								<label for="name">Name*</label>
-								<input type="text" id="name" name="name" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="email">E-Mail-Adresse*</label>
-								<input type="email" id="email" name="email" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="phone">Telefonnummer*</label>
-								<input type="tel" id="phone" name="phone" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="message">Nachricht*</label>
-								<textarea id="message" name="message" rows="5" required></textarea>
-							</div>
-							
-							<div class="form-group">
-								<label for="captcha">5 + 11 = *</label>
-								<input type="number" id="captcha" name="captcha" required>
-							</div>
-							
-							<button type="submit" class="submit-btn">Senden</button>
-						</form>
+						<div class="maps-actions">
+							<a href="https://www.google.com/maps/search/Steuerbüro+Heilgendorff+Unter+den+Eichen+7+65195+Wiesbaden" 
+							   target="_blank" 
+							   rel="noopener noreferrer" 
+							   class="google-maps-button"
+							   data-translate="contactMapsButton">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+								</svg>
+								<span data-translate="contactMapsButtonText">In Google Maps öffnen</span>
+							</a>
+						</div>
+					</div>
+					
+					<div class="directions-content">
+						<div class="direction-method">
+							<h3><strong data-translate="contactDirectionsByCar">Mit dem Auto</strong></h3>
+							<ul>
+								<li data-translate="contactDirectionsCar1">In der scharfen Rechts- oder Linkskurve (entsprechend der Anfahrtsrichtung) abbiegen in den Carl-von-Ibell-Weg (ausgeschildert Arbeitsamt).</li>
+								<li data-translate="contactDirectionsCar2">Das erste Gebäude auf der rechten Seite ist Unter den Eichen 7, Gebäude F.</li>
+								<li data-translate="contactDirectionsCar3">Zu den Parkplätzen vor dem Gebäude rechts in die Einfahrt zum Parkplatz.</li>
+								<li data-translate="contactDirectionsCar4">Unsere Parkplätze sind mit „Heilgendorff" beschildert.</li>
+							</ul>
+						</div>
+						
+						<div class="direction-method">
+							<h3><strong data-translate="contactDirectionsByPublicTransport">Mit den öffentlichen Verkehrsmitteln</strong></h3>
+							<ul>
+								<li data-translate="contactDirectionsPublic1">Einsteigen an der Haltestelle „Platz der Deutschen Einheit", Bussteig E in die ESWE-Linie 3 Richtung Nordfriedhof.</li>
+								<li data-translate="contactDirectionsPublic2">Aussteigen an der Haltestelle „Unter den Eichen".</li>
+								<li data-translate="contactDirectionsPublic3">Nach dem Aussteigen auf die andere Straßenseite wechseln und bergab weitergehen in entgegengesetzter Richtung der Busweiterfahrt.</li>
+								<li data-translate="contactDirectionsPublic4">Nach etwa 250 Metern befindet sich das Gebäude „Unter den Eichen 7".</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<!-- Directions Section -->
-			<section class="directions-section">
+			<!-- Contact Form Section -->
+			<section class="contact-form-section">
 				<div class="container">
-					<h2>Anfahrt</h2>
-					<p>Unser Büro in der Wiesbadener Innenstadt erreichen Sie sowohl mit öffentlichen Verkehrsmitteln als auch mit dem Auto ohne Probleme.</p>
-					<p>Den genauen Anfahrtsweg beschreiben wir Ihnen hier im Detail.</p>
-					
-					<div class="directions-content">
-						<div class="direction-method">
-							<h3><strong>Mit dem Auto</strong></h3>
-							<ul>
-								<li>In der scharfen Rechts- oder Linkskurve (entsprechend der Anfahrtsrichtung) abbiegen in den Carl-von-Ibell-Weg (ausgeschildert Arbeitsamt).</li>
-								<li>Das erste Gebäude auf der rechten Seite ist Unter den Eichen 7, Gebäude F.</li>
-								<li>Zu den Parkplätzen vor dem Gebäude rechts in die Einfahrt zum Parkplatz.</li>
-								<li>Unsere Parkplätze sind mit „Heilgendorff" beschildert.</li>
-							</ul>
-						</div>
+					<div class="form-content">
+						<h2 data-translate="contactFormTitle">Möchten Sie einen <strong>Termin</strong> mit uns vereinbaren?</h2>
+						<p data-translate="contactFormDescription">Dann nutzen Sie gerne auch unser Anfrageformular. Füllen Sie einfach die verbindlichen Felder aus, und wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
+						<p class="required-note" data-translate="contactFormRequiredNote">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
 						
-						<div class="direction-method">
-							<h3><strong>Mit den öffentlichen Verkehrsmitteln</strong></h3>
-							<ul>
-								<li>Einsteigen an der Haltestelle „Platz der Deutschen Einheit", Bussteig E in die ESWE-Linie 3 Richtung Nordfriedhof.</li>
-								<li>Aussteigen an der Haltestelle „Unter den Eichen".</li>
-								<li>Nach dem Aussteigen auf die andere Straßenseite wechseln und bergab weitergehen in entgegengesetzter Richtung der Busweiterfahrt.</li>
-								<li>Nach etwa 250 Metern befindet sich das Gebäude „Unter den Eichen 7".</li>
-							</ul>
-						</div>
+						<form class="contact-form">
+							<div class="form-group">
+								<label for="name" data-translate="contactFormName">Name*</label>
+								<input type="text" id="name" name="name" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="email" data-translate="contactFormEmail">E-Mail-Adresse*</label>
+								<input type="email" id="email" name="email" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="phone" data-translate="contactFormPhone">Telefonnummer*</label>
+								<input type="tel" id="phone" name="phone" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="message" data-translate="contactFormMessage">Nachricht*</label>
+								<textarea id="message" name="message" rows="5" required></textarea>
+							</div>
+							
+							<div class="form-group">
+								<label for="captcha" data-translate="contactFormCaptcha">5 + 11 = *</label>
+								<input type="number" id="captcha" name="captcha" required>
+							</div>
+							
+							<button type="submit" class="submit-btn" data-translate="contactFormSubmit">Senden</button>
+						</form>
 					</div>
 				</div>
 			</section>
@@ -263,9 +292,86 @@ import Footer from '../components/Footer.astro';
 				font-weight: 500;
 			}
 
+			/* Google Maps Section */
+			.google-maps-section {
+				margin-top: 2rem;
+				padding: 1.5rem;
+				background: #f8f9fa;
+				border-radius: 12px;
+				border-left: 4px solid var(--accent);
+			}
+
+			.google-maps-section h3 {
+				color: var(--accent);
+				font-size: 1.4rem;
+				margin-bottom: 0.8rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.google-maps-section p {
+				font-size: 1rem;
+				line-height: 1.6;
+				margin-bottom: 1.2rem;
+				color: var(--black);
+			}
+
+			.google-maps-widget {
+				margin: 1.5rem 0;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				border: 2px solid #e5e7eb;
+			}
+
+			.google-maps-widget iframe {
+				width: 100%;
+				height: 400px;
+				border: none;
+				display: block;
+			}
+
+			.maps-actions {
+				text-align: center;
+				margin-top: 1rem;
+			}
+
+			.google-maps-button {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				padding: 0.8rem 1.5rem;
+				border-radius: 8px;
+				font-weight: 500;
+				font-size: 1rem;
+				transition: all 0.3s ease;
+				box-shadow: 0 2px 8px rgba(3, 47, 154, 0.2);
+			}
+
+			.google-maps-button:hover {
+				background: var(--accent-dark);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+				text-decoration: none;
+				color: white;
+			}
+
+			.google-maps-button svg {
+				flex-shrink: 0;
+			}
+
 			/* Contact Form Section */
 			.contact-form-section {
 				background: var(--light-gray);
+				width: 100vw;
+				position: relative;
+				left: 50%;
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				padding: 4rem 0;
 			}
 
 			.form-content h2 {
@@ -294,6 +400,7 @@ import Footer from '../components/Footer.astro';
 				padding: 2rem;
 				border-radius: 12px;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				margin: 0 auto;
 			}
 
 			.form-group {
@@ -309,14 +416,14 @@ import Footer from '../components/Footer.astro';
 
 			.form-group input,
 			.form-group textarea {
-				width: calc(100% - 20px);
-				margin-left: 20px;
+				width: 100%;
 				padding: 0.75rem;
 				border: 2px solid #e0e0e0;
 				border-radius: 8px;
 				font-size: 1rem;
 				font-family: inherit;
 				transition: border-color 0.3s ease;
+				box-sizing: border-box;
 			}
 
 			.form-group input:focus,
@@ -367,6 +474,21 @@ import Footer from '../components/Footer.astro';
 				margin-top: 2rem;
 			}
 
+			.google-maps-section {
+				margin: 2rem 0;
+				padding: 0;
+				background: transparent;
+				border: none;
+			}
+
+			.google-maps-section h3 {
+				display: none;
+			}
+
+			.google-maps-section p {
+				display: none;
+			}
+
 			.direction-method h3 {
 				color: var(--accent);
 				font-size: 1.3rem;
@@ -402,12 +524,21 @@ import Footer from '../components/Footer.astro';
 				}
 				
 				.contact-info-section,
-				.contact-form-section,
 				.directions-section {
 					width: calc(50% + 100px);
 					margin-left: calc(-125px - 10px);
 					margin-right: 0;
 					padding: 0.8rem 0;
+				}
+
+				.contact-form-section {
+					width: 100vw;
+					position: relative;
+					left: 50%;
+					right: 50%;
+					margin-left: -50vw;
+					margin-right: -50vw;
+					padding: 3rem 0;
 				}
 
 
@@ -440,15 +571,22 @@ import Footer from '../components/Footer.astro';
 				}
 				
 				.contact-info-section,
-				.contact-form-section,
 				.directions-section {
 					width: 100%;
 					margin: 0.8rem 0;
 					padding: 0.8rem 0;
 					left: 0;
 					right: 0;
-					margin-left: 0;
-					margin-right: 0;
+				}
+
+				.contact-form-section {
+					width: 100vw;
+					position: relative;
+					left: 50%;
+					right: 50%;
+					margin-left: -50vw;
+					margin-right: -50vw;
+					padding: 2rem 0;
 				}
 
 				.direction-content {
@@ -463,6 +601,8 @@ import Footer from '../components/Footer.astro';
 				
 				.contact-form {
 					padding: 1.5rem;
+					margin: 0 1rem;
+					max-width: calc(100% - 2rem);
 				}
 				
 				.directions-content {
@@ -471,5 +611,7 @@ import Footer from '../components/Footer.astro';
 				}
 			}
 		</style>
+
+		<CookieBanner />
 	</body>
 </html>

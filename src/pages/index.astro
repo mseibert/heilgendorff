@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -47,22 +48,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 			<section class="tabs">
 				<div class="tab">
-					<h2>Digital</h2>
+					<h2 data-translate="digital">Digital</h2>
 					<img src="/Mock-Up-Laptop-und-iPhone-1536x993-1.png" alt="Digital" class="tab-image" />
-					<p>Papierlos glücklich und von überall zu erreichen: Auch von der Ferne aus läuft die Kommunikation mit uns tadellos.</p>
-					<button class="tab-button">Mehr erfahren</button>
+					<p data-translate="digitalText">Papierlos glücklich und von überall zu erreichen: Auch von der Ferne aus läuft die Kommunikation mit uns tadellos.</p>
+					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
 				</div>
 				<div class="tab">
-					<h2>International</h2>
+					<h2 data-translate="international">International</h2>
 					<img src="/IMG_9835-1024x683-1.jpg" alt="International" class="tab-image" />
-					<p>Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen zum In- und Ausland</p>
-					<button class="tab-button">Mehr erfahren</button>
+					<p data-translate="internationalText">Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen zum In- und Ausland</p>
+					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
 				</div>
 				<div class="tab">
-					<h2>Qualifiziert</h2>
+					<h2 data-translate="qualified">Qualifiziert</h2>
 					<img src="/3.4.jpg" alt="Qualifiziert" class="tab-image" />
-					<p>Durch unsere stetige Teilnahme an zahlreichen Fortbildungen sind wir immer auf dem neuesten Stand.</p>
-					<button class="tab-button">Mehr erfahren</button>
+					<p data-translate="qualifiedText">Durch unsere stetige Teilnahme an zahlreichen Fortbildungen sind wir immer auf dem neuesten Stand.</p>
+					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
 				</div>
 			</section>
 
@@ -71,8 +72,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					<div class="unique-left">
 						<h2 data-translate="uniqueTitle">Was uns einzigartig macht</h2>
 						<p data-translate="uniqueText">Mit fachlicher Kompetenz und persönlicher Wertschätzung gehen wir an die Beratung eines jeden unserer Mandanten. Statt Standardmuster zu verwenden, erarbeiten wir maßgeschneiderte Lösungen.</p>
-						<p>Unser Dienstleistungsspektrum ist daher an Ihre individuellen und vielfältigen Anforderungen angepasst. Sie entscheiden, in welcher Funktion wir für Sie tätig werden: Ob als Full-Service-Dienstleister, der Ihren Fall ganzheitlich von Anfang bis Ende betreut. Oder als Teil-Dienstleister, der lediglich spezielle Einzelaufgaben übernimmt.</p>
-						<p>In einem einführenden Beratungsgespräch analysieren wir Ihren Fall gemeinsam und stimmen dann im Sinne einer ergebnisorientierten, vorausschauenden Strategie das Vorgehen ab. Mit unserem Team aus erfahrenen, kompetenten und begeisterten Mitarbeitern begleiten wir Sie langfristig durch alle unternehmerischen, aber auch persönlichen Entwicklungsphasen.</p>
+						<p data-translate="uniqueText2">Unser Dienstleistungsspektrum ist daher an Ihre individuellen und vielfältigen Anforderungen angepasst. Sie entscheiden, in welcher Funktion wir für Sie tätig werden: Ob als Full-Service-Dienstleister, der Ihren Fall ganzheitlich von Anfang bis Ende betreut. Oder als Teil-Dienstleister, der lediglich spezielle Einzelaufgaben übernimmt.</p>
+						<p data-translate="uniqueText3">In einem einführenden Beratungsgespräch analysieren wir Ihren Fall gemeinsam und stimmen dann im Sinne einer ergebnisorientierten, vorausschauenden Strategie das Vorgehen ab. Mit unserem Team aus erfahrenen, kompetenten und begeisterten Mitarbeitern begleiten wir Sie langfristig durch alle unternehmerischen, aber auch persönlichen Entwicklungsphasen.</p>
 					</div>
 					<div class="unique-right">
 						<h2 data-translate="testimonialsTitle">Unsere zufriedenen Mandanten</h2>
@@ -151,7 +152,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		grid-template-columns: 1fr 1fr 1fr;
 		gap: 1.44rem;
 		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
-		padding: 2.88rem 1.44rem 0 1.44rem;
+		padding: 2.88rem 1.44rem 2.88rem 1.44rem;
 		width: 90vw;
 		position: relative;
 		left: 50%;
@@ -160,6 +161,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		margin-right: -45vw;
 		background: #f8f9fa;
 		transform: translateX(-20px);
+		align-items: stretch;
 	}
 
 	.tab {
@@ -167,13 +169,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		background: white;
 		padding: 1.6rem;
 		border-radius: 8px;
-		box-shadow: var(--box-shadow);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		box-shadow: none;
+		border: 1px solid rgba(var(--gray), 15%);
+		transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.tab:hover {
-		transform: translateY(-4px);
+		transform: translateY(-5px);
 		box-shadow: 0 6px 20px rgba(var(--gray), 40%);
+		border: 1px solid rgba(var(--gray), 30%);
 	}
 
 	.tab h2 {
@@ -206,6 +212,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		font-size: 0.9rem;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
+		margin-top: auto;
+		align-self: center;
 	}
 
 	.tab-button:hover {
@@ -742,3 +750,5 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		autoPlayInterval = setInterval(nextTestimonial, 5000);
 	}
 </script>
+
+<CookieBanner />

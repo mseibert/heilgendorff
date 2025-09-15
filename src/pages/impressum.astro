@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 ---
 
 <!DOCTYPE html>
@@ -14,91 +15,91 @@ import Footer from '../components/Footer.astro';
 		<main>
 			<section class="hero">
 				<div class="hero-content">
-					<h1>Impressum</h1>
+					<h1 data-translate="imprintTitle">Impressum</h1>
 				</div>
 			</section>
 
 			<section class="content-section">
 				<div class="container">
-					<h2>Pflichtangaben nach § 5 TMG</h2>
+					<h2 data-translate="imprintLegalTitle">Pflichtangaben nach § 5 TMG</h2>
 					
 					<div class="impressum-content">
 						<div class="impressum-item">
-							<h3>Firma:</h3>
-							<p>Dipl.Kfm. Steuerberater<br>
+							<h3 data-translate="imprintCompany">Firma:</h3>
+							<p data-translate="imprintCompanyName">Dipl.Kfm. Steuerberater<br>
 							Burghard Heilgendorff</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Elektronische Kontaktaufnahme:</h3>
-							<p>E-Mail: kanzlei@heilgendorff.de<br>
+							<h3 data-translate="imprintContact">Elektronische Kontaktaufnahme:</h3>
+							<p data-translate="imprintContactDetails">E-Mail: kanzlei@heilgendorff.de<br>
 							Internet: www.heilgendorff.de</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Adresse:</h3>
-							<p>Unter den Eichen 7 (Gebäude F)<br>
+							<h3 data-translate="imprintAddress">Adresse:</h3>
+							<p data-translate="imprintAddressDetails">Unter den Eichen 7 (Gebäude F)<br>
 							65195 Wiesbaden<br>
 							Telefon: 0611-3913200</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Zuständige Aufsichtsbehörde:</h3>
-							<p>Mitglied der Steuerberaterkammer Hessen in Frankfurt/Main.</p>
+							<h3 data-translate="imprintAuthority">Zuständige Aufsichtsbehörde:</h3>
+							<p data-translate="imprintAuthorityDetails">Mitglied der Steuerberaterkammer Hessen in Frankfurt/Main.</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Gesetzliche Berufsbezeichnung:</h3>
-							<p>Die gesetzliche Berufsbezeichnung Steuerberater wurde in der Bundesrepublik Deutschland im Bundesland Hessen verliehen.</p>
+							<h3 data-translate="imprintProfessionTitle">Gesetzliche Berufsbezeichnung:</h3>
+							<p data-translate="imprintProfessionText">Die gesetzliche Berufsbezeichnung Steuerberater wurde in der Bundesrepublik Deutschland im Bundesland Hessen verliehen.</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Berufsrechtliche Regelungen:</h3>
-							<p>Unsere Tätigkeit beruht auf den berufsrechtlichen Regelungen:</p>
+							<h3 data-translate="imprintRegulationsTitle">Berufsrechtliche Regelungen:</h3>
+							<p data-translate="imprintRegulationsText">Unsere Tätigkeit beruht auf den berufsrechtlichen Regelungen:</p>
 							<ul>
-								<li>Steuerberatungsgesetz</li>
-								<li>Durchführungsverordnung zum Steuerberatungsgesetz</li>
-								<li>Berufsordnung</li>
-								<li>Steuerberatergebührenverordnung</li>
+								<li data-translate="imprintRegulation1">Steuerberatungsgesetz</li>
+								<li data-translate="imprintRegulation2">Durchführungsverordnung zum Steuerberatungsgesetz</li>
+								<li data-translate="imprintRegulation3">Berufsordnung</li>
+								<li data-translate="imprintRegulation4">Steuerberatergebührenverordnung</li>
 							</ul>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Berufshaftpflichtversicherung:</h3>
-							<p>HDI Gerling Firmen und Privat Versicherung AG<br>
+							<h3 data-translate="imprintInsuranceTitle">Berufshaftpflichtversicherung:</h3>
+							<p data-translate="imprintInsuranceText">HDI Gerling Firmen und Privat Versicherung AG<br>
 							Riethorst 2, 30659 Hannover<br>
 							Geltungsbereich: Der Versicherungsschutz bezieht sich nicht auf Haftpflichtansprüche, die vor ausländischen Gerichten geltend gemacht werden.</p>
 						</div>
 
 						<div class="impressum-item">
-							<h3>Verantwortlich für den Inhalt (gem. § 55 Abs. 2 RStV):</h3>
-							<p>Burghard Heilgendorff</p>
+							<h3 data-translate="imprintResponsibleTitle">Verantwortlich für den Inhalt (gem. § 55 Abs. 2 RStV):</h3>
+							<p data-translate="imprintResponsibleText">Burghard Heilgendorff</p>
 						</div>
 					</div>
 
 					<div class="disclaimer-section">
-						<h2>Haftungsausschluss</h2>
+						<h2 data-translate="imprintDisclaimerTitle">Haftungsausschluss</h2>
 						
 						<div class="disclaimer-item">
-							<h3>1. Inhalt der Webpräsentation</h3>
-							<p>Der Betreiber übernimmt keinerlei Gewähr für die Aktualität, Richtigkeit, Vollständigkeit oder Qualität der im Onlineangebot verfügbaren Informationen. Haftungsansprüche gegen den Verfasser, welche sich auf Schäden materieller oder ideeller Art beziehen, die entweder durch die Nutzung oder Nichtnutzung der dargebotenen Inhalte bzw. durch die Nutzung fehlerhafter und unvollständiger Inhalte verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Betreibers kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend und unverbindlich. Der Betreiber behält es sich ausdrücklich vor, einzelne Seiten oder das gesamte Onlineangebot ohne vorhergehende Ankündigung zu verändern, zu ergänzen, zu löschen oder das Angebot auf bestimmte Zeit oder auch endgültig einzustellen.</p>
+							<h3 data-translate="imprintDisclaimer1Title">1. Inhalt der Webpräsentation</h3>
+							<p data-translate="imprintDisclaimer1Text">Der Betreiber übernimmt keinerlei Gewähr für die Aktualität, Richtigkeit, Vollständigkeit oder Qualität der im Onlineangebot verfügbaren Informationen. Haftungsansprüche gegen den Verfasser, welche sich auf Schäden materieller oder ideeller Art beziehen, die entweder durch die Nutzung oder Nichtnutzung der dargebotenen Inhalte bzw. durch die Nutzung fehlerhafter und unvollständiger Inhalte verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Betreibers kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend und unverbindlich. Der Betreiber behält es sich ausdrücklich vor, einzelne Seiten oder das gesamte Onlineangebot ohne vorhergehende Ankündigung zu verändern, zu ergänzen, zu löschen oder das Angebot auf bestimmte Zeit oder auch endgültig einzustellen.</p>
 						</div>
 
 						<div class="disclaimer-item">
-							<h3>2. Verweise und Links</h3>
-							<p>Bei direkten oder indirekten Verweisen auf andere, vor allem fremde Internetseiten, im folgenden auch als „Links" bezeichnet, die außerhalb der Zuständigkeit des Betreibers liegen, würde eine Haftungsverpflichtung ausschließlich nur in dem Fall in Kraft treten, in dem der Betreiber von den Inhalten und Informationen der Seiten Kenntnis hat und es ihm sowohl technisch möglich als auch zumutbar wäre, die Nutzung im Falle gesetzeswidriger Inhalte und Themen zu unterbinden.</p>
-							<p>Der Verfasser erklärt daher ausdrücklich, dass zum Zeitpunkt der Verlinkung die entsprechenden Seiten frei von illegalen und rechtswidrigen Inhalten und Angeboten waren. Der Betreiber hat ebenso keinerlei Einfluss auf die aktuelle und zukünftige Gestaltung und auf die Ausrichtung der Inhalte der verlinkten Seiten. Deshalb distanziert er sich hiermit ausdrücklich von jeglichen Inhalten aller verknüpften Webseiten, die nach der Einrichtung des Links verändert wurden.</p>
+							<h3 data-translate="imprintDisclaimer2Title">2. Verweise und Links</h3>
+							<p data-translate="imprintDisclaimer2Text1">Bei direkten oder indirekten Verweisen auf andere, vor allem fremde Internetseiten, im folgenden auch als „Links" bezeichnet, die außerhalb der Zuständigkeit des Betreibers liegen, würde eine Haftungsverpflichtung ausschließlich nur in dem Fall in Kraft treten, in dem der Betreiber von den Inhalten und Informationen der Seiten Kenntnis hat und es ihm sowohl technisch möglich als auch zumutbar wäre, die Nutzung im Falle gesetzeswidriger Inhalte und Themen zu unterbinden.</p>
+							<p data-translate="imprintDisclaimer2Text2">Der Verfasser erklärt daher ausdrücklich, dass zum Zeitpunkt der Verlinkung die entsprechenden Seiten frei von illegalen und rechtswidrigen Inhalten und Angeboten waren. Der Betreiber hat ebenso keinerlei Einfluss auf die aktuelle und zukünftige Gestaltung und auf die Ausrichtung der Inhalte der verlinkten Seiten. Deshalb distanziert er sich hiermit ausdrücklich von jeglichen Inhalten aller verknüpften Webseiten, die nach der Einrichtung des Links verändert wurden.</p>
 						</div>
 
 						<div class="disclaimer-item">
-							<h3>3. Urheber- und Kennzeichenrecht (Copyright)</h3>
-							<p>Der Herausgeber ist darauf bestrebt, in allen Veröffentlichungen die Urheberrechte der verwendeten Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zu beachten, von ihm selbst angefertigte Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zurückzugreifen.</p>
-							<p>Alle innerhalb des Onlinegebotes genannten und vielleicht durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Das Copyright für veröffentlichte, vom Betreiber selbst angefertigte Objekte bleibt allein beim Betreiber der Seiten.</p>
+							<h3 data-translate="imprintDisclaimer3Title">3. Urheber- und Kennzeichenrecht (Copyright)</h3>
+							<p data-translate="imprintDisclaimer3Text1">Der Herausgeber ist darauf bestrebt, in allen Veröffentlichungen die Urheberrechte der verwendeten Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zu beachten, von ihm selbst angefertigte Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Bildmaterialien, Film- und Videoausschnitte und Texte zurückzugreifen.</p>
+							<p data-translate="imprintDisclaimer3Text2">Alle innerhalb des Onlinegebotes genannten und vielleicht durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Das Copyright für veröffentlichte, vom Betreiber selbst angefertigte Objekte bleibt allein beim Betreiber der Seiten.</p>
 						</div>
 
 						<div class="disclaimer-item">
-							<h3>4. Rechtswirksamkeit dieses Haftungsausschlusses</h3>
-							<p>Dieser Haftungsausschluss ist als Teil des Internetangebotes anzusehen, von welchem aus auf diese Inhalte hier verwiesen wurde. Sofern einzelne Inhalte oder einzelne Formulierungen dieses Textes der aktuellen Rechtslage nicht, nicht mehr oder nicht ausnahmslos entsprechen sollten, bleiben dennoch die übrigen Bereiche des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
+							<h3 data-translate="imprintDisclaimer4Title">4. Rechtswirksamkeit dieses Haftungsausschlusses</h3>
+							<p data-translate="imprintDisclaimer4Text">Dieser Haftungsausschluss ist als Teil des Internetangebotes anzusehen, von welchem aus auf diese Inhalte hier verwiesen wurde. Sofern einzelne Inhalte oder einzelne Formulierungen dieses Textes der aktuellen Rechtslage nicht, nicht mehr oder nicht ausnahmslos entsprechen sollten, bleiben dennoch die übrigen Bereiche des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
 						</div>
 					</div>
 				</div>
@@ -289,5 +290,7 @@ import Footer from '../components/Footer.astro';
 				}
 			}
 		</style>
+
+		<CookieBanner />
 	</body>
 </html>
