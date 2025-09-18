@@ -30,16 +30,13 @@ import CookieBanner from '../components/CookieBanner.astro';
 							<div class="contact-text">
 								<h2 data-translate="contactOfficeName">Steuerbüro Heilgendorff</h2>
 								<div class="contact-item">
-									<span data-translate="contactAddress1">Unter den Eichen 7 (Gebäude F)</span><br>
-									<span data-translate="contactAddress2">65195 Wiesbaden</span><br>
-									<span data-translate="contactPhoneLabel">Tel.:</span> <span data-translate="contactPhoneNumber">+49 (0) 611 39 132 00</span><br>
-									<span data-translate="contactEmailLabel">E-Mail:</span> <span data-translate="contactEmailAddress">kontakt@heilgendorff.de</span>
+									<span data-translate="contactAddress1">Unter den Eichen 7 (Gebäude F)</span> <span data-translate="contactAddress2">65195 Wiesbaden</span> <span data-translate="contactPhoneLabel">Tel.:</span> <span data-translate="contactPhoneNumber">+49 (0) 611 39 132 00</span> <span data-translate="contactEmailLabel">E-Mail:</span> <span data-translate="contactEmailAddress">kontakt@heilgendorff.de</span>
 								</div>
 								
 								<div class="opening-hours">
-									<h3 data-translate="contactOpeningHoursTitle">Zu folgenden <strong>Zeiten</strong> sind wir für Sie verfügbar:</h3>
-									<p><strong data-translate="contactWeekdays">Mo – Do:</strong> <span data-translate="contactWeekdaysHours">9:00 – 16:00</span></p>
-									<p><strong data-translate="contactFriday">Fr:</strong> <span data-translate="contactFridayHours">9:00 – 14:00</span></p>
+										<h3 data-translate="contactOpeningHoursTitle">Zu folgenden Zeiten sind wir für Sie verfügbar:</h3>
+										<p data-translate="contactWeekdays">Mo – Do: <span data-translate="contactWeekdaysHours">9:00 – 16:00</span></p>
+										<p data-translate="contactFriday">Fr: <span data-translate="contactFridayHours">9:00 – 14:00</span></p>
 								</div>
 								
 								<p class="appointment-note" data-translate="contactAppointmentNote">Besuche in Kanzlei nur mit vorheriger telefonischer Anmeldung.</p>
@@ -89,7 +86,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					
 					<div class="directions-content">
 						<div class="direction-method">
-							<h3><strong data-translate="contactDirectionsByCar">Mit dem Auto</strong></h3>
+										<h3 data-translate="contactDirectionsByCar">Mit dem Auto</h3>
 							<ul>
 								<li data-translate="contactDirectionsCar1">In der scharfen Rechts- oder Linkskurve (entsprechend der Anfahrtsrichtung) abbiegen in den Carl-von-Ibell-Weg (ausgeschildert Arbeitsamt).</li>
 								<li data-translate="contactDirectionsCar2">Das erste Gebäude auf der rechten Seite ist Unter den Eichen 7, Gebäude F.</li>
@@ -99,7 +96,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 						</div>
 						
 						<div class="direction-method">
-							<h3><strong data-translate="contactDirectionsByPublicTransport">Mit den öffentlichen Verkehrsmitteln</strong></h3>
+										<h3 data-translate="contactDirectionsByPublicTransport">Mit den öffentlichen Verkehrsmitteln</h3>
 							<ul>
 								<li data-translate="contactDirectionsPublic1">Einsteigen an der Haltestelle „Platz der Deutschen Einheit", Bussteig E in die ESWE-Linie 3 Richtung Nordfriedhof.</li>
 								<li data-translate="contactDirectionsPublic2">Aussteigen an der Haltestelle „Unter den Eichen".</li>
@@ -115,7 +112,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			<section class="contact-form-section">
 				<div class="container">
 					<div class="form-content">
-						<h2 data-translate="contactFormTitle">Möchten Sie einen <strong>Termin</strong> mit uns vereinbaren?</h2>
+										<h2 data-translate="contactFormTitle">Möchten Sie einen Termin mit uns vereinbaren?</h2>
 						<p data-translate="contactFormDescription">Dann nutzen Sie gerne auch unser Anfrageformular. Füllen Sie einfach die verbindlichen Felder aus, und wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
 						<p class="required-note" data-translate="contactFormRequiredNote">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
 						
@@ -197,9 +194,10 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			/* Container */
 			.container {
-				max-width: 1200px;
+				width: 95%;
 				margin: 0 auto;
 				padding: 0 2rem;
+				transform: translateX(-15px);
 			}
 
 			/* Full-width sections like homepage */

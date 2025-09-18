@@ -52,8 +52,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 						<div class="privacy-item">
 							<h3 data-translate="privacySection3Title">3. Hosting</h3>
 							<p data-translate="privacySection3IntroText">Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
-							<p data-translate="privacySection3HetznerText"><strong>Hetzner</strong><br>
-							Anbieter ist die Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen (nachfolgend \"Hetzner\"). Wenn Sie unsere Website besuchen, erfasst Hetzner verschiedene Logfiles inklusive Ihrer IP-Adressen.</p>
+										<p data-translate="privacySection3HetznerText">Hetzner Anbieter ist die Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen (nachfolgend \"Hetzner\"). Wenn Sie unsere Website besuchen, erfasst Hetzner verschiedene Logfiles inklusive Ihrer IP-Adressen.</p>
 							<p data-translate="privacySection3LegalText">Die Verwendung von Hetzner erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
 						</div>
 
@@ -66,11 +65,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 							<h4 data-translate="privacySection4ResponsibleTitle">Hinweis zur verantwortlichen Stelle</h4>
 							<p data-translate="privacySection4ResponsibleText1">Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-							<p data-translate="privacySection4ResponsibleText2">Dipl.Kfm. Steuerberater Burghard Heilgendorff<br>
-							Unter den Eichen 7 (Gebäude F)<br>
-							65195 Wiesbaden<br>
-							Telefon: 0611-3913200<br>
-							E-Mail: kanzlei@heilgendorff.de</p>
+										<p data-translate="privacySection4ResponsibleText2">Dipl.Kfm. Steuerberater Burghard Heilgendorff Unter den Eichen 7 (Gebäude F) 65195 Wiesbaden Telefon: 0611-3913200 E-Mail: kanzlei@heilgendorff.de</p>
 							<p data-translate="privacySection4ResponsibleText3">Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
 
 							<h4 data-translate="privacySection4StorageTitle">Speicherdauer</h4>
@@ -214,9 +209,10 @@ import CookieBanner from '../components/CookieBanner.astro';
 			}
 
 			.container {
-				max-width: 1200px;
+				width: 95%;
 				margin: 0 auto;
 				padding: 0 2rem;
+				transform: translateX(-15px);
 			}
 
 			.content-section h2 {

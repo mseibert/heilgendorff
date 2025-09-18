@@ -52,7 +52,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					
 					<div class="datev-info">
 						<p data-translate="entrepreneursDatevInfo">Haben Sie weitere Fragen zu DATEV Unternehmen Online?</p>
-						<p data-translate="entrepreneursDatevHelpText">Weitere Informationen finden sie hier im <a href="https://help-center.apps.datev.de/products/datev-unternehmen-online" class="datev-link" target="_blank" rel="noopener noreferrer" data-translate="entrepreneursDatevHelpLink">DATEV Hilfecenter</a>.</p>
+						<p><span data-translate="entrepreneursDatevHelpTextBefore">Weitere Informationen finden sie hier im</span> <a href="https://help-center.apps.datev.de/products/datev-unternehmen-online" class="datev-link" target="_blank" rel="noopener noreferrer" data-translate="entrepreneursDatevHelpLink">DATEV Hilfecenter</a><span data-translate="entrepreneursDatevHelpTextAfter">.</span></p>
 					</div>
 				</div>
 			</section>
@@ -63,8 +63,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					<div class="datev-quote-wrapper">
 						<div class="datev-content">
 							<h2>
-								<span data-translate="entrepreneursDatevTitle1">Digitalisierung mit</span><br>
-								<span data-translate="entrepreneursDatevTitle2">DATEV Unternehmen Online</span>
+								<span data-translate="entrepreneursDatevTitle1">Digitalisierung mit</span> <span data-translate="entrepreneursDatevTitle2">DATEV Unternehmen Online</span>
 							</h2>
 							<p data-translate="entrepreneursDatevDescription">Erhalten Sie weitere Veranschaulichungen und Informationen zur DATEV Software.</p>
 							<div class="datev-button">
@@ -117,7 +116,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 								<div class="text-content">
 									<p data-translate="entrepreneursService1DetailText1">Wir haben schon seit mehr als 10 Jahren Erfahrung mit digitaler Buchführung und setzen seit 4 Jahren DATEV Unternehmen online ein.</p>
 									
-									<p data-translate="entrepreneursService1DetailText2">Das Finanzamt verlangt eine sauber gebuchte und zeitnahe Finanzführung. Mittels digitaler Lösungen gestalten wir auch für Sie die Buchführung so unkompliziert wie möglich. Die Zauberworte sind hier der <strong>digitale Belegtransfer</strong> und der <strong>elektronische Abruf von Kontoumsätzen</strong>.</p>
+										<p data-translate="entrepreneursService1DetailText2">Das Finanzamt verlangt eine sauber gebuchte und zeitnahe Finanzführung. Mittels digitaler Lösungen gestalten wir auch für Sie die Buchführung so unkompliziert wie möglich. Die Zauberworte sind hier der digitale Belegtransfer und der elektronische Abruf von Kontoumsätzen.</p>
 									
 									<p data-translate="entrepreneursService1DetailText3">Die Belege können Sie gemütlich bei sich im Unternehmen digital erfassen und dann online direkt an uns übermitteln. Darüber hinaus gibt es die App „DATEV Upload mobil", mit der Sie z.B. Kassenbons o.Ä. direkt mit Ihrem Smartphone noch unterwegs digital erfassen können. Die Belege werden bei Eingang erfasst und müssen nicht mehr aufwendig sortiert werden. Dies bringt eine deutliche Zeitersparnis bei der Vorbereitung der Buchführung mit sich!</p>
 									
@@ -170,7 +169,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 									<li data-translate="entrepreneursService2DetailItem7">Die gewissenhafte Übermittlung der Beitragsnachweise und der Lohnsteuer-Anmeldung</li>
 									<li data-translate="entrepreneursService2DetailItem8">Die Antragstellung auf Lohnfortzahlung im Krankheitsfall und Mutterschaftsgeld</li>
 								</ul>
-								<p><strong data-translate="entrepreneursService2DetailExpert">Unsere Lohnexpertin steht Ihnen jederzeit zur Verfügung.</strong></p>
+										<p data-translate="entrepreneursService2DetailExpert">Unsere Lohnexpertin steht Ihnen jederzeit zur Verfügung.</p>
 							</div>
 						</div>
 
@@ -292,9 +291,10 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			/* Container */
 			.container {
-				max-width: 1200px;
+				width: 95%;
 				margin: 0 auto;
 				padding: 0 2rem;
+				transform: translateX(-15px);
 			}
 
 			/* Full-width sections like homepage */
@@ -395,6 +395,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			.datev-link:hover {
 				text-decoration: underline;
 			}
+
 
 			/* DATEV Section */
 			/* DATEV and Quote Section */

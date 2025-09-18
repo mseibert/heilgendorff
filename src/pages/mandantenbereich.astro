@@ -85,7 +85,14 @@ import CookieBanner from '../components/CookieBanner.astro';
 	}
 
 	.content-section {
-		padding: 4rem 0 0 0;
+		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+		padding: 2.88rem 1.44rem 0 1.44rem;
+		width: 90vw;
+		position: relative;
+		left: calc(50% - 10px);
+		right: 50%;
+		margin-left: calc(-45vw - 10px);
+		margin-right: -45vw;
 		background: white;
 	}
 
@@ -94,13 +101,9 @@ import CookieBanner from '../components/CookieBanner.astro';
 		align-items: flex-start;
 		gap: 3rem;
 		margin-bottom: 2rem;
-		width: 70vw;
-		position: relative;
-		left: calc(50% - 50px);
-		right: 50%;
-		margin-left: calc(-35vw - 50px);
-		margin-right: -35vw;
+		width: 95%;
 		padding: 0 2rem;
+		transform: translateX(-15px);
 	}
 
 	.kanzlei-drive-text {

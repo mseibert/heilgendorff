@@ -13,16 +13,16 @@ import { SITE_TITLE } from '../consts';
 			<p><a href="/cookie-richtlinie" data-translate="cookiePolicy">Cookie-Richtlinie (EU)</a></p>
 		</div>
 		<div class="footer-center">
-			<h4 data-translate="contactInfo">Kontakt</h4>
-			<p data-translate="phone">Telefon: +49 (0) 611 391320</p>
-			<p data-translate="email">E-Mail: kontakt@heilgendorff.de</p>
-			<p data-translate="address">Adresse: Unter den Eichen 7F, 65195 Wiesbaden</p>
+			<h4 data-translate="clientPortals">Portale für Mandanten</h4>
+			<p><a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" target="_blank" rel="noopener noreferrer" data-translate="datevUnternehmenOnline">DATEV Unternehmen Online</a></p>
+			<p><a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" target="_blank" rel="noopener noreferrer" data-translate="datevMeineSteuern">DATEV Meine Steuern</a></p>
+			<p><a href="https://www.smartexperts.de/suche/searchdetail/steuerkanzlei-burghard-heilgendorff/1102161" target="_blank" rel="noopener noreferrer" data-translate="datevSmartExperts">DATEV Smart Experts</a></p>
 		</div>
 		<div class="footer-right">
 			<h4 data-translate="certifications">Zertifizierungen</h4>
 			<div class="logos">
-				<a href="https://www.datev.de" target="_blank" rel="noopener noreferrer">
-					<img src="/DATEV_Label_Digitale_Kanzlei_2024_RGB-1024x970.png" alt="DATEV Digitale Kanzlei 2024" class="logo-img" />
+				<a href="https://www.smartexperts.de/suche/searchdetail/steuerkanzlei-burghard-heilgendorff/1102161" target="_blank" rel="noopener noreferrer">
+					<img src="/DATEV_Label_Digitale_Kanzlei_2025_RGB.png" alt="DATEV Digitale Kanzlei 2025" class="logo-img" />
 				</a>
 				<a href="https://www.datev.de" target="_blank" rel="noopener noreferrer">
 					<img src="/DATEV_Mitglied_A4_RGB_Kachel-300x300.png" alt="DATEV Mitglied" class="logo-img" />
@@ -76,7 +76,7 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	.footer-content {
-		width: 60vw;
+		width: 80vw;
 		margin: auto;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -86,8 +86,12 @@ import { SITE_TITLE } from '../consts';
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: calc(-30vw - 50px);
-		margin-right: calc(-30vw - 100px);
+		margin-left: calc(-40vw - 50px);
+		margin-right: calc(-40vw - 100px);
+	}
+
+	.footer-left {
+		margin-left: 150px;
 	}
 
 	.footer-left h4,
@@ -104,13 +108,15 @@ import { SITE_TITLE } from '../consts';
 		color: rgba(255, 255, 255, 0.9);
 	}
 
-	.footer-left a {
+	.footer-left a,
+	.footer-center a {
 		color: rgba(255, 255, 255, 0.9);
 		text-decoration: none;
 		font-family: "IBM Plex Sans", sans-serif;
 	}
 
-	.footer-left a:hover {
+	.footer-left a:hover,
+	.footer-center a:hover {
 		color: white;
 		text-decoration: underline;
 	}
@@ -144,22 +150,26 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 60vw;
+		width: 80vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
-		margin-left: calc(-30vw - 50px);
-		margin-right: calc(-30vw - 100px);
+		margin-left: calc(-40vw - 50px);
+		margin-right: calc(-40vw - 100px);
 		padding: 0 4rem;
 	}
 
 	.footer-bottom-left {
 		text-align: left;
+		margin-left: 150px;
 	}
 
 
 	.footer-bottom-right {
 		text-align: right;
+		margin-right: 55px;
+		width: fit-content;
+		margin-left: auto;
 	}
 
 	.footer-bottom p {
@@ -206,15 +216,15 @@ import { SITE_TITLE } from '../consts';
 	/* Tablet styles (iPad) */
 	@media (max-width: 1024px) and (min-width: 721px) {
 		.footer-content {
-			width: 56vw;
-			margin-left: -35vw;
-			margin-right: -35vw;
+			width: 75vw;
+			margin-left: -45vw;
+			margin-right: -45vw;
 		}
 
 		.footer-bottom-grid {
-			width: 56vw;
-			margin-left: -35vw;
-			margin-right: -35vw;
+			width: 75vw;
+			margin-left: -45vw;
+			margin-right: -45vw;
 		}
 
 		.footer-left h4,

@@ -14,6 +14,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
+			<!-- Hero Section -->
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="careerHeroTitle">Karriere</h1>
@@ -21,26 +22,53 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				</div>
 			</section>
 
-			<section class="career-intro">
+			<!-- Career Intro Section -->
+			<section class="career-intro-section">
 				<div class="container">
-					<p data-translate="careerIntro">Wir sind eine modern eingerichtete Kanzlei mit 10 Mitarbeitern und beraten Mandanten aus allen Branchen. Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften.</p>
-					
-					<p data-translate="careerIntro2">Dabei nutzen wir die DATEV-Software und modernste Kommunikationsmittel. Da wir große Unterstützer der papierlosen Bürokratie sind, ist bei unseren Mandanten DATEV Unternehmen Online Standard.</p>
-
-					<div class="highlights">
-						<h2 data-translate="careerHighlights">Besondere Schwerpunkte legen wir auf:</h2>
-						<ul>
-							<li data-translate="careerHighlight1">die Weiterbildung unserer Mitarbeiter</li>
-							<li data-translate="careerHighlight2">ein gutes Arbeitsklima</li>
-							<li data-translate="careerHighlight3">die Möglichkeit zur Selbstverwirklichung</li>
-							<li data-translate="careerHighlight4">Aufstiegsmöglichkeiten</li>
-							<li data-translate="careerHighlight5">die Digitalisierung unseres Unternehmens</li>
-						</ul>
+					<div class="intro-content">
+						<div class="intro-text">
+							<p data-translate="careerIntro">Wir sind eine modern eingerichtete Kanzlei mit 10 Mitarbeitern und beraten Mandanten aus allen Branchen. Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften.</p>
+							
+							<p data-translate="careerIntro2">Dabei nutzen wir die DATEV-Software und modernste Kommunikationsmittel. Da wir große Unterstützer der papierlosen Bürokratie sind, ist bei unseren Mandanten DATEV Unternehmen Online Standard.</p>
+						</div>
+						<div class="intro-image">
+							<img src="/IMG_9835-1024x683-1.jpg" alt="Unser Team" />
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="job-openings">
+			<!-- Highlights Section -->
+			<section class="highlights-section">
+				<div class="container">
+					<h2 data-translate="careerHighlights">Besondere Schwerpunkte legen wir auf:</h2>
+					<div class="highlights-grid">
+						<div class="highlight-card">
+							<div class="highlight-icon">📚</div>
+							<h3 data-translate="careerHighlight1">die Weiterbildung unserer Mitarbeiter</h3>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon">😊</div>
+							<h3 data-translate="careerHighlight2">ein gutes Arbeitsklima</h3>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon">🚀</div>
+							<h3 data-translate="careerHighlight3">die Möglichkeit zur Selbstverwirklichung</h3>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon">📈</div>
+							<h3 data-translate="careerHighlight4">Aufstiegsmöglichkeiten</h3>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon">💻</div>
+							<h3 data-translate="careerHighlight5">die Digitalisierung unseres Unternehmens</h3>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Job Openings Section -->
+			<section class="job-openings-section">
 				<div class="container">
 					<h2 data-translate="jobOpenings">Wir stellen ein:</h2>
 					
@@ -52,10 +80,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							</div>
 							<div class="job-content">
 								<div class="job-description">
-									<p><strong data-translate="careerJob1Question1">Sie möchten sich beruflich verändern oder suchen nach neuen Herausforderungen?</strong></p>
+									<p data-translate="careerJob1Question1">Sie möchten sich beruflich verändern oder suchen nach neuen Herausforderungen?</p>
 									<p data-translate="careerJob1Question2">Sie möchten gerne mit den neusten Tools arbeiten oder an Veränderungen mitwirken?</p>
 									<p data-translate="careerJob1Question3">Sie legen Wert auf Nachhaltigkeit?</p>
-									<p><em data-translate="careerJob1Answer">Dann sind Sie bei uns richtig!</em></p>
+										<p data-translate="careerJob1Answer">Dann sind Sie bei uns richtig!</p>
 									
 									<p data-translate="careerJob1Description">Bei uns haben Sie die Chance, sich weiterzubilden und an spannenden aktuellen Themen rund um die Steuerberatung mitzuwirken. Gerne unterstützen wir Sie bei Ihrem Studium oder Ihrer Weiterbildung – sowohl finanziell als auch arbeitszeittechnisch.</p>
 								</div>
@@ -64,7 +92,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 									<div class="job-section">
 										<h4 data-translate="careerJob1OfferTitle">Wir bieten Ihnen</h4>
 										<ul>
-											<li data-translate="careerJob1Offer1">DATEV Digitale Kanzlei 2020-2024</li>
+											<li data-translate="careerJob1Offer1">DATEV Digitale Kanzlei</li>
 											<li data-translate="careerJob1Offer2">Gemischter, interessanter und internationaler Mandantenstamm</li>
 											<li data-translate="careerJob1Offer3">Regelmäßige Fortbildungsmaßnahmen</li>
 											<li data-translate="careerJob1Offer4">Tägliche Blitzmeetings</li>
@@ -113,10 +141,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							</div>
 							<div class="job-content">
 								<div class="job-description">
-									<p><strong data-translate="careerJob2Question1">Sie möchten sich beruflich verändern oder suchen nach neuen Herausforderungen?</strong></p>
+									<p data-translate="careerJob2Question1">Sie möchten sich beruflich verändern oder suchen nach neuen Herausforderungen?</p>
 									<p data-translate="careerJob2Question2">Sie möchten gerne mit den neusten Tools arbeiten oder an Veränderungen mitwirken?</p>
 									<p data-translate="careerJob2Question3">Sie legen Wert auf Nachhaltigkeit?</p>
-									<p><em data-translate="careerJob2Answer">Dann sind Sie bei uns richtig!</em></p>
+										<p data-translate="careerJob2Answer">Dann sind Sie bei uns richtig!</p>
 									
 									<p data-translate="careerJob2Description">Bei uns haben Sie die Chance, sich weiterzubilden und an spannenden aktuellen Themen rund um die Steuerberatung mitzuwirken. Gerne unterstützen wir Sie bei Ihrer Weiterbildung – sowohl finanziell als auch arbeitszeittechnisch.</p>
 								</div>
@@ -125,7 +153,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 									<div class="job-section">
 										<h4 data-translate="careerJob2OfferTitle">Wir bieten Ihnen</h4>
 										<ul>
-											<li data-translate="careerJob2Offer1">DATEV Digitale Kanzlei 2020-2024</li>
+											<li data-translate="careerJob2Offer1">DATEV Digitale Kanzlei</li>
 											<li data-translate="careerJob2Offer2">Gemischter, interessanter und internationaler Mandantenstamm</li>
 											<li data-translate="careerJob2Offer3">Regelmäßige Fortbildungsmaßnahmen</li>
 											<li data-translate="careerJob2Offer4">Tägliche Blitzmeetings</li>
@@ -173,10 +201,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 							</div>
 							<div class="job-content">
 								<div class="job-description">
-									<p><strong data-translate="careerJob3Question1">Sie möchten die ersten praktischen Erfahrungen im Beruf sammeln?</strong></p>
+									<p data-translate="careerJob3Question1">Sie möchten die ersten praktischen Erfahrungen im Beruf sammeln?</p>
 									<p data-translate="careerJob3Question2">Sie möchten gerne mit den neusten Tools arbeiten oder an Veränderungen mitwirken?</p>
 									<p data-translate="careerJob3Question3">Sie legen Wert auf Nachhaltigkeit?</p>
-									<p><em data-translate="careerJob3Answer">Dann sind Sie bei uns richtig!</em></p>
+										<p data-translate="careerJob3Answer">Dann sind Sie bei uns richtig!</p>
 									
 									<p data-translate="careerJob3Description">Bei uns haben Sie die Chance, sich weiterzubilden und an spannenden aktuellen Themen rund um die Steuerberatung mitzuwirken.</p>
 								</div>
@@ -185,7 +213,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 									<div class="job-section">
 										<h4 data-translate="careerJob3OfferTitle">Wir bieten Ihnen</h4>
 										<ul>
-											<li data-translate="careerJob3Offer1">DATEV Digitale Kanzlei 2020-2024</li>
+											<li data-translate="careerJob3Offer1">DATEV Digitale Kanzlei</li>
 											<li data-translate="careerJob3Offer2">Gemischter, interessanter und internationaler Mandantenstamm</li>
 											<li data-translate="careerJob3Offer3">Regelmäßige Fortbildungsmaßnahmen</li>
 											<li data-translate="careerJob3Offer4">Tägliche Blitzmeetings</li>
@@ -229,521 +257,571 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				</div>
 			</section>
 
-			<section class="application-info">
+			<!-- Application Info Section -->
+			<section class="application-info-section">
 				<div class="container">
 					<h2 data-translate="careerApplicationTitle">Ihre Chance! Jetzt bewerben!</h2>
 					<p data-translate="careerApplicationText">Senden Sie uns Ihre vollständigen Bewerbungsunterlagen per E-Mail. Gerne nehmen wir auch Initiativbewerbungen entgegen.</p>
 					<button class="apply-button-general" onclick="applyGeneral()" data-translate="applyNow">Jetzt bewerben</button>
 					<div class="contact-info">
-						<p><strong data-translate="careerApplicationEmail">E-Mail:</strong> <a href="mailto:kontakt@heilgendorff.de">kontakt@heilgendorff.de</a></p>
-						<p><strong data-translate="careerApplicationPhone">Telefon:</strong> <a href="tel:+496113913200">+49 (0) 611 391320</a></p>
+						<p data-translate="careerApplicationEmail">E-Mail: <a href="mailto:kontakt@heilgendorff.de">kontakt@heilgendorff.de</a></p>
+						<p data-translate="careerApplicationPhone">Telefon: <a href="tel:+496113913200">+49 (0) 611 3913200</a></p>
 					</div>
 				</div>
 			</section>
 		</main>
 		<Footer />
+
+		<style>
+			/* Hero Section */
+			.hero {
+				text-align: center;
+				background: white;
+				color: var(--black);
+				width: 100vw;
+				padding: 4rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				left: 50%;
+				transform: translateY(-5px);
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				overflow-x: hidden;
+				margin-top: 0;
+			}
+
+			.hero-content {
+				padding-top: 0;
+			}
+
+			.hero h1 {
+				font-size: 2.8em;
+				margin-bottom: 0.8rem;
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+			}
+
+			.hero-subtitle {
+				font-size: 1.2em;
+				opacity: 0.8;
+				margin: 0;
+				color: var(--black);
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Container */
+			.container {
+				width: 95%;
+				margin: 0 auto;
+				padding: 0 2rem;
+				transform: translateX(-15px);
+			}
+
+			/* Full-width sections like Leistungen page */
+			.career-intro-section,
+			.highlights-section,
+			.job-openings-section,
+			.application-info-section {
+				margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+				padding: 2.88rem 1.44rem 0 1.44rem;
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+			}
+
+			/* Career Intro Section */
+			.career-intro-section {
+				background: white;
+			}
+
+			.intro-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 3rem;
+				align-items: start;
+			}
+
+			.intro-text p {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				margin-bottom: 1.5rem;
+				color: var(--black);
+			}
+
+			.intro-image {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.intro-image img {
+				width: 100%;
+				height: auto;
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			}
+
+			/* Highlights Section */
+			.highlights-section {
+				background: var(--light-gray);
+			}
+
+			.highlights-section h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 2rem;
+				font-family: "Merriweather", serif;
+				text-align: center;
+			}
+
+			.highlights-grid {
+				display: grid;
+				grid-template-columns: repeat(5, 1fr);
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+
+			.highlight-card {
+				background: white;
+				padding: 1.5rem;
+				border-radius: 12px;
+				text-align: center;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.highlight-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.highlight-icon {
+				font-size: 2.5rem;
+				margin-bottom: 0.8rem;
+			}
+
+			.highlight-card h3 {
+				color: var(--accent);
+				font-size: 1rem;
+				margin: 0;
+				font-family: "Merriweather", serif;
+				line-height: 1.3;
+			}
+
+			/* Job Openings Section */
+			.job-openings-section {
+				background: white;
+			}
+
+			.job-openings-section h2 {
+				color: var(--accent);
+				font-size: 2.2rem;
+				margin-bottom: 2rem;
+				font-family: "Merriweather", serif;
+				text-align: center;
+			}
+
+			.job-cards {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2rem;
+				width: 100%;
+			}
+
+			.job-card {
+				background: var(--white);
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				border: 1px solid #e0e0e0;
+				margin-bottom: 2rem;
+				overflow: hidden;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.job-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+			}
+
+			.job-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 2rem;
+				background: var(--white);
+				cursor: pointer;
+				user-select: none;
+				border-bottom: 2px solid var(--accent);
+			}
+
+			.job-header:hover {
+				background: #f8f9fa;
+			}
+
+			.job-header h3 {
+				color: var(--accent);
+				font-size: 1.5rem;
+				margin: 0;
+				flex: 1;
+			}
+
+			.toggle-icon {
+				font-size: 2rem;
+				font-weight: bold;
+				color: var(--accent);
+				transition: transform 0.3s ease;
+				margin-left: 1rem;
+				width: 30px;
+				height: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.job-card.collapsed .toggle-icon {
+				transform: rotate(0deg);
+			}
+
+			.job-card.expanded .toggle-icon {
+				transform: rotate(45deg);
+			}
+
+			.job-content {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+				opacity: 0;
+				padding: 0 2rem;
+			}
+
+			.job-card.expanded .job-content {
+				max-height: 2000px;
+				padding: 2rem;
+				opacity: 1;
+			}
+
+			.job-card.collapsed .job-content {
+				max-height: 0;
+				padding: 0 2rem;
+				opacity: 0;
+			}
+
+			.job-description {
+				margin-bottom: 2rem;
+			}
+
+			.job-description p {
+				margin-bottom: 1rem;
+			}
+
+			.job-details {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 2rem;
+				margin-bottom: 2rem;
+			}
+
+			.job-section h4 {
+				color: var(--accent);
+				font-size: 1.2rem;
+				margin-bottom: 1rem;
+			}
+
+			.job-section ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.job-section li {
+				padding: 0.3rem 0;
+				padding-left: 1.2rem;
+				position: relative;
+				font-size: 0.95rem;
+			}
+
+			.job-section li::before {
+				content: "•";
+				position: absolute;
+				left: 0;
+				color: var(--accent);
+				font-weight: bold;
+			}
+
+			.apply-button {
+				background: var(--accent);
+				color: white !important;
+				border: none;
+				padding: 1rem 2rem;
+				font-size: 1.1rem;
+				font-weight: 600;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				width: 100%;
+				margin-top: 1rem;
+			}
+
+			.apply-button:hover {
+				background: var(--accent-dark);
+				color: white !important;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+			}
+
+			/* Application Info Section */
+			.application-info-section {
+				background: var(--light-gray);
+				text-align: center;
+			}
+
+			.application-info-section h2 {
+				color: var(--accent);
+				font-size: 2rem;
+				margin-bottom: 2rem;
+				font-family: "Merriweather", serif;
+			}
+
+			.application-info-section p {
+				font-size: 1.1rem;
+				margin-bottom: 1rem;
+				max-width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.apply-button-general {
+				background: var(--accent);
+				color: white !important;
+				border: none;
+				padding: 1rem 2rem;
+				font-size: 1.1rem;
+				font-weight: 600;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				margin: 2rem auto;
+				display: block;
+			}
+
+			.apply-button-general:hover {
+				background: var(--accent-dark);
+				color: white !important;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+			}
+
+			.contact-info {
+				margin-top: 2rem;
+				padding: 2rem;
+				background: white;
+				border-radius: 8px;
+				display: inline-block;
+			}
+
+			.contact-info p {
+				margin-bottom: 0.5rem;
+			}
+
+			.contact-info a {
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 600;
+			}
+
+			.contact-info a:hover {
+				text-decoration: underline;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 1024px) and (min-width: 721px) {
+				.hero {
+					padding: 3rem 0;
+				}
+				
+				.hero h1 {
+					font-size: 2.4em;
+				}
+				
+				.career-intro-section,
+				.highlights-section,
+				.job-openings-section,
+				.application-info-section {
+					width: calc(50% + 100px);
+					margin-left: calc(-125px - 50px);
+					margin-right: 0;
+					padding: 0.8rem 0;
+				}
+
+				.intro-content {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				
+				.highlights-grid {
+					grid-template-columns: repeat(3, 1fr);
+				}
+				
+				.job-details {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+			}
+
+			@media (max-width: 720px) {
+				.hero {
+					padding: 2rem 0;
+				}
+				
+				.hero h1 {
+					font-size: 2em;
+				}
+				
+				.hero-subtitle {
+					font-size: 1rem;
+				}
+				
+				.container {
+					padding: 0 1rem;
+				}
+				
+				.career-intro-section,
+				.highlights-section,
+				.job-openings-section,
+				.application-info-section {
+					width: 100%;
+					margin: 0.8rem 0;
+					padding: 0.8rem 0;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+				}
+
+				.intro-content {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+				
+				.highlights-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+				
+				.highlight-card {
+					padding: 1.5rem;
+				}
+				
+				.job-details {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+
+				.job-header h3 {
+					font-size: 1.3rem;
+				}
+
+				.job-openings-section h2 {
+					font-size: 2rem;
+				}
+
+				.application-info-section h2 {
+					font-size: 1.5rem;
+				}
+			}
+		</style>
+
+		<script is:inline>
+			// Warten bis das DOM geladen ist
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOM loaded, setting up job cards');
+				
+				// Alle Job-Cards finden
+				const jobCards = document.querySelectorAll('.job-card');
+				console.log('Found job cards:', jobCards.length);
+				
+				// Jede Card initialisieren
+				jobCards.forEach((card, index) => {
+					console.log(`Initializing card ${index + 1}`);
+					
+					// Card als collapsed markieren
+					card.classList.add('collapsed');
+					
+					// Event Listener für den Header hinzufügen
+					const header = card.querySelector('.job-header');
+					if (header) {
+						header.addEventListener('click', function(e) {
+							e.preventDefault();
+							e.stopPropagation();
+							console.log(`Card ${index + 1} header clicked`);
+							toggleCard(card);
+						});
+					}
+				});
+			});
+
+			function toggleCard(card) {
+				console.log('Toggling card:', card);
+				
+				// Alle anderen Cards schließen
+				const allCards = document.querySelectorAll('.job-card');
+				allCards.forEach(otherCard => {
+					if (otherCard !== card) {
+						otherCard.classList.remove('expanded');
+						otherCard.classList.add('collapsed');
+					}
+				});
+				
+				// Aktuelle Card togglen
+				if (card.classList.contains('collapsed')) {
+					card.classList.remove('collapsed');
+					card.classList.add('expanded');
+					console.log('Card expanded');
+				} else {
+					card.classList.remove('expanded');
+					card.classList.add('collapsed');
+					console.log('Card collapsed');
+				}
+			}
+
+			function applyForJob(button) {
+				console.log('Apply button clicked');
+				
+				// Finde die Job-Card, die den Button enthält
+				const jobCard = button.closest('.job-card');
+				const jobTitle = jobCard.querySelector('.job-header h3').textContent;
+				
+				console.log('Job title found:', jobTitle);
+				
+				// Erstelle den E-Mail-Link mit der Position im Betreff
+				const emailSubject = encodeURIComponent(`Bewerbung für: ${jobTitle}`);
+				const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich für die Position "${jobTitle}" in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
+				const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
+				
+				console.log('Email link:', emailLink);
+				
+				// Öffne den E-Mail-Client
+				window.location.href = emailLink;
+			}
+
+			function applyGeneral() {
+				console.log('General apply button clicked');
+				
+				// Erstelle den E-Mail-Link mit einfachem Betreff
+				const emailSubject = encodeURIComponent('Bewerbung');
+				const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
+				const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
+				
+				console.log('General email link:', emailLink);
+				
+				// Öffne den E-Mail-Client
+				window.location.href = emailLink;
+			}
+		</script>
+
+		<CookieBanner />
 	</body>
 </html>
-
-<script is:inline>
-	// Warten bis das DOM geladen ist
-	document.addEventListener('DOMContentLoaded', function() {
-		console.log('DOM loaded, setting up job cards');
-		
-		// Alle Job-Cards finden
-		const jobCards = document.querySelectorAll('.job-card');
-		console.log('Found job cards:', jobCards.length);
-		
-		// Jede Card initialisieren
-		jobCards.forEach((card, index) => {
-			console.log(`Initializing card ${index + 1}`);
-			
-			// Card als collapsed markieren
-			card.classList.add('collapsed');
-			
-			// Event Listener für den Header hinzufügen
-			const header = card.querySelector('.job-header');
-			if (header) {
-				header.addEventListener('click', function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					console.log(`Card ${index + 1} header clicked`);
-					toggleCard(card);
-				});
-			}
-		});
-	});
-
-	function toggleCard(card) {
-		console.log('Toggling card:', card);
-		
-		// Alle anderen Cards schließen
-		const allCards = document.querySelectorAll('.job-card');
-		allCards.forEach(otherCard => {
-			if (otherCard !== card) {
-				otherCard.classList.remove('expanded');
-				otherCard.classList.add('collapsed');
-			}
-		});
-		
-		// Aktuelle Card togglen
-		if (card.classList.contains('collapsed')) {
-			card.classList.remove('collapsed');
-			card.classList.add('expanded');
-			console.log('Card expanded');
-		} else {
-			card.classList.remove('expanded');
-			card.classList.add('collapsed');
-			console.log('Card collapsed');
-		}
-	}
-
-	function applyForJob(button) {
-		console.log('Apply button clicked');
-		
-		// Finde die Job-Card, die den Button enthält
-		const jobCard = button.closest('.job-card');
-		const jobTitle = jobCard.querySelector('.job-header h3').textContent;
-		
-		console.log('Job title found:', jobTitle);
-		
-		// Erstelle den E-Mail-Link mit der Position im Betreff
-		const emailSubject = encodeURIComponent(`Bewerbung für: ${jobTitle}`);
-		const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich für die Position "${jobTitle}" in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
-		const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
-		
-		console.log('Email link:', emailLink);
-		
-		// Öffne den E-Mail-Client
-		window.location.href = emailLink;
-	}
-
-	function applyGeneral() {
-		console.log('General apply button clicked');
-		
-		// Erstelle den E-Mail-Link mit einfachem Betreff
-		const emailSubject = encodeURIComponent('Bewerbung');
-		const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
-		const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
-		
-		console.log('General email link:', emailLink);
-		
-		// Öffne den E-Mail-Client
-		window.location.href = emailLink;
-	}
-</script>
-
-<style>
-	:root {
-		--accent: #032f9a;
-		--accent-dark: #021f6b;
-		--black: #333;
-		--gray: #666;
-		--light-gray: #f8f9fa;
-		--white: #fff;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	body {
-		font-family: "IBM Plex Sans", sans-serif;
-		line-height: 1.6;
-		color: var(--black);
-		background: var(--white);
-		overflow-x: hidden; /* Verhindert horizontalen Scroll */
-	}
-
-	.container {
-		max-width: 80vw;
-		margin: 0 auto;
-		padding: 0 2rem;
-	}
-
-	/* Hero Section */
-	.hero {
-		text-align: center;
-		background: white;
-		color: var(--black);
-		width: 100vw;
-		padding: 5.9375rem 0; /* 4rem + 95px = 5.9375rem */
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		overflow-x: hidden;
-		margin-top: 0;
-		transform: translateX(396px); /* 396px nach rechts */
-	}
-
-	.hero-content {
-		padding-top: 0;
-	}
-
-	.hero h1 {
-		font-size: 2.8em;
-		margin-bottom: 0.8rem;
-		color: var(--accent);
-		font-family: "Merriweather", serif;
-		transform: translateY(10px); /* 10px nach unten */
-	}
-
-	.hero-subtitle {
-		font-size: 1.2em;
-		opacity: 0.8;
-		margin: 0;
-		color: var(--black);
-		font-family: "IBM Plex Sans", sans-serif;
-	}
-
-	/* Career Intro */
-	.career-intro {
-		padding: 4rem 0;
-		background: var(--light-gray);
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		transform: translateX(396px); /* 396px nach rechts */
-	}
-
-	.career-intro p {
-		font-size: 1.1rem;
-		margin-bottom: 1.5rem;
-		color: var(--black);
-	}
-
-	.highlights {
-		margin-top: 2rem;
-		padding: 2rem;
-		background: var(--light-gray);
-		border-radius: 8px;
-		border-left: 4px solid var(--accent);
-	}
-
-	.highlights h2 {
-		color: var(--accent);
-		font-size: 1.5rem;
-		margin-bottom: 1rem;
-	}
-
-	.highlights ul {
-		list-style: none;
-		padding-left: 0;
-	}
-
-	.highlights li {
-		padding: 0.5rem 0;
-		padding-left: 1.5rem;
-		position: relative;
-	}
-
-	.highlights li::before {
-		content: "✓";
-		position: absolute;
-		left: 0;
-		color: var(--accent);
-		font-weight: bold;
-	}
-
-	/* Job Openings */
-	.job-openings {
-		padding: 4rem 0;
-		background: var(--light-gray);
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		transform: translateX(396px); /* 396px nach rechts */
-	}
-
-	.job-openings h2 {
-		text-align: center;
-		font-size: 2.5rem;
-		color: var(--accent);
-		margin-bottom: 3rem;
-	}
-
-	.job-cards {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 2rem;
-		width: 100%;
-	}
-
-	.job-card {
-		background: var(--white);
-		border-radius: 12px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		border: 1px solid #e0e0e0;
-		margin-bottom: 2rem;
-		overflow: hidden;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-	}
-
-	.job-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-	}
-
-	.job-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 2rem;
-		background: var(--white);
-		cursor: pointer;
-		user-select: none;
-		border-bottom: 2px solid var(--accent);
-	}
-
-	.job-header:hover {
-		background: #f8f9fa;
-	}
-
-	.job-header h3 {
-		color: var(--accent);
-		font-size: 1.5rem;
-		margin: 0;
-		flex: 1;
-	}
-
-	.toggle-icon {
-		font-size: 2rem;
-		font-weight: bold;
-		color: var(--accent);
-		transition: transform 0.3s ease;
-		margin-left: 1rem;
-		width: 30px;
-		height: 30px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.job-card.collapsed .toggle-icon {
-		transform: rotate(0deg);
-	}
-
-	.job-card.expanded .toggle-icon {
-		transform: rotate(45deg);
-	}
-
-	.job-content {
-		max-height: 0;
-		overflow: hidden;
-		transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
-		opacity: 0;
-		padding: 0 2rem;
-	}
-
-	.job-card.expanded .job-content {
-		max-height: 2000px;
-		padding: 2rem;
-		opacity: 1;
-	}
-
-	.job-card.collapsed .job-content {
-		max-height: 0;
-		padding: 0 2rem;
-		opacity: 0;
-	}
-
-	.job-description {
-		margin-bottom: 2rem;
-	}
-
-	.job-description p {
-		margin-bottom: 1rem;
-	}
-
-	.job-details {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	.job-section h4 {
-		color: var(--accent);
-		font-size: 1.2rem;
-		margin-bottom: 1rem;
-	}
-
-	.job-section ul {
-		list-style: none;
-		padding-left: 0;
-	}
-
-	.job-section li {
-		padding: 0.3rem 0;
-		padding-left: 1.2rem;
-		position: relative;
-		font-size: 0.95rem;
-	}
-
-	.job-section li::before {
-		content: "•";
-		position: absolute;
-		left: 0;
-		color: var(--accent);
-		font-weight: bold;
-	}
-
-	.apply-button {
-		background: var(--accent);
-		color: var(--white);
-		border: none;
-		padding: 1rem 2rem;
-		font-size: 1.1rem;
-		font-weight: 600;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		width: 100%;
-		margin-top: 1rem;
-	}
-
-	.apply-button:hover {
-		background: var(--accent-dark);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
-	}
-
-	.apply-button-general {
-		background: var(--accent);
-		color: var(--white);
-		border: none;
-		padding: 1rem 2rem;
-		font-size: 1.1rem;
-		font-weight: 600;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		margin: 2rem auto;
-		display: block;
-	}
-
-	.apply-button-general:hover {
-		background: var(--accent-dark);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
-	}
-
-	/* Application Info */
-	.application-info {
-		padding: 4rem 0;
-		background: var(--white);
-		text-align: center;
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		transform: translateX(396px); /* 396px nach rechts */
-	}
-
-	.application-info h2 {
-		color: var(--accent);
-		font-size: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	.application-info p {
-		font-size: 1.1rem;
-		margin-bottom: 1rem;
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.contact-info {
-		margin-top: 2rem;
-		padding: 2rem;
-		background: var(--light-gray);
-		border-radius: 8px;
-		display: inline-block;
-	}
-
-	.contact-info p {
-		margin-bottom: 0.5rem;
-	}
-
-	.contact-info a {
-		color: var(--accent);
-		text-decoration: none;
-		font-weight: 600;
-	}
-
-	.contact-info a:hover {
-		text-decoration: underline;
-	}
-
-	/* Responsive Design */
-	@media (max-width: 1024px) and (min-width: 721px) {
-		.hero {
-			padding: 4.9375rem 0; /* 3rem + 95px = 4.9375rem */
-		}
-
-		.job-details {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-	}
-
-	@media (max-width: 720px) {
-		.container {
-			padding: 0 1rem;
-		}
-
-		.hero {
-			width: 100vw;
-			max-width: 100vw;
-			overflow-x: hidden;
-			padding: 3.9375rem 0; /* 2rem + 95px = 3.9375rem */
-		}
-
-		.job-card {
-			padding: 1.5rem;
-		}
-
-		.job-card h3 {
-			font-size: 1.3rem;
-		}
-
-		.job-openings h2 {
-			font-size: 2rem;
-		}
-
-		.application-info h2 {
-			font-size: 1.5rem;
-		}
-	}
-</style>
-
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const applyButtons = document.querySelectorAll('.apply-button');
-		
-		applyButtons.forEach(button => {
-			button.addEventListener('click', function() {
-				// E-Mail öffnen
-				window.location.href = 'mailto:kontakt@heilgendorff.de?subject=Bewerbung&body=Sehr geehrte Damen und Herren,%0D%0A%0D%0Ahiermit bewerbe ich mich um eine Stelle in Ihrem Unternehmen.%0D%0A%0D%0AMit freundlichen Grüßen';
-			});
-		});
-	});
-</script>
-
-<CookieBanner />
