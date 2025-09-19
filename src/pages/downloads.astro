@@ -1,0 +1,376 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<BaseHead title="Downloads - Steuerbüro Heilgendorff" description="Alle wichtigen Dokumente und Formulare zum Download. Checklisten, Vollmachten, Anträge und weitere Unterlagen für Ihre Steuerberatung." />
+	</head>
+	<body>
+		<Header />
+		
+		<main>
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="hero-content">
+					<h1 data-translate="downloadsHeroTitle">Downloads</h1>
+					<p class="hero-subtitle" data-translate="downloadsHeroSubtitle">Alle wichtigen Dokumente und Formulare für Ihre Steuerberatung</p>
+				</div>
+			</section>
+
+			<!-- Downloads Content Section -->
+			<section class="content-section">
+				<div class="downloads-intro">
+					<p data-translate="downloadsIntro1">In diesen Menüs stehen alle für Sie relevanten Dokumente zum Download bereit.</p>
+					<p data-translate="downloadsIntro2">Sollten Sie zu den Dokumenten oder darüber hinausgehend weitere Fragen haben, so zögern Sie bitte nicht mit uns in Verbindung zu treten.</p>
+				</div>
+
+				<!-- Downloads Categories -->
+				<div class="downloads-categories">
+					<!-- Neumandanten -->
+					<div class="download-category">
+						<h3 data-translate="downloadsNewClients">Neumandanten</h3>
+						<div class="download-links">
+							<a href="/Checkliste-zur-erstmaligen-Erfassung-1.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsNewClients1">Checkliste zur erstmaligen Erfassung</span>
+							</a>
+							<a href="/Checklist-for-the-initial-recording-of-client-data-private-person.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsNewClients2">Checklist for initial recognition (ENG)</span>
+							</a>
+							<a href="/Vollmacht-in-Steuersachen.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsNewClients3">Vollmacht zur Vertretung in Steuersachen</span>
+							</a>
+							<a href="/Unterlagen-Einkommensteuererklaerung.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsNewClients4">Unterlagen Einkommensteuererklärung</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Grundsteuer -->
+					<div class="download-category">
+						<h3 data-translate="downloadsPropertyTax">Grundsteuer</h3>
+						<div class="download-links">
+							<a href="/Muster-Vollmacht-zur-Abgabe-der-Feststellungserklaerung-zur-Grundsteuer-interaktiv.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPropertyTax1">Vollmacht zur Abgabe der Feststellungserklärung zur Grundsteuer</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Unternehmer -->
+					<div class="download-category">
+						<h3 data-translate="downloadsEntrepreneurs">Unternehmer</h3>
+						<div class="download-links">
+							<a href="/Checkliste-zur-erstmaligen-Erfassung-Jur.-P..pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsEntrepreneurs1">Fragenbogen zur erstmaligen Erfassung juristischer Personen</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Steuern -->
+					<div class="download-category">
+						<h3 data-translate="downloadsTaxes">Steuern</h3>
+						<div class="download-links">
+							<a href="/Unterlagen-Einkommensteuererklaerung-2.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsTaxes1">Erforderliche Unterlagen zur Einkommensteuererklärung</span>
+							</a>
+							<a href="/Gewerbeanmeldung.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsTaxes2">Gewerbeanmeldung</span>
+							</a>
+							<a href="/Gewerbeabmeldung.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsTaxes3">Gewerbeabmeldung</span>
+							</a>
+							<a href="/Gewerbeummeldung.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsTaxes4">Gewerbeummeldung</span>
+							</a>
+							<a href="https://gewerbe.ekom21.de/wiesbaden/emeldung" target="_blank" rel="noopener noreferrer" class="download-link external">
+								<span class="download-icon">🔗</span>
+								<span data-translate="downloadsTaxes5">Online Gewerbeanmeldung der Stadt Wiesbaden</span>
+							</a>
+							<a href="/USt_1_TJ_Antragsformular_deutsch.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsTaxes6">USt 1 TJ Antragsformular</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Finanzbuchhaltung -->
+					<div class="download-category">
+						<h3 data-translate="downloadsAccounting">Finanzbuchhaltung</h3>
+						<div class="download-links">
+							<a href="/Reisekostenabrechnung-2.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsAccounting1">Reisekostenabrechnung als PDF</span>
+							</a>
+							<a href="/Reisekostenabrechnung.lsx" target="_blank" class="download-link">
+								<span class="download-icon">📊</span>
+								<span data-translate="downloadsAccounting2">Reisekostenabrechnung als .xlsx</span>
+							</a>
+							<a href="/Bewirtungsbeleg.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsAccounting3">Vorlage Bewirtungsbelege</span>
+							</a>
+							<a href="/Rechnungskorrektur-2.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsAccounting4">Rechnungskorrektur</span>
+							</a>
+							<a href="https://www.caseware.net/partnerseiten/gobd-zertifizierte-exportschnittstellen-von-kassensystemen/" target="_blank" rel="noopener noreferrer" class="download-link external">
+								<span class="download-icon">🔗</span>
+								<span data-translate="downloadsAccounting5">Liste GoBD-zertifizierter Kassensysteme</span>
+							</a>
+						</div>
+					</div>
+
+					<!-- Lohnbuchhaltung -->
+					<div class="download-category">
+						<h3 data-translate="downloadsPayroll">Lohnbuchhaltung</h3>
+						<div class="download-links">
+							<a href="/Personalfragebogen.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPayroll1">Personalfragebogen</span>
+							</a>
+							<a href="/Personalfragebogen-Minijob.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPayroll2">Personalfragebogen Minijob</span>
+							</a>
+							<a href="/Personalfragebogen-Auszubildende.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPayroll3">Personalfragebogen (Auszubildende)</span>
+							</a>
+							<a href="/Personnel-Questionnaire.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPayroll4">Personnel Questionnaire (ENG)</span>
+							</a>
+							<a href="/Personnel-Questionnaire-Mini-Job.pdf" target="_blank" class="download-link">
+								<span class="download-icon">📄</span>
+								<span data-translate="downloadsPayroll5">Personnel Questionnaire (Minijob) (ENG)</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+		<CookieBanner />
+
+		<style>
+			/* Hero Section */
+			.hero {
+				text-align: center;
+				background: white;
+				color: var(--black);
+				width: 100vw;
+				padding: 4rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				left: 50%;
+				transform: translateY(-5px);
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+				overflow-x: hidden;
+				margin-top: 0;
+			}
+
+			.hero-content {
+				padding-top: 0;
+			}
+
+			.hero h1 {
+				font-size: 2.8em;
+				margin-bottom: 0.8rem;
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+			}
+
+			.hero-subtitle {
+				font-size: 1.2em;
+				opacity: 0.8;
+				margin: 0;
+				color: var(--black);
+				font-family: "IBM Plex Sans", sans-serif;
+			}
+
+			/* Content Section - same as mandantenbereich */
+			.content-section {
+				margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+				padding: 2.88rem 1.44rem 0 1.44rem;
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+				background: white;
+			}
+
+			.downloads-intro {
+				text-align: center;
+				margin-bottom: 4rem;
+				width: 95%;
+				padding: 0 2rem;
+				transform: translateX(-15px);
+			}
+
+			.downloads-intro p {
+				font-size: 1.1rem;
+				line-height: 1.8;
+				color: var(--black);
+				margin-bottom: 1.5rem;
+				max-width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			/* Downloads Categories */
+			.downloads-categories {
+				width: 95%;
+				padding: 0 2rem;
+				transform: translateX(-15px);
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+				gap: 2rem;
+			}
+
+			.download-category {
+				background: #f8f9fa;
+				padding: 2rem;
+				border-radius: 12px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			}
+
+			.download-category h3 {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: var(--accent);
+				margin-bottom: 1.5rem;
+				font-family: "Merriweather", serif;
+				text-align: center;
+				border-bottom: 2px solid var(--accent);
+				padding-bottom: 0.5rem;
+			}
+
+			.download-links {
+				display: flex;
+				flex-direction: column;
+				gap: 0.8rem;
+			}
+
+			.download-link {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				padding: 1rem 1.5rem;
+				background: white;
+				border-radius: 8px;
+				text-decoration: none;
+				color: var(--black);
+				font-family: "IBM Plex Sans", sans-serif;
+				font-size: 0.95rem;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				border-left: 4px solid var(--accent);
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+			}
+
+			.download-link:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				background: #f8f9fa;
+				text-decoration: none;
+				color: var(--accent);
+			}
+
+			.download-link.external:hover {
+				background: #e3f2fd;
+			}
+
+			.download-icon {
+				font-size: 1.2rem;
+				flex-shrink: 0;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.hero h1 {
+					font-size: 2em;
+				}
+
+				.hero-subtitle {
+					font-size: 1em;
+				}
+
+				.downloads-intro,
+				.downloads-categories {
+					width: 100%;
+					padding: 0 1rem;
+					transform: none;
+				}
+
+				.downloads-categories {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+
+				.download-category {
+					padding: 1.5rem;
+				}
+
+				.download-category h3 {
+					font-size: 1.3rem;
+				}
+
+				.download-link {
+					padding: 0.8rem 1rem;
+					font-size: 0.9rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.hero {
+					padding: 3rem 0;
+				}
+
+				.hero h1 {
+					font-size: 2rem;
+				}
+
+				.downloads-intro,
+				.downloads-categories {
+					width: 100%;
+					padding: 0 1rem;
+					transform: none;
+				}
+
+				.download-category {
+					padding: 1rem;
+				}
+
+				.download-category h3 {
+					font-size: 1.2rem;
+				}
+
+				.download-link {
+					padding: 0.7rem 0.8rem;
+					font-size: 0.85rem;
+				}
+			}
+		</style>
+	</body>
+</html>

@@ -1,5 +1,5 @@
-// Translation keys and their corresponding translations
-export const translations = {
+// Global translation system
+const translations = {
   de: {
     // Navigation
     home: "Home",
@@ -55,23 +55,6 @@ export const translations = {
     aboutText3: "Unsere Erfahrung mit unserem branchenübergreifenden Leistungspektrum ermöglicht es uns, schnell und effizient Ihr Anliegen zu bearbeiten.",
     founderTitle: "Burghard Heilgendorff, Kanzleiinhaber",
     founderText: "Die Begleitung eines Unternehmens vom Startup über alle Unternehmensphasen hinweg bietet für mich die größte Herausforderung. Der Mandant wird betreut von der Unternehmensgründung, dem Vermögensaufbau bis zur Altersabsicherung und erbschaftsteuerlichen Gestaltung",
-    
-    // Application form
-    applicationTitle: "Bewerbung",
-    applicationSubtitle: "Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit",
-    applicationFormTitle: "Bewerbungsformular",
-    applicationFormName: "Vor- und Nachname",
-    applicationFormEmail: "E-Mail-Adresse",
-    applicationFormPhone: "Telefonnummer",
-    applicationFormPosition: "Bewerbung für Position",
-    applicationFormPositionPlaceholder: "Bitte wählen Sie eine Position",
-    applicationFormMessage: "Ihre Nachricht / Motivationsschreiben",
-    applicationFormMessagePlaceholder: "Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten...",
-    applicationFormCV: "Lebenslauf (PDF)",
-    applicationFormCVInfo: "Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)",
-    applicationFormAttachments: "Weitere Dokumente (Zeugnisse, Zertifikate, etc.)",
-    applicationFormAttachmentsInfo: "Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)",
-    applicationFormSubmit: "Bewerbung absenden",
   },
   en: {
     // Navigation
@@ -128,55 +111,72 @@ export const translations = {
     aboutText3: "Our experience with our cross-industry range of services enables us to process your concerns quickly and efficiently.",
     founderTitle: "Burghard Heilgendorff, Law Firm Owner",
     founderText: "Accompanying a company from startup through all company phases offers me the greatest challenge. The client is supported from company formation, asset building to retirement security and inheritance tax structuring",
-    
-    // Application form
-    applicationTitle: "Application",
-    applicationSubtitle: "Become part of our team and help shape the future of tax consulting",
-    applicationFormTitle: "Application Form",
-    applicationFormName: "First and Last Name",
-    applicationFormEmail: "Email Address",
-    applicationFormPhone: "Phone Number",
-    applicationFormPosition: "Application for Position",
-    applicationFormPositionPlaceholder: "Please select a position",
-    applicationFormMessage: "Your Message / Cover Letter",
-    applicationFormMessagePlaceholder: "Tell us something about yourself and why you want to work with us...",
-    applicationFormCV: "CV (PDF)",
-    applicationFormCVInfo: "Please upload your CV as a PDF file (max. 10 MB)",
-    applicationFormAttachments: "Additional Documents (Certificates, Diplomas, etc.)",
-    applicationFormAttachmentsInfo: "You can select multiple files (PDF, JPG, PNG, DOCX - max. 10 MB per file)",
-    applicationFormSubmit: "Submit Application",
   }
 };
 
 // Get current language from localStorage or default to German
-export function getCurrentLanguage(): 'de' | 'en' {
-  if (typeof window !== 'undefined') {
-    return (localStorage.getItem('selected-language') as 'de' | 'en') || 'de';
-  }
-  return 'de';
+function getCurrentLanguage() {
+  return localStorage.getItem('selected-language') || 'de';
 }
 
 // Get translation for a key
-export function t(key: string, lang?: 'de' | 'en'): string {
+function t(key, lang) {
   const currentLang = lang || getCurrentLanguage();
-  const translation = translations[currentLang]?.[key as keyof typeof translations['de']];
+  const translation = translations[currentLang]?.[key];
   return translation || key; // Fallback to key if translation not found
 }
 
 // Update all elements with data-translate attributes
-export function updateTranslations(lang: 'de' | 'en' = getCurrentLanguage()): void {
-  if (typeof window === 'undefined') return;
-  
+function updateTranslations(lang = getCurrentLanguage()) {
   const elements = document.querySelectorAll('[data-translate]');
   elements.forEach(element => {
     const key = element.getAttribute('data-translate');
     if (key) {
       const translation = t(key, lang);
       if (element.tagName === 'INPUT' && element.getAttribute('type') === 'text') {
-        (element as HTMLInputElement).placeholder = translation;
+        element.placeholder = translation;
       } else {
         element.textContent = translation;
       }
     }
   });
 }
+
+// Initialize translations when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  const savedLang = getCurrentLanguage();
+  updateTranslations(savedLang);
+  document.documentElement.lang = savedLang;
+  
+  // Set up language switcher
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedLang = this.getAttribute('data-lang');
+      
+      // Remove active class from all buttons
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Store language preference
+      localStorage.setItem('selected-language', selectedLang);
+      
+      // Update all translations on the page
+      updateTranslations(selectedLang);
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = selectedLang;
+      
+      console.log('Language switched to:', selectedLang);
+    });
+  });
+  
+  // Set active language button
+  const activeButton = document.querySelector(`[data-lang="${savedLang}"]`);
+  if (activeButton) {
+    langButtons.forEach(btn => btn.classList.remove('active'));
+    activeButton.classList.add('active');
+  }
+});

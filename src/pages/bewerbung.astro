@@ -1,0 +1,717 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+// Bewerbungsformular-Komponente
+export interface Props {
+  fromMailAddress?: string;
+  replyToAddress?: string;
+  formMailSubject?: string;
+  emailBodyText?: string;
+  customerEmailBodyText?: string;
+}
+
+const {
+  fromMailAddress = 'bewerbung@heilgendorff.de',
+  replyToAddress = 'bewerbung@heilgendorff.de',
+  formMailSubject = 'Bewerbung über Heilgendorff Steuerberatung Website',
+  emailBodyText = 'Diese Bewerbung wurde hier eingereicht: {ReferrerURL}\n\nName: {Name}\nE-Mail: {Email}\nTelefon: {Phone}\nPosition: {Position}\nNachricht: {Message}',
+  customerEmailBodyText = 'Vielen Dank für Ihre Bewerbung bei Heilgendorff Steuerberatung!\n\nIhre Bewerbung wurde erfolgreich übermittelt:\n\nName: {Name}\nE-Mail: {Email}\nTelefon: {Phone}\nPosition: {Position}\nNachricht: {Message}\n\nWir werden Ihre Unterlagen prüfen und uns bei Ihnen melden.\n\nMit freundlichen Grüßen\nIhr Team der Heilgendorff Steuerberatung'
+} = Astro.props;
+
+// Verfügbare Positionen (aus der Karriere-Seite)
+const availablePositions = [
+  'Steuerfachangestellte(r) / Steuerfachwirt(in) / Steuerberaterassistent(in)',
+  'Lohnbuchhalter(in)',
+  'Werkstudent(in) / Praktikum im Fachbereich Steuern/Jura/Finanzen/BWL'
+];
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<BaseHead title="Bewerbung - Heilgendorff Steuerberatung" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<div class="hero-content">
+					<h1 data-translate="applicationTitle">Bewerbung</h1>
+					<p class="hero-subtitle" data-translate="applicationSubtitle">Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit</p>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<div class="application-form-wrapper">
+					<div class="application-form">
+						<h3 data-translate="applicationFormTitle">Bewerbungsformular</h3>
+						
+						<form id="applicationForm" enctype="multipart/form-data">
+							<div class="form-row">
+								<div class="form-group">
+									<label for="name" data-translate="applicationFormName">
+										Vor- und Nachname *
+									</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										required
+										placeholder="Max Mustermann"
+									>
+								</div>
+								
+								<div class="form-group">
+									<label for="email" data-translate="applicationFormEmail">
+										E-Mail-Adresse *
+									</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										required
+										placeholder="max.mustermann@beispiel.de"
+									>
+								</div>
+							</div>
+
+							<div class="form-row">
+								<div class="form-group">
+									<label for="phone" data-translate="applicationFormPhone">
+										Telefonnummer *
+									</label>
+									<input
+										type="tel"
+										id="phone"
+										name="phone"
+										required
+										placeholder="+49 123 456789"
+									>
+								</div>
+								
+								<div class="form-group">
+									<label for="position" data-translate="applicationFormPosition">
+										Bewerbung für Position *
+									</label>
+									<select
+										id="position"
+										name="position"
+										required
+									>
+										<option value="" data-translate="applicationFormPositionPlaceholder">Bitte wählen Sie eine Position</option>
+										{availablePositions.map(position => (
+											<option value={position}>{position}</option>
+										))}
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="message" data-translate="applicationFormMessage">
+									Ihre Nachricht / Motivationsschreiben
+								</label>
+								<textarea
+									id="message"
+									name="message"
+									rows="4"
+									placeholder="Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten..."
+								></textarea>
+							</div>
+							
+							<div class="form-group">
+								<label for="cv" data-translate="applicationFormCV">
+									Lebenslauf (PDF) *
+								</label>
+								<input
+									type="file"
+									id="cv"
+									name="cv"
+									required
+									accept=".pdf"
+								>
+								<p class="file-info" data-translate="applicationFormCVInfo">Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)</p>
+							</div>
+							
+							<div class="form-group">
+								<label for="attachments" data-translate="applicationFormAttachments">
+									Weitere Dokumente (Zeugnisse, Zertifikate, etc.)
+								</label>
+								<input
+									type="file"
+									id="attachments"
+									name="attachments"
+									multiple
+									accept=".pdf,.jpg,.jpeg,.png,.docx"
+								>
+								<p class="file-info" data-translate="applicationFormAttachmentsInfo">Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)</p>
+							</div>
+
+							<button
+								type="submit"
+								id="submitBtn"
+								class="submit-button"
+								data-translate="applicationFormSubmit"
+							>
+								Bewerbung absenden
+							</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		text-align: center;
+		background: white;
+		color: var(--black);
+		width: 100vw;
+		padding: 4rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		left: 50%;
+		transform: translateY(-5px);
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		overflow-x: hidden;
+		margin-top: 0;
+	}
+
+	.hero-content {
+		padding-top: 0;
+	}
+
+	.hero h1 {
+		font-size: 2.8em;
+		margin-bottom: 0.8rem;
+		color: var(--accent);
+		font-family: "Merriweather", serif;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2em;
+		opacity: 0.8;
+		margin: 0;
+		color: var(--black);
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+
+	.content-section {
+		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+		padding: 2.88rem 1.44rem 0 1.44rem;
+		width: 90vw;
+		position: relative;
+		left: calc(50% - 10px);
+		right: 50%;
+		margin-left: calc(-45vw - 10px);
+		margin-right: -45vw;
+		background: white;
+	}
+
+
+	.application-form-wrapper {
+		background: var(--light-gray);
+		padding: 3rem 0;
+		margin: 2rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+		width: 90vw;
+		position: relative;
+		left: calc(50% - 10px);
+		right: 50%;
+		margin-left: calc(-45vw - 10px);
+		margin-right: -45vw;
+	}
+
+	.application-form {
+		max-width: 800px;
+		background: white;
+		padding: 2.5rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		margin: 0 auto;
+	}
+
+	.application-form h3 {
+		color: var(--accent);
+		font-size: 1.8rem;
+		margin-bottom: 2rem;
+		font-family: "Merriweather", serif;
+		text-align: center;
+		border-bottom: 2px solid var(--accent);
+		padding-bottom: 1rem;
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		color: var(--black);
+		font-size: 1rem;
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+
+	.form-group input,
+	.form-group textarea,
+	.form-group select {
+		width: 100%;
+		padding: 0.875rem;
+		border: 2px solid #e0e0e0;
+		border-radius: 8px;
+		font-size: 1rem;
+		font-family: inherit;
+		transition: all 0.3s ease;
+		box-sizing: border-box;
+		background: white;
+	}
+
+	.form-group input:focus,
+	.form-group textarea:focus,
+	.form-group select:focus {
+		outline: none;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 3px rgba(3, 47, 154, 0.1);
+		transform: translateY(-1px);
+	}
+
+	.form-group input:hover,
+	.form-group textarea:hover,
+	.form-group select:hover {
+		border-color: #c0c0c0;
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 100px;
+	}
+
+	.form-group select {
+		cursor: pointer;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+		background-position: right 0.5rem center;
+		background-repeat: no-repeat;
+		background-size: 1.5em 1.5em;
+		padding-right: 2.5rem;
+	}
+
+	.file-upload {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		width: 100%;
+	}
+
+	.file-upload input[type="file"] {
+		position: absolute;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	.file-upload-label {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.875rem;
+		border: 2px dashed #c0c0c0;
+		border-radius: 8px;
+		background: #f9f9f9;
+		transition: all 0.3s ease;
+		font-size: 1rem;
+		color: #666;
+	}
+
+	.file-upload:hover .file-upload-label {
+		border-color: var(--accent);
+		background: #f0f8ff;
+		color: var(--accent);
+	}
+
+
+	.submit-button {
+		width: 100%;
+		background: var(--accent);
+		color: white;
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 8px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 8px rgba(3, 47, 154, 0.2);
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+
+	.submit-button:hover {
+		background: var(--accent-dark);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+	}
+
+	.submit-button:disabled {
+		background: #ccc;
+		cursor: not-allowed;
+		transform: none;
+		box-shadow: none;
+	}
+
+
+	.file-info {
+		font-size: 0.9rem;
+		color: #666;
+		margin-top: 0.5rem;
+		font-style: italic;
+	}
+
+	@media (max-width: 1024px) and (min-width: 721px) {
+		.hero {
+			padding: 3rem 0;
+		}
+		
+		.hero h1 {
+			font-size: 2.4em;
+		}
+		
+		.content-section {
+			width: calc(50% + 100px);
+			margin-left: calc(-125px - 10px);
+			margin-right: 0;
+			padding: 0.8rem 0;
+		}
+
+		.application-form-wrapper {
+			width: 100vw;
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+			padding: 3rem 0;
+		}
+
+		.form-row {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.hero {
+			width: 100vw;
+			max-width: 100vw;
+			overflow-x: hidden;
+			padding: 2rem 0;
+		}
+
+		.hero-content {
+			width: 100%;
+			max-width: 100vw;
+			padding: 0 1rem;
+			box-sizing: border-box;
+		}
+
+		.hero h1 {
+			font-size: 2em;
+		}
+
+		.hero-subtitle {
+			font-size: 1em;
+		}
+
+		.content-container {
+			padding: 0 1rem;
+		}
+
+		.content-section {
+			width: 100%;
+			margin: 0.8rem 0;
+			padding: 0.8rem 0;
+			left: 0;
+			right: 0;
+		}
+
+		.application-form-wrapper {
+			width: 100vw;
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+			padding: 2rem 0;
+		}
+
+		.application-form {
+			padding: 1.5rem;
+			margin: 0 1rem;
+			max-width: calc(100% - 2rem);
+		}
+
+		.form-row {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.application-info h2 {
+			font-size: 1.8em;
+		}
+
+		.application-info p {
+			font-size: 1em;
+		}
+
+		.application-form h3 {
+			font-size: 1.5rem;
+		}
+
+		.submit-button {
+			padding: 0.875rem 1.5rem;
+			font-size: 1rem;
+		}
+	}
+</style>
+
+<script define:vars={{ fromMailAddress, replyToAddress, formMailSubject, emailBodyText, customerEmailBodyText }}>
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.getElementById('applicationForm');
+		const submitBtn = document.getElementById('submitBtn');
+		const attachmentsInput = document.getElementById('attachments');
+
+		function showMessage(message, isSuccess) {
+			// Show alert instead of form messages
+			if (isSuccess) {
+				alert('✅ ' + message);
+			} else {
+				alert('❌ ' + message);
+			}
+		}
+
+		form.addEventListener('submit', async function(e) {
+			e.preventDefault();
+			
+			const formData = new FormData(form);
+			const name = formData.get('name');
+			const email = formData.get('email');
+			const phone = formData.get('phone');
+			const position = formData.get('position');
+			const message = formData.get('message');
+			const cv = formData.get('cv');
+			
+			const files = attachmentsInput && attachmentsInput.files ? Array.from(attachmentsInput.files) : [];
+			const cvFile = cv ? [cv] : [];
+
+			// Validierung: Gesamtgröße <= 10 MB pro Datei, max 5 zusätzliche Dateien
+			const maxFileSize = 10 * 1024 * 1024;
+			const maxAdditionalFiles = 5;
+			const allowedFormats = ['.pdf', '.jpg', '.jpeg', '.png', '.docx'];
+			
+			// CV Validierung
+			if (cvFile.length > 0 && cvFile[0].size > maxFileSize) {
+				showMessage('Die Lebenslauf-Datei überschreitet 10 MB.', false);
+				return;
+			}
+			
+			// Zusätzliche Dateien Validierung
+			if (files.length > maxAdditionalFiles) {
+				showMessage(`Bitte maximal ${maxAdditionalFiles} zusätzliche Dateien auswählen.`, false);
+				return;
+			}
+			
+			for (const file of files) {
+				if (file.size > maxFileSize) {
+					showMessage(`Die Datei "${file.name}" überschreitet 10 MB.`, false);
+					return;
+				}
+				
+				const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+				if (!allowedFormats.includes(fileExtension)) {
+					showMessage(`Das Dateiformat ${fileExtension} ist nicht erlaubt. Erlaubte Formate: PDF, JPG, PNG, DOCX`, false);
+					return;
+				}
+			}
+
+			// Referrer URL ermitteln
+			const referrerURL = document.referrer || window.location.href;
+			
+			// Button deaktivieren und Text ändern
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Wird gesendet...';
+			
+			try {
+				const requestFormData = new FormData();
+				requestFormData.append('name', name);
+				requestFormData.append('email', email);
+				requestFormData.append('phone', phone);
+				requestFormData.append('position', position);
+				requestFormData.append('message', message);
+				requestFormData.append('referrerURL', referrerURL);
+				requestFormData.append('fromMailAddress', fromMailAddress);
+				requestFormData.append('replyToAddress', replyToAddress);
+				requestFormData.append('formMailSubject', formMailSubject);
+				requestFormData.append('emailBodyText', emailBodyText);
+				requestFormData.append('customerEmailBodyText', customerEmailBodyText);
+				
+				// CV hinzufügen
+				if (cvFile.length > 0) {
+					requestFormData.append('cv', cvFile[0], cvFile[0].name);
+				}
+				
+				// Zusätzliche Anhänge hinzufügen
+				files.forEach(file => {
+					requestFormData.append('attachments', file, file.name);
+				});
+
+				// Option 1: API-Endpunkt verwenden
+				const response = await fetch('/api/application', {
+					method: 'POST',
+					body: requestFormData
+				});
+				
+				const result = await response.json();
+				
+				if (result.success) {
+					showMessage(result.message, true);
+					form.reset();
+				} else {
+					showMessage(result.message, false);
+				}
+				
+				// Option 2: Direkte E-Mail-Weiterleitung (auskommentiert)
+				/*
+				const emailSubject = encodeURIComponent(`Bewerbung von ${name} - ${position}`);
+				const emailBody = encodeURIComponent(`
+Name: ${name}
+E-Mail: ${email}
+Telefon: ${phone}
+Position: ${position}
+
+Nachricht:
+${message}
+
+Bitte beachten Sie, dass Anhänge über das Formular nicht per E-Mail übertragen werden können.
+				`);
+				window.location.href = `mailto:bewerbung@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
+				*/
+			} catch (error) {
+				showMessage('Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut.', false);
+			} finally {
+				// Button wieder aktivieren
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Bewerbung absenden';
+			}
+		});
+
+		// Form validation and submission handling
+	});
+</script>
+
+<script>
+	// Translation function
+	function updateTranslations() {
+		const currentLang = localStorage.getItem('selected-language') || 'de';
+		console.log('Updating translations for language:', currentLang);
+		
+		const translations = {
+			de: {
+				applicationTitle: "Bewerbung",
+				applicationSubtitle: "Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit",
+				applicationFormTitle: "Bewerbungsformular",
+				applicationFormName: "Vor- und Nachname",
+				applicationFormEmail: "E-Mail-Adresse",
+				applicationFormPhone: "Telefonnummer",
+				applicationFormPosition: "Bewerbung für Position",
+				applicationFormPositionPlaceholder: "Bitte wählen Sie eine Position",
+				applicationFormMessage: "Ihre Nachricht / Motivationsschreiben",
+				applicationFormMessagePlaceholder: "Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten...",
+				applicationFormCV: "Lebenslauf (PDF)",
+				applicationFormCVInfo: "Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)",
+				applicationFormAttachments: "Weitere Dokumente (Zeugnisse, Zertifikate, etc.)",
+				applicationFormAttachmentsInfo: "Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)",
+				applicationFormSubmit: "Bewerbung absenden"
+			},
+			en: {
+				applicationTitle: "Application",
+				applicationSubtitle: "Become part of our team and help shape the future of tax consulting",
+				applicationFormTitle: "Application Form",
+				applicationFormName: "First and Last Name",
+				applicationFormEmail: "Email Address",
+				applicationFormPhone: "Phone Number",
+				applicationFormPosition: "Application for Position",
+				applicationFormPositionPlaceholder: "Please select a position",
+				applicationFormMessage: "Your Message / Cover Letter",
+				applicationFormMessagePlaceholder: "Tell us something about yourself and why you want to work with us...",
+				applicationFormCV: "CV (PDF)",
+				applicationFormCVInfo: "Please upload your CV as a PDF file (max. 10 MB)",
+				applicationFormAttachments: "Additional Documents (Certificates, Diplomas, etc.)",
+				applicationFormAttachmentsInfo: "You can select multiple files (PDF, JPG, PNG, DOCX - max. 10 MB per file)",
+				applicationFormSubmit: "Submit Application"
+			}
+		};
+		
+		const elements = document.querySelectorAll('[data-translate]');
+		elements.forEach(element => {
+			const key = element.getAttribute('data-translate');
+			if (key && translations[currentLang] && translations[currentLang][key]) {
+				const translation = translations[currentLang][key];
+				if (element.tagName === 'INPUT') {
+					element.placeholder = translation;
+				} else if (element.tagName === 'TEXTAREA') {
+					element.placeholder = translation;
+				} else if (element.tagName === 'OPTION') {
+					element.textContent = translation;
+				} else {
+					element.textContent = translation;
+				}
+			}
+		});
+
+		// Also update specific placeholders that don't have data-translate attributes
+		const textarea = document.querySelector('textarea#message');
+		if (textarea && translations[currentLang]) {
+			textarea.placeholder = translations[currentLang].applicationFormMessagePlaceholder;
+		}
+	}
+
+	// Update translations when page loads
+	document.addEventListener('DOMContentLoaded', function() {
+		updateTranslations();
+	});
+
+	// Listen for language changes
+	window.addEventListener('storage', function(e) {
+		if (e.key === 'selected-language') {
+			updateTranslations();
+		}
+	});
+
+	// Also listen for custom language change events
+	window.addEventListener('languageChanged', function() {
+		updateTranslations();
+	});
+
+	// Make updateTranslations available globally for testing
+	window.updateTranslations = updateTranslations;
+</script>
+
+<CookieBanner />

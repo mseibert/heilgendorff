@@ -29,14 +29,24 @@ import CookieBanner from '../components/CookieBanner.astro';
 						<div class="contact-details">
 							<div class="contact-text">
 								<h2 data-translate="contactOfficeName">Steuerbüro Heilgendorff</h2>
+								
 								<div class="contact-item">
-									<span data-translate="contactAddress1">Unter den Eichen 7 (Gebäude F)</span> <span data-translate="contactAddress2">65195 Wiesbaden</span> <span data-translate="contactPhoneLabel">Tel.:</span> <span data-translate="contactPhoneNumber">+49 (0) 611 39 132 00</span> <span data-translate="contactEmailLabel">E-Mail:</span> <span data-translate="contactEmailAddress">kontakt@heilgendorff.de</span>
+									<div class="address">
+										<div data-translate="contactAddress1">Unter den Eichen 7 (Gebäude F)</div>
+										<div data-translate="contactAddress2">65195 Wiesbaden</div>
+									</div>
+									<div class="phone">
+										<span data-translate="contactPhoneLabel">Tel.:</span> <span data-translate="contactPhoneNumber">+49 (0) 611 39 132 00</span>
+									</div>
+									<div class="email">
+										<span data-translate="contactEmailLabel">E-Mail:</span> <span data-translate="contactEmailAddress">kontakt@heilgendorff.de</span>
+									</div>
 								</div>
 								
 								<div class="opening-hours">
-										<h3 data-translate="contactOpeningHoursTitle">Zu folgenden Zeiten sind wir für Sie verfügbar:</h3>
-										<p data-translate="contactWeekdays">Mo – Do: <span data-translate="contactWeekdaysHours">9:00 – 16:00</span></p>
-										<p data-translate="contactFriday">Fr: <span data-translate="contactFridayHours">9:00 – 14:00</span></p>
+									<h3 data-translate="contactOpeningHoursTitle">Zu folgenden Zeiten sind wir für Sie verfügbar:</h3>
+									<p><span data-translate="contactWeekdays">Mo – Do:</span> <span data-translate="contactWeekdaysHours">9:00 – 16:00</span></p>
+									<p><span data-translate="contactFriday">Fr:</span> <span data-translate="contactFridayHours">9:00 – 14:00</span></p>
 								</div>
 								
 								<p class="appointment-note" data-translate="contactAppointmentNote">Besuche in Kanzlei nur mit vorheriger telefonischer Anmeldung.</p>
@@ -252,6 +262,22 @@ import CookieBanner from '../components/CookieBanner.astro';
 				line-height: 1.8;
 				margin-bottom: 2rem;
 				color: var(--black);
+			}
+
+			.address {
+				margin-bottom: 1rem;
+			}
+
+			.address div {
+				margin-bottom: 0.2rem;
+			}
+
+			.phone {
+				margin-bottom: 1rem;
+			}
+
+			.email {
+				margin-bottom: 1rem;
 			}
 
 			.opening-hours {

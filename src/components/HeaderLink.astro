@@ -14,7 +14,19 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 </a>
 <style>
 	a {
-		display: inline-block;
+		display: flex !important;
+		align-items: center !important;
 		text-decoration: none;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.2;
+		transition: all 0.3s ease;
+		color: var(--accent);
+		height: 70px !important;
+		padding: 0.8rem 0.8rem !important;
+		margin: 0 !important;
+		vertical-align: top !important;
+		box-sizing: border-box !important;
 	}
 </style>
