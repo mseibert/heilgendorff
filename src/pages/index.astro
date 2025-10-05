@@ -51,19 +51,19 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					<h2 data-translate="digital">Digital</h2>
 					<img src="/Mock-Up-Laptop-und-iPhone-1536x993-1.png" alt="Digital" class="tab-image" />
 					<p data-translate="digitalText">Papierlos glücklich und von überall zu erreichen: Auch von der Ferne aus läuft die Kommunikation mit uns tadellos.</p>
-					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
+					<a href="/leistungen" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
 				</div>
 				<div class="tab">
 					<h2 data-translate="international">International</h2>
 					<img src="/IMG_9835-1024x683-1.jpg" alt="International" class="tab-image" />
 					<p data-translate="internationalText">Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen zum In- und Ausland</p>
-					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
+					<a href="/about" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
 				</div>
 				<div class="tab">
 					<h2 data-translate="qualified">Qualifiziert</h2>
 					<img src="/3.4.jpg" alt="Qualifiziert" class="tab-image" />
 					<p data-translate="qualifiedText">Durch unsere stetige Teilnahme an zahlreichen Fortbildungen sind wir immer auf dem neuesten Stand.</p>
-					<button class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</button>
+					<a href="/unsere-weiterbildungen" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
 				</div>
 			</section>
 
@@ -214,10 +214,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		transition: background-color 0.3s ease;
 		margin-top: auto;
 		align-self: center;
+		text-decoration: none;
+		display: inline-block;
 	}
 
 	.tab-button:hover {
 		background: var(--accent-dark);
+		text-decoration: none;
 	}
 
 	.info-sections {

@@ -40,6 +40,58 @@ import CookieBanner from '../components/CookieBanner.astro';
 					</div>
 				</div>
 			</section>
+
+			<!-- Unternehmen Online Section -->
+			<section class="content-section">
+				<div class="unternehmen-online-section">
+					<div class="unternehmen-online-text">
+						<h2>DATEV Unternehmen Online</h2>
+						<p>Das digitale Zeitalter ist da – mit all seinen Herausforderungen, aber auch seinen Vorzügen. Wir wollen, dass auch Sie davon profitieren.</p>
+						
+						<p>Unternehmen online schafft individuelle Möglichkeiten der Zusammenarbeit zwischen Ihnen und dem Steuerbüro Heilgendorff über die DATEV-Cloud – sowohl für die Finanzbuchführung als auch die Lohnabrechnung.</p>
+						
+						<p>Wirken Sie bei Ihrer Finanzbuchführung mit! Sie können jederzeit auf Ihre Daten zugreifen und Belege hochladen und sind dadurch so nah am Geschehen wie noch nie.</p>
+						
+						<div class="cta-box">
+							<p>Über den folgenden Link gelangen Sie direkt zur Anmeldung:</p>
+							<a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" target="_blank" rel="noopener noreferrer" class="cta-button">
+								<span>👉 DATEV Unternehmen Online Login</span>
+							</a>
+						</div>
+						
+						<p>Mit DATEV Unternehmen Online haben Sie jederzeit Zugriff auf Ihre Unternehmensdaten – schnell, geschützt und zuverlässig.</p>
+					</div>
+					<div class="unternehmen-online-image">
+						<img src="/mandantenauswertungen_drucken_und_verwalten_1.png" alt="DATEV Unternehmen Online" />
+					</div>
+				</div>
+			</section>
+
+			<!-- Meine Steuern Section -->
+			<section class="content-section">
+				<div class="meine-steuern-section">
+					<div class="meine-steuern-text">
+						<h2>DATEV Meine Steuern</h2>
+						<p>Klicken Sie hier, um mehr über "DATEV Meine Steuern" zu erfahren.</p>
+						
+						<p>Zum Login für "DATEV Meine Steuern" gelangen Sie hier.</p>
+						
+						<p>Die Einreichung der Belege wird im Zuge der Digitalisierung zunehmend vereinfacht: So arbeiten wir im Steuerbüro Heilgendorff mit dem Programm "DATEV Meine Steuern", durch welches Sie die Möglichkeit erhalten, Ihre steuerrelevanten Unterlagen schnell und einfach an uns weiterzuleiten.</p>
+						
+						<div class="cta-box">
+							<p>Über den folgenden Link gelangen Sie direkt zur Anmeldung:</p>
+							<a href="https://login.datev.de/openid/authorize?state=MjAyMTdjMmItNmNiMy00YjcyLTkyODItN2ZjNDg1ZjllODJkOys0REtKZStPTDdwTHJITXdXVTlrdnRzSXlJNFhTd0E5dTNhZkhRUndRV2M9&nonce=da2b9dcc-4b72-4283-b37c-7fc485f9ed86&redirect_uri=https://webapps.datev.de/login&code_challenge=UyGNdRwcwdzkdTFKZ1jXyvMeOq1bBOIrMCh6UE-bm3Y&code_challenge_method=S256&client_id=0000fa81-3dfc-4e88-9052-96eb5257eaef&response_type=code%20id_token&response_mode=form_post&scope=openid%20profile%20email%20extended_profile" target="_blank" rel="noopener noreferrer" class="cta-button">
+								<span>👉 DATEV Meine Steuern Login</span>
+							</a>
+						</div>
+						
+						<p>Mit DATEV Meine Steuern haben Sie jederzeit Zugriff auf Ihre Steuerdaten – schnell, geschützt und zuverlässig.</p>
+					</div>
+					<div class="meine-steuern-image">
+						<img src="/meine-steuern-svg.svg" alt="DATEV Meine Steuern" />
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
@@ -125,7 +177,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 	.kanzlei-drive-text h2 {
 		font-size: 2.2em;
 		margin-bottom: 1.5rem;
-		color: var(--accent);
+		color: #1976D2; /* Kanzlei Drive Blau */
 		font-family: "Merriweather", serif;
 	}
 
@@ -146,6 +198,17 @@ import CookieBanner from '../components/CookieBanner.astro';
 		border-left: 4px solid var(--accent);
 	}
 
+	/* Kanzlei Drive CTA Box */
+	.kanzlei-drive-section .cta-box {
+		border-left: 4px solid #1976D2; /* Kanzlei Drive Blau */
+	}
+
+	/* DATEV CTA Boxes */
+	.unternehmen-online-section .cta-box,
+	.meine-steuern-section .cta-box {
+		border-left: 4px solid #4CAF50; /* DATEV Quadrat Grün */
+	}
+
 	.cta-button {
 		display: inline-block;
 		background: var(--accent);
@@ -164,6 +227,109 @@ import CookieBanner from '../components/CookieBanner.astro';
 		text-decoration: none;
 	}
 
+	/* Kanzlei Drive Button */
+	.kanzlei-drive-section .cta-button {
+		background: #1976D2; /* Kanzlei Drive Blau */
+	}
+
+	.kanzlei-drive-section .cta-button:hover {
+		background: #1565C0; /* Dunkleres Blau für Hover */
+	}
+
+	/* DATEV Buttons */
+	.unternehmen-online-section .cta-button,
+	.meine-steuern-section .cta-button {
+		background: #4CAF50; /* DATEV Quadrat Grün */
+	}
+
+	.unternehmen-online-section .cta-button:hover,
+	.meine-steuern-section .cta-button:hover {
+		background: #45A049; /* Dunkleres Grün für Hover */
+	}
+
+	/* Unternehmen Online Section */
+	.unternehmen-online-section {
+		display: flex;
+		align-items: flex-start;
+		gap: 3rem;
+		margin-bottom: 2rem;
+		width: 95%;
+		padding: 0 2rem;
+		transform: translateX(-15px);
+	}
+
+	.unternehmen-online-text {
+		flex: 0 0 50%;
+	}
+
+	.unternehmen-online-image {
+		flex: 0 0 50%;
+		margin-top: 1rem;
+	}
+
+	.unternehmen-online-image img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.unternehmen-online-text h2 {
+		font-size: 2.2em;
+		margin-bottom: 1.5rem;
+		color: #4CAF50; /* DATEV Quadrat Grün */
+		font-family: "Merriweather", serif;
+	}
+
+	.unternehmen-online-text p {
+		font-size: 1.1em;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		color: var(--black);
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+
+	/* Meine Steuern Section */
+	.meine-steuern-section {
+		display: flex;
+		align-items: flex-start;
+		gap: 3rem;
+		margin-bottom: 2rem;
+		width: 95%;
+		padding: 0 2rem;
+		transform: translateX(-15px);
+	}
+
+	.meine-steuern-text {
+		flex: 0 0 50%;
+	}
+
+	.meine-steuern-image {
+		flex: 0 0 50%;
+		margin-top: 1rem;
+	}
+
+	.meine-steuern-image img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.meine-steuern-text h2 {
+		font-size: 2.2em;
+		margin-bottom: 1.5rem;
+		color: #4CAF50; /* DATEV Quadrat Grün */
+		font-family: "Merriweather", serif;
+	}
+
+	.meine-steuern-text p {
+		font-size: 1.1em;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		color: var(--black);
+		font-family: "IBM Plex Sans", sans-serif;
+	}
 
 	.progress-container {
 		width: 100%;
@@ -199,13 +365,17 @@ import CookieBanner from '../components/CookieBanner.astro';
 			box-sizing: border-box;
 		}
 
-		.kanzlei-drive-section {
+		.kanzlei-drive-section,
+		.unternehmen-online-section,
+		.meine-steuern-section {
 			flex-direction: column;
 			gap: 2rem;
 			text-align: left;
 		}
 
-		.kanzlei-drive-image {
+		.kanzlei-drive-image,
+		.unternehmen-online-image,
+		.meine-steuern-image {
 			flex: 0 0 250px;
 			margin-top: 0;
 		}
