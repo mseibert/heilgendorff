@@ -165,6 +165,9 @@ import { SITE_TITLE } from '../consts';
 				/* Scale to maintain the exact same crop area */
 				transform: scale(1.8);
 				transform-origin: center;
+				/* Prevent image from changing crop when window is resized */
+				min-width: 100%;
+				min-height: 100%;
 			}
 
 			.advisors-card {
@@ -196,6 +199,9 @@ import { SITE_TITLE } from '../consts';
 				/* Scale to maintain the exact same crop area - 25% rausgezoomt */
 				transform: scale(1.1);
 				transform-origin: center;
+				/* Prevent image from changing crop when window is resized */
+				min-width: 100%;
+				min-height: 100%;
 			}
 
 			/* Full Width Team Image Section */
@@ -323,6 +329,33 @@ import { SITE_TITLE } from '../consts';
 			}
 
 			/* Responsive Design */
+			/* Laptop 13" - Fixed image crops that don't change with window resize */
+			@media (min-width: 1024px) and (max-width: 1440px) {
+				.leadership-image,
+				.advisors-image {
+					height: 300px !important;
+					overflow: hidden !important;
+				}
+
+				.leadership-image img {
+					object-position: -50px -55px !important;
+					transform: scale(1.8) !important;
+					transform-origin: center !important;
+					width: 100% !important;
+					height: 100% !important;
+					object-fit: cover !important;
+				}
+
+				.advisors-image img {
+					object-position: center -120px !important;
+					transform: scale(1.1) !important;
+					transform-origin: center !important;
+					width: 100% !important;
+					height: 100% !important;
+					object-fit: cover !important;
+				}
+			}
+
 			@media (max-width: 1024px) and (min-width: 721px) {
 				.team-leadership-section {
 					width: calc(50% + 100px);
