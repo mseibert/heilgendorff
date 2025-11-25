@@ -28,8 +28,7 @@ import { SITE_TITLE } from '../consts';
 					<div class="leadership-advisors-grid">
 						<!-- Left: Burghard Heilgendorff -->
 						<div class="leadership-card">
-							<div class="leadership-image">
-								<img src="/DJI_20220227_173057_505-2.png" alt="Burghard Heilgendorff" />
+							<div class="leadership-image" role="img" aria-label="Burghard Heilgendorff">
 							</div>
 							<div class="leadership-content">
 								<h3 data-translate="teamLeaderName">Burghard Heilgendorff</h3>
@@ -44,8 +43,7 @@ import { SITE_TITLE } from '../consts';
 
 						<!-- Right: Unsere Steuerberater -->
 						<div class="advisors-card">
-							<div class="advisors-image">
-								<img src="/IMG_1802-scaled.jpg" alt="Unsere Steuerberater" />
+							<div class="advisors-image" role="img" aria-label="Unsere Steuerberater">
 							</div>
 							<div class="advisors-content">
 								<h3 data-translate="teamSectionTitle">Unsere Steuerberater</h3>
@@ -144,6 +142,7 @@ import { SITE_TITLE } from '../consts';
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 				display: flex;
 				flex-direction: column;
+				width: 100%;
 			}
 
 			.leadership-image {
@@ -152,22 +151,13 @@ import { SITE_TITLE } from '../consts';
 				overflow: hidden;
 				border-radius: 8px;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-				height: 300px;
 				position: relative;
-			}
-
-			.leadership-image img {
 				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				/* Fixed pixel positioning - always show the same crop regardless of screen size */
-				object-position: -50px -55px;
-				/* Scale to maintain the exact same crop area */
-				transform: scale(1.8);
-				transform-origin: center;
-				/* Prevent image from changing crop when window is resized */
-				min-width: 100%;
-				min-height: 100%;
+				aspect-ratio: 16 / 9;
+				background-image: url('/DJI_20220227_173057_505-2.png');
+				background-size: 180%;
+				background-position: 68% 45%;
+				background-repeat: no-repeat;
 			}
 
 			.advisors-card {
@@ -178,6 +168,7 @@ import { SITE_TITLE } from '../consts';
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 				display: flex;
 				flex-direction: column;
+				width: 100%;
 			}
 
 			.advisors-image {
@@ -186,22 +177,13 @@ import { SITE_TITLE } from '../consts';
 				overflow: hidden;
 				border-radius: 8px;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-				height: 300px;
 				position: relative;
-			}
-
-			.advisors-image img {
 				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				/* Fixed pixel positioning - always show the same crop regardless of screen size */
-				object-position: center -120px;
-				/* Scale to maintain the exact same crop area - 25% rausgezoomt */
-				transform: scale(1.1);
-				transform-origin: center;
-				/* Prevent image from changing crop when window is resized */
-				min-width: 100%;
-				min-height: 100%;
+				aspect-ratio: 16 / 9;
+				background-image: url('/IMG_1802-scaled.jpg');
+				background-size: 100%;
+				background-position: 50% 30%;
+				background-repeat: no-repeat;
 			}
 
 			/* Full Width Team Image Section */
@@ -267,7 +249,8 @@ import { SITE_TITLE } from '../consts';
 				padding: 2.88rem 1.44rem 0 1.44rem;
 				width: 90vw;
 				position: relative;
-				left: calc(50% - 380px);
+				left: 50%;
+				transform: translateX(-50%);
 				background: white;
 			}
 
@@ -331,54 +314,80 @@ import { SITE_TITLE } from '../consts';
 			/* Responsive Design */
 			/* Laptop 13" - Fixed image crops that don't change with window resize */
 			@media (min-width: 1024px) and (max-width: 1440px) {
+				.leadership-advisors-grid {
+					gap: 3rem;
+				}
+
 				.leadership-image,
 				.advisors-image {
-					height: 300px !important;
 					overflow: hidden !important;
 				}
 
-				.leadership-image img {
-					object-position: -50px -55px !important;
-					transform: scale(1.8) !important;
-					transform-origin: center !important;
-					width: 100% !important;
-					height: 100% !important;
-					object-fit: cover !important;
+				.leadership-image {
+					aspect-ratio: 16 / 9 !important;
+					background-size: 180% !important;
+					background-position: 68% 45% !important;
 				}
 
-				.advisors-image img {
-					object-position: center -120px !important;
-					transform: scale(1.1) !important;
-					transform-origin: center !important;
-					width: 100% !important;
-					height: 100% !important;
-					object-fit: cover !important;
+				.advisors-image {
+					aspect-ratio: 16 / 9 !important;
+					background-size: 100% !important;
+					background-position: 50% 30% !important;
 				}
 			}
 
-			@media (max-width: 1024px) and (min-width: 721px) {
+			/* Large Desktop - Full width utilization */
+			@media (min-width: 1441px) {
+				.leadership-advisors-grid {
+					gap: 4rem;
+				}
+			}
+
+			@media (min-width: 721px) {
+				.container {
+					width: 95%;
+					margin: 0 auto;
+					padding: 0 2rem;
+					transform: translateX(-15px);
+					box-sizing: border-box;
+				}
+
 				.team-leadership-section {
-					width: calc(50% + 100px);
-					margin-left: calc(-125px - 430px);
-					margin-right: 0;
-					padding: 0.8rem 0;
+					margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+					padding: 2.88rem 1.44rem 0 1.44rem;
+					width: 90vw;
+					position: relative;
+					left: 50%;
+					transform: translateX(-50%);
+					background: white;
+					box-sizing: border-box;
 				}
 
 				.leadership-advisors-grid {
 					grid-template-columns: 1fr 1fr;
-					gap: 2rem;
+					gap: 3rem;
+					width: 100%;
+					margin: 0;
+					box-sizing: border-box;
 				}
 
+				.leadership-card,
+				.advisors-card {
+					width: 100%;
+					box-sizing: border-box;
+				}
 
 				/* Maintain consistent image crops on tablets - same pixel positioning */
-				.leadership-image img {
-					object-position: -50px -70px;
-					transform: scale(1.8);
+				.leadership-image {
+					aspect-ratio: 16 / 9;
+					background-size: 180%;
+					background-position: 68% 45%;
 				}
 
-				.advisors-image img {
-					object-position: center -120px;
-					transform: scale(1.1);
+				.advisors-image {
+					aspect-ratio: 16 / 9;
+					background-size: 100%;
+					background-position: 50% 30%;
 				}
 			}
 
@@ -404,40 +413,67 @@ import { SITE_TITLE } from '../consts';
 					font-size: 1.1em;
 				}
 
+				.container {
+					width: 100%;
+					max-width: 100%;
+					margin: 0 auto;
+					padding: 0 1rem;
+					transform: none;
+					box-sizing: border-box;
+				}
+
 				.team-leadership-section {
 					width: 100%;
-					margin: 0.8rem 0;
-					padding: 0.8rem 0;
-					left: 0;
-					right: 0;
-					margin-left: 0;
+					max-width: 100%;
+					margin: 0.8rem auto;
+					padding: 0.8rem 1rem;
+					left: auto;
+					right: auto;
+					margin-left: auto;
+					margin-right: auto;
+					transform: none;
+					position: relative;
+					box-sizing: border-box;
 				}
 
 				.leadership-advisors-grid {
 					grid-template-columns: 1fr;
 					gap: 2rem;
+					width: 100%;
+					max-width: 100%;
+					margin: 0 auto;
+					box-sizing: border-box;
 				}
 
-				.leadership-image,
+				.leadership-image {
+					aspect-ratio: 16 / 9;
+				}
+				
 				.advisors-image {
-					height: 250px;
+					aspect-ratio: 16 / 9;
 				}
 
 
 				.leadership-card,
 				.advisors-card {
 					padding: 1.5rem;
+					width: 100%;
+					max-width: 100%;
+					margin: 0 auto;
+					box-sizing: border-box;
 				}
 
 				/* Maintain consistent image crops on mobile - same pixel positioning */
-				.leadership-image img {
-					object-position: -50px -70px;
-					transform: scale(1.8);
+				.leadership-image {
+					aspect-ratio: 16 / 9;
+					background-size: 180%;
+					background-position: 68% 45%;
 				}
 
-				.advisors-image img {
-					object-position: center -120px;
-					transform: scale(1.1);
+				.advisors-image {
+					aspect-ratio: 16 / 9;
+					background-size: 100%;
+					background-position: 50% 30%;
 				}
 
 				.team-image-container img {

@@ -159,6 +159,7 @@ import Logo from '../assets/images/logo.png';
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		z-index: 1000;
 		width: 100%;
+		height: 70px;
 	}
 
 	.navbar {
@@ -250,77 +251,20 @@ import Logo from '../assets/images/logo.png';
 		display: flex;
 		align-items: center;
 		height: 70px;
-	}
-
-	.nav-link {
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
-		padding: 0.8rem 0.8rem;
-		color: var(--accent);
-		text-decoration: none;
-		font-family: "IBM Plex Sans", sans-serif;
-		font-size: 1rem;
-		font-weight: 500;
-		transition: all 0.3s ease;
-		border-bottom: 3px solid transparent;
-		white-space: nowrap;
-		line-height: 1.2;
-		height: 70px;
 		margin: 0;
-		vertical-align: top;
+		padding: 0;
 	}
 
-	.nav-link:hover {
-		color: var(--accent);
-		border-bottom-color: var(--accent);
-		font-weight: 600;
-	}
-
-	/* Vereinheitliche alle Navigation Links */
-	nav a {
-		font-family: "IBM Plex Sans", sans-serif !important;
-		font-size: 1rem !important;
-		font-weight: 500 !important;
-		line-height: 1.2 !important;
-		text-decoration: none;
-		transition: all 0.3s ease;
-		color: var(--accent) !important;
-		display: flex;
-		align-items: center;
-		height: 70px;
-		padding: 0.8rem 0.8rem;
-	}
-	
-	nav a:hover {
-		color: var(--accent) !important;
-		border-bottom-color: var(--accent) !important;
-		font-weight: 600 !important;
-	}
-
-	/* Spezifische Ausrichtung für alle Links in nav-items */
-	.nav-item a {
+	/* Alle Navigation Links - exakt gleiche Höhe und Ausrichtung */
+	.nav-item > a,
+	.nav-item > HeaderLink,
+	.nav-link {
 		display: flex !important;
 		align-items: center !important;
+		justify-content: center !important;
 		height: 70px !important;
-		padding: 0.8rem 0.8rem !important;
+		padding: 0 0.8rem !important;
 		margin: 0 !important;
-		vertical-align: top !important;
-		position: relative !important;
-		top: 0 !important;
-	}
-
-	/* Alle Navigation Links auf exakt gleicher Höhe */
-	.nav-menu a,
-	.nav-menu .nav-link {
-		display: flex !important;
-		align-items: center !important;
-		height: 70px !important;
-		padding: 0.8rem 0.8rem !important;
-		margin: 0 !important;
-		vertical-align: top !important;
-		position: relative !important;
-		top: 0 !important;
 		box-sizing: border-box !important;
 		font-family: "IBM Plex Sans", sans-serif !important;
 		font-size: 1rem !important;
@@ -329,6 +273,32 @@ import Logo from '../assets/images/logo.png';
 		text-decoration: none !important;
 		transition: all 0.3s ease !important;
 		color: var(--accent) !important;
+		border-bottom: 3px solid transparent !important;
+		white-space: nowrap !important;
+		vertical-align: middle !important;
+		position: relative !important;
+		top: 0 !important;
+	}
+
+	.nav-link {
+		gap: 0.3rem;
+	}
+
+	/* Dropdown-Pfeile sollen die Ausrichtung nicht beeinträchtigen */
+	.dropdown-arrow {
+		display: inline-flex !important;
+		align-items: center !important;
+		vertical-align: middle !important;
+		line-height: 1 !important;
+		margin: 0 !important;
+		margin-left: 0.3rem !important;
+	}
+
+	.nav-item > a:hover,
+	.nav-link:hover {
+		color: var(--accent) !important;
+		border-bottom-color: var(--accent) !important;
+		font-weight: 600 !important;
 	}
 
 	/* Dropdown Styles */
@@ -521,6 +491,13 @@ import Logo from '../assets/images/logo.png';
 		overflow-y: auto;
 	}
 
+	@media (max-width: 1024px) and (min-width: 769px) {
+		.mobile-nav {
+			top: 60px;
+			max-height: calc(100vh - 60px);
+		}
+	}
+
 	.mobile-nav.active {
 		display: block;
 	}
@@ -651,6 +628,89 @@ import Logo from '../assets/images/logo.png';
 	}
 
 	/* Responsive Design */
+	/* Tablet styles - kompakteres Menü */
+	@media (max-width: 1024px) and (min-width: 769px) {
+		header {
+			height: 60px;
+		}
+
+		.nav-container {
+			padding: 0 1.5rem;
+			height: 60px;
+			max-width: 100%;
+		}
+
+		.logo-image {
+			height: 32px;
+			max-width: 110px;
+		}
+
+		.desktop-nav {
+			gap: 0.5rem;
+		}
+
+		.nav-menu {
+			gap: 0.05rem;
+			height: 60px;
+		}
+
+		.nav-item {
+			height: 60px;
+		}
+
+		.nav-item > a,
+		.nav-item > HeaderLink,
+		.nav-link {
+			height: 60px !important;
+			padding: 0 0.4rem !important;
+			font-size: 0.8rem !important;
+		}
+
+		.nav-actions {
+			gap: 0.5rem;
+			margin-left: 0.5rem;
+		}
+
+		.phone-number {
+			display: none; /* Telefonnummer auf Tablets ausblenden, um Platz zu sparen */
+		}
+
+		.lang-btn {
+			padding: 0.35rem 0.5rem;
+			font-size: 0.75rem;
+		}
+
+		.dropdown-arrow {
+			font-size: 0.65rem !important;
+			margin-left: 0.25rem !important;
+		}
+
+		.dropdown-menu {
+			min-width: 200px;
+			font-size: 0.85rem;
+		}
+
+		.dropdown-menu a {
+			padding: 10px 16px;
+			font-size: 0.85rem;
+		}
+	}
+
+	/* Kleinere Tablets (z.B. iPad Mini) */
+	@media (max-width: 900px) and (min-width: 769px) {
+		.nav-item > a,
+		.nav-item > HeaderLink,
+		.nav-link {
+			padding: 0 0.3rem !important;
+			font-size: 0.75rem !important;
+		}
+
+		.logo-image {
+			height: 30px;
+			max-width: 100px;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.nav-container {
 			padding: 0 1rem;
@@ -707,10 +767,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Close mobile menu when clicking outside
 		document.addEventListener('click', function(event) {
-			if (!mobileNav.contains(event.target) && !mobileToggle.contains(event.target)) {
+			if (mobileNav && mobileToggle && event.target instanceof Node) {
+				if (!mobileNav.contains(event.target) && !mobileToggle.contains(event.target)) {
 					mobileNav.classList.remove('active');
-				mobileToggle.classList.remove('active');
-		}
+					mobileToggle.classList.remove('active');
+				}
+			}
 		});
 
 		// Language switcher is now handled globally in BaseHead.astro

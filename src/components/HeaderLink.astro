@@ -16,17 +16,27 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	a {
 		display: flex !important;
 		align-items: center !important;
-		text-decoration: none;
-		font-family: "IBM Plex Sans", sans-serif;
-		font-size: 1rem;
-		font-weight: 500;
-		line-height: 1.2;
-		transition: all 0.3s ease;
-		color: var(--accent);
+		justify-content: center !important;
+		text-decoration: none !important;
+		font-family: "IBM Plex Sans", sans-serif !important;
+		font-size: 1rem !important;
+		font-weight: 500 !important;
+		line-height: 1.2 !important;
+		transition: all 0.3s ease !important;
+		color: var(--accent) !important;
 		height: 70px !important;
-		padding: 0.8rem 0.8rem !important;
+		padding: 0 0.8rem !important;
 		margin: 0 !important;
-		vertical-align: top !important;
+		vertical-align: middle !important;
 		box-sizing: border-box !important;
+		border-bottom: 3px solid transparent !important;
+		white-space: nowrap !important;
+		position: relative !important;
+		top: 0 !important;
+	}
+
+	a:hover {
+		border-bottom-color: var(--accent) !important;
+		font-weight: 600 !important;
 	}
 </style>

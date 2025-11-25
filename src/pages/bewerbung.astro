@@ -23,9 +23,9 @@ const {
 
 // Verfügbare Positionen (aus der Karriere-Seite)
 const availablePositions = [
-  'Steuerfachangestellte(r) / Steuerfachwirt(in) / Steuerberaterassistent(in)',
-  'Lohnbuchhalter(in)',
-  'Werkstudent(in) / Praktikum im Fachbereich Steuern/Jura/Finanzen/BWL'
+  { de: 'Steuerfachangestellte(r) / Steuerfachwirt(in) / Steuerberaterassistent(in)', en: 'Tax Assistant / Tax Advisor / Tax Consultant Assistant' },
+  { de: 'Lohnbuchhalter(in)', en: 'Payroll Accountant' },
+  { de: 'Werkstudent(in) / Praktikum im Fachbereich Steuern/Jura/Finanzen/BWL', en: 'Working Student / Internship in Tax/Law/Finance/Business Administration' }
 ];
 ---
 
@@ -102,8 +102,8 @@ const availablePositions = [
 										required
 									>
 										<option value="" data-translate="applicationFormPositionPlaceholder">Bitte wählen Sie eine Position</option>
-										{availablePositions.map(position => (
-											<option value={position}>{position}</option>
+										{availablePositions.map((position, index) => (
+											<option value={position.de} data-position-index={index} data-position-de={position.de} data-position-en={position.en}>{position.de}</option>
 										))}
 									</select>
 								</div>
@@ -113,12 +113,13 @@ const availablePositions = [
 								<label for="message" data-translate="applicationFormMessage">
 									Ihre Nachricht / Motivationsschreiben
 								</label>
-								<textarea
-									id="message"
-									name="message"
-									rows="4"
-									placeholder="Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten..."
-								></textarea>
+									<textarea
+										id="message"
+										name="message"
+										rows="4"
+										data-translate-placeholder="applicationFormMessagePlaceholder"
+										placeholder="Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten..."
+									></textarea>
 							</div>
 							
 							<div class="form-group">
@@ -627,91 +628,43 @@ Bitte beachten Sie, dass Anhänge über das Formular nicht per E-Mail übertrage
 </script>
 
 <script>
-	// Translation function
-	function updateTranslations() {
-		const currentLang = localStorage.getItem('selected-language') || 'de';
-		console.log('Updating translations for language:', currentLang);
-		
-		const translations = {
-			de: {
-				applicationTitle: "Bewerbung",
-				applicationSubtitle: "Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit",
-				applicationFormTitle: "Bewerbungsformular",
-				applicationFormName: "Vor- und Nachname",
-				applicationFormEmail: "E-Mail-Adresse",
-				applicationFormPhone: "Telefonnummer",
-				applicationFormPosition: "Bewerbung für Position",
-				applicationFormPositionPlaceholder: "Bitte wählen Sie eine Position",
-				applicationFormMessage: "Ihre Nachricht / Motivationsschreiben",
-				applicationFormMessagePlaceholder: "Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten...",
-				applicationFormCV: "Lebenslauf (PDF)",
-				applicationFormCVInfo: "Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)",
-				applicationFormAttachments: "Weitere Dokumente (Zeugnisse, Zertifikate, etc.)",
-				applicationFormAttachmentsInfo: "Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)",
-				applicationFormSubmit: "Bewerbung absenden"
-			},
-			en: {
-				applicationTitle: "Application",
-				applicationSubtitle: "Become part of our team and help shape the future of tax consulting",
-				applicationFormTitle: "Application Form",
-				applicationFormName: "First and Last Name",
-				applicationFormEmail: "Email Address",
-				applicationFormPhone: "Phone Number",
-				applicationFormPosition: "Application for Position",
-				applicationFormPositionPlaceholder: "Please select a position",
-				applicationFormMessage: "Your Message / Cover Letter",
-				applicationFormMessagePlaceholder: "Tell us something about yourself and why you want to work with us...",
-				applicationFormCV: "CV (PDF)",
-				applicationFormCVInfo: "Please upload your CV as a PDF file (max. 10 MB)",
-				applicationFormAttachments: "Additional Documents (Certificates, Diplomas, etc.)",
-				applicationFormAttachmentsInfo: "You can select multiple files (PDF, JPG, PNG, DOCX - max. 10 MB per file)",
-				applicationFormSubmit: "Submit Application"
-			}
-		};
-		
-		const elements = document.querySelectorAll('[data-translate]');
-		elements.forEach(element => {
-			const key = element.getAttribute('data-translate');
-			if (key && translations[currentLang] && translations[currentLang][key]) {
-				const translation = translations[currentLang][key];
-				if (element.tagName === 'INPUT') {
-					element.placeholder = translation;
-				} else if (element.tagName === 'TEXTAREA') {
-					element.placeholder = translation;
-				} else if (element.tagName === 'OPTION') {
-					element.textContent = translation;
-				} else {
-					element.textContent = translation;
-				}
-			}
-		});
-
-		// Also update specific placeholders that don't have data-translate attributes
-		const textarea = document.querySelector('textarea#message');
-		if (textarea && translations[currentLang]) {
-			textarea.placeholder = translations[currentLang].applicationFormMessagePlaceholder;
-		}
-	}
-
-	// Update translations when page loads
+	// Listen for translation updates from the global system
 	document.addEventListener('DOMContentLoaded', function() {
-		updateTranslations();
+		// Listen for the translationsUpdated event
+		window.addEventListener('translationsUpdated', function(e) {
+			// The global system already handles most translations
+			// This is just a fallback for any custom logic if needed
+		});
+		
+		// Also ensure translations are updated when language buttons are clicked
+		const langButtons = document.querySelectorAll('.lang-btn');
+		langButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				// The global updateTranslations function will be called automatically
+				// Just ensure position select values are preserved correctly
+				setTimeout(function() {
+					const positionSelect = document.getElementById('position');
+					if (positionSelect && positionSelect.value) {
+						// Find the option that matches the current value
+						const currentValue = positionSelect.value;
+						const options = positionSelect.querySelectorAll('option[data-position-index]');
+						options.forEach(option => {
+							const deValue = option.getAttribute('data-position-de');
+							const enValue = option.getAttribute('data-position-en');
+							const currentLang = localStorage.getItem('selected-language') || 'de';
+							
+							// If the current value matches one of the translated values, update it
+							if (currentLang === 'en' && currentValue === enValue) {
+								option.selected = true;
+							} else if (currentLang === 'de' && currentValue === deValue) {
+								option.selected = true;
+							}
+						});
+					}
+				}, 150);
+			});
+		});
 	});
-
-	// Listen for language changes
-	window.addEventListener('storage', function(e) {
-		if (e.key === 'selected-language') {
-			updateTranslations();
-		}
-	});
-
-	// Also listen for custom language change events
-	window.addEventListener('languageChanged', function() {
-		updateTranslations();
-	});
-
-	// Make updateTranslations available globally for testing
-	window.updateTranslations = updateTranslations;
 </script>
 
 <CookieBanner />

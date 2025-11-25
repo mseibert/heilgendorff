@@ -716,22 +716,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 	});
 
-	function showTestimonial(index) {
+	function showTestimonial(index: number) {
 		// Alle Testimonials verstecken
 		testimonials.forEach(testimonial => {
 			testimonial.classList.remove('active');
-			testimonial.style.opacity = '0';
-			testimonial.style.transform = 'translateY(20px)';
-			testimonial.style.zIndex = '1';
-			testimonial.style.visibility = 'hidden';
+			const htmlElement = testimonial as HTMLElement;
+			htmlElement.style.opacity = '0';
+			htmlElement.style.transform = 'translateY(20px)';
+			htmlElement.style.zIndex = '1';
+			htmlElement.style.visibility = 'hidden';
 		});
 		
 		// Aktuelles Testimonial anzeigen
-		testimonials[index].classList.add('active');
-		testimonials[index].style.opacity = '1';
-		testimonials[index].style.transform = 'translateY(0)';
-		testimonials[index].style.zIndex = '2';
-		testimonials[index].style.visibility = 'visible';
+		const currentElement = testimonials[index] as HTMLElement;
+		currentElement.classList.add('active');
+		currentElement.style.opacity = '1';
+		currentElement.style.transform = 'translateY(0)';
+		currentElement.style.zIndex = '2';
+		currentElement.style.visibility = 'visible';
 	}
 	
 	function nextTestimonial() {

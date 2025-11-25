@@ -130,7 +130,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 										</ul>
 									</div>
 								</div>
-								<button class="apply-button" onclick="applyForJob(this)" data-translate="applyNow">Jetzt bewerben</button>
+								<a href="/bewerbung" class="apply-button" data-translate="applyNow">Jetzt bewerben</a>
 							</div>
 						</div>
 
@@ -190,7 +190,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 										</ul>
 									</div>
 								</div>
-								<button class="apply-button" onclick="applyForJob(this)" data-translate="applyNow">Jetzt bewerben</button>
+								<a href="/bewerbung" class="apply-button" data-translate="applyNow">Jetzt bewerben</a>
 							</div>
 						</div>
 
@@ -250,7 +250,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 										</ul>
 									</div>
 								</div>
-								<button class="apply-button" onclick="applyForJob(this)" data-translate="applyNow">Jetzt bewerben</button>
+								<a href="/bewerbung" class="apply-button" data-translate="applyNow">Jetzt bewerben</a>
 							</div>
 						</div>
 					</div>
@@ -262,7 +262,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<div class="container">
 					<h2 data-translate="careerApplicationTitle">Ihre Chance! Jetzt bewerben!</h2>
 					<p data-translate="careerApplicationText">Senden Sie uns Ihre vollständigen Bewerbungsunterlagen per E-Mail. Gerne nehmen wir auch Initiativbewerbungen entgegen.</p>
-					<button class="apply-button-general" onclick="applyGeneral()" data-translate="applyNow">Jetzt bewerben</button>
+					<a href="/bewerbung" class="apply-button-general" data-translate="applyNow">Jetzt bewerben</a>
 					<div class="contact-info">
 						<p data-translate="careerApplicationEmail">E-Mail: <a href="mailto:kontakt@heilgendorff.de">kontakt@heilgendorff.de</a></p>
 						<p data-translate="careerApplicationPhone">Telefon: <a href="tel:+496113913200">+49 (0) 611 3913200</a></p>
@@ -564,6 +564,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				transition: all 0.3s ease;
 				width: 100%;
 				margin-top: 1rem;
+				display: block;
+				text-align: center;
+				text-decoration: none;
 			}
 
 			.apply-button:hover {
@@ -571,6 +574,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				color: white !important;
 				transform: translateY(-2px);
 				box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+				text-decoration: none;
 			}
 
 			/* Application Info Section */
@@ -606,6 +610,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				transition: all 0.3s ease;
 				margin: 2rem auto;
 				display: block;
+				text-align: center;
+				text-decoration: none;
+				width: fit-content;
 			}
 
 			.apply-button-general:hover {
@@ -613,6 +620,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				color: white !important;
 				transform: translateY(-2px);
 				box-shadow: 0 4px 12px rgba(3, 47, 154, 0.3);
+				text-decoration: none;
 			}
 
 			.contact-info {
@@ -621,6 +629,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				background: white;
 				border-radius: 8px;
 				display: inline-block;
+				text-align: center;
 			}
 
 			.contact-info p {
@@ -787,39 +796,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				}
 			}
 
-			function applyForJob(button) {
-				console.log('Apply button clicked');
-				
-				// Finde die Job-Card, die den Button enthält
-				const jobCard = button.closest('.job-card');
-				const jobTitle = jobCard.querySelector('.job-header h3').textContent;
-				
-				console.log('Job title found:', jobTitle);
-				
-				// Erstelle den E-Mail-Link mit der Position im Betreff
-				const emailSubject = encodeURIComponent(`Bewerbung für: ${jobTitle}`);
-				const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich für die Position "${jobTitle}" in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
-				const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
-				
-				console.log('Email link:', emailLink);
-				
-				// Öffne den E-Mail-Client
-				window.location.href = emailLink;
-			}
-
-			function applyGeneral() {
-				console.log('General apply button clicked');
-				
-				// Erstelle den E-Mail-Link mit einfachem Betreff
-				const emailSubject = encodeURIComponent('Bewerbung');
-				const emailBody = encodeURIComponent(`Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich in Ihrem Unternehmen.\n\nMit freundlichen Grüßen`);
-				const emailLink = `mailto:kontakt@heilgendorff.de?subject=${emailSubject}&body=${emailBody}`;
-				
-				console.log('General email link:', emailLink);
-				
-				// Öffne den E-Mail-Client
-				window.location.href = emailLink;
-			}
 		</script>
 
 		<CookieBanner />

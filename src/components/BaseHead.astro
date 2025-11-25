@@ -593,6 +593,23 @@ const translations = {
     careerText: "Wir suchen Steuerfachangestellte, Lohnbuchhalter und Werkstudenten. Bei uns erwartet Sie ein modernes Arbeitsumfeld mit DATEV-Software und vielfältigen Weiterbildungsmöglichkeiten.",
     applyNow: "Jetzt bewerben",
     
+    // Application page
+    applicationTitle: "Bewerbung",
+    applicationSubtitle: "Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der Steuerberatung mit",
+    applicationFormTitle: "Bewerbungsformular",
+    applicationFormName: "Vor- und Nachname *",
+    applicationFormEmail: "E-Mail-Adresse *",
+    applicationFormPhone: "Telefonnummer *",
+    applicationFormPosition: "Bewerbung für Position *",
+    applicationFormPositionPlaceholder: "Bitte wählen Sie eine Position",
+    applicationFormMessage: "Ihre Nachricht / Motivationsschreiben",
+    applicationFormMessagePlaceholder: "Erzählen Sie uns etwas über sich und warum Sie bei uns arbeiten möchten...",
+    applicationFormCV: "Lebenslauf (PDF) *",
+    applicationFormCVInfo: "Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)",
+    applicationFormAttachments: "Weitere Dokumente (Zeugnisse, Zertifikate, etc.)",
+    applicationFormAttachmentsInfo: "Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)",
+    applicationFormSubmit: "Bewerbung absenden",
+    
     // Client Area page
     clientAreaTitle: "Mandantenbereich",
     clientAreaSubtitle: "Ihr digitaler Zugang zu unseren Dienstleistungen",
@@ -1324,6 +1341,23 @@ const translations = {
     careerText: "We are looking for tax specialists, payroll accountants and working students. You can expect a modern working environment with DATEV software and diverse training opportunities.",
     applyNow: "Apply now",
     
+    // Application page
+    applicationTitle: "Application",
+    applicationSubtitle: "Become part of our team and help shape the future of tax consulting",
+    applicationFormTitle: "Application Form",
+    applicationFormName: "First and Last Name *",
+    applicationFormEmail: "Email Address *",
+    applicationFormPhone: "Phone Number *",
+    applicationFormPosition: "Application for Position *",
+    applicationFormPositionPlaceholder: "Please select a position",
+    applicationFormMessage: "Your Message / Cover Letter",
+    applicationFormMessagePlaceholder: "Tell us something about yourself and why you want to work with us...",
+    applicationFormCV: "CV (PDF) *",
+    applicationFormCVInfo: "Please upload your CV as a PDF file (max. 10 MB)",
+    applicationFormAttachments: "Additional Documents (Certificates, Diplomas, etc.)",
+    applicationFormAttachmentsInfo: "You can select multiple files (PDF, JPG, PNG, DOCX - max. 10 MB per file)",
+    applicationFormSubmit: "Submit Application",
+    
     // Client Area page
     clientAreaTitle: "Client Area",
     clientAreaSubtitle: "Your digital access to our services",
@@ -1546,13 +1580,61 @@ function updateTranslations(lang = getCurrentLanguage()) {
     const key = element.getAttribute('data-translate');
     if (key) {
       const translation = t(key, lang);
-      if (element.tagName === 'INPUT' && element.getAttribute('type') === 'text') {
+      if (element.tagName === 'INPUT' && (element.getAttribute('type') === 'text' || element.getAttribute('type') === 'email' || element.getAttribute('type') === 'tel')) {
         element.placeholder = translation;
+      } else if (element.tagName === 'TEXTAREA') {
+        element.placeholder = translation;
+      } else if (element.tagName === 'OPTION') {
+        element.textContent = translation;
       } else {
         element.textContent = translation;
       }
     }
   });
+  
+  // Update elements with data-translate-placeholder
+  const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+  placeholderElements.forEach(element => {
+    const key = element.getAttribute('data-translate-placeholder');
+    if (key) {
+      const translation = t(key, lang);
+      element.placeholder = translation;
+    }
+  });
+  
+  // Update position options in application form
+  const positionSelect = document.getElementById('position');
+  if (positionSelect) {
+    const currentSelectedValue = positionSelect.value;
+    const options = positionSelect.querySelectorAll('option[data-position-index]');
+    let selectedIndex = -1;
+    
+    // Find which option is currently selected by matching values
+    options.forEach((option, index) => {
+      const deValue = option.getAttribute('data-position-de');
+      const enValue = option.getAttribute('data-position-en');
+      
+      if (currentSelectedValue === deValue || currentSelectedValue === enValue) {
+        selectedIndex = index;
+      }
+      
+      if (lang === 'en' && enValue) {
+        option.textContent = enValue;
+        option.value = enValue;
+      } else if (lang === 'de' && deValue) {
+        option.textContent = deValue;
+        option.value = deValue;
+      }
+    });
+    
+    // Restore selection if we found a matching option
+    if (selectedIndex >= 0) {
+      options[selectedIndex].selected = true;
+    }
+  }
+  
+  // Dispatch custom event for pages that need additional translation updates
+  window.dispatchEvent(new CustomEvent('translationsUpdated', { detail: { lang } }));
 }
 
 // Initialize translations when DOM is loaded
