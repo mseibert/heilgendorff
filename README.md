@@ -117,9 +117,47 @@ Deutschland
 
 Dieses Projekt ist proprietär und gehört Heilgendorff.
 
+## 📧 Bewerbungsformular einrichten
+
+Das Bewerbungsformular verwendet [Resend](https://resend.com) für den E-Mail-Versand.
+
+### 1. Resend Account erstellen
+
+1. Registriere dich kostenlos bei [resend.com](https://resend.com)
+2. Erstelle einen API Key unter "API Keys"
+3. Verifiziere die Domain `heilgendorff.de` unter "Domains"
+
+### 2. Umgebungsvariablen setzen
+
+**Lokal:** Kopiere `.env.template` zu `.env` und füge den API Key ein:
+
+```bash
+cp .env.template .env
+# Dann .env bearbeiten und RESEND_API_KEY setzen
+```
+
+**Vercel:** Gehe zu Project Settings > Environment Variables und setze:
+
+| Variable | Wert |
+|----------|------|
+| `RESEND_API_KEY` | `re_xxxxxxxxxx` (dein Resend API Key) |
+
+### 3. Domain in Resend verifizieren
+
+Damit E-Mails von `bewerbung@heilgendorff.de` gesendet werden können:
+
+1. Gehe in Resend zu "Domains" > "Add Domain"
+2. Füge `heilgendorff.de` hinzu
+3. Setze die DNS-Records (MX, SPF, DKIM) bei deinem Domain-Provider
+4. Warte auf Verifizierung (kann bis zu 24h dauern)
+
+**Hinweis:** Bis zur Domain-Verifizierung werden E-Mails von `onboarding@resend.dev` gesendet.
+
 ## 🛠️ Technologie-Stack
 
 - [Astro](https://astro.build) - Web Framework
+- [Vercel](https://vercel.com) - Hosting & Serverless Functions
+- [Resend](https://resend.com) - E-Mail-Versand
 - [TypeScript](https://www.typescriptlang.org/) - Programmiersprache
 - [Markdown](https://www.markdownguide.org/) - Content Format
 - [MDX](https://mdxjs.com/) - Erweiterte Markdown-Funktionalität

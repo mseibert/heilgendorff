@@ -1,116 +1,168 @@
+import { Resend } from 'resend';
+
+// Diese Route als Serverless Function deployen, nicht statisch pre-rendern
+export const prerender = false;
+
+const resend = new Resend(import.meta.env.RESEND_API_KEY);
+
+// Resend erfordert eine verifizierte Domain. Bis heilgendorff.de verifiziert ist,
+// verwenden wir die Resend-Test-Domain. Nach Verifizierung auf heilgendorff.de umstellen.
+const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Bewerbungsformular <onboarding@resend.dev>';
+const TO_EMAIL = import.meta.env.RESEND_TO_EMAIL || 'kanzlei@heilgendorff.de';
+
 export async function POST({ request }) {
   try {
     const formData = await request.formData();
-    
+
     // Formulardaten extrahieren
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
     const position = formData.get('position');
-    const message = formData.get('message');
+    const message = formData.get('message') || 'Keine Nachricht angegeben';
     const cv = formData.get('cv');
     const attachments = formData.getAll('attachments');
     const referrerURL = formData.get('referrerURL');
-    
-    // E-Mail-Inhalt für Kanzlei erstellen
-    const emailSubject = `Neue Bewerbung: ${name} - ${position}`;
-    const emailContent = `
-Neue Bewerbung über das Bewerbungsformular eingegangen:
 
-═══════════════════════════════════════════════════════════════
-BEWERBERDATEN
-═══════════════════════════════════════════════════════════════
+    // Anhänge für Resend vorbereiten
+    const resendAttachments = [];
 
-Name: ${name}
-E-Mail: ${email}
-Telefon: ${phone}
-Bewerbung für Position: ${position}
+    // CV hinzufügen
+    if (cv && cv.size > 0) {
+      const cvBuffer = await cv.arrayBuffer();
+      resendAttachments.push({
+        filename: cv.name,
+        content: Buffer.from(cvBuffer),
+      });
+    }
 
-═══════════════════════════════════════════════════════════════
-NACHRICHT / MOTIVATIONSSCHREIBEN
-═══════════════════════════════════════════════════════════════
+    // Weitere Anhänge hinzufügen
+    for (const attachment of attachments) {
+      if (attachment && attachment.size > 0) {
+        const buffer = await attachment.arrayBuffer();
+        resendAttachments.push({
+          filename: attachment.name,
+          content: Buffer.from(buffer),
+        });
+      }
+    }
 
+    // E-Mail an Kanzlei senden
+    const kanzleiEmail = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [TO_EMAIL],
+      replyTo: email,
+      subject: `Neue Bewerbung: ${name} - ${position}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #032f9a; border-bottom: 2px solid #032f9a; padding-bottom: 10px;">
+            Neue Bewerbung eingegangen
+          </h2>
+
+          <h3 style="color: #333;">Bewerberdaten</h3>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold; width: 150px;">Name:</td>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold;">E-Mail:</td>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold;">Telefon:</td>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd;"><a href="tel:${phone}">${phone}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold;">Position:</td>
+              <td style="padding: 8px; border-bottom: 1px solid #ddd;">${position}</td>
+            </tr>
+          </table>
+
+          <h3 style="color: #333; margin-top: 20px;">Nachricht / Motivationsschreiben</h3>
+          <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; white-space: pre-wrap;">
 ${message}
+          </div>
 
-═══════════════════════════════════════════════════════════════
-ANHÄNGE
-═══════════════════════════════════════════════════════════════
+          <h3 style="color: #333; margin-top: 20px;">Anhänge</h3>
+          <p><strong>Lebenslauf:</strong> ${cv && cv.size > 0 ? cv.name : 'Nicht hochgeladen'}</p>
+          <p><strong>Weitere Dokumente:</strong> ${attachments.filter(a => a && a.size > 0).length > 0 ? attachments.filter(a => a && a.size > 0).map(f => f.name).join(', ') : 'Keine'}</p>
 
-Lebenslauf: ${cv ? cv.name : 'Nicht hochgeladen'}
-Weitere Dokumente: ${attachments.length > 0 ? attachments.map(f => f.name).join(', ') : 'Keine'}
+          <hr style="margin-top: 30px; border: none; border-top: 1px solid #ddd;">
+          <p style="color: #666; font-size: 12px;">
+            Eingegangen am: ${new Date().toLocaleString('de-DE', { timeZone: 'Europe/Berlin' })}<br>
+            Referrer: ${referrerURL || 'Direkt'}<br>
+            <em>Diese E-Mail wurde automatisch über das Bewerbungsformular auf heilgendorff.de generiert.</em>
+          </p>
+        </div>
+      `,
+      attachments: resendAttachments,
+    });
 
-═══════════════════════════════════════════════════════════════
-TECHNISCHE DATEN
-═══════════════════════════════════════════════════════════════
+    if (kanzleiEmail.error) {
+      console.error('Fehler beim Senden an Kanzlei:', kanzleiEmail.error);
+      throw new Error(kanzleiEmail.error.message);
+    }
 
-Eingegangen am: ${new Date().toLocaleString('de-DE')}
-Referrer URL: ${referrerURL}
-Formular: Bewerbungsformular (bewerbung.astro)
-
-═══════════════════════════════════════════════════════════════
-
-Diese E-Mail wurde automatisch über das Bewerbungsformular auf heilgendorff.de generiert.
-
-Für Rückfragen wenden Sie sich bitte direkt an: ${email}
-    `;
-    
-    // E-Mail an Kanzlei senden (hier würde normalerweise ein E-Mail-Service verwendet werden)
-    console.log('=== NEUE BEWERBUNG ===');
-    console.log('An: kanzlei@heilgendorff.de');
-    console.log('Betreff:', emailSubject);
-    console.log('Inhalt:', emailContent);
-    console.log('======================');
-    
     // Bestätigungs-E-Mail an Bewerber senden
-    const confirmationSubject = `Bewerbungseingang bestätigt - Heilgendorff Steuerberatung`;
-    const confirmationContent = `
-Sehr geehrte/r ${name},
+    const confirmationEmail = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [email],
+      subject: 'Bewerbungseingang bestätigt - Heilgendorff Steuerberatung',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #032f9a;">Vielen Dank für Ihre Bewerbung!</h2>
 
-vielen Dank für Ihre Bewerbung bei Heilgendorff Steuerberatung!
+          <p>Sehr geehrte/r ${name},</p>
 
-Wir haben Ihre Bewerbung für die Position "${position}" erhalten und werden diese zeitnah prüfen.
+          <p>wir haben Ihre Bewerbung für die Position <strong>"${position}"</strong> erhalten und werden diese zeitnah prüfen.</p>
 
-Ihre Bewerbungsunterlagen:
-- Name: ${name}
-- E-Mail: ${email}
-- Telefon: ${phone}
-- Position: ${position}
-- Lebenslauf: ${cv ? cv.name : 'Nicht hochgeladen'}
-- Weitere Dokumente: ${attachments.length > 0 ? attachments.map(f => f.name).join(', ') : 'Keine'}
+          <h3 style="color: #333; margin-top: 20px;">Ihre Bewerbungsunterlagen:</h3>
+          <ul>
+            <li><strong>Name:</strong> ${name}</li>
+            <li><strong>E-Mail:</strong> ${email}</li>
+            <li><strong>Telefon:</strong> ${phone}</li>
+            <li><strong>Position:</strong> ${position}</li>
+            <li><strong>Lebenslauf:</strong> ${cv && cv.size > 0 ? cv.name : 'Nicht hochgeladen'}</li>
+            <li><strong>Weitere Dokumente:</strong> ${attachments.filter(a => a && a.size > 0).length > 0 ? attachments.filter(a => a && a.size > 0).map(f => f.name).join(', ') : 'Keine'}</li>
+          </ul>
 
-Wir werden uns bei Ihnen melden, sobald wir Ihre Unterlagen geprüft haben.
+          <p>Wir werden uns bei Ihnen melden, sobald wir Ihre Unterlagen geprüft haben.</p>
 
-Mit freundlichen Grüßen
-Ihr Team der Heilgendorff Steuerberatung
+          <p>Mit freundlichen Grüßen<br>
+          Ihr Team der Heilgendorff Steuerberatung</p>
 
----
-Heilgendorff Steuerberatung
-Unter den Eichen 7 (Gebäude F)
-65195 Wiesbaden
-Tel.: +49 (0) 611 39 132 00
-E-Mail: kanzlei@heilgendorff.de
-Web: www.heilgendorff.de
-    `;
-    
-    console.log('=== BESTÄTIGUNG AN BEWERBER ===');
-    console.log('An:', email);
-    console.log('Betreff:', confirmationSubject);
-    console.log('Inhalt:', confirmationContent);
-    console.log('================================');
-    
+          <hr style="margin-top: 30px; border: none; border-top: 1px solid #ddd;">
+          <p style="color: #666; font-size: 12px;">
+            <strong>Heilgendorff Steuerberatung</strong><br>
+            Unter den Eichen 7 (Gebäude F)<br>
+            65195 Wiesbaden<br>
+            Tel.: +49 (0) 611 39 132 00<br>
+            E-Mail: kanzlei@heilgendorff.de<br>
+            Web: www.heilgendorff.de
+          </p>
+        </div>
+      `,
+    });
+
+    if (confirmationEmail.error) {
+      // Nur loggen, aber nicht fehlschlagen - die Bewerbung kam ja an
+      console.error('Fehler beim Senden der Bestätigung:', confirmationEmail.error);
+    }
+
     return new Response(JSON.stringify({
       success: true,
-      message: 'Ihre Bewerbung wurde erfolgreich an kanzlei@heilgendorff.de übermittelt. Sie erhalten eine Bestätigungs-E-Mail.'
+      message: 'Ihre Bewerbung wurde erfolgreich übermittelt. Sie erhalten in Kürze eine Bestätigungs-E-Mail.'
     }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    
+
   } catch (error) {
     console.error('Fehler beim Verarbeiten der Bewerbung:', error);
-    
+
     return new Response(JSON.stringify({
       success: false,
       message: 'Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter kanzlei@heilgendorff.de'
