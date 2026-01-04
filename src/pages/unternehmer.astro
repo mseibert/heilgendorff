@@ -728,7 +728,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			/* Responsive Design */
 			@media (max-width: 1024px) and (min-width: 721px) {
 				.hero {
-					padding: 3rem 0;
+					padding: 4rem 0 3rem 0;
 				}
 				
 				.hero h1 {
@@ -781,7 +781,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			@media (max-width: 720px) {
 				.hero {
-					padding: 2rem 0;
+					padding: 4rem 0 2rem 0;
 				}
 				
 				.hero h1 {
@@ -794,11 +794,11 @@ import CookieBanner from '../components/CookieBanner.astro';
 				
 				.container {
 					padding: 0 1rem;
+					box-sizing: border-box;
 				}
 				
 				.digital-section,
 				.datev-quote-section,
-				.services-overview,
 				.buchfuehrung-section,
 				.lohnbuchfuehrung-section,
 				.jahresabschluss-section,
@@ -806,11 +806,39 @@ import CookieBanner from '../components/CookieBanner.astro';
 				.betriebspruefung-section {
 					width: 100%;
 					margin: 0.8rem 0;
-					padding: 0.8rem 0;
+					padding: 0.8rem 1rem;
 					left: 0;
 					right: 0;
 					margin-left: 0;
 					margin-right: 0;
+					box-sizing: border-box;
+				}
+
+				.services-overview {
+					width: 100%;
+					margin: 0.8rem 0;
+					padding: 0.8rem 1rem;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+					box-sizing: border-box;
+				}
+
+				.services-overview h2 {
+					font-size: 1.8rem;
+				}
+
+				.service-tab {
+					padding: 0.8rem;
+				}
+
+				.service-tab h3 {
+					font-size: 0.85rem;
+				}
+
+				.service-tab p {
+					font-size: 0.75rem;
 				}
 
 				.datev-info-wrapper {

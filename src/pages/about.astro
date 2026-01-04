@@ -1,16 +1,14 @@
-
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import CookieBanner from '../components/CookieBanner.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 	<head>
-		<BaseHead title={`Über uns - ${SITE_TITLE}`} description="Erfahren Sie mehr über Heilgendorff - unser Team, unsere Geschichte und unsere Werte" />
+		<BaseHead title="Über uns - Steuerbüro Heilgendorff" description="Erfahren Sie mehr über unser Team, unsere Werte und unsere Leidenschaft für die Steuerberatung" />
 	</head>
 	<body>
 		<Header />
@@ -272,7 +270,9 @@ import { SITE_TITLE } from '../consts';
 
 		.content-container {
 			padding: 0 1rem;
+			padding-right: 1.5rem;
 			text-align: left;
+			box-sizing: border-box;
 		}
 
 		.main-content {
