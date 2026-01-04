@@ -249,8 +249,10 @@ import { SITE_TITLE } from '../consts';
 				padding: 2.88rem 1.44rem 0 1.44rem;
 				width: 90vw;
 				position: relative;
-				left: 50%;
-				transform: translateX(-50%);
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
 				background: white;
 			}
 
@@ -343,22 +345,26 @@ import { SITE_TITLE } from '../consts';
 				}
 			}
 
-			@media (min-width: 721px) {
+			@media (min-width: 721px) and (max-width: 1024px) {
 				.container {
-					width: 95%;
+					width: 100%;
+					max-width: 100%;
 					margin: 0 auto;
 					padding: 0 2rem;
-					transform: translateX(-15px);
+					transform: none;
 					box-sizing: border-box;
 				}
 
 				.team-leadership-section {
-					margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
-					padding: 2.88rem 1.44rem 0 1.44rem;
-					width: 90vw;
+					width: 100%;
+					max-width: 100%;
+					margin: 2.88rem 0 0 0;
+					padding: 2.88rem 2rem;
 					position: relative;
-					left: 50%;
-					transform: translateX(-50%);
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
 					background: white;
 					box-sizing: border-box;
 				}

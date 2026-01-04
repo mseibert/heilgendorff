@@ -78,25 +78,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					<div class="unique-right">
 						<h2 data-translate="testimonialsTitle">Unsere zufriedenen Mandanten</h2>
 							<div class="testimonial-container">
-								<button class="testimonial-arrow testimonial-arrow-left" onclick="previousTestimonial()">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-									</svg>
-								</button>
-								<button class="testimonial-arrow testimonial-arrow-right" onclick="nextTestimonial()">
-									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-									</svg>
-								</button>
-								<blockquote class="testimonial active" data-testimonial="0">
+								<blockquote class="testimonial">
 									<p data-translate="testimonial1">"Im Verlauf des Kurses unserer Firma, war das Steuerbüro Heilgendorff immer, und wird auch in Zukunft, eine großartige Ressource von umfangreichem, tiefgehendem Fachwissen und rechtlicher Fachkompetenz sein."</p>
 									<cite data-translate="testimonial1Author">Martin Seibert, Seibert Group GmbH</cite>
 								</blockquote>
-								<blockquote class="testimonial" data-testimonial="1">
+								<blockquote class="testimonial">
 									<p data-translate="testimonial2">"Sie haben uns Hoffnung in der Bewältigung der steuerrechtlichen Angelegenheiten gegeben, und zwar von Anfang an."</p>
 									<cite data-translate="testimonial2Author">Mario Becke</cite>
 								</blockquote>
-								<blockquote class="testimonial" data-testimonial="2">
+								<blockquote class="testimonial">
 									<p data-translate="testimonial3">"Mit dem Steuerbüro Heilgendorff haben wir einen sehr zuverlässigen, kompetenten und pragmatischen Partner zur Seite, der es uns als junges Unternehmen ermöglicht uns auf unsere Produkte und Kunden zu konzentrieren."</p>
 									<cite data-translate="testimonial3Author">Adil Nasri, Junovi UG</cite>
 								</blockquote>
@@ -308,15 +298,15 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	.unique-section {
 		background: #f8f9fa;
-		padding: 4rem 0 0 0; /* Kein Padding unten - direkter Anschluss zum Footer */
-		margin: 2rem 0 0 0; /* Kein Margin unten */
+		padding: 4rem 0 4rem 0; /* Padding oben und unten */
+		margin: 2rem 0 0 0;
 		width: 100vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
-		padding-bottom: 0; /* Kein Padding unten */
+		overflow-x: hidden; /* Verhindert horizontales Scrollen */
 	}
 
 	/* Grauer Hintergrund bis zum Footer erweitern */
@@ -390,94 +380,30 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 
 	.testimonial-container {
-		position: relative;
-		height: 320px;
-		overflow: visible; /* Ändern zu visible, damit Pfeile sichtbar sind */
-		margin: 0 0; /* Kein Margin, Pfeile positionieren sich außerhalb */
-		padding: 0 60px; /* Padding statt Margin für Platz der Pfeile */
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin: 0;
+		padding: 0;
 	}
 
 	/* Testimonial Pfeile */
 	.testimonial-arrow {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		background: var(--accent);
-		border: none;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-		z-index: 100; /* Höherer z-index für bessere Klickbarkeit */
-		transition: all 0.3s ease;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-		pointer-events: auto; /* Stelle sicher, dass Klicks funktionieren */
-	}
-
-	.testimonial-arrow:hover {
-		background: #0056b3;
-		transform: translateY(-50%) scale(1.1);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-	}
-
-	.testimonial-arrow svg {
-		color: white;
-		width: 20px;
-		height: 20px;
-	}
-
-	.testimonial-arrow-left {
-		left: -50px; /* Weiter außerhalb positioniert */
-	}
-
-	.testimonial-arrow-right {
-		right: -50px; /* Gleiche Distanz wie linker Pfeil */
+		display: none; /* Pfeile ausblenden - statische Anzeige */
 	}
 
 	.testimonial {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: calc(100% - 80px); /* 80px kleiner, um mehr Platz für Pfeile zu schaffen */
-		opacity: 0;
-		transform: translateY(20px);
-		transition: all 0.5s ease-in-out;
-		z-index: 1;
+		position: relative;
+		width: 100%;
+		opacity: 1;
+		transform: none;
 		background: white;
 		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		border-left: 4px solid var(--accent);
-		margin: 0 40px; /* 40px Margin links und rechts für Pfeile */
-		visibility: hidden;
-	}
-
-	.testimonial.active {
-		opacity: 1;
-		transform: translateY(0);
-		z-index: 2;
+		margin: 0;
 		visibility: visible;
-	}
-
-	/* Erstes Testimonial standardmäßig sichtbar */
-	.testimonial[data-testimonial="0"] {
-		opacity: 1;
-		transform: translateY(0);
-		z-index: 2;
-		padding-bottom: 3.5rem;
-	}
-
-	/* Seibert Box - mehr Höhe unter dem Text */
-	.testimonial[data-testimonial="0"] {
-		padding-bottom: 17.5rem; /* 3.5rem * 5 = 17.5rem */
-	}
-
-	/* Nasri Box - mehr Höhe unter dem Text */
-	.testimonial[data-testimonial="2"] {
-		padding-bottom: 4.75rem;
 	}
 
 	/* Tablet view adjustments */
@@ -505,10 +431,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			font-size: 1.2em; /* Noch kleinere Überschrift */
 		}
 
-		/* Rechter Pfeil mit Abstand zur Box */
-		.testimonial-arrow-right {
-			right: -35px; /* Kleiner Abstand zur Box (5px mehr Abstand) */
-		}
 	}
 
 	@media (max-width: 720px) {
@@ -638,22 +560,24 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 
 		.unique-section {
-			width: 100vw;
+			width: 100%;
+			max-width: 100%;
 			position: relative;
 			left: 0;
 			right: 0;
 			margin-left: 0;
 			margin-right: 0;
-			max-width: 100vw;
 			overflow-x: hidden;
+			overflow-y: visible; /* Vertikales Scrollen erlauben */
+			padding: 2rem 0 3rem 0; /* Padding oben und unten für Mobile */
+			box-sizing: border-box;
 		}
 
 		.unique-content {
 			grid-template-columns: 1fr;
-			gap: 0.6rem;
+			gap: 1.5rem;
 			margin: 0.8rem auto;
 			padding: 0.8rem 1rem;
-			padding-right: 1.5rem;
 			text-align: left;
 			width: 100%;
 			max-width: 100%;
@@ -667,7 +591,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 
 		.unique-right {
-			overflow: visible; /* Pfeile auch auf Mobile sichtbar */
+			overflow: visible;
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+
+		.testimonial-container {
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
 		}
 
 		.unique-left h2,
@@ -680,35 +613,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 
 		.testimonial-container {
-			height: 260px;
-			overflow: visible; /* Pfeile auch auf Mobile sichtbar machen */
-			margin: 0 0; /* Kein Margin auf Mobile */
-			padding: 0 50px; /* Padding statt Margin für Platz der Pfeile */
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			margin: 0;
+			padding: 0;
 		}
 
-		/* Mobile Pfeile */
-		.testimonial-arrow {
-			width: 35px;
-			height: 35px;
-		}
-
-		.testimonial-arrow svg {
-			width: 18px;
-			height: 18px;
-		}
-
-		.testimonial-arrow-left {
-			left: -42px; /* Weiter außerhalb auf Mobile */
-		}
-
-		.testimonial-arrow-right {
-			right: -42px; /* Gleiche Distanz wie linker Pfeil auf Mobile */
-		}
-
-		/* Mobile Testimonial Boxen kleiner */
 		.testimonial {
-			width: calc(100% - 60px); /* 60px kleiner auf Mobile */
-			margin: 0 30px; /* 30px Margin links und rechts für Pfeile */
+			width: 100%;
+			margin: 0;
 		}
 	}
 </style>
