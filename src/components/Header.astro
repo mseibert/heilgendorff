@@ -92,10 +92,12 @@ import Logo from '../assets/images/logo.png';
 				<li><a href="/mandantenbereich" class="mobile-link" data-translate="clientArea">Mandantenbereich</a></li>
 				
 				<li class="mobile-dropdown">
-					<button class="mobile-dropdown-toggle" data-translate="about">
-						Über Uns
-						<span class="mobile-arrow">▼</span>
-					</button>
+					<div class="mobile-dropdown-header">
+						<a href="/about" class="mobile-link mobile-main-link" data-translate="about">Über Uns</a>
+						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+							<span class="mobile-arrow">▼</span>
+						</button>
+					</div>
 					<ul class="mobile-dropdown-menu">
 						<li><a href="/meet-the-team" class="mobile-link" data-translate="meetTheTeam">Meet the Team</a></li>
 						<li><a href="/referenzen" class="mobile-link" data-translate="references">Referenzen</a></li>
@@ -104,10 +106,12 @@ import Logo from '../assets/images/logo.png';
 				</li>
 				
 				<li class="mobile-dropdown">
-					<button class="mobile-dropdown-toggle" data-translate="services">
-						Leistungen
-						<span class="mobile-arrow">▼</span>
-					</button>
+					<div class="mobile-dropdown-header">
+						<a href="/leistungen" class="mobile-link mobile-main-link" data-translate="services">Leistungen</a>
+						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+							<span class="mobile-arrow">▼</span>
+						</button>
+					</div>
 					<ul class="mobile-dropdown-menu">
 						<li><a href="/privatpersonen" class="mobile-link" data-translate="individuals">Privatpersonen</a></li>
 						<li><a href="/unternehmer" class="mobile-link" data-translate="entrepreneurs">Unternehmer</a></li>
@@ -118,10 +122,12 @@ import Logo from '../assets/images/logo.png';
 				<li><a href="/kontakt" class="mobile-link" data-translate="contact">Kontakt</a></li>
 				
 				<li class="mobile-dropdown">
-					<button class="mobile-dropdown-toggle" data-translate="news">
-						Aktuelles
-						<span class="mobile-arrow">▼</span>
-					</button>
+					<div class="mobile-dropdown-header">
+						<a href="/aktuelles" class="mobile-link mobile-main-link" data-translate="news">Aktuelles</a>
+						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+							<span class="mobile-arrow">▼</span>
+						</button>
+					</div>
 					<ul class="mobile-dropdown-menu">
 						<li><a href="/datev-news" class="mobile-link" data-translate="datevNews">Datev News</a></li>
 						<li><a href="/downloads" class="mobile-link" data-translate="downloads">Downloads</a></li>
@@ -537,25 +543,35 @@ import Logo from '../assets/images/logo.png';
 	}
 
 	.mobile-dropdown {
-			display: flex;
+		display: flex;
 		flex-direction: column;
-		}
+	}
+
+	.mobile-dropdown-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid #e0e0e0;
+	}
+
+	.mobile-main-link {
+		flex: 1;
+		padding: 1rem 0;
+		margin: 0;
+		border-bottom: none !important;
+	}
 
 	.mobile-dropdown-toggle {
-			display: flex;
-		justify-content: space-between;
-			align-items: center;
-		padding: 1rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem 0.5rem;
 		background: none;
 		border: none;
 		color: var(--black);
-		font-family: "IBM Plex Sans", sans-serif;
-		font-size: 1.1rem;
-		font-weight: 500;
 		cursor: pointer;
-		border-bottom: 1px solid #e0e0e0;
 		transition: color 0.3s ease;
-		text-align: left;
+		min-width: 40px;
 	}
 
 	.mobile-dropdown-toggle:hover {
@@ -567,7 +583,7 @@ import Logo from '../assets/images/logo.png';
 		font-size: 0.8rem;
 		opacity: 1 !important;
 		display: inline-block !important;
-		margin-left: 0.5rem;
+		margin: 0;
 		color: var(--accent);
 		font-weight: bold;
 	}
