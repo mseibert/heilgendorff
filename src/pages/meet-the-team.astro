@@ -58,6 +58,61 @@ import { SITE_TITLE } from '../consts';
 				</div>
 			</section>
 
+			<!-- Teams Section -->
+			<section class="teams-section">
+				<div class="container">
+					<div class="teams-grid">
+						<!-- Tax-PUB Consultants -->
+						<div class="team-card">
+							<div class="team-image">
+								<img src="/IMG_3700.jpg" alt="Tax-PUB Consultants" />
+							</div>
+							<div class="team-content">
+								<h3>Tax-PUB Consultants</h3>
+								<p class="team-subtitle">Team Steuerberater</p>
+								<p>Die Denkfabrik, die vorausschauende Strategien lösungsorientiert für den Mandanten erarbeitet, dabei natürlich immer ein offenes Ohr für die anderen Teams hat. Unsere Tätigkeit gliedert sich in die Steuererklärungsberatung, die Steuerdurchsetzungsberatung und die gestaltende Steuerberatung.</p>
+							</div>
+						</div>
+
+						<!-- Taxrockers -->
+						<div class="team-card">
+							<div class="team-image">
+								<img src="/IMG_3699.jpg" alt="Taxrockers" />
+							</div>
+							<div class="team-content">
+								<h3>Taxrockers</h3>
+								<p class="team-subtitle">Team Steuererklärungen</p>
+								<p>Gewerbesteuer, Umsatzsteuer, Einkommensteuer, Körperschaftsteuer, sie rocken sie alle. Ein Team aus Steuerberateranwärter, Steuerassistent, Werkstudent (Master of Science in accounting and finance).</p>
+							</div>
+						</div>
+
+						<!-- Soll & Haben Architekten -->
+						<div class="team-card">
+							<div class="team-image">
+								<img src="/IMG_3701.jpg" alt="Soll & Haben Architekten" />
+							</div>
+							<div class="team-content">
+								<h3>Soll & Haben Architekten</h3>
+								<p class="team-subtitle">Team Buchhaltung</p>
+								<p>Wir sind ein eingespieltes Rudel aus Zahlenarchitekten - kreativ, humorvoll und halten als Team zusammen. Wenn es darauf ankommt, sind wir sofort da – für unsere Mandanten und füreinander.</p>
+							</div>
+						</div>
+
+						<!-- Karussell -->
+						<div class="team-card">
+							<div class="team-image">
+								<img src="/IMG_3702.jpg" alt="Karussell" />
+							</div>
+							<div class="team-content">
+								<h3>Karussell</h3>
+								<p class="team-subtitle">Team Lohn</p>
+								<p>Unsere Zeitrechnung verläuft anders, da wir denken und arbeiten vom 10. eines jeden Monats bis zum 10. des Folgemonats. Dabei haben wir all unsere Mandanten mit den lohnsteuer- und sozialversicherungsrechtlichen Änderungen im Blick. Eine Verantwortung und Zuverlässigkeit, die Mandanten und andere Teams sehr wertschätzen.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<!-- Full Width Team Image Section -->
 			<section class="team-image-section">
 				<div class="team-image-container">
@@ -184,6 +239,86 @@ import { SITE_TITLE } from '../consts';
 				background-size: 100%;
 				background-position: 50% 30%;
 				background-repeat: no-repeat;
+			}
+
+			/* Teams Section */
+			.teams-section {
+				margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+				padding: 2.88rem 1.44rem;
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+				background: white;
+			}
+
+			.teams-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 2rem;
+				align-items: stretch;
+			}
+
+			.team-card {
+				background: white;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				display: flex;
+				flex-direction: column;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.team-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+			}
+
+			.team-image {
+				width: 100%;
+				aspect-ratio: 4 / 3;
+				overflow: hidden;
+			}
+
+			.team-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.team-content {
+				padding: 1.5rem;
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+
+			.team-content h3 {
+				color: var(--accent);
+				font-size: 1.2em;
+				margin: 0 0 0.5rem 0;
+				font-family: "Merriweather", serif;
+				text-align: center;
+			}
+
+			.team-subtitle {
+				font-size: 0.9em;
+				color: #666;
+				margin: 0 0 1rem 0;
+				font-style: italic;
+				font-family: "IBM Plex Sans", sans-serif;
+				text-align: center;
+			}
+
+			.team-content p {
+				font-size: 0.95em;
+				line-height: 1.6;
+				color: var(--black);
+				margin: 0;
+				font-family: "IBM Plex Sans", sans-serif;
+				text-align: center;
 			}
 
 			/* Full Width Team Image Section */
@@ -395,6 +530,25 @@ import { SITE_TITLE } from '../consts';
 					background-size: 100%;
 					background-position: 50% 30%;
 				}
+
+				.teams-section {
+					width: 100%;
+					max-width: 100%;
+					margin: 2.88rem 0 0 0;
+					padding: 2.88rem 2rem;
+					position: relative;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+					background: white;
+					box-sizing: border-box;
+				}
+
+				.teams-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 2rem;
+				}
 			}
 
 			@media (max-width: 720px) {
@@ -482,6 +636,34 @@ import { SITE_TITLE } from '../consts';
 					aspect-ratio: 16 / 9;
 					background-size: 100%;
 					background-position: 50% 30%;
+				}
+
+				.teams-section {
+					width: 100%;
+					max-width: 100%;
+					margin: 0.8rem auto;
+					padding: 0.8rem 1rem;
+					padding-right: 1.5rem;
+					left: auto;
+					right: auto;
+					margin-left: auto;
+					margin-right: auto;
+					transform: none;
+					position: relative;
+					box-sizing: border-box;
+				}
+
+				.teams-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+
+				.team-content h3 {
+					font-size: 1.1em;
+				}
+
+				.team-content p {
+					font-size: 0.9em;
 				}
 
 				.team-image-container img {

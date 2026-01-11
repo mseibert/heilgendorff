@@ -64,7 +64,7 @@ import Logo from '../assets/images/logo.png';
 							<span class="dropdown-arrow">▼</span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/datev-news" data-translate="datevNews">Datev News</a></li>
+							<li><a href="/aktuelles" data-translate="datevNews">News</a></li>
 							<li><a href="/downloads" data-translate="downloads">Downloads</a></li>
 							<li><a href="/steuererklärvideos" data-translate="taxVideos">Steuererklärvideos</a></li>
 						</ul>
@@ -129,7 +129,7 @@ import Logo from '../assets/images/logo.png';
 						</button>
 					</div>
 					<ul class="mobile-dropdown-menu">
-						<li><a href="/datev-news" class="mobile-link" data-translate="datevNews">Datev News</a></li>
+						<li><a href="/aktuelles" class="mobile-link" data-translate="datevNews">News</a></li>
 						<li><a href="/downloads" class="mobile-link" data-translate="downloads">Downloads</a></li>
 						<li><a href="/steuererklärvideos" class="mobile-link" data-translate="taxVideos">Steuererklärvideos</a></li>
 					</ul>
@@ -565,17 +565,22 @@ import Logo from '../assets/images/logo.png';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 1rem 0.5rem;
+		padding: 1rem;
 		background: none;
 		border: none;
 		color: var(--black);
 		cursor: pointer;
 		transition: color 0.3s ease;
-		min-width: 40px;
+		min-width: 44px;
+		min-height: 44px;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: transparent;
 	}
 
-	.mobile-dropdown-toggle:hover {
+	.mobile-dropdown-toggle:hover,
+	.mobile-dropdown-toggle:active {
 		color: var(--accent);
+		background: rgba(0, 0, 0, 0.05);
 	}
 
 	.mobile-arrow {
@@ -644,8 +649,16 @@ import Logo from '../assets/images/logo.png';
 	}
 
 	/* Responsive Design */
-	/* Tablet styles - kompakteres Menü */
-	@media (max-width: 1024px) and (min-width: 769px) {
+	/* Tablet and Mobile - use mobile navigation */
+	@media (max-width: 1024px) {
+		.desktop-nav {
+			display: none;
+		}
+
+		.mobile-toggle {
+			display: flex;
+		}
+
 		header {
 			height: 60px;
 		}
@@ -660,84 +673,11 @@ import Logo from '../assets/images/logo.png';
 			height: 32px;
 			max-width: 110px;
 		}
-
-		.desktop-nav {
-			gap: 0.5rem;
-		}
-
-		.nav-menu {
-			gap: 0.05rem;
-			height: 60px;
-		}
-
-		.nav-item {
-			height: 60px;
-		}
-
-		.nav-item > a,
-		.nav-item > HeaderLink,
-		.nav-link {
-			height: 60px !important;
-			padding: 0 0.4rem !important;
-			font-size: 0.8rem !important;
-		}
-
-		.nav-actions {
-			gap: 0.5rem;
-			margin-left: 0.5rem;
-		}
-
-		.phone-number {
-			display: none; /* Telefonnummer auf Tablets ausblenden, um Platz zu sparen */
-		}
-
-		.lang-btn {
-			padding: 0.35rem 0.5rem;
-			font-size: 0.75rem;
-		}
-
-		.dropdown-arrow {
-			font-size: 0.65rem !important;
-			margin-left: 0.25rem !important;
-		}
-
-		.dropdown-menu {
-			min-width: 200px;
-			font-size: 0.85rem;
-		}
-
-		.dropdown-menu a {
-			padding: 10px 16px;
-			font-size: 0.85rem;
-		}
-	}
-
-	/* Kleinere Tablets (z.B. iPad Mini) */
-	@media (max-width: 900px) and (min-width: 769px) {
-		.nav-item > a,
-		.nav-item > HeaderLink,
-		.nav-link {
-			padding: 0 0.3rem !important;
-			font-size: 0.75rem !important;
-		}
-
-		.logo-image {
-			height: 30px;
-			max-width: 100px;
-		}
 	}
 
 	@media (max-width: 768px) {
 		.nav-container {
 			padding: 0 1rem;
-		}
-
-		.desktop-nav {
-			display: none;
-		}
-
-		.mobile-toggle {
-			display: flex;
 		}
 
 		.logo-image {
@@ -756,7 +696,7 @@ import Logo from '../assets/images/logo.png';
 	}
 </style>
 
-<script>
+<script is:inline>
 	// Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
 		const mobileToggle = document.getElementById('mobileToggle');
@@ -765,21 +705,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Toggle mobile menu
 		if (mobileToggle && mobileNav) {
-			mobileToggle.addEventListener('click', function() {
+			mobileToggle.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				mobileToggle.classList.toggle('active');
+				mobileNav.classList.toggle('active');
+			});
+			
+			// Also support touch events for better mobile compatibility
+			mobileToggle.addEventListener('touchend', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
 				mobileToggle.classList.toggle('active');
 				mobileNav.classList.toggle('active');
 			});
 		}
 
 		// Mobile dropdown toggles
-			mobileDropdowns.forEach(dropdown => {
-				const toggle = dropdown.querySelector('.mobile-dropdown-toggle');
-				if (toggle) {
-				toggle.addEventListener('click', function() {
-						dropdown.classList.toggle('active');
-					});
-				}
-			});
+		mobileDropdowns.forEach(dropdown => {
+			const toggle = dropdown.querySelector('.mobile-dropdown-toggle');
+			if (toggle) {
+				toggle.addEventListener('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					dropdown.classList.toggle('active');
+				});
+				
+				// Also support touch events
+				toggle.addEventListener('touchend', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					dropdown.classList.toggle('active');
+				});
+			}
+		});
 
 		// Close mobile menu when clicking outside
 		document.addEventListener('click', function(event) {

@@ -14,7 +14,7 @@ export const translations = {
     career: "Karriere",
     contact: "Kontakt",
     news: "Aktuelles",
-    datevNews: "Datev News",
+    datevNews: "News",
     downloads: "Downloads",
     taxVideos: "Steuererklärvideos",
     
@@ -87,7 +87,7 @@ export const translations = {
     career: "Career",
     contact: "Contact",
     news: "News",
-    datevNews: "DATEV News",
+    datevNews: "News",
     downloads: "Downloads",
     taxVideos: "Tax Declaration Videos",
     
