@@ -30,7 +30,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 						<a href="/aktuelles" class="info-button" data-translate="learnMore">Mehr dazu</a>
 					</div>
 					<div class="info-image">
-						<img src="/csm_corona-soforthilfe_Marco2811_adobe-stock_68136bd847.jpg" alt="Corona-Soforthilfe-Rückforderung" />
+						<img src="/imago823824297.jpg" alt="Aktivrente: Steuerfreibetrag für Arbeitnehmer ab 67" />
 					</div>
 				</div>
 				<div class="info-card-with-image">
@@ -46,24 +46,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				</div>
 			</section>
 
-			<section class="tabs">
-				<div class="tab">
-					<h2 data-translate="digital">Digital</h2>
-					<img src="/Mock-Up-Laptop-und-iPhone-1536x993-1.png" alt="Digital" class="tab-image" />
-					<p data-translate="digitalText">Papierlos glücklich und von überall zu erreichen: Auch von der Ferne aus läuft die Kommunikation mit uns tadellos.</p>
-					<a href="/leistungen" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
-				</div>
-				<div class="tab">
-					<h2 data-translate="international">International</h2>
-					<img src="/IMG_9835-1024x683-1.jpg" alt="International" class="tab-image" />
-					<p data-translate="internationalText">Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen zum In- und Ausland</p>
-					<a href="/about" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
-				</div>
-				<div class="tab">
-					<h2 data-translate="qualified">Qualifiziert</h2>
-					<img src="/3.4.jpg" alt="Qualifiziert" class="tab-image" />
-					<p data-translate="qualifiedText">Durch unsere stetige Teilnahme an zahlreichen Fortbildungen sind wir immer auf dem neuesten Stand.</p>
-					<a href="/unsere-weiterbildungen" class="tab-button" data-translate="learnMoreAbout">Mehr erfahren</a>
+			<section class="digital-kanzlei-section">
+				<div class="digital-kanzlei-content">
+					<div class="digital-kanzlei-text">
+						<h2 data-translate="digitalKanzleiTitle">Digitale Kanzlei</h2>
+						<p data-translate="digitalKanzleiText1">Wir verstehen die Bedeutung der Digitalisierung für unsere Mandanten und haben unsere Kanzlei entsprechend ausgerichtet.</p>
+						<p data-translate="digitalKanzleiText2">Als DATEV Digitale Kanzlei setzen wir auf moderne Technologien und papierlose Prozesse. Die digitale Zusammenarbeit mit unseren Mandanten steht im Mittelpunkt - sicher, effizient und von überall erreichbar.</p>
+						<p data-translate="digitalKanzleiText3">Finden Sie heraus, wie wir Ihnen in diesem Bereich helfen können.</p>
+						<a href="/leistungen" class="digital-kanzlei-button" data-translate="learnMoreAbout">Mehr erfahren</a>
+					</div>
+					<div class="digital-kanzlei-image">
+						<img src="/stb_capellmann-partner_digitale-kanzlei_collage_2023_1080px-web_01.png" alt="DATEV Digitale Kanzlei" />
+					</div>
 				</div>
 			</section>
 
@@ -89,6 +83,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 								<blockquote class="testimonial">
 									<p data-translate="testimonial3">"Mit dem Steuerbüro Heilgendorff haben wir einen sehr zuverlässigen, kompetenten und pragmatischen Partner zur Seite, der es uns als junges Unternehmen ermöglicht uns auf unsere Produkte und Kunden zu konzentrieren."</p>
 									<cite data-translate="testimonial3Author">Adil Nasri, Junovi UG</cite>
+								</blockquote>
+								<blockquote class="testimonial">
+									<p data-translate="testimonial4">"Ich fühle mich hier in jeder Hinsicht verstanden und bestens beraten, was die Arbeit und den Erfolg meines Unternehmens erheblich unterstützt. Die Kommunikation ist stets klar, transparent und zielführend, und man merkt, dass hier auf langfristige und nachhaltige Zusammenarbeit gesetzt wird."</p>
+									<cite data-translate="testimonial4Author">Sami Guetrani</cite>
 								</blockquote>
 							</div>
 					</div>
@@ -137,80 +135,103 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		margin: 0;
 	}
 
-	.tabs {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1.44rem;
+	.digital-kanzlei-section {
+		background: #f8f9fa;
+		padding: 4rem 0;
 		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
-		padding: 2.88rem 1.44rem 2.88rem 1.44rem;
 		width: 90vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
 		margin-left: -45vw;
 		margin-right: -45vw;
-		background: #f8f9fa;
-		transform: translateX(-20px);
-		align-items: stretch;
 	}
 
-	.tab {
-		text-align: center;
-		background: white;
-		padding: 1.6rem;
-		border-radius: 8px;
-		box-shadow: none;
-		border: 1px solid rgba(var(--gray), 15%);
-		transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+	.digital-kanzlei-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.digital-kanzlei-text {
 		display: flex;
 		flex-direction: column;
+		gap: 1.5rem;
 	}
 
-	.tab:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 6px 20px rgba(var(--gray), 40%);
-		border: 1px solid rgba(var(--gray), 30%);
-	}
-
-	.tab h2 {
+	.digital-kanzlei-text h2 {
 		color: var(--accent);
-		margin-bottom: 1.2rem;
-		font-size: 1.6em;
+		font-size: 2.5em;
+		margin: 0;
+		font-weight: 700;
+		font-family: "Merriweather", serif;
 	}
 
-	.tab-image {
-		width: 100%;
-		height: 160px;
-		object-fit: cover;
-		border-radius: 6px;
-		margin-bottom: 1.2rem;
+	.digital-kanzlei-text p {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		color: var(--black);
+		margin: 0;
 	}
 
-	.tab p {
-		margin-bottom: 1.6rem;
-		line-height: 1.6;
-		color: rgb(var(--gray-dark));
-	}
-
-	.tab-button {
+	.digital-kanzlei-button {
 		background: var(--accent);
 		color: white;
 		border: none;
-		padding: 0.8rem 1.6rem;
-		border-radius: 4px;
+		padding: 1rem 2rem;
+		border-radius: 6px;
 		font-family: "IBM Plex Sans", sans-serif;
-		font-size: 0.9rem;
+		font-size: 1rem;
+		font-weight: 600;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
-		margin-top: auto;
-		align-self: center;
 		text-decoration: none;
 		display: inline-block;
+		width: fit-content;
+		margin-top: 0.5rem;
 	}
 
-	.tab-button:hover {
+	.digital-kanzlei-button:hover {
 		background: var(--accent-dark);
 		text-decoration: none;
+	}
+
+	.digital-kanzlei-image {
+		width: 100%;
+		height: auto;
+		position: relative;
+		overflow: hidden;
+		border-radius: 8px;
+	}
+
+	.digital-kanzlei-image::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: 
+			radial-gradient(ellipse at left center, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0.6) 8%, rgba(248, 249, 250, 0) 20%),
+			radial-gradient(ellipse at right center, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0.6) 8%, rgba(248, 249, 250, 0) 20%),
+			radial-gradient(ellipse at top center, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0.6) 8%, rgba(248, 249, 250, 0) 20%),
+			radial-gradient(ellipse at bottom center, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0.6) 8%, rgba(248, 249, 250, 0) 20%);
+		pointer-events: none;
+		z-index: 1;
+		border-radius: 8px;
+	}
+
+	.digital-kanzlei-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 8px;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		position: relative;
 	}
 
 	.info-sections {
@@ -307,6 +328,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		margin-left: -50vw;
 		margin-right: -50vw;
 		overflow-x: hidden; /* Verhindert horizontales Scrollen */
+		overflow-y: visible; /* Erlaubt vertikales Wachstum */
 	}
 
 	/* Grauer Hintergrund bis zum Footer erweitern */
@@ -325,18 +347,19 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 4rem; /* Mehr Abstand zwischen den Spalten */
-		padding: 2.88rem 1.44rem 0 1.44rem;
+		padding: 2.88rem 2rem 2rem 2rem;
 		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto;
 		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -45vw;
-		margin-right: -45vw;
-		transform: translateX(-20px);
+		box-sizing: border-box;
 	}
 
 	.unique-right {
-		overflow: visible; /* Stelle sicher, dass Pfeile sichtbar sind */
+		overflow: visible; /* Sichtbar machen, aber durch Container begrenzt */
+		position: relative;
+		min-height: 400px; /* Mindesthöhe, kann größer werden */
+		height: auto;
 	}
 
 	.unique-left h2,
@@ -361,6 +384,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		border-left: 4px solid var(--accent);
 		margin: 0;
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
 	}
 
 
@@ -380,11 +406,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 
 	.testimonial-container {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
+		position: relative;
+		min-height: 400px;
 		margin: 0;
 		padding: 0;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	/* Testimonial Pfeile */
@@ -393,17 +420,33 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 
 	.testimonial {
-		position: relative;
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
-		opacity: 1;
-		transform: none;
+		max-width: 100%;
+		opacity: 0;
+		transform: translateY(20px);
 		background: white;
 		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		border-left: 4px solid var(--accent);
 		margin: 0;
+		visibility: hidden;
+		transition: opacity 0.5s ease, transform 0.5s ease;
+		z-index: 1;
+		box-sizing: border-box;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.testimonial.active {
+		opacity: 1;
+		transform: translateY(0);
 		visibility: visible;
+		z-index: 2;
+		position: relative; /* Damit der aktive Testimonial den Container erweitern kann */
 	}
 
 	/* Tablet view adjustments */
@@ -413,22 +456,45 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			height: calc(100vh - 55px - 250px); /* 50px kürzer als Desktop */
 		}
 
+		.digital-kanzlei-content {
+			gap: 2rem;
+			padding: 0 1.5rem;
+		}
+
+		.digital-kanzlei-text h2 {
+			font-size: 2.2em;
+		}
+
+		.digital-kanzlei-text p {
+			font-size: 1.05rem;
+		}
+
+	.unique-right {
+		overflow: visible;
+		min-height: 380px; /* Mindesthöhe für Tablet */
+		height: auto;
+	}
+
+	.testimonial-container {
+		min-height: 380px;
+	}
+
 		/* Testimonial-Boxen noch kleiner in Tablet-Ansicht */
 		.testimonial {
-			padding: 0.8rem; /* Noch kleineres Padding */
+			padding: 1.5rem; /* Angepasstes Padding */
 		}
 
 		.testimonial p {
-			font-size: 0.7em; /* Noch kleinere Schriftgröße für Text */
-			line-height: 1.2; /* Noch kompaktere Zeilenhöhe */
+			font-size: 1em; /* Normale Schriftgröße für Text */
+			line-height: 1.5; /* Lesbare Zeilenhöhe */
 		}
 
 		.testimonial cite {
-			font-size: 0.7em; /* Noch kleinere Schriftgröße für Autor */
+			font-size: 0.9em; /* Lesbare Schriftgröße für Autor */
 		}
 
 		.unique-right h2 {
-			font-size: 1.2em; /* Noch kleinere Überschrift */
+			font-size: 1.4em; /* Angepasste Überschrift */
 		}
 
 	}
@@ -458,36 +524,29 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			font-size: 1em;
 		}
 
-		.tabs {
-			grid-template-columns: 1fr;
-			gap: 0.6rem;
-			margin: 0.8rem auto;
-			padding: 0.8rem 1rem;
-			padding-right: 1.5rem;
-			text-align: left;
+		.digital-kanzlei-section {
 			width: 100%;
-			max-width: 100%;
+			margin: 0.8rem 0;
+			padding: 2rem 1rem;
+			left: 0;
+			right: 0;
+			margin-left: 0;
+			margin-right: 0;
 			box-sizing: border-box;
-			position: relative;
-			left: auto;
-			right: auto;
-			margin-left: auto;
-			margin-right: auto;
-			transform: none;
 		}
 
-		.tab {
-			padding: 0.6rem;
-			text-align: left;
+		.digital-kanzlei-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 0 1rem;
 		}
 
-		.tab h2 {
-			font-size: 1.3em;
-			text-align: center;
+		.digital-kanzlei-text h2 {
+			font-size: 2em;
 		}
 
-		.tab-image {
-			height: 120px;
+		.digital-kanzlei-text p {
+			font-size: 1rem;
 		}
 
 		.info-sections {
@@ -568,7 +627,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			margin-left: 0;
 			margin-right: 0;
 			overflow-x: hidden;
-			overflow-y: visible; /* Vertikales Scrollen erlauben */
+			overflow-y: visible; /* Erlaubt vertikales Wachstum */
 			padding: 2rem 0 3rem 0; /* Padding oben und unten für Mobile */
 			box-sizing: border-box;
 		}
@@ -595,12 +654,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			width: 100%;
 			max-width: 100%;
 			box-sizing: border-box;
+			position: relative;
+			min-height: 350px; /* Mindesthöhe für Mobile */
+			height: auto;
 		}
 
 		.testimonial-container {
 			width: 100%;
 			max-width: 100%;
 			box-sizing: border-box;
+			position: relative;
+			min-height: 350px;
+		}
+
+		.testimonial.active {
+			position: relative; /* Auf Mobile immer relativ, damit nichts abgeschnitten wird */
 		}
 
 		.unique-left h2,
@@ -659,13 +727,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	function showTestimonial(index: number) {
 		// Alle Testimonials verstecken
-		testimonials.forEach(testimonial => {
+		testimonials.forEach((testimonial, i) => {
 			testimonial.classList.remove('active');
 			const htmlElement = testimonial as HTMLElement;
 			htmlElement.style.opacity = '0';
 			htmlElement.style.transform = 'translateY(20px)';
 			htmlElement.style.zIndex = '1';
 			htmlElement.style.visibility = 'hidden';
+			htmlElement.style.position = 'absolute';
 		});
 		
 		// Aktuelles Testimonial anzeigen
@@ -675,6 +744,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		currentElement.style.transform = 'translateY(0)';
 		currentElement.style.zIndex = '2';
 		currentElement.style.visibility = 'visible';
+		currentElement.style.position = 'relative'; // Damit der Container sich erweitert
 	}
 	
 	function nextTestimonial() {
@@ -692,8 +762,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	}
 
 	function startAutoPlay() {
-		// Alle 5 Sekunden wechseln
-		autoPlayInterval = setInterval(nextTestimonial, 5000);
+		// Alle 10 Sekunden wechseln
+		autoPlayInterval = setInterval(nextTestimonial, 10000);
 	}
 </script>
 
