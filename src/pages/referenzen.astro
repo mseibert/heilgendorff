@@ -285,7 +285,14 @@ import CookieBanner from '../components/CookieBanner.astro';
 			}
 
 			/* Responsive Design */
-			@media (max-width: 1200px) {
+			@media (max-width: 1024px) and (min-width: 721px) {
+				.client-logos-grid {
+					grid-template-columns: repeat(4, 1fr);
+					gap: 1.5rem;
+				}
+			}
+
+			@media (max-width: 1200px) and (min-width: 1025px) {
 				.client-logos-grid {
 					grid-template-columns: repeat(3, 1fr);
 					gap: 1.5rem;

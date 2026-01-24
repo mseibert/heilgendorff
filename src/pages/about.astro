@@ -246,6 +246,49 @@ import CookieBanner from '../components/CookieBanner.astro';
 		margin: 0;
 	}
 
+	@media (max-width: 1024px) and (min-width: 721px) {
+		.content-section {
+			width: 100%;
+			margin: 2.88rem 0 0 0;
+			padding: 2.88rem 2rem;
+			left: 0;
+			right: 0;
+			margin-left: 0;
+			margin-right: 0;
+			box-sizing: border-box;
+		}
+
+		.content-container {
+			width: 100%;
+			max-width: 100%;
+			padding: 0 2rem;
+			transform: none;
+			box-sizing: border-box;
+		}
+
+		.main-content {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.text-content,
+		.founder-section {
+			flex: none;
+			width: 100%;
+		}
+
+		.languages-team-section {
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.languages-section,
+		.team-section {
+			flex: none;
+			width: 100%;
+		}
+	}
+
 	@media (max-width: 720px) {
 		.hero {
 			width: 100vw;

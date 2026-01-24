@@ -670,18 +670,41 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.content-section {
-					width: calc(50% + 100px);
-					margin-left: -125px;
+					width: 100%;
+					margin: 2.88rem 0 0 0;
+					padding: 2.88rem 2rem;
+					left: 0;
+					right: 0;
+					margin-left: 0;
 					margin-right: 0;
-					padding: 0.8rem 0;
+					box-sizing: border-box;
 				}
 
 				.container {
-					padding: 0 1.5rem;
+					width: 100%;
+					max-width: 100%;
+					padding: 0;
+					transform: none;
+					box-sizing: border-box;
+				}
+
+				.news-articles {
+					width: 100%;
+					max-width: 100%;
+				}
+
+				.news-article {
+					width: 100%;
+					max-width: 100%;
 				}
 
 				.article-header {
 					padding: 1.2rem 1.5rem;
+				}
+
+				.article-header h2 {
+					font-size: 1.2rem;
+					line-height: 1.4;
 				}
 
 				.article-content {
@@ -705,7 +728,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 				.content-section {
 					width: 100%;
 					margin: 0.8rem 0;
-					padding: 0.8rem 1rem;
+					padding: 0.8rem 0;
 					left: 0;
 					right: 0;
 					margin-left: 0;
@@ -714,8 +737,22 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.container {
+					width: 100%;
+					max-width: 100%;
+					padding: 0;
+					box-sizing: border-box;
+				}
+
+				.news-articles {
+					width: 100%;
+					max-width: 100%;
 					padding: 0 1rem;
-					padding-right: 1.5rem;
+					box-sizing: border-box;
+				}
+
+				.news-article {
+					width: 100%;
+					max-width: 100%;
 					box-sizing: border-box;
 				}
 
@@ -728,7 +765,8 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.article-header h2 {
-					font-size: 1.3rem;
+					font-size: 0.9rem;
+					line-height: 1.3;
 				}
 
 				.article-meta {
@@ -736,14 +774,24 @@ import CookieBanner from '../components/CookieBanner.astro';
 					justify-content: space-between;
 				}
 
+				.article-date,
+				.article-category {
+					font-size: 0.75rem;
+					padding: 0.2rem 0.5rem;
+				}
+
 				.expand-icon {
 					position: absolute;
 					top: 1rem;
 					right: 1rem;
+					font-size: 1.2rem;
 				}
 
 				.article-content {
 					padding: 1rem;
+					width: 100%;
+					max-width: 100%;
+					box-sizing: border-box;
 				}
 
 				.article-image img {
@@ -751,11 +799,36 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.article-text h3 {
-					font-size: 1.2rem;
+					font-size: 0.95rem;
+					line-height: 1.4;
 				}
 
 				.article-text h4 {
-					font-size: 1rem;
+					font-size: 0.85rem;
+					line-height: 1.4;
+				}
+
+				.article-text p {
+					font-size: 0.85rem;
+					line-height: 1.5;
+				}
+
+				.article-text li {
+					font-size: 0.85rem;
+					line-height: 1.5;
+				}
+
+				.article-cta {
+					padding: 1rem;
+				}
+
+				.article-cta p {
+					font-size: 0.85rem;
+				}
+
+				.btn-primary {
+					font-size: 0.85rem;
+					padding: 0.7rem 1.2rem;
 				}
 			}
 		</style>

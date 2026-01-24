@@ -188,6 +188,8 @@ import CookieBanner from '../components/CookieBanner.astro';
 				margin: 0 auto;
 				padding: 0 2rem;
 				transform: translateX(-15px);
+				overflow: visible;
+				box-sizing: border-box;
 			}
 
 			/* Full-width sections like homepage */
@@ -307,6 +309,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			/* Services Tabs Section */
 			.services-tabs-section {
 				background: var(--light-gray);
+				overflow: visible;
 			}
 
 			.services-tabs-section h2 {
@@ -320,8 +323,11 @@ import CookieBanner from '../components/CookieBanner.astro';
 				display: flex;
 				gap: 1rem;
 				margin-bottom: 2rem;
-				overflow-x: auto;
+				overflow-x: visible;
+				overflow-y: visible;
 				padding: 1rem 0 1rem 0;
+				width: 100%;
+				box-sizing: border-box;
 			}
 
 			.service-tab {
@@ -369,6 +375,10 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			.service-details-container {
 				margin-top: 2rem;
+				width: 100%;
+				max-width: 100%;
+				overflow: visible;
+				box-sizing: border-box;
 			}
 
 			.service-detail {
@@ -377,6 +387,10 @@ import CookieBanner from '../components/CookieBanner.astro';
 				padding: 2rem;
 				border-radius: 12px;
 				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				width: 100%;
+				max-width: 100%;
+				box-sizing: border-box;
+				overflow: visible;
 			}
 
 			.service-detail.active {
@@ -532,10 +546,23 @@ import CookieBanner from '../components/CookieBanner.astro';
 				
 				.datev-quote-section,
 				.services-tabs-section {
-					width: calc(50% + 100px);
-					margin-left: calc(-125px - 50px);
+					width: 100%;
+					margin: 2.88rem 0 0 0;
+					padding: 2.88rem 1rem;
+					left: 0;
+					right: 0;
+					margin-left: 0;
 					margin-right: 0;
-					padding: 0.8rem 0;
+					box-sizing: border-box;
+				}
+
+				.container {
+					width: 100%;
+					max-width: 100%;
+					padding: 0 1rem;
+					transform: none;
+					box-sizing: border-box;
+					overflow: visible;
 				}
 
 				.datev-quote-wrapper {
@@ -548,14 +575,61 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.services-tabs {
-					flex-wrap: wrap;
-					justify-content: center;
+					flex-direction: column;
+					gap: 0.8rem;
+					width: 100%;
+					max-width: 100%;
+					padding: 0;
+					margin: 0;
+					box-sizing: border-box;
 				}
 
 				.service-tab {
 					min-width: 0;
-					flex: 1;
+					width: 100%;
+					max-width: 100%;
 					padding: 0.8rem;
+					box-sizing: border-box;
+				}
+
+				.service-tab h3 {
+					font-size: 0.9rem;
+					line-height: 1.3;
+				}
+
+				.service-tab p {
+					font-size: 0.8rem;
+					line-height: 1.4;
+				}
+
+				.service-details-container {
+					width: 100%;
+					max-width: 100%;
+					box-sizing: border-box;
+				}
+
+				.service-detail {
+					width: 100%;
+					max-width: 100%;
+					box-sizing: border-box;
+				}
+
+				.service-detail h2 {
+					font-size: 1.6rem;
+				}
+
+				.services-details h3 {
+					font-size: 1rem;
+				}
+
+				.text-content p {
+					font-size: 1rem;
+					line-height: 1.6;
+				}
+
+				.services-details li {
+					font-size: 0.9rem;
+					line-height: 1.5;
 				}
 			}
 
@@ -575,6 +649,9 @@ import CookieBanner from '../components/CookieBanner.astro';
 				.container {
 					padding: 0 1rem;
 					box-sizing: border-box;
+					overflow: visible;
+					width: 100%;
+					max-width: 100%;
 				}
 				
 				.datev-quote-section,
@@ -587,22 +664,69 @@ import CookieBanner from '../components/CookieBanner.astro';
 					margin-left: 0;
 					margin-right: 0;
 					box-sizing: border-box;
+					overflow: visible;
 				}
 
 				.services-tabs-section h2 {
 					font-size: 1.8rem;
 				}
 
+				.services-tabs {
+					flex-direction: column;
+					gap: 0.8rem;
+					width: 100%;
+					max-width: 100%;
+					overflow: visible;
+					box-sizing: border-box;
+				}
+
 				.service-tab {
+					width: 100%;
+					max-width: 100%;
 					padding: 0.8rem;
+					box-sizing: border-box;
+				}
+
+				.service-details-container {
+					width: 100%;
+					max-width: 100%;
+					overflow: visible;
+					box-sizing: border-box;
+				}
+
+				.service-detail {
+					width: 100%;
+					max-width: 100%;
+					overflow: visible;
+					box-sizing: border-box;
 				}
 
 				.service-tab h3 {
-					font-size: 0.85rem;
+					font-size: 0.9rem;
+					line-height: 1.3;
 				}
 
 				.service-tab p {
-					font-size: 0.75rem;
+					font-size: 0.8rem;
+					line-height: 1.4;
+				}
+
+				.service-detail h2 {
+					font-size: 1.5rem;
+				}
+
+				.text-content p {
+					font-size: 0.95rem;
+					line-height: 1.6;
+				}
+
+				.services-details h3 {
+					font-size: 1rem;
+				}
+
+				.services-details li {
+					font-size: 0.85rem;
+					line-height: 1.5;
 				}
 
 				.datev-quote-wrapper {
