@@ -5,6 +5,7 @@ import { Image } from 'astro:assets';
 import Logo from '../assets/images/logo.png';
 ---
 
+<a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
 <header>
 	<nav class="navbar">
 		<div class="nav-container">
@@ -16,7 +17,7 @@ import Logo from '../assets/images/logo.png';
 			</div>
 			
 			<!-- Mobile Hamburger Button -->
-			<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+			<button class="mobile-toggle" id="mobileToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
 				<span class="hamburger-line"></span>
 				<span class="hamburger-line"></span>
 				<span class="hamburger-line"></span>
@@ -74,17 +75,17 @@ import Logo from '../assets/images/logo.png';
 					<div class="phone-number">
 						<a href="tel:+496113913200">+49 (0) 611 3913200</a>
 					</div>
-					<div class="language-switcher">
-						<button class="lang-btn active" data-lang="de">DE</button>
-						<button class="lang-btn" data-lang="en">ENG</button>
+					<div class="language-switcher" role="group" aria-label="Sprache wählen">
+						<button class="lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+						<button class="lang-btn" data-lang="en" aria-label="Englisch" aria-pressed="false">ENG</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<!-- Mobile Navigation -->
-			<div class="mobile-nav" id="mobileNav">
+			<!-- Mobile Navigation -->
+			<div class="mobile-nav" id="mobileNav" aria-label="Hauptnavigation">
 				<div class="mobile-nav-content">
 			<ul class="mobile-menu">
 				<li><a href="/" class="mobile-link" data-translate="home">Home</a></li>
@@ -93,11 +94,11 @@ import Logo from '../assets/images/logo.png';
 				<li class="mobile-dropdown">
 					<div class="mobile-dropdown-header">
 						<a href="/about" class="mobile-link mobile-main-link" data-translate="about">Über Uns</a>
-						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+						<button class="mobile-dropdown-toggle" aria-label="Untermenü Über Uns ein- oder ausklappen" aria-expanded="false" aria-controls="mobile-dropdown-about">
 							<span class="mobile-arrow">▼</span>
 						</button>
 					</div>
-					<ul class="mobile-dropdown-menu">
+					<ul class="mobile-dropdown-menu" id="mobile-dropdown-about">
 						<li><a href="/meet-the-team" class="mobile-link" data-translate="meetTheTeam">Meet the Team</a></li>
 						<li><a href="/referenzen" class="mobile-link" data-translate="references">Referenzen</a></li>
 						<li><a href="/unsere-weiterbildungen" class="mobile-link" data-translate="ourTraining">Unsere Weiterbildungen</a></li>
@@ -107,11 +108,11 @@ import Logo from '../assets/images/logo.png';
 				<li class="mobile-dropdown">
 					<div class="mobile-dropdown-header">
 						<a href="/leistungen" class="mobile-link mobile-main-link" data-translate="services">Leistungen</a>
-						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+						<button class="mobile-dropdown-toggle" aria-label="Untermenü Leistungen ein- oder ausklappen" aria-expanded="false" aria-controls="mobile-dropdown-services">
 							<span class="mobile-arrow">▼</span>
 						</button>
 					</div>
-					<ul class="mobile-dropdown-menu">
+					<ul class="mobile-dropdown-menu" id="mobile-dropdown-services">
 						<li><a href="/privatpersonen" class="mobile-link" data-translate="individuals">Privatpersonen</a></li>
 						<li><a href="/unternehmer" class="mobile-link" data-translate="entrepreneurs">Unternehmer</a></li>
 					</ul>
@@ -123,7 +124,7 @@ import Logo from '../assets/images/logo.png';
 				<li class="mobile-dropdown">
 					<div class="mobile-dropdown-header">
 						<a href="/aktuelles" class="mobile-link mobile-main-link" data-translate="news">Aktuelles</a>
-						<button class="mobile-dropdown-toggle" aria-label="Toggle dropdown">
+						<button class="mobile-dropdown-toggle" aria-label="Untermenü Aktuelles ein- oder ausklappen" aria-expanded="false" aria-controls="mobile-dropdown-news">
 							<span class="mobile-arrow">▼</span>
 						</button>
 					</div>
@@ -138,9 +139,9 @@ import Logo from '../assets/images/logo.png';
 						<div class="mobile-phone">
 							<a href="tel:+496113913200">+49 (0) 611 3913200</a>
 						</div>
-						<div class="mobile-language-switcher">
-					<button class="lang-btn active" data-lang="de">DE</button>
-					<button class="lang-btn" data-lang="en">ENG</button>
+						<div class="mobile-language-switcher" role="group" aria-label="Sprache wählen">
+					<button class="lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+					<button class="lang-btn" data-lang="en" aria-label="Englisch" aria-pressed="false">ENG</button>
 						</div>
 					</div>
 				</div>
@@ -703,37 +704,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// Toggle mobile menu
 		if (mobileToggle && mobileNav) {
+			function updateMobileMenuAria() {
+				const isOpen = mobileNav.classList.contains('active');
+				mobileToggle.setAttribute('aria-expanded', isOpen);
+				mobileToggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+			}
 			mobileToggle.addEventListener('click', function(e) {
 				e.preventDefault();
 				e.stopPropagation();
 				mobileToggle.classList.toggle('active');
 				mobileNav.classList.toggle('active');
+				updateMobileMenuAria();
 			});
-			
-			// Also support touch events for better mobile compatibility
 			mobileToggle.addEventListener('touchend', function(e) {
 				e.preventDefault();
 				e.stopPropagation();
 				mobileToggle.classList.toggle('active');
 				mobileNav.classList.toggle('active');
+				updateMobileMenuAria();
 			});
 		}
 
 		// Mobile dropdown toggles
 		mobileDropdowns.forEach(dropdown => {
 			const toggle = dropdown.querySelector('.mobile-dropdown-toggle');
-			if (toggle) {
+			const menu = dropdown.querySelector('.mobile-dropdown-menu');
+			if (toggle && menu) {
 				toggle.addEventListener('click', function(e) {
 					e.preventDefault();
 					e.stopPropagation();
-					dropdown.classList.toggle('active');
+					const isOpen = dropdown.classList.toggle('active');
+					toggle.setAttribute('aria-expanded', isOpen);
 				});
-				
-				// Also support touch events
 				toggle.addEventListener('touchend', function(e) {
 					e.preventDefault();
 					e.stopPropagation();
-					dropdown.classList.toggle('active');
+					const isOpen = dropdown.classList.toggle('active');
+					toggle.setAttribute('aria-expanded', isOpen);
 				});
 			}
 		});
@@ -744,6 +751,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				if (!mobileNav.contains(event.target) && !mobileToggle.contains(event.target)) {
 					mobileNav.classList.remove('active');
 					mobileToggle.classList.remove('active');
+					mobileToggle.setAttribute('aria-expanded', 'false');
+					mobileToggle.setAttribute('aria-label', 'Menü öffnen');
 				}
 			}
 		});

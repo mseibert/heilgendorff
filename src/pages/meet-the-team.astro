@@ -13,7 +13,7 @@ import { SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<!-- Hero Section -->
 			<section class="hero">
 				<div class="hero-content">
@@ -28,7 +28,8 @@ import { SITE_TITLE } from '../consts';
 					<div class="leadership-advisors-grid">
 						<!-- Left: Burghard Heilgendorff -->
 						<div class="leadership-card">
-							<div class="leadership-image" role="img" aria-label="Burghard Heilgendorff">
+							<div class="leadership-image">
+								<img src="/DJI_20220227_173057_505-2.png" alt="Burghard Heilgendorff, Kanzleiinhaber" />
 							</div>
 							<div class="leadership-content">
 								<h3 data-translate="teamLeaderName">Burghard Heilgendorff</h3>
@@ -43,7 +44,8 @@ import { SITE_TITLE } from '../consts';
 
 						<!-- Right: Unsere Steuerberater -->
 						<div class="advisors-card">
-							<div class="advisors-image" role="img" aria-label="Unsere Steuerberater">
+							<div class="advisors-image">
+								<img src="/IMG_1802-scaled.jpg" alt="Unsere Steuerberater" />
 							</div>
 							<div class="advisors-content">
 								<h3 data-translate="teamSectionTitle">Unsere Steuerberater</h3>
@@ -65,7 +67,7 @@ import { SITE_TITLE } from '../consts';
 						<!-- Tax-PUB Consultants -->
 						<div class="team-card">
 							<div class="team-image">
-								<img src="/IMG_3700.jpg" alt="Tax-PUB Consultants" />
+								<img src="/tax-pub-consultants.png" alt="Tax-PUB Consultants" />
 							</div>
 							<div class="team-content">
 								<h3>Tax-PUB Consultants</h3>
@@ -77,7 +79,7 @@ import { SITE_TITLE } from '../consts';
 						<!-- Taxrockers -->
 						<div class="team-card">
 							<div class="team-image">
-								<img src="/IMG_3699.jpg" alt="Taxrockers" />
+								<img src="/taxrockers.png" alt="Taxrockers" />
 							</div>
 							<div class="team-content">
 								<h3>Taxrockers</h3>
@@ -89,7 +91,7 @@ import { SITE_TITLE } from '../consts';
 						<!-- Soll & Haben Architekten -->
 						<div class="team-card">
 							<div class="team-image">
-								<img src="/IMG_3701.jpg" alt="Soll & Haben Architekten" />
+								<img src="/soll-haben-architekten.png" alt="Soll & Haben Architekten" />
 							</div>
 							<div class="team-content">
 								<h3>Soll & Haben Architekten</h3>
@@ -101,7 +103,7 @@ import { SITE_TITLE } from '../consts';
 						<!-- Karussell -->
 						<div class="team-card">
 							<div class="team-image">
-								<img src="/IMG_3702.jpg" alt="Karussell" />
+								<img src="/karussell.png" alt="Karussell" />
 							</div>
 							<div class="team-content">
 								<h3>Karussell</h3>
@@ -209,10 +211,14 @@ import { SITE_TITLE } from '../consts';
 				position: relative;
 				width: 100%;
 				aspect-ratio: 16 / 9;
-				background-image: url('/DJI_20220227_173057_505-2.png');
-				background-size: 180%;
-				background-position: 68% 45%;
-				background-repeat: no-repeat;
+			}
+			.leadership-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 92% 85%;
+				transform: scale(1.25);
+				transform-origin: center 60%;
 			}
 
 			.advisors-card {
@@ -235,10 +241,12 @@ import { SITE_TITLE } from '../consts';
 				position: relative;
 				width: 100%;
 				aspect-ratio: 16 / 9;
-				background-image: url('/IMG_1802-scaled.jpg');
-				background-size: 100%;
-				background-position: 50% 30%;
-				background-repeat: no-repeat;
+			}
+			.advisors-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 50% 30%;
 			}
 
 			/* Teams Section */
@@ -471,14 +479,10 @@ import { SITE_TITLE } from '../consts';
 
 				.leadership-image {
 					aspect-ratio: 16 / 9 !important;
-					background-size: 180% !important;
-					background-position: 68% 45% !important;
 				}
 
 				.advisors-image {
 					aspect-ratio: 16 / 9 !important;
-					background-size: 100% !important;
-					background-position: 50% 30% !important;
 				}
 			}
 
@@ -536,14 +540,10 @@ import { SITE_TITLE } from '../consts';
 				/* Maintain consistent image crops on tablets - same pixel positioning */
 				.leadership-image {
 					aspect-ratio: 16 / 9;
-					background-size: 180%;
-					background-position: 68% 45%;
 				}
-
+				
 				.advisors-image {
 					aspect-ratio: 16 / 9;
-					background-size: 100%;
-					background-position: 50% 30%;
 				}
 
 				.teams-section {
@@ -643,14 +643,10 @@ import { SITE_TITLE } from '../consts';
 				/* Maintain consistent image crops on mobile - same pixel positioning */
 				.leadership-image {
 					aspect-ratio: 16 / 9;
-					background-size: 180%;
-					background-position: 68% 45%;
 				}
-
+				
 				.advisors-image {
 					aspect-ratio: 16 / 9;
-					background-size: 100%;
-					background-position: 50% 30%;
 				}
 
 				.teams-section {

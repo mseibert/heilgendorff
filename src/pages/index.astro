@@ -13,7 +13,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="heroTitle">Steuerbüro Heilgendorff</h1>
@@ -71,7 +71,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					</div>
 					<div class="unique-right">
 						<h2 data-translate="testimonialsTitle">Unsere zufriedenen Mandanten</h2>
-							<div class="testimonial-container">
+							<div class="testimonial-container" role="region" aria-label="Kundenstimmen" aria-live="polite">
+								<div class="testimonial-controls" aria-label="Steuerung der Kundenstimmen">
+									<button type="button" class="testimonial-btn testimonial-pause" id="testimonialPause" aria-label="Automatischen Wechsel pausieren">
+										Pause
+									</button>
+									<button type="button" class="testimonial-btn testimonial-prev" id="testimonialPrev" aria-label="Vorherige Stimme">
+										← Zurück
+									</button>
+									<button type="button" class="testimonial-btn testimonial-next" id="testimonialNext" aria-label="Nächste Stimme">
+										Weiter →
+									</button>
+								</div>
 								<blockquote class="testimonial">
 									<p data-translate="testimonial1">"Im Verlauf des Kurses unserer Firma, war das Steuerbüro Heilgendorff immer, und wird auch in Zukunft, eine großartige Ressource von umfangreichem, tiefgehendem Fachwissen und rechtlicher Fachkompetenz sein."</p>
 									<cite data-translate="testimonial1Author">Martin Seibert, Seibert Group GmbH</cite>
@@ -449,6 +460,37 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		position: relative; /* Damit der aktive Testimonial den Container erweitern kann */
 	}
 
+	.testimonial-controls {
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.testimonial-btn {
+		padding: 0.5rem 1rem;
+		background: var(--accent);
+		color: white;
+		border: none;
+		border-radius: 6px;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-size: 0.9rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+		min-height: 44px;
+		min-width: 44px;
+	}
+
+	.testimonial-btn:hover {
+		background: var(--accent-dark);
+	}
+
+	.testimonial-btn:focus-visible {
+		outline: 2px solid white;
+		outline-offset: 2px;
+	}
+
 	/* Tablet view adjustments */
 	@media (max-width: 1024px) and (min-width: 721px) {
 		.hero {
@@ -697,73 +739,77 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 <script>
 	let currentTestimonial = 0;
-	const testimonials = document.querySelectorAll('.testimonial');
-	let autoPlayInterval;
+	let testimonials: NodeListOf<Element>;
+	let autoPlayInterval: number | null = null;
+	let isPaused = false;
 
 	document.addEventListener('DOMContentLoaded', function() {
+		testimonials = document.querySelectorAll('.testimonial');
+		if (!testimonials.length) return;
 		showTestimonial(0);
 		startAutoPlay();
-		
-		// Event Listener für Pfeile hinzufügen
-		const leftArrow = document.querySelector('.testimonial-arrow-left');
-		const rightArrow = document.querySelector('.testimonial-arrow-right');
-		
-		if (leftArrow) {
-			leftArrow.addEventListener('click', function(e) {
-				e.preventDefault();
-				console.log('Left arrow clicked via event listener');
-				previousTestimonial();
-			});
-		}
-		
-		if (rightArrow) {
-			rightArrow.addEventListener('click', function(e) {
-				e.preventDefault();
-				console.log('Right arrow clicked via event listener');
-				nextTestimonial();
-			});
-		}
+
+		const pauseBtn = document.getElementById('testimonialPause');
+		const prevBtn = document.getElementById('testimonialPrev');
+		const nextBtn = document.getElementById('testimonialNext');
+
+		pauseBtn?.addEventListener('click', togglePause);
+		prevBtn?.addEventListener('click', () => { previousTestimonial(); if (isPaused) return; stopAutoPlay(); startAutoPlay(); });
+		nextBtn?.addEventListener('click', () => { nextTestimonial(); if (isPaused) return; stopAutoPlay(); startAutoPlay(); });
 	});
 
-	function showTestimonial(index: number) {
-		// Alle Testimonials verstecken
-		testimonials.forEach((testimonial, i) => {
-			testimonial.classList.remove('active');
-			const htmlElement = testimonial as HTMLElement;
-			htmlElement.style.opacity = '0';
-			htmlElement.style.transform = 'translateY(20px)';
-			htmlElement.style.zIndex = '1';
-			htmlElement.style.visibility = 'hidden';
-			htmlElement.style.position = 'absolute';
-		});
-		
-		// Aktuelles Testimonial anzeigen
-		const currentElement = testimonials[index] as HTMLElement;
-		currentElement.classList.add('active');
-		currentElement.style.opacity = '1';
-		currentElement.style.transform = 'translateY(0)';
-		currentElement.style.zIndex = '2';
-		currentElement.style.visibility = 'visible';
-		currentElement.style.position = 'relative'; // Damit der Container sich erweitert
+	function togglePause() {
+		isPaused = !isPaused;
+		const pauseBtn = document.getElementById('testimonialPause');
+		if (isPaused) {
+			stopAutoPlay();
+			if (pauseBtn) { pauseBtn.textContent = 'Abspielen'; pauseBtn.setAttribute('aria-label', 'Automatischen Wechsel fortsetzen'); }
+		} else {
+			startAutoPlay();
+			if (pauseBtn) { pauseBtn.textContent = 'Pause'; pauseBtn.setAttribute('aria-label', 'Automatischen Wechsel pausieren'); }
+		}
 	}
-	
+
+	function showTestimonial(index: number) {
+		if (!testimonials?.length || index < 0 || index >= testimonials.length) return;
+		testimonials.forEach((testimonial) => {
+			testimonial.classList.remove('active');
+			const el = testimonial as HTMLElement;
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(20px)';
+			el.style.zIndex = '1';
+			el.style.visibility = 'hidden';
+			el.style.position = 'absolute';
+		});
+		const current = testimonials[index] as HTMLElement;
+		current.classList.add('active');
+		current.style.opacity = '1';
+		current.style.transform = 'translateY(0)';
+		current.style.zIndex = '2';
+		current.style.visibility = 'visible';
+		current.style.position = 'relative';
+	}
+
 	function nextTestimonial() {
-		console.log('Next testimonial clicked, current:', currentTestimonial);
 		currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-		console.log('New testimonial:', currentTestimonial);
 		showTestimonial(currentTestimonial);
 	}
 
 	function previousTestimonial() {
-		console.log('Previous testimonial clicked, current:', currentTestimonial);
 		currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-		console.log('New testimonial:', currentTestimonial);
 		showTestimonial(currentTestimonial);
 	}
 
 	function startAutoPlay() {
-		// Alle 10 Sekunden wechseln
-		autoPlayInterval = setInterval(nextTestimonial, 10000);
+		stopAutoPlay();
+		autoPlayInterval = window.setInterval(nextTestimonial, 10000);
+	}
+
+	function stopAutoPlay() {
+		if (autoPlayInterval !== null) {
+			clearInterval(autoPlayInterval);
+			autoPlayInterval = null;
+		}
 	}
 </script>
 

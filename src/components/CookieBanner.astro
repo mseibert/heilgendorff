@@ -2,7 +2,7 @@
 // Cookie Banner Component
 ---
 
-<div id="cookie-banner" class="cookie-banner" style="display: none;">
+<div id="cookie-banner" class="cookie-banner" style="display: none;" aria-hidden="true">
   <div class="cookie-banner-content">
     <div class="cookie-banner-text">
       <h3 data-translate="cookieBannerTitle">Cookie-Einstellungen</h3>
@@ -14,13 +14,13 @@
       </p>
     </div>
     <div class="cookie-banner-buttons">
-      <button id="accept-all-cookies" class="cookie-btn cookie-btn-accept" data-translate="cookieBannerAcceptAll">
+      <button type="button" id="accept-all-cookies" class="cookie-btn cookie-btn-accept" data-translate="cookieBannerAcceptAll">
         Alle akzeptieren
       </button>
-      <button id="accept-necessary-cookies" class="cookie-btn cookie-btn-necessary" data-translate="cookieBannerNecessary">
+      <button type="button" id="accept-necessary-cookies" class="cookie-btn cookie-btn-necessary" data-translate="cookieBannerNecessary">
         Nur notwendige
       </button>
-      <button id="cookie-settings" class="cookie-btn cookie-btn-settings" data-translate="cookieBannerSettings">
+      <button type="button" id="cookie-settings" class="cookie-btn cookie-btn-settings" data-translate="cookieBannerSettings">
         Einstellungen
       </button>
     </div>
@@ -28,11 +28,11 @@
 </div>
 
 <!-- Cookie Settings Modal -->
-<div id="cookie-settings-modal" class="cookie-modal" style="display: none;">
+<div id="cookie-settings-modal" class="cookie-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title" aria-hidden="true">
   <div class="cookie-modal-content">
     <div class="cookie-modal-header">
-      <h2 data-translate="cookieModalTitle">Cookie-Einstellungen</h2>
-      <button id="close-cookie-modal" class="cookie-modal-close">&times;</button>
+      <h2 id="cookie-modal-title" data-translate="cookieModalTitle">Cookie-Einstellungen</h2>
+      <button id="close-cookie-modal" class="cookie-modal-close" aria-label="Dialog schließen">&times;</button>
     </div>
     <div class="cookie-modal-body">
       <p data-translate="cookieModalDescription">
@@ -44,9 +44,9 @@
       <div class="cookie-categories">
         <div class="cookie-category">
           <div class="cookie-category-header">
-            <h3 data-translate="cookieCategoryNecessary">Notwendige Cookies</h3>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="necessary-cookies" checked disabled>
+            <h3 id="cookie-necessary-label" data-translate="cookieCategoryNecessary">Notwendige Cookies</h3>
+            <label class="cookie-toggle" for="necessary-cookies">
+              <input type="checkbox" id="necessary-cookies" checked disabled aria-labelledby="cookie-necessary-label">
               <span class="cookie-slider"></span>
             </label>
           </div>
@@ -57,9 +57,9 @@
 
         <div class="cookie-category">
           <div class="cookie-category-header">
-            <h3 data-translate="cookieCategoryFunctional">Funktionale Cookies</h3>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="functional-cookies">
+            <h3 id="cookie-functional-label" data-translate="cookieCategoryFunctional">Funktionale Cookies</h3>
+            <label class="cookie-toggle" for="functional-cookies">
+              <input type="checkbox" id="functional-cookies" aria-labelledby="cookie-functional-label">
               <span class="cookie-slider"></span>
             </label>
           </div>
@@ -70,9 +70,9 @@
 
         <div class="cookie-category">
           <div class="cookie-category-header">
-            <h3 data-translate="cookieCategoryAnalytics">Analyse-Cookies</h3>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="analytics-cookies">
+            <h3 id="cookie-analytics-label" data-translate="cookieCategoryAnalytics">Analyse-Cookies</h3>
+            <label class="cookie-toggle" for="analytics-cookies">
+              <input type="checkbox" id="analytics-cookies" aria-labelledby="cookie-analytics-label">
               <span class="cookie-slider"></span>
             </label>
           </div>
@@ -83,9 +83,9 @@
 
         <div class="cookie-category">
           <div class="cookie-category-header">
-            <h3 data-translate="cookieCategoryMarketing">Marketing-Cookies</h3>
-            <label class="cookie-toggle">
-              <input type="checkbox" id="marketing-cookies">
+            <h3 id="cookie-marketing-label" data-translate="cookieCategoryMarketing">Marketing-Cookies</h3>
+            <label class="cookie-toggle" for="marketing-cookies">
+              <input type="checkbox" id="marketing-cookies" aria-labelledby="cookie-marketing-label">
               <span class="cookie-slider"></span>
             </label>
           </div>
@@ -96,10 +96,10 @@
       </div>
     </div>
     <div class="cookie-modal-footer">
-      <button id="save-cookie-preferences" class="cookie-btn cookie-btn-save" data-translate="cookieModalSave">
+      <button type="button" id="save-cookie-preferences" class="cookie-btn cookie-btn-save" data-translate="cookieModalSave">
         Einstellungen speichern
       </button>
-      <button id="accept-all-modal" class="cookie-btn cookie-btn-accept" data-translate="cookieModalAcceptAll">
+      <button type="button" id="accept-all-modal" class="cookie-btn cookie-btn-accept" data-translate="cookieModalAcceptAll">
         Alle akzeptieren
       </button>
     </div>
@@ -420,186 +420,4 @@
   }
 </style>
 
-<script>
-  // Cookie Banner Script
-  class CookieBanner {
-    constructor() {
-      this.banner = document.getElementById('cookie-banner');
-      this.modal = document.getElementById('cookie-settings-modal');
-      this.init();
-    }
-
-    init() {
-      // Check if user has already made a choice
-      if (!this.hasConsent()) {
-        this.showBanner();
-      }
-
-      this.setupEventListeners();
-    }
-
-    setupEventListeners() {
-      // Banner buttons
-      document.getElementById('accept-all-cookies')?.addEventListener('click', () => {
-        this.acceptAllCookies();
-      });
-
-      document.getElementById('accept-necessary-cookies')?.addEventListener('click', () => {
-        this.acceptNecessaryOnly();
-      });
-
-      document.getElementById('cookie-settings')?.addEventListener('click', () => {
-        this.showModal();
-      });
-
-      // Modal buttons
-      document.getElementById('close-cookie-modal')?.addEventListener('click', () => {
-        this.hideModal();
-      });
-
-      document.getElementById('save-cookie-preferences')?.addEventListener('click', () => {
-        this.savePreferences();
-      });
-
-      document.getElementById('accept-all-modal')?.addEventListener('click', () => {
-        this.acceptAllCookies();
-      });
-
-      // Close modal when clicking outside
-      this.modal?.addEventListener('click', (e) => {
-        if (e.target === this.modal) {
-          this.hideModal();
-        }
-      });
-    }
-
-    hasConsent() {
-      return localStorage.getItem('cookie-consent') !== null;
-    }
-
-    showBanner() {
-      this.banner.style.display = 'block';
-      setTimeout(() => {
-        this.banner.classList.add('show');
-      }, 100);
-    }
-
-    hideBanner() {
-      this.banner.classList.remove('show');
-      setTimeout(() => {
-        this.banner.style.display = 'none';
-      }, 300);
-    }
-
-    showModal() {
-      this.modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    hideModal() {
-      this.modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    acceptAllCookies() {
-      const consent = {
-        necessary: true,
-        functional: true,
-        analytics: true,
-        marketing: true,
-        timestamp: new Date().toISOString()
-      };
-      
-      this.saveConsent(consent);
-      this.hideBanner();
-      this.hideModal();
-      this.loadScripts();
-    }
-
-    acceptNecessaryOnly() {
-      const consent = {
-        necessary: true,
-        functional: false,
-        analytics: false,
-        marketing: false,
-        timestamp: new Date().toISOString()
-      };
-      
-      this.saveConsent(consent);
-      this.hideBanner();
-      this.hideModal();
-    }
-
-    savePreferences() {
-      const consent = {
-        necessary: true, // Always true
-        functional: document.getElementById('functional-cookies')?.checked || false,
-        analytics: document.getElementById('analytics-cookies')?.checked || false,
-        marketing: document.getElementById('marketing-cookies')?.checked || false,
-        timestamp: new Date().toISOString()
-      };
-      
-      this.saveConsent(consent);
-      this.hideBanner();
-      this.hideModal();
-      this.loadScripts();
-    }
-
-    saveConsent(consent) {
-      localStorage.setItem('cookie-consent', JSON.stringify(consent));
-      
-      // Set cookie for server-side access
-      const expires = new Date();
-      expires.setFullYear(expires.getFullYear() + 1);
-      document.cookie = `cookie-consent=${JSON.stringify(consent)}; expires=${expires.toUTCString()}; path=/; SameSite=Strict`;
-    }
-
-    loadScripts() {
-      const consent = this.getConsent();
-      
-      // Load Google Analytics if analytics cookies are accepted
-      if (consent.analytics) {
-        this.loadGoogleAnalytics();
-      }
-      
-      // Load other tracking scripts based on consent
-      if (consent.marketing) {
-        // Load marketing scripts here
-      }
-    }
-
-    loadGoogleAnalytics() {
-      // Google Analytics script loading
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
-      document.head.appendChild(script);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        anonymize_ip: true,
-        cookie_flags: 'SameSite=Strict;Secure'
-      });
-    }
-
-    getConsent() {
-      const stored = localStorage.getItem('cookie-consent');
-      if (stored) {
-        return JSON.parse(stored);
-      }
-      return {
-        necessary: true,
-        functional: false,
-        analytics: false,
-        marketing: false
-      };
-    }
-  }
-
-  // Initialize cookie banner when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new CookieBanner();
-  });
-</script>
+<script src="../scripts/cookie-banner.ts" />

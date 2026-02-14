@@ -36,7 +36,7 @@ const availablePositions = [
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="applicationTitle">Bewerbung</h1>
@@ -60,7 +60,9 @@ const availablePositions = [
 										id="name"
 										name="name"
 										required
+										aria-required="true"
 										placeholder="Max Mustermann"
+										autocomplete="name"
 									>
 								</div>
 								
@@ -73,7 +75,9 @@ const availablePositions = [
 										id="email"
 										name="email"
 										required
+										aria-required="true"
 										placeholder="max.mustermann@beispiel.de"
+										autocomplete="email"
 									>
 								</div>
 							</div>
@@ -88,7 +92,9 @@ const availablePositions = [
 										id="phone"
 										name="phone"
 										required
+										aria-required="true"
 										placeholder="+49 123 456789"
+										autocomplete="tel"
 									>
 								</div>
 								
@@ -100,6 +106,7 @@ const availablePositions = [
 										id="position"
 										name="position"
 										required
+										aria-required="true"
 									>
 										<option value="" data-translate="applicationFormPositionPlaceholder">Bitte wählen Sie eine Position</option>
 										{availablePositions.map((position, index) => (
@@ -131,6 +138,7 @@ const availablePositions = [
 									id="cv"
 									name="cv"
 									required
+									aria-required="true"
 									accept=".pdf"
 								>
 								<p class="file-info" data-translate="applicationFormCVInfo">Bitte laden Sie Ihren Lebenslauf als PDF-Datei hoch (max. 10 MB)</p>
@@ -604,25 +612,19 @@ const availablePositions = [
 		const attachmentsInput = document.getElementById('attachments');
 
 		const toast = document.getElementById('toast');
-		const toastMessage = toast.querySelector('.toast-message');
-		const toastClose = toast.querySelector('.toast-close');
+		const toastMessage = toast?.querySelector('.toast-message');
+		const toastClose = toast?.querySelector('.toast-close');
+
+		if (!form || !submitBtn || !toast || !toastMessage || !toastClose) return;
 
 		function showMessage(message, isSuccess) {
-			// Remove previous state classes
 			toast.classList.remove('success', 'error', 'show');
-
-			// Add appropriate class
 			toast.classList.add(isSuccess ? 'success' : 'error');
 			toastMessage.textContent = message;
-
-			// Show toast
 			toast.classList.add('show');
-
-			// Scroll to toast
 			toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 		}
 
-		// Close button handler
 		toastClose.addEventListener('click', () => {
 			toast.classList.remove('show');
 		});
@@ -638,8 +640,8 @@ const availablePositions = [
 			const message = formData.get('message');
 			const cv = formData.get('cv');
 			
-			const files = attachmentsInput && attachmentsInput.files ? Array.from(attachmentsInput.files) : [];
-			const cvFile = cv ? [cv] : [];
+			const files = attachmentsInput instanceof HTMLInputElement && attachmentsInput.files ? Array.from(attachmentsInput.files) : [];
+			const cvFile = cv instanceof File ? [cv] : [];
 
 			// Validierung: Gesamtgröße <= 10 MB pro Datei, max 5 zusätzliche Dateien
 			const maxFileSize = 10 * 1024 * 1024;
@@ -647,7 +649,7 @@ const availablePositions = [
 			const allowedFormats = ['.pdf', '.jpg', '.jpeg', '.png', '.docx'];
 			
 			// CV Validierung
-			if (cvFile.length > 0 && cvFile[0].size > maxFileSize) {
+			if (cvFile.length > 0 && cvFile[0] instanceof File && cvFile[0].size > maxFileSize) {
 				showMessage('Die Lebenslauf-Datei überschreitet 10 MB.', false);
 				return;
 			}
@@ -675,7 +677,9 @@ const availablePositions = [
 			const referrerURL = document.referrer || window.location.href;
 			
 			// Button deaktivieren und Text ändern
+			const previousSubmitText = submitBtn.textContent || 'Bewerbung absenden';
 			submitBtn.disabled = true;
+			submitBtn.setAttribute('aria-busy', 'true');
 			submitBtn.textContent = 'Wird gesendet...';
 			
 			try {
@@ -736,9 +740,9 @@ Bitte beachten Sie, dass Anhänge über das Formular nicht per E-Mail übertrage
 			} catch (error) {
 				showMessage('Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut.', false);
 			} finally {
-				// Button wieder aktivieren
 				submitBtn.disabled = false;
-				submitBtn.textContent = 'Bewerbung absenden';
+				submitBtn.removeAttribute('aria-busy');
+				submitBtn.textContent = previousSubmitText;
 			}
 		});
 
@@ -755,31 +759,26 @@ Bitte beachten Sie, dass Anhänge über das Formular nicht per E-Mail übertrage
 			// This is just a fallback for any custom logic if needed
 		});
 		
-		// Also ensure translations are updated when language buttons are clicked
+		// Ensure position select values are preserved when language changes
 		const langButtons = document.querySelectorAll('.lang-btn');
 		langButtons.forEach(button => {
 			button.addEventListener('click', function() {
-				// The global updateTranslations function will be called automatically
-				// Just ensure position select values are preserved correctly
 				setTimeout(function() {
 					const positionSelect = document.getElementById('position');
-					if (positionSelect && positionSelect.value) {
-						// Find the option that matches the current value
-						const currentValue = positionSelect.value;
-						const options = positionSelect.querySelectorAll('option[data-position-index]');
-						options.forEach(option => {
-							const deValue = option.getAttribute('data-position-de');
-							const enValue = option.getAttribute('data-position-en');
-							const currentLang = localStorage.getItem('selected-language') || 'de';
-							
-							// If the current value matches one of the translated values, update it
-							if (currentLang === 'en' && currentValue === enValue) {
-								option.selected = true;
-							} else if (currentLang === 'de' && currentValue === deValue) {
-								option.selected = true;
-							}
-						});
-					}
+					if (!(positionSelect instanceof HTMLSelectElement) || !positionSelect.value) return;
+					const currentValue = positionSelect.value;
+					const options = positionSelect.querySelectorAll('option[data-position-index]');
+					options.forEach(opt => {
+						if (!(opt instanceof HTMLOptionElement)) return;
+						const deValue = opt.getAttribute('data-position-de');
+						const enValue = opt.getAttribute('data-position-en');
+						const currentLang = localStorage.getItem('selected-language') || 'de';
+						if (currentLang === 'en' && currentValue === enValue) {
+							opt.selected = true;
+						} else if (currentLang === 'de' && currentValue === deValue) {
+							opt.selected = true;
+						}
+					});
 				}, 150);
 			});
 		});

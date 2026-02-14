@@ -12,7 +12,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="clientAreaTitle">Mandantenbereich</h1>
@@ -20,6 +20,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 				</div>
 			</section>
 
+			<div class="content-with-bg">
 			<section class="content-section">
 				<div class="kanzlei-drive-section">
 					<div class="kanzlei-drive-text">
@@ -92,6 +93,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					</div>
 				</div>
 			</section>
+			</div>
 		</main>
 		<Footer />
 	</body>
@@ -136,6 +138,28 @@ import CookieBanner from '../components/CookieBanner.astro';
 		font-family: "IBM Plex Sans", sans-serif;
 	}
 
+	.content-with-bg {
+		position: relative;
+	}
+
+	.content-with-bg::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url('/pilcrow-paragraph-symbol-computer-icons-section-sign-written-vector.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		opacity: 0.08;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.content-with-bg .content-section {
+		position: relative;
+		z-index: 1;
+	}
+
 	.content-section {
 		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
 		padding: 2.88rem 1.44rem 0 1.44rem;
@@ -145,7 +169,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 		right: 50%;
 		margin-left: calc(-45vw - 10px);
 		margin-right: -45vw;
-		background: white;
+		background: transparent;
 	}
 
 	.kanzlei-drive-section {
