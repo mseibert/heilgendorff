@@ -72,7 +72,7 @@ import { SITE_TITLE } from '../consts';
 							<div class="team-content">
 								<h3>Tax-PUB Consultants</h3>
 								<p class="team-subtitle">Team Steuerberater</p>
-								<p>Die Denkfabrik, die vorausschauende Strategien lösungsorientiert für den Mandanten erarbeitet, dabei natürlich immer ein offenes Ohr für die anderen Teams hat. Unsere Tätigkeit gliedert sich in die Steuererklärungsberatung, die <span class="no-break">Steuerdurchsetzungsberatung</span> und die gestaltende Steuerberatung.</p>
+								<p>Die Denkfabrik, die vorausschauende Strategien lösungsorientiert für den Mandanten erarbeitet, dabei natürlich immer ein offenes Ohr für die anderen Teams hat. Unsere Tätigkeit gliedert sich in die Steuererklärungsberatung, die <span class="no-break steuerdurchsetzung">Steuerdurchsetzungsberatung</span> und die gestaltende Steuerberatung.</p>
 							</div>
 						</div>
 
@@ -108,7 +108,7 @@ import { SITE_TITLE } from '../consts';
 							<div class="team-content">
 								<h3>Karussell</h3>
 								<p class="team-subtitle">Team Lohn</p>
-								<p>Unsere Zeitrechnung verläuft anders, da wir denken und arbeiten vom 10. eines jeden Monats bis zum 10. des Folgemonats. Dabei haben wir all unsere Mandanten mit den lohnsteuer- und <span class="no-break">sozialversicherungsrechtlichen</span> Änderungen im Blick. Eine Verantwortung und Zuverlässigkeit, die Mandanten und andere Teams sehr wertschätzen.</p>
+								<p>Unsere Zeitrechnung verläuft anders, da wir denken und arbeiten vom 10. eines jeden Monats bis zum 10. des Folgemonats. Dabei haben wir all unsere Mandanten mit den lohnsteuer- und <span class="no-break sozialversicherung">sozialversicherungsrechtlichen</span> Änderungen im Blick. Eine Verantwortung und Zuverlässigkeit, die Mandanten und andere Teams sehr wertschätzen.</p>
 							</div>
 						</div>
 					</div>
@@ -503,6 +503,10 @@ import { SITE_TITLE } from '../consts';
 					box-sizing: border-box;
 				}
 
+				.team-leadership-section .container {
+					transform: translateX(-3rem);
+				}
+
 				.team-leadership-section {
 					width: 100%;
 					max-width: 100%;
@@ -560,9 +564,21 @@ import { SITE_TITLE } from '../consts';
 					box-sizing: border-box;
 				}
 
+				.teams-section .container {
+					transform: translateX(1rem);
+				}
+
 				.teams-grid {
 					grid-template-columns: repeat(2, 1fr);
 					gap: 2rem;
+				}
+
+				.steuerdurchsetzung {
+					margin-left: -0.4em;
+				}
+
+				.sozialversicherung {
+					margin-left: -0.6em;
 				}
 			}
 
