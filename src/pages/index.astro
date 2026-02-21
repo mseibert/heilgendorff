@@ -330,47 +330,33 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	.unique-section {
 		background: #f8f9fa;
-		padding: 4rem 0 4rem 0; /* Padding oben und unten */
-		margin: 2rem 0 0 0;
+		padding: 4rem 0 4rem 0;
+		margin: 2.88rem 0 0 0;
 		width: 100vw;
 		position: relative;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
-		overflow-x: hidden; /* Verhindert horizontales Scrollen */
-		overflow-y: visible; /* Erlaubt vertikales Wachstum */
-	}
-
-	/* Grauer Hintergrund bis zum Footer erweitern */
-	.unique-section::after {
-		content: '';
-		position: absolute;
-		bottom: -100vh; /* Erweitert den Hintergrund nach unten */
-		left: 0;
-		right: 0;
-		height: 100vh;
-		background: #f8f9fa;
-		z-index: -1;
+		box-sizing: border-box;
+		overflow: visible;
 	}
 
 	.unique-content {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 4rem; /* Mehr Abstand zwischen den Spalten */
-		padding: 2.88rem 2rem 2rem 2rem;
-		width: 90vw;
+		gap: 4rem;
 		max-width: 1200px;
 		margin: 0 auto;
-		position: relative;
+		padding: 0 2rem;
 		box-sizing: border-box;
+		overflow: visible;
 	}
 
+	.unique-left,
 	.unique-right {
-		overflow: visible; /* Sichtbar machen, aber durch Container begrenzt */
-		position: relative;
-		min-height: 400px; /* Mindesthöhe, kann größer werden */
-		height: auto;
+		overflow: visible;
+		min-height: 0;
 	}
 
 	.unique-left h2,
@@ -418,46 +404,35 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	.testimonial-container {
 		position: relative;
-		min-height: 400px;
 		margin: 0;
 		padding: 0;
 		width: 100%;
 		box-sizing: border-box;
+		overflow: visible;
 	}
 
-	/* Testimonial Pfeile */
 	.testimonial-arrow {
-		display: none; /* Pfeile ausblenden - statische Anzeige */
+		display: none;
 	}
 
 	.testimonial {
-		position: absolute;
-		top: 0;
-		left: 0;
+		display: none;
 		width: 100%;
-		max-width: 100%;
-		opacity: 0;
-		transform: translateY(20px);
 		background: white;
 		padding: 2rem;
 		border-radius: 8px;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 		border-left: 4px solid var(--accent);
 		margin: 0;
-		visibility: hidden;
-		transition: opacity 0.5s ease, transform 0.5s ease;
-		z-index: 1;
 		box-sizing: border-box;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
+		transition: opacity 0.5s ease;
 	}
 
 	.testimonial.active {
+		display: block;
 		opacity: 1;
-		transform: translateY(0);
-		visibility: visible;
-		z-index: 2;
-		position: relative; /* Damit der aktive Testimonial den Container erweitern kann */
 	}
 
 	.testimonial-controls {
@@ -513,17 +488,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	.unique-right {
 		overflow: visible;
-		min-height: 380px; /* Mindesthöhe für Tablet */
-		height: auto;
 	}
 
-	.testimonial-container {
-		min-height: 380px;
-	}
-
-		/* Testimonial-Boxen noch kleiner in Tablet-Ansicht */
 		.testimonial {
-			padding: 1.5rem; /* Angepasstes Padding */
+			padding: 1.5rem;
 		}
 
 		.testimonial p {
@@ -662,55 +630,27 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 		.unique-section {
 			width: 100%;
-			max-width: 100%;
-			position: relative;
+			margin: 0.8rem 0;
+			padding: 2rem 1rem 3rem 1rem;
 			left: 0;
 			right: 0;
 			margin-left: 0;
 			margin-right: 0;
-			overflow-x: hidden;
-			overflow-y: visible; /* Erlaubt vertikales Wachstum */
-			padding: 2rem 0 3rem 0; /* Padding oben und unten für Mobile */
 			box-sizing: border-box;
 		}
 
 		.unique-content {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
-			margin: 0.8rem auto;
-			padding: 0.8rem 1rem;
-			text-align: left;
-			width: 100%;
-			max-width: 100%;
-			box-sizing: border-box;
-			position: relative;
-			left: auto;
-			right: auto;
-			margin-left: auto;
-			margin-right: auto;
-			transform: none;
+			padding: 0 1rem;
 		}
 
 		.unique-right {
-			overflow: visible;
 			width: 100%;
-			max-width: 100%;
-			box-sizing: border-box;
-			position: relative;
-			min-height: 350px; /* Mindesthöhe für Mobile */
-			height: auto;
 		}
 
 		.testimonial-container {
 			width: 100%;
-			max-width: 100%;
-			box-sizing: border-box;
-			position: relative;
-			min-height: 350px;
-		}
-
-		.testimonial.active {
-			position: relative; /* Auf Mobile immer relativ, damit nichts abgeschnitten wird */
 		}
 
 		.unique-left h2,
@@ -722,17 +662,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			padding: 1.5rem;
 		}
 
-		.testimonial-container {
-			display: flex;
-			flex-direction: column;
-			gap: 1.5rem;
-			margin: 0;
-			padding: 0;
-		}
-
 		.testimonial {
 			width: 100%;
-			margin: 0;
 		}
 	}
 </style>
@@ -772,22 +703,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 	function showTestimonial(index: number) {
 		if (!testimonials?.length || index < 0 || index >= testimonials.length) return;
-		testimonials.forEach((testimonial) => {
-			testimonial.classList.remove('active');
-			const el = testimonial as HTMLElement;
-			el.style.opacity = '0';
-			el.style.transform = 'translateY(20px)';
-			el.style.zIndex = '1';
-			el.style.visibility = 'hidden';
-			el.style.position = 'absolute';
-		});
-		const current = testimonials[index] as HTMLElement;
-		current.classList.add('active');
-		current.style.opacity = '1';
-		current.style.transform = 'translateY(0)';
-		current.style.zIndex = '2';
-		current.style.visibility = 'visible';
-		current.style.position = 'relative';
+		testimonials.forEach((testimonial) => testimonial.classList.remove('active'));
+		testimonials[index].classList.add('active');
 	}
 
 	function nextTestimonial() {
