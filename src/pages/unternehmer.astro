@@ -9,7 +9,6 @@ import CookieBanner from '../components/CookieBanner.astro';
 <html lang="de">
 	<head>
 		<BaseHead title="Leistungen für Unternehmer - Steuerbüro Heilgendorff" description="Steuerberatung für Unternehmer: Digitale Buchführung, Lohnbuchführung, Jahresabschluss, Existenzgründung und Betriebsprüfungen. Mit DATEV Unternehmen Online." />
-		<script src="https://www.datev-mymarketing.de/onlineMedia/code.js?ids=190265"></script>
 	</head>
 	<body>
 		<Header />
@@ -80,7 +79,9 @@ import CookieBanner from '../components/CookieBanner.astro';
 							</div>
 						</div>
 						<div class="datev-video">
-							<div id="mym-insert-here-190265"></div>
+							<div class="video-embed-wrapper">
+								<iframe src="https://www.youtube.com/embed/Axo6zkgDqBY" title="DATEV Unternehmen Online" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -533,25 +534,24 @@ import CookieBanner from '../components/CookieBanner.astro';
 				min-height: 300px;
 			}
 
-			#mym-insert-here-190265 {
+			.video-embed-wrapper {
+				position: relative;
 				width: 100%;
-				min-height: 300px;
-				background: #f8f9fa;
+				padding-bottom: 56.25%;
+				height: 0;
+				overflow: hidden;
 				border-radius: 12px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: #666;
-				font-style: italic;
-				border: 2px solid #dee2e6;
+				background: #f8f9fa;
 			}
 
-			#mym-insert-here-190265 iframe,
-			#mym-insert-here-190265 video {
+			.video-embed-wrapper iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
 				width: 100%;
-				height: auto;
-				border-radius: 8px;
+				height: 100%;
 				border: none;
+				border-radius: 12px;
 			}
 
 			.video-fallback {
@@ -1118,22 +1118,6 @@ import CookieBanner from '../components/CookieBanner.astro';
 					});
 				});
 
-				// Check if DATEV video loaded
-				setTimeout(function() {
-					const videoContainer = document.getElementById('mym-insert-here-190265');
-					if (videoContainer && videoContainer.innerHTML.trim() === '') {
-						videoContainer.innerHTML = `
-							<div class="video-fallback">
-								<div class="video-icon">▶️</div>
-								<h3>DATEV Unternehmen Online</h3>
-								<p>Erfahren Sie mehr über die digitale Buchführung mit DATEV</p>
-								<a href="https://www.datev.de/web/de/m/unternehmen/datev-unternehmen-online/" target="_blank" rel="noopener noreferrer" class="video-link">
-									Mehr erfahren
-								</a>
-							</div>
-						`;
-					}
-				}, 3000);
 			});
 		</script>
 
