@@ -92,6 +92,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					<h2 data-translate="entrepreneursServicesTitle">Unser Leistungsumfang:</h2>
 					
 					<div class="services-tabs">
+						<!-- Erste Reihe: 4 bestehende Bereiche -->
 						<div class="service-tab" data-service="buchfuehrung">
 							<h3 data-translate="entrepreneursService1Title">Digitale Buchführung</h3>
 							<p data-translate="entrepreneursService1Description">Professionelle Buchhaltung mit modernen digitalen Tools</p>
@@ -101,16 +102,29 @@ import CookieBanner from '../components/CookieBanner.astro';
 							<p data-translate="entrepreneursService2Description">Effiziente Lohn- und Gehaltsabrechnung</p>
 						</div>
 						<div class="service-tab" data-service="jahresabschluss">
-							<h3 data-translate="entrepreneursService3Title">Jahresabschluss oder Gewinnermittlung</h3>
+							<h3 data-translate="entrepreneursService3Title">Jahresabschluss und Gewinnermittlung</h3>
 							<p data-translate="entrepreneursService3Description">Transparente und saubere Jahresabschlüsse</p>
-						</div>
-						<div class="service-tab" data-service="existenzgruendung">
-							<h3 data-translate="entrepreneursService4Title">Beratung bei Existenzgründung</h3>
-							<p data-translate="entrepreneursService4Description">Professionelle Unterstützung von der Idee bis zur Umsetzung</p>
 						</div>
 						<div class="service-tab" data-service="betriebspruefung">
 							<h3 data-translate="entrepreneursService5Title">Begleitung bei Betriebsprüfung</h3>
 							<p data-translate="entrepreneursService5Description">Kompetente Unterstützung bei Prüfungen</p>
+						</div>
+						<!-- Zweite Reihe: Existenzgründung + 3 neue Bereiche -->
+						<div class="service-tab" data-service="existenzgruendung">
+							<h3 data-translate="entrepreneursService4Title">Beratung bei Existenzgründung</h3>
+							<p data-translate="entrepreneursService4Description">Professionelle Unterstützung von der Idee bis zur Umsetzung</p>
+						</div>
+						<div class="service-tab" data-service="unternehmensnachfolge">
+							<h3 data-translate="entrepreneursService6Title">Unternehmensnachfolge</h3>
+							<p data-translate="entrepreneursService6Description">Steueroptimierte Gestaltung der Unternehmensübertragung</p>
+						</div>
+						<div class="service-tab" data-service="internationales-steuerrecht">
+							<h3 data-translate="entrepreneursService7Title">Internationales Steuerrecht / Wegzugsbesteuerung</h3>
+							<p data-translate="entrepreneursService7Description">Beratung bei Auslandsbezug und Wegzug</p>
+						</div>
+						<div class="service-tab" data-service="selbstbuchend">
+							<h3 data-translate="entrepreneursService8Title">Partner für selbst-buchende Unternehmen</h3>
+							<p data-translate="entrepreneursService8Description">Flexible Unterstützung bei eigener Buchführung</p>
 						</div>
 					</div>
 					
@@ -180,7 +194,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 						</div>
 
 						<div class="service-detail" id="jahresabschluss-detail">
-							<h2 data-translate="entrepreneursService3DetailTitle">Jahresabschluss oder Gewinnermittlung</h2>
+							<h2 data-translate="entrepreneursService3DetailTitle">Jahresabschluss und Gewinnermittlung</h2>
 							<div class="content-wrapper">
 								<div class="text-content">
 									<p data-translate="entrepreneursService3DetailText1">Nach 12 Monaten wird ein Schlussstrich unter das Geschäftsjahr gezogen: Ein transparenter und sauberer Jahresabschluss muss her. An einem Jahresabschluss haben in der Regel mehrere Adressatenkreise Interesse. Die Veröffentlichung des Jahresabschlusses selbst und auch die Art und Weise dessen sind darüber hinaus auch rechtsform- und größenabhängig. Unter Umständen muss nur eine Bilanz hinterlegt werden.</p>
@@ -244,6 +258,69 @@ import CookieBanner from '../components/CookieBanner.astro';
 									<li data-translate="entrepreneursService5DetailItem3">Umsatzsteuersonderprüfung und -nachschau</li>
 									<li data-translate="entrepreneursService5DetailItem4">Kassennachschau</li>
 									<li data-translate="entrepreneursService5DetailItem5">Sozialversicherungsprüfung</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="service-detail" id="unternehmensnachfolge-detail">
+							<h2 data-translate="entrepreneursService6DetailTitle">Unternehmensnachfolge</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="entrepreneursService6DetailText1">Die Übergabe eines Unternehmens ist eine der bedeutendsten unternehmerischen Entscheidungen – sowohl für den Übergeber als auch für den Nachfolger. Eine sorgfältige Planung ist dabei entscheidend, um steuerliche Fallstricke zu vermeiden und den Übergang reibungslos zu gestalten.</p>
+									<p data-translate="entrepreneursService6DetailText2">Wir begleiten Sie frühzeitig und umfassend durch diesen Prozess – ob bei der familieninternen Nachfolge, der Übergabe an Mitarbeitende oder dem Verkauf an externe Interessenten.</p>
+								</div>
+							</div>
+							<div class="services-details">
+								<h3 data-translate="entrepreneursService6DetailSubtitle">Unsere Leistungen umfassen u.a.:</h3>
+								<ul>
+									<li data-translate="entrepreneursService6DetailItem1">Die steueroptimierte Gestaltung der Unternehmensübertragung</li>
+									<li data-translate="entrepreneursService6DetailItem2">Die Bewertung des Unternehmens als Grundlage für Verhandlungen oder Erbauseinandersetzungen</li>
+									<li data-translate="entrepreneursService6DetailItem3">Die Prüfung und Nutzung steuerlicher Vergünstigungen (z.B. §§ 13a, 16, 17 EStG, Schenkungsteuer)</li>
+									<li data-translate="entrepreneursService6DetailItem4">Die Beratung zur optimalen Rechtsformgestaltung im Rahmen der Nachfolge</li>
+									<li data-translate="entrepreneursService6DetailItem5">Die Begleitung bei Vertragsgestaltung und Kaufpreisermittlung</li>
+									<li data-translate="entrepreneursService6DetailItem6">Die Abstimmung mit Notaren, Rechtsanwälten und weiteren Beteiligten</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="service-detail" id="internationales-steuerrecht-detail">
+							<h2 data-translate="entrepreneursService7DetailTitle">Internationales Steuerrecht / Wegzugsbesteuerung</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="entrepreneursService7DetailText1">Wer als Unternehmer oder Gesellschafter ins Ausland zieht oder international tätig ist, sieht sich mit komplexen steuerrechtlichen Fragen konfrontiert. Insbesondere die Wegzugsbesteuerung nach § 6 AStG kann bei Beteiligungen an Kapitalgesellschaften erhebliche steuerliche Konsequenzen haben – auch ohne tatsächlichen Verkauf.</p>
+									<p data-translate="entrepreneursService7DetailText2">Wir beraten Sie vorausschauend und individuell, damit Sie international gut aufgestellt sind und böse Überraschungen vermieden werden.</p>
+								</div>
+							</div>
+							<div class="services-details">
+								<h3 data-translate="entrepreneursService7DetailSubtitle">Schwerpunkte unserer Beratung sind:</h3>
+								<ul>
+									<li data-translate="entrepreneursService7DetailItem1">Die Prüfung und Gestaltung im Rahmen der Wegzugsbesteuerung (§ 6 AStG)</li>
+									<li data-translate="entrepreneursService7DetailItem2">Die Beratung zu Doppelbesteuerungsabkommen (DBA) und deren Anwendung</li>
+									<li data-translate="entrepreneursService7DetailItem3">Die steuerliche Behandlung von Auslandseinkünften und ausländischen Betriebsstätten</li>
+									<li data-translate="entrepreneursService7DetailItem4">Die Beratung bei grenzüberschreitenden Unternehmensstrukturen</li>
+									<li data-translate="entrepreneursService7DetailItem5">Die Analyse steuerlicher Risiken bei Wohnsitzverlegung ins Ausland</li>
+									<li data-translate="entrepreneursService7DetailItem6">Die Abstimmung mit internationalen Steuerberatern bei Bedarf</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="service-detail" id="selbstbuchend-detail">
+							<h2 data-translate="entrepreneursService8DetailTitle">Partner für selbst-buchende Unternehmen</h2>
+							<div class="content-wrapper">
+								<div class="text-content">
+									<p data-translate="entrepreneursService8DetailText1">Nicht jedes Unternehmen möchte die Buchführung vollständig auslagern – und das ist vollkommen in Ordnung. Viele Unternehmer buchen lieber selbst, schätzen dabei aber dennoch einen kompetenten steuerlichen Ansprechpartner an ihrer Seite.</p>
+									<p data-translate="entrepreneursService8DetailText2">Als zertifizierter Partner von DATEV, Lexoffice, SevDesk und Buchhaltungsbutler unterstützen wir Sie genau dort, wo Sie Hilfe brauchen – flexibel und auf Augenhöhe.</p>
+								</div>
+							</div>
+							<div class="services-details">
+								<h3 data-translate="entrepreneursService8DetailSubtitle">So können wir Sie unterstützen:</h3>
+								<ul>
+									<li data-translate="entrepreneursService8DetailItem1">Die Einrichtung und Konfiguration Ihrer Buchhaltungssoftware</li>
+									<li data-translate="entrepreneursService8DetailItem2">Die Schulung und Einweisung für einen sicheren Einstieg</li>
+									<li data-translate="entrepreneursService8DetailItem3">Die regelmäßige Überprüfung Ihrer Buchungen auf Korrektheit</li>
+									<li data-translate="entrepreneursService8DetailItem4">Die Übernahme einzelner Aufgaben wie USt-Voranmeldungen, Jahresabschluss oder Lohnabrechnung</li>
+									<li data-translate="entrepreneursService8DetailItem5">Die Beratung bei steuerlichen Fragen, die im laufenden Betrieb entstehen</li>
+									<li data-translate="entrepreneursService8DetailItem6">Den reibungslosen Datenaustausch zwischen Ihrer Software und unserem Büro</li>
 								</ul>
 							</div>
 						</div>
@@ -586,7 +663,8 @@ import CookieBanner from '../components/CookieBanner.astro';
 			}
 
 			.services-tabs {
-				display: flex;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
 				gap: 1rem;
 				margin-bottom: 2rem;
 				overflow-x: visible;
@@ -605,7 +683,6 @@ import CookieBanner from '../components/CookieBanner.astro';
 				cursor: pointer;
 				border: 2px solid transparent;
 				min-width: 0;
-				flex: 1;
 			}
 
 			.service-tab:hover {
@@ -797,7 +874,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.services-tabs {
-					flex-direction: column;
+					grid-template-columns: repeat(2, 1fr);
 					gap: 0.8rem;
 					width: 100%;
 					max-width: 100%;
@@ -914,7 +991,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.services-tabs {
-					flex-direction: column;
+					grid-template-columns: 1fr;
 					gap: 0.8rem;
 					width: 100%;
 					max-width: 100%;
@@ -990,7 +1067,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.services-tabs {
-					flex-direction: column;
+					grid-template-columns: 1fr;
 					gap: 0.5rem;
 				}
 
