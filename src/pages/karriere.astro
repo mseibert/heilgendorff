@@ -44,23 +44,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<h2 data-translate="careerHighlights">Besondere Schwerpunkte legen wir auf:</h2>
 					<div class="highlights-grid">
 						<div class="highlight-card">
-							<div class="highlight-icon">📚</div>
-							<h3 data-translate="careerHighlight1">die Weiterbildung unserer Mitarbeiter</h3>
-						</div>
-						<div class="highlight-card">
 							<div class="highlight-icon">😊</div>
 							<h3 data-translate="careerHighlight2">ein gutes Arbeitsklima</h3>
 						</div>
 						<div class="highlight-card">
-							<div class="highlight-icon">🚀</div>
-							<h3 data-translate="careerHighlight3">die Möglichkeit zur Selbstverwirklichung</h3>
+							<div class="highlight-icon">🤝</div>
+							<h3 data-translate="careerHighlight3">Teamarbeit</h3>
+						</div>
+						<div class="highlight-card">
+							<div class="highlight-icon">📚</div>
+							<h3 data-translate="careerHighlight1">die Weiterbildung unserer Mitarbeiter</h3>
 						</div>
 						<div class="highlight-card">
 							<div class="highlight-icon">📈</div>
-							<h3 data-translate="careerHighlight4">Aufstiegsmöglichkeiten</h3>
+							<h3><span data-translate="careerHighlight4Line1">Aufstiegs-</span><br><span data-translate="careerHighlight4Line2">möglichkeiten</span></h3>
 						</div>
 						<div class="highlight-card">
-							<div class="highlight-icon">💻</div>
+							<div class="highlight-icon">💻📱</div>
 							<h3 data-translate="careerHighlight5">die Digitalisierung unseres Unternehmens</h3>
 						</div>
 					</div>
@@ -569,11 +569,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				border-radius: 8px;
 				cursor: pointer;
 				transition: all 0.3s ease;
-				width: 100%;
-				margin-top: 1rem;
+				width: calc(100% - 2rem);
+				margin: 1rem 2rem 0 0;
 				display: block;
 				text-align: center;
 				text-decoration: none;
+				box-sizing: border-box;
 			}
 
 			.apply-button:hover {
@@ -692,24 +693,32 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				
 				.highlights-grid {
 					display: grid;
-					grid-template-columns: repeat(3, 1fr);
+					grid-template-columns: repeat(6, 1fr);
 					gap: 1.5rem;
-					max-width: 900px;
+					width: 100%;
+					max-width: 100%;
 					margin: 0 auto;
-					justify-items: center;
+					justify-items: stretch;
 				}
 
-				.highlights-grid .highlight-card:nth-child(4),
-				.highlights-grid .highlight-card:nth-child(5) {
-					grid-column: span 1;
+				.highlights-grid .highlight-card:nth-child(1) {
+					grid-column: 2 / 4;
+				}
+
+				.highlights-grid .highlight-card:nth-child(2) {
+					grid-column: 4 / 6;
+				}
+
+				.highlights-grid .highlight-card:nth-child(3) {
+					grid-column: 1 / 3;
 				}
 
 				.highlights-grid .highlight-card:nth-child(4) {
-					grid-column: 2;
+					grid-column: 3 / 5;
 				}
 
 				.highlights-grid .highlight-card:nth-child(5) {
-					grid-column: 3;
+					grid-column: 5 / 7;
 				}
 				
 				.job-details {
