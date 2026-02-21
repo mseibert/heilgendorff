@@ -91,7 +91,7 @@ const translations = {
     entrepreneursService3Description: "Transparente und saubere Jahresabschlüsse",
     entrepreneursService4Title: "Beratung bei Existenzgründung",
     entrepreneursService4Description: "Professionelle Unterstützung von der Idee bis zur Umsetzung",
-    entrepreneursService5Title: "Begleitung bei Betriebsprüfung",
+    entrepreneursService5Title: "Begleitung bei der Betriebsprüfung",
     entrepreneursService5Description: "Kompetente Unterstützung bei Prüfungen",
     entrepreneursService3DetailTitle: "Jahresabschluss und Gewinnermittlung",
     entrepreneursService3DetailText1: "Nach 12 Monaten wird ein Schlussstrich unter das Geschäftsjahr gezogen: Ein transparenter und sauberer Jahresabschluss muss her. An einem Jahresabschluss haben in der Regel mehrere Adressatenkreise Interesse. Die Veröffentlichung des Jahresabschlusses selbst und auch die Art und Weise dessen sind darüber hinaus auch rechtsform- und größenabhängig. Unter Umständen muss nur eine Bilanz hinterlegt werden.",
