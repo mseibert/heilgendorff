@@ -12,7 +12,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 	</head>
 	<body>
 		<Header />
-		<main id="main-content">
+		<main id="main-content" class="about-page">
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="aboutHeroTitle">Über uns</h1>
@@ -246,6 +246,13 @@ import CookieBanner from '../components/CookieBanner.astro';
 		margin: 0;
 	}
 
+	@media (min-width: 1025px) {
+		.about-page .content-section {
+			padding-right: 3rem;
+			margin-right: 2rem;
+		}
+	}
+
 	@media (max-width: 1024px) and (min-width: 721px) {
 		.content-section {
 			width: 100%;
@@ -262,7 +269,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			width: 100%;
 			max-width: 100%;
 			padding: 0 2rem;
-			transform: none;
+			transform: translateX(-1rem);
 			box-sizing: border-box;
 		}
 
