@@ -502,20 +502,28 @@ const availablePositions = [
 		}
 		
 		.content-section {
-			width: calc(50% + 100px);
-			margin-left: calc(-125px - 10px);
-			margin-right: 0;
-			padding: 0.8rem 0;
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+			padding: 2rem 0;
+			left: 0;
+			right: 0;
+			box-sizing: border-box;
 		}
 
 		.application-form-wrapper {
-			width: 100vw;
-			position: relative;
-			left: 50%;
-			right: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
-			padding: 3rem 0;
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+			padding: 3rem 2rem;
+			left: 0;
+			right: 0;
+			box-sizing: border-box;
+		}
+
+		.application-form {
+			max-width: 600px;
+			margin: 0 auto;
 		}
 
 		.form-row {
