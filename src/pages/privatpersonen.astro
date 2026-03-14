@@ -782,7 +782,13 @@ import CookieBanner from '../components/CookieBanner.astro';
 			});
 		</script>
 
-		<script src="https://www.datev-mymarketing.de/onlineMedia/code.js?ids=201007"></script>
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', function() {
+				var s = document.createElement('script');
+				s.src = 'https://www.datev-mymarketing.de/onlineMedia/code.js?ids=201007';
+				document.body.appendChild(s);
+			});
+		</script>
 		<CookieBanner />
 	</body>
 </html>
