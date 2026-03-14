@@ -221,38 +221,69 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			.datev-video {
 				flex: 0 0 50%;
-				display: flex;
-				align-items: stretch;
-				min-height: 300px;
+				position: relative;
 			}
 
 			#mym-insert-here-201007 {
 				width: 100%;
 				height: 100%;
-				min-height: 300px;
 				border-radius: 12px;
 				overflow: hidden;
+				position: relative;
 			}
 
-			#mym-insert-here-190266 iframe,
+			/* Thumbnail button — fill the full box */
 			#mym-insert-here-201007 .mym-widget-video-button {
 				width: 100% !important;
 				height: 100% !important;
 				min-height: 300px;
-				border-radius: 12px;
-				position: relative;
-				display: flex !important;
-				flex-direction: column;
+				position: relative !important;
+				display: block !important;
 				cursor: pointer;
+				border-radius: 12px;
+				overflow: hidden;
 			}
 
-			#mym-insert-here-201007 .mym-button-image {
+			#mym-insert-here-201007 .mym-button-image:first-of-type {
 				width: 100% !important;
 				height: 100% !important;
 				min-height: 300px;
 				object-fit: cover;
-				border-radius: 12px;
 				display: block;
+				border-radius: 12px;
+			}
+
+			/* Video player — stay inside the box, no full-screen overlay */
+			#mym-insert-here-201007 .mym-widget-video {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+				z-index: 10;
+				border-radius: 12px;
+				overflow: hidden;
+			}
+
+			#mym-insert-here-201007 .mym-embedded-inner {
+				width: 100% !important;
+				height: 100% !important;
+				display: flex;
+				flex-direction: column;
+			}
+
+			#mym-insert-here-201007 .mym-embed-container {
+				flex: 1;
+				position: relative;
+			}
+
+			#mym-insert-here-201007 .mym-embed-container iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100% !important;
+				height: 100% !important;
+				border: none;
 			}
 
 			#mym-insert-here-201007 video {
