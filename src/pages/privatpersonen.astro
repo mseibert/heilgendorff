@@ -783,22 +783,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 					});
 				});
 
-				// Check if DATEV video loaded
-				setTimeout(function() {
-					const videoContainer = document.getElementById('mym-insert-here-190266');
-					if (videoContainer && videoContainer.innerHTML.trim() === '') {
-						videoContainer.innerHTML = `
-							<div class="video-fallback">
-								<div class="video-icon">▶️</div>
-								<h3>DATEV Meine Steuern</h3>
-								<p>Erfahren Sie mehr über die digitale Steuererklärung</p>
-								<a href="https://www.datev.de/web/de/m/unternehmen/datev-meine-steuern/" target="_blank" rel="noopener noreferrer" class="video-link">
-									Mehr erfahren
-								</a>
-							</div>
-						`;
-					}
-				}, 3000);
+
 			});
 		</script>
 
