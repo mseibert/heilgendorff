@@ -8,7 +8,7 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY);
 // Resend erfordert eine verifizierte Domain. Bis heilgendorff.de verifiziert ist,
 // verwenden wir die Resend-Test-Domain. Nach Verifizierung auf heilgendorff.de umstellen.
 const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Bewerbungsformular <onboarding@resend.dev>';
-const TO_EMAIL = import.meta.env.RESEND_TO_EMAIL || 'kanzlei@heilgendorff.de';
+const TO_EMAIL = 'kanzlei@heilgendorff.de';
 
 export async function POST({ request }) {
   try {
