@@ -35,7 +35,6 @@ import Logo from '../assets/images/logo.png';
 					<li class="nav-item dropdown">
 						<a href="/about" class="nav-link dropdown-toggle" data-translate="about">
 							Über Uns
-							<span class="dropdown-arrow">▼</span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/meet-the-team" data-translate="meetTheTeam">Meet the Team</a></li>
@@ -46,7 +45,6 @@ import Logo from '../assets/images/logo.png';
 					<li class="nav-item dropdown">
 						<a href="/leistungen" class="nav-link dropdown-toggle" data-translate="services">
 							Leistungen
-							<span class="dropdown-arrow">▼</span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/privatpersonen" data-translate="individuals">Privatpersonen</a></li>
@@ -62,7 +60,6 @@ import Logo from '../assets/images/logo.png';
 					<li class="nav-item dropdown">
 						<a href="/aktuelles" class="nav-link dropdown-toggle" data-translate="news">
 							Aktuelles
-							<span class="dropdown-arrow">▼</span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/aktuelles" data-translate="datevNews">News</a></li>
@@ -289,14 +286,21 @@ import Logo from '../assets/images/logo.png';
 		gap: 0.3rem;
 	}
 
-	/* Dropdown-Pfeile sollen die Ausrichtung nicht beeinträchtigen */
-	.dropdown-arrow {
-		display: inline-flex !important;
-		align-items: center !important;
-		vertical-align: middle !important;
-		line-height: 1 !important;
-		margin: 0 !important;
-		margin-left: 0.3rem !important;
+	/* Dropdown-Pfeile per CSS ::after — kein HTML-Flash */
+	.dropdown-toggle::after {
+		content: '▼';
+		display: inline-block;
+		font-size: 0.7rem;
+		margin-left: 0.4rem;
+		color: var(--accent);
+		font-weight: bold;
+		transition: transform 0.3s ease;
+		vertical-align: middle;
+		line-height: 1;
+	}
+
+	.dropdown:hover .dropdown-toggle::after {
+		transform: rotate(180deg);
 	}
 
 	.nav-item > a:hover,
@@ -313,52 +317,6 @@ import Logo from '../assets/images/logo.png';
 
 	.dropdown-toggle {
 		cursor: pointer;
-	}
-
-	.dropdown-arrow {
-		font-size: 0.8rem !important;
-		opacity: 1 !important;
-		transition: transform 0.3s ease !important;
-		display: inline-block !important;
-		margin-left: 0.5rem !important;
-		vertical-align: middle !important;
-		line-height: 1 !important;
-		color: var(--accent) !important;
-		font-weight: bold !important;
-		visibility: visible !important;
-	}
-
-	.dropdown:hover .dropdown-arrow {
-		transform: rotate(180deg) !important;
-	}
-
-	/* Override any conflicting styles for dropdown arrows */
-	span.dropdown-arrow {
-		opacity: 1 !important;
-		display: inline-block !important;
-		visibility: visible !important;
-		font-size: 0.8rem !important;
-		margin-left: 0.5rem !important;
-		color: var(--accent) !important;
-		font-weight: bold !important;
-		transition: transform 0.3s ease !important;
-		vertical-align: middle !important;
-		line-height: 1 !important;
-	}
-
-	/* Ensure dropdown arrows are always visible */
-	.nav-link .dropdown-arrow,
-	.dropdown-toggle .dropdown-arrow,
-	.nav-menu a .dropdown-arrow,
-	.nav-menu .nav-link .dropdown-arrow {
-		opacity: 1 !important;
-		display: inline-block !important;
-		visibility: visible !important;
-		font-size: 0.8rem !important;
-		margin-left: 0.5rem !important;
-		color: var(--accent) !important;
-		font-weight: bold !important;
-		transition: transform 0.3s ease !important;
 	}
 
 	.dropdown-menu {
