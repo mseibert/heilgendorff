@@ -235,12 +235,24 @@ import CookieBanner from '../components/CookieBanner.astro';
 			}
 
 			#mym-insert-here-190266 iframe,
-			#mym-insert-here-201007 .mym-widget-container,
+			#mym-insert-here-201007 .mym-widget-video-button {
+				width: 100% !important;
+				height: 100% !important;
+				min-height: 300px;
+				border-radius: 12px;
+				position: relative;
+				display: flex !important;
+				flex-direction: column;
+				cursor: pointer;
+			}
+
 			#mym-insert-here-201007 .mym-button-image {
 				width: 100% !important;
 				height: 100% !important;
+				min-height: 300px;
 				object-fit: cover;
 				border-radius: 12px;
+				display: block;
 			}
 
 			#mym-insert-here-201007 video {
