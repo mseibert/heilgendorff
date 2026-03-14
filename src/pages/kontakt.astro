@@ -126,7 +126,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 						<p data-translate="contactFormDescription">Dann nutzen Sie gerne auch unser Anfrageformular. Füllen Sie einfach die verbindlichen Felder aus, und wir setzen uns zeitnah mit Ihnen in Verbindung.</p>
 						<p class="required-note" data-translate="contactFormRequiredNote">Mit * gekennzeichnete Felder sind Pflichtfelder.</p>
 						
-						<form class="contact-form">
+						<form class="contact-form" id="contactForm">
 							<div class="form-group">
 								<label for="name" data-translate="contactFormName">Name*</label>
 								<input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
@@ -153,8 +153,13 @@ import CookieBanner from '../components/CookieBanner.astro';
 								<span id="captcha-hint" class="sr-only">Bitte lösen Sie die Rechenaufgabe zur Bestätigung, dass Sie kein Roboter sind.</span>
 							</div>
 							
-							<button type="submit" class="submit-btn" data-translate="contactFormSubmit">Senden</button>
+							<button type="submit" class="submit-btn" id="contactSubmitBtn" data-translate="contactFormSubmit">Senden</button>
 						</form>
+						
+						<div id="contactToast" class="contact-toast" role="alert" aria-live="polite">
+							<span class="toast-message"></span>
+							<button type="button" class="toast-close" aria-label="Schließen">&times;</button>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -346,6 +351,8 @@ import CookieBanner from '../components/CookieBanner.astro';
 				overflow: hidden;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 				border: 2px solid #e5e7eb;
+				width: 100%;
+				box-sizing: border-box;
 			}
 
 			.google-maps-widget iframe {
@@ -390,12 +397,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			/* Contact Form Section */
 			.contact-form-section {
 				background: var(--light-gray);
-				width: 100vw;
-				position: relative;
-				left: 50%;
-				right: 50%;
-				margin-left: -50vw;
-				margin-right: -50vw;
+				width: 100%;
 				padding: 4rem 0;
 			}
 
@@ -421,11 +423,13 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			.contact-form {
 				max-width: 700px;
+				width: 100%;
 				background: white;
 				padding: 2rem;
 				border-radius: 12px;
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 				margin: 0 auto;
+				box-sizing: border-box;
 			}
 
 			.form-group {
@@ -471,6 +475,71 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			.submit-btn:hover {
 				background: #0056b3;
+			}
+
+			.submit-btn:disabled {
+				opacity: 0.7;
+				cursor: not-allowed;
+			}
+
+			.contact-toast {
+				display: none;
+				align-items: center;
+				gap: 12px;
+				padding: 1rem 1.25rem;
+				border-radius: 8px;
+				margin-top: 1.5rem;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.contact-toast.show {
+				display: flex;
+			}
+
+			.contact-toast.success {
+				background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+				border: 1px solid #28a745;
+				color: #155724;
+			}
+
+			.contact-toast.error {
+				background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+				border: 1px solid #dc3545;
+				color: #721c24;
+			}
+
+			.contact-toast .toast-message {
+				flex: 1;
+				font-size: 1rem;
+				line-height: 1.4;
+			}
+
+			.contact-toast .toast-close {
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				cursor: pointer;
+				opacity: 0.7;
+				padding: 0;
+				line-height: 1;
+			}
+
+			.contact-toast .toast-close:hover {
+				opacity: 1;
+			}
+
+			.sr-only {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border: 0;
 			}
 
 			/* Directions Section */
@@ -561,13 +630,14 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.contact-form-section {
-					width: 100vw;
-					position: relative;
-					left: 50%;
-					right: 50%;
-					margin-left: -50vw;
-					margin-right: -50vw;
-					padding: 3rem 0;
+					width: 100%;
+					position: static;
+					left: auto;
+					right: auto;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 3rem 2rem;
+					box-sizing: border-box;
 				}
 
 				.container {
@@ -634,13 +704,14 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 
 				.contact-form-section {
-					width: 100vw;
-					position: relative;
-					left: 50%;
-					right: 50%;
-					margin-left: -50vw;
-					margin-right: -50vw;
-					padding: 2rem 0;
+					width: 100%;
+					position: static;
+					left: auto;
+					right: auto;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 2rem 1rem;
+					box-sizing: border-box;
 				}
 
 				.direction-content {
@@ -655,8 +726,9 @@ import CookieBanner from '../components/CookieBanner.astro';
 				
 				.contact-form {
 					padding: 1.5rem;
-					margin: 0 1rem;
-					max-width: calc(100% - 2rem);
+					margin: 0 auto;
+					max-width: 100%;
+					box-sizing: border-box;
 				}
 				
 				.directions-content {
@@ -665,6 +737,73 @@ import CookieBanner from '../components/CookieBanner.astro';
 				}
 			}
 		</style>
+
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', function() {
+				const form = document.getElementById('contactForm');
+				const submitBtn = document.getElementById('contactSubmitBtn');
+				const toast = document.getElementById('contactToast');
+				const toastMessage = toast?.querySelector('.toast-message');
+				const toastClose = toast?.querySelector('.toast-close');
+
+				if (!form || !submitBtn || !toast || !toastMessage || !toastClose) return;
+
+				const formEl = /** @type {HTMLFormElement} */ (form);
+				const btnEl = /** @type {HTMLButtonElement} */ (submitBtn);
+
+				function showMessage(message, isSuccess) {
+					toast.classList.remove('success', 'error', 'show');
+					toast.classList.add(isSuccess ? 'success' : 'error');
+					toastMessage.textContent = message;
+					toast.classList.add('show');
+					toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+				}
+
+				toastClose.addEventListener('click', () => {
+					toast.classList.remove('show');
+				});
+
+				formEl.addEventListener('submit', async function(e) {
+					e.preventDefault();
+
+					const captchaInput = document.getElementById('captcha');
+					const captchaValue = parseInt(captchaInput instanceof HTMLInputElement ? captchaInput.value : '', 10);
+					if (captchaValue !== 16) {
+						showMessage('Bitte lösen Sie die Rechenaufgabe korrekt (5 + 11 = 16).', false);
+						return;
+					}
+
+					const formData = new FormData(formEl);
+					const referrerURL = document.referrer || window.location.href;
+					formData.append('referrerURL', referrerURL);
+
+					const previousText = btnEl.textContent;
+					btnEl.disabled = true;
+					btnEl.textContent = 'Wird gesendet...';
+
+					try {
+						const response = await fetch('/api/contact', {
+							method: 'POST',
+							body: formData
+						});
+
+						const result = await response.json();
+
+						if (result.success) {
+							showMessage(result.message, true);
+							formEl.reset();
+						} else {
+							showMessage(result.message, false);
+						}
+					} catch (error) {
+						showMessage('Es gab einen Fehler beim Senden. Bitte versuchen Sie es später erneut.', false);
+					} finally {
+						btnEl.disabled = false;
+						btnEl.textContent = previousText;
+					}
+				});
+			});
+		</script>
 
 		<CookieBanner />
 	</body>

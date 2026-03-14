@@ -22,21 +22,15 @@ import CookieBanner from '../components/CookieBanner.astro';
 
 			<section class="content-section">
 				<div class="content-container">
-					<h2 data-translate="aboutSubtitle">Wir lieben es zu arbeiten & wir lieben, wo wir arbeiten</h2>
-					
-					<div class="main-content">
-						<div class="text-content">
+					<div class="founder-section">
+						<div class="founder-box">
+							<h2 class="founder-headline" data-translate="aboutSubtitle">Wir lieben es zu arbeiten & wir lieben, wo wir arbeiten</h2>
 							<p data-translate="aboutText1">Wir beraten Sie in allen betriebswirtschaftlichen und steuerrechtlichen Fragen. Unsere Fachgebiete sind die Steuererklärungsberatung, die Steuerdurchsetzungsberatung und die gestaltende Steuerberatung.</p>
-							
 							<p data-translate="aboutText2">Steuerbüro Heilgendorff bietet seinen Mandanten zusätzlich den Zugriff auf den Terminalserver der Kanzlei, um die Kommunikation so einfach und komfortabel wie möglich zu gestalten.</p>
-							
 							<p data-translate="aboutText3">Unsere Erfahrung mit unserem branchenübergreifenden Leistungspektrum ermöglicht es uns, schnell und effizient Ihr Anliegen zu bearbeiten.</p>
-						</div>
-
-						<div class="founder-section">
 							<div class="founder-header">
 								<h3 data-translate="founderTitle">Burghard Heilgendorff, Kanzleiinhaber</h3>
-								<div class="founder-image">
+								<div class="founder-portrait">
 									<img src="/1630348104042.jpeg" alt="Burghard Heilgendorff" />
 								</div>
 							</div>
@@ -44,20 +38,20 @@ import CookieBanner from '../components/CookieBanner.astro';
 						</div>
 					</div>
 
-					<div class="languages-team-section">
-						<div class="team-section">
+					<section class="team-section">
+						<div class="team-content">
+							<h3 class="team-heading" data-translate="teamImageTitle">Unser Team</h3>
 							<p data-translate="teamText">Unser Team stellt sich zusammen aus Steuerberatern, Steuerfachangestellten, Steuerfachwirten, Betriebswirten und Finanz- und Lohnbuchhaltern sowie Auszubildenden und studentischen Hilfskräften. Zusätzlich unterstützen wir unsere Angestellten, Auszubildenden und Studenten, indem wir zahlreiche Fortbildungsmaßnahmen bieten und ein duales Studium ermöglichen.</p>
+							<div class="languages-badges">
+								<span class="badge" data-translate="german">Deutsch</span>
+								<span class="badge" data-translate="english">Englisch</span>
+								<span class="badge" data-translate="french">Französisch</span>
+							</div>
 						</div>
-
-						<div class="languages-section">
-							<h3 data-translate="languages">Unser Sprachenrepertoire</h3>
-							<ul class="languages-list">
-								<li data-translate="german">Deutsch</li>
-								<li data-translate="english">Englisch</li>
-								<li data-translate="french">Französisch</li>
-							</ul>
+						<div class="team-kanzlei-image">
+							<img src="/bild-der-kanzlei.jpg" alt="Bild der Kanzlei" />
 						</div>
-					</div>
+					</section>
 				</div>
 			</section>
 		</main>
@@ -105,6 +99,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 	}
 
 	.content-section {
+		overflow: visible;
 		margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
 		padding: 2.88rem 1.44rem 0 1.44rem;
 		width: 90vw;
@@ -123,46 +118,47 @@ import CookieBanner from '../components/CookieBanner.astro';
 		transform: translateX(-15px);
 	}
 
-	.content-container h2 {
+	.founder-section {
+		position: relative;
+		margin-bottom: 3rem;
+	}
+
+	.founder-box {
+		background: #f8f9fa;
+		padding: 2.5rem 2rem;
+		border-radius: 12px;
+		border-left: 4px solid var(--accent);
+		position: relative;
+		z-index: 1;
+		overflow: visible;
+	}
+
+	.founder-headline {
 		font-size: 2.2em;
-		margin-bottom: 2rem;
+		margin: 0 0 1.5rem;
 		color: var(--accent);
 		font-family: "Merriweather", serif;
 		text-align: center;
 	}
 
-	.main-content {
-		display: flex;
-		gap: 3rem;
-		align-items: flex-start;
-		margin-bottom: 3rem;
-	}
-
-	.text-content {
-		flex: 0 0 50%;
-	}
-
-	.text-content p {
+	.founder-box p {
 		font-size: 1.1em;
 		line-height: 1.6;
-		margin-bottom: 1.5rem;
 		color: var(--black);
 		font-family: "IBM Plex Sans", sans-serif;
+		margin: 0 0 1rem;
 	}
 
-	.founder-section {
-		background: #f8f9fa;
-		padding: 2rem;
-		border-radius: 8px;
-		border-left: 4px solid var(--accent);
-		flex: 0 0 50%;
+	.founder-box p:last-of-type {
+		margin-bottom: 0;
 	}
 
 	.founder-header {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		gap: 1.5rem;
-		margin-bottom: 1.5rem;
+		margin: 1rem 0;
 	}
 
 	.founder-section h3 {
@@ -173,77 +169,82 @@ import CookieBanner from '../components/CookieBanner.astro';
 		flex: 1;
 	}
 
-	.founder-image {
+	.founder-portrait {
 		flex: 0 0 auto;
 	}
 
-	.founder-image img {
+	.founder-portrait {
+		flex: 0 0 auto;
+	}
+
+	.founder-portrait img {
 		width: 110px;
 		height: 110px;
 		border-radius: 50%;
 		object-fit: cover;
 		border: 3px solid var(--accent);
-	}
-
-	.founder-section p {
-		font-size: 1.1em;
-		line-height: 1.6;
-		color: var(--black);
-		font-family: "IBM Plex Sans", sans-serif;
-		margin: 0;
-	}
-
-	.languages-team-section {
-		display: flex;
-		gap: 3rem;
-		align-items: flex-start;
-		margin-bottom: 3rem;
-	}
-
-	.languages-section {
-		flex: 0 0 50%;
-	}
-
-	.languages-section h3 {
-		font-size: 1.2em;
-		margin-bottom: 1rem;
-		color: var(--accent);
-		font-family: "Merriweather", serif;
-		white-space: nowrap;
-	}
-
-	.languages-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.languages-list li {
-		font-size: 1.1em;
-		padding: 0.5rem 0;
-		color: var(--black);
-		font-family: "IBM Plex Sans", sans-serif;
-		border-bottom: 1px solid #e9ecef;
-	}
-
-	.languages-list li:last-child {
-		border-bottom: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	}
 
 	.team-section {
-		background: white;
-		padding: 2rem;
-		border-radius: 8px;
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+		background: #fafbfc;
+		padding: 2.5rem;
+		border-radius: 12px;
 		border: 1px solid #e9ecef;
-		flex: 0 0 50%;
+		margin-bottom: 3rem;
 	}
 
-	.team-section p {
+	.team-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.team-kanzlei-image {
+		flex: 0 0 auto;
+		width: 280px;
+	}
+
+	.team-kanzlei-image img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		display: block;
+	}
+
+	.team-heading {
+		font-size: 1.5em;
+		margin: 0 0 1rem;
+		color: var(--accent);
+		font-family: "Merriweather", serif;
+	}
+
+	.team-section > p {
 		font-size: 1.1em;
-		line-height: 1.6;
+		line-height: 1.7;
 		color: var(--black);
 		font-family: "IBM Plex Sans", sans-serif;
-		margin: 0;
+		margin: 0 0 1.5rem;
+	}
+
+	.languages-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.languages-badges .badge {
+		display: inline-block;
+		padding: 0.4rem 1rem;
+		background: white;
+		border: 1px solid var(--accent);
+		color: var(--accent);
+		border-radius: 2rem;
+		font-size: 0.9em;
+		font-family: "IBM Plex Sans", sans-serif;
 	}
 
 	@media (min-width: 1025px) {
@@ -273,26 +274,18 @@ import CookieBanner from '../components/CookieBanner.astro';
 			box-sizing: border-box;
 		}
 
-		.main-content {
-			flex-direction: column;
-			gap: 2rem;
+		.founder-box {
+			padding: 2.5rem 2rem;
 		}
 
-		.text-content,
-		.founder-section {
-			flex: none;
-			width: 100%;
-		}
-
-		.languages-team-section {
-			flex-direction: column;
-			gap: 2rem;
-		}
-
-		.languages-section,
 		.team-section {
-			flex: none;
+			flex-direction: column;
+		}
+
+		.team-kanzlei-image {
 			width: 100%;
+			max-width: 320px;
+			margin: 0 auto;
 		}
 	}
 
@@ -314,7 +307,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 			font-size: 2em;
 		}
 
-		.content-container h2 {
+		.founder-headline {
 			font-size: 1.8em;
 		}
 
@@ -325,39 +318,40 @@ import CookieBanner from '../components/CookieBanner.astro';
 			box-sizing: border-box;
 		}
 
-		.main-content {
+		.founder-section {
+			display: flex;
 			flex-direction: column;
-			gap: 2rem;
-			text-align: left;
+			align-items: center;
 		}
 
-		.founder-section {
-			flex: none;
+		.founder-box {
+			padding: 2rem 1.5rem;
+			width: 100%;
+			box-sizing: border-box;
 		}
 
 		.founder-header {
 			flex-direction: column;
-			text-align: center;
-			gap: 1rem;
+			align-items: flex-start;
 		}
 
-		.languages-team-section {
+		.founder-portrait img {
+			width: 90px;
+			height: 90px;
+		}
+
+		.team-section {
 			flex-direction: column;
-			gap: 2rem;
+			padding: 1.5rem;
 		}
 
-		.languages-section {
-			flex: none;
+		.team-kanzlei-image {
 			width: 100%;
+			max-width: 280px;
+			margin: 0 auto;
 		}
 
-		.team-section {
-			flex: none;
-			width: 100%;
-		}
-
-		.founder-section,
-		.team-section {
+		.founder-section .founder-box {
 			padding: 1.5rem;
 		}
 	}

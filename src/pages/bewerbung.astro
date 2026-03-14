@@ -248,11 +248,13 @@ const availablePositions = [
 
 	.application-form {
 		max-width: 800px;
+		width: 100%;
 		background: white;
 		padding: 2.5rem;
 		border-radius: 12px;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
 	.application-form h3 {
@@ -574,19 +576,21 @@ const availablePositions = [
 		}
 
 		.application-form-wrapper {
-			width: 100vw;
-			position: relative;
-			left: 50%;
-			right: 50%;
-			margin-left: -50vw;
-			margin-right: -50vw;
-			padding: 2rem 0;
+			width: 100%;
+			position: static;
+			left: auto;
+			right: auto;
+			margin-left: 0;
+			margin-right: 0;
+			padding: 2rem 1rem;
+			box-sizing: border-box;
 		}
 
 		.application-form {
 			padding: 1.5rem;
-			margin: 0 1rem;
-			max-width: calc(100% - 2rem);
+			margin: 0 auto;
+			max-width: 100%;
+			box-sizing: border-box;
 		}
 
 		.form-row {
