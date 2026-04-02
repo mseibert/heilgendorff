@@ -17,17 +17,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			<section class="hero">
 				<div class="hero-content">
 					<h1 data-translate="heroTitle">Steuerbüro Heilgendorff</h1>
-					<p class="hero-subtitle" data-translate="heroSubtitle">Ihr zuverlässiger Partner aus Wiesbaden</p>
+					<p class="hero-subtitle" data-translate="heroSubtitle">Digitale Steuerberatung mit über 20 Jahren Erfahrung — persönlich, modern, zuverlässig.</p>
+					<div class="hero-ctas">
+						<a href="/privatpersonen" class="hero-cta hero-cta-primary">Für Privatpersonen</a>
+						<a href="/unternehmer" class="hero-cta hero-cta-secondary">Für Unternehmer</a>
+					</div>
 				</div>
 			</section>
 
 			<section class="info-sections">
 				<div class="info-card-with-image">
 					<div class="info-text">
-						<h2 data-translate="news">Aktuelles</h2>
-						<h3 data-translate="coronaRefunds">Corona-Soforthilfe-Rückforderung</h3>
-						<p data-translate="coronaText">Viele hessische Unternehmer erhalten Post vom Regierungspräsidium Kassel zur Rückforderung ihrer Corona-Soforthilfen. Die aktuelle Rechtsprechung zeigt: Nicht jede Rückforderung ist rechtmäßig.</p>
-						<a href="/aktuelles" class="info-button" data-translate="learnMore">Mehr dazu</a>
+						<h2>News</h2>
+						<h3>Aktivrente: Steuerfreibetrag für Arbeitnehmer ab 67</h3>
+						<p>Ab 1.1.2026 gilt für Arbeitnehmer nach der gesetzlichen Regelaltersgrenze ein monatlicher Steuerfreibetrag von 2.000 EUR auf Arbeitslohn. Was das für Sie bedeutet.</p>
+						<a href="/aktuelles" class="info-button">Mehr dazu</a>
 					</div>
 					<div class="info-image">
 						<img src="/imago823824297.jpg" alt="Aktivrente: Steuerfreibetrag für Arbeitnehmer ab 67" />
@@ -46,8 +50,32 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				</div>
 			</section>
 
-			<section class="digital-kanzlei-section">
-				<div class="digital-kanzlei-content">
+			<!-- Aktuelles Preview Section -->
+			<section class="news-preview-section">
+				<div class="news-preview-content">
+					<h2>Aktuelles aus der Steuerberatung</h2>
+					<div class="news-preview-grid">
+						<a href="/aktuelles" class="news-preview-card news-preview-card--featured">
+							<span class="news-preview-category">Steuerrecht</span>
+							<h3>Corona-Soforthilfe-Rückforderung: Nicht jede Zahlung ist rechtmäßig</h3>
+							<p>Viele hessische Unternehmer erhalten Post vom Regierungspräsidium Kassel. Aktuelle Rechtsprechung zeigt: Es gibt Chancen, sich gegen Rückforderungen zu wehren.</p>
+						</a>
+						<a href="/aktuelles" class="news-preview-card">
+							<span class="news-preview-category">Berufsrecht</span>
+							<h3>StBVV-Änderung: Neue Vergütungsregelungen ab 01.07.2025</h3>
+							<p>Anpassungen der Steuerberatervergütungsverordnung in Kraft — was Mandanten wissen müssen.</p>
+						</a>
+						<a href="/aktuelles" class="news-preview-card">
+							<span class="news-preview-category">Sozialversicherung</span>
+							<h3>Scheinselbstständigkeit bei 1-Personen-UG/GmbH</h3>
+							<p>Eine 1-Personen-UG verhindert Scheinselbstständigkeit nicht automatisch — aktuelle Rechtslage im Überblick.</p>
+						</a>
+					</div>
+					<a href="/aktuelles" class="news-preview-more">Alle Beiträge ansehen →</a>
+				</div>
+			</section>
+
+			<section class="digital-kanzlei-section">				<div class="digital-kanzlei-content">
 					<div class="digital-kanzlei-text">
 						<h2 data-translate="digitalKanzleiTitle">Digitale Kanzlei</h2>
 						<p data-translate="digitalKanzleiText1">Wir verstehen die Bedeutung der Digitalisierung für unsere Mandanten und haben unsere Kanzlei entsprechend ausgerichtet.</p>
@@ -144,6 +172,149 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		font-size: 1.2em;
 		opacity: 0.9;
 		margin: 0;
+	}
+
+	/* Hero CTAs */
+	.hero-ctas {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		margin-top: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.hero-cta {
+		padding: 0.9rem 2rem;
+		border-radius: 8px;
+		font-family: "IBM Plex Sans", sans-serif;
+		font-size: 1.05rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	.hero-cta-primary {
+		background: white;
+		color: var(--accent);
+	}
+
+	.hero-cta-primary:hover {
+		background: rgba(255,255,255,0.9);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+	}
+
+	.hero-cta-secondary {
+		background: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+
+	.hero-cta-secondary:hover {
+		background: rgba(255,255,255,0.15);
+		transform: translateY(-2px);
+	}
+
+	/* News Preview Section */
+	.news-preview-section {
+		background: var(--light-gray);
+		padding: 3rem 0;
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+
+	.news-preview-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.news-preview-content h2 {
+		color: var(--accent);
+		font-family: "Merriweather", serif;
+		font-size: 1.8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.news-preview-grid {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr 1fr;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.news-preview-card {
+		background: white;
+		border-radius: 10px;
+		padding: 1.5rem;
+		text-decoration: none;
+		color: inherit;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+		transition: all 0.3s ease;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		border: 1px solid #e5e7eb;
+	}
+
+	.news-preview-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+		border-color: var(--accent);
+	}
+
+	.news-preview-card--featured {
+		border-left: 4px solid var(--accent);
+	}
+
+	.news-preview-category {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.news-preview-card h3 {
+		font-family: "Merriweather", serif;
+		font-size: 1rem;
+		color: rgb(var(--black));
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	.news-preview-card--featured h3 {
+		font-size: 1.15rem;
+	}
+
+	.news-preview-card p {
+		font-size: 0.9rem;
+		color: #555;
+		line-height: 1.5;
+		margin: 0;
+		flex: 1;
+	}
+
+	.news-preview-date {
+		font-size: 0.8rem;
+		color: #888;
+		margin-top: auto;
+	}
+
+	.news-preview-more {
+		display: inline-block;
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: none;
+		font-size: 1rem;
+	}
+
+	.news-preview-more:hover {
+		text-decoration: underline;
 	}
 
 	.digital-kanzlei-section {
@@ -486,6 +657,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 			font-size: 1.05rem;
 		}
 
+		.news-preview-grid {
+			grid-template-columns: 1fr;
+		}
+
 	.unique-right {
 		overflow: visible;
 	}
@@ -532,6 +707,31 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 		.hero-subtitle {
 			font-size: 1em;
+		}
+
+		.hero-ctas {
+			flex-direction: column;
+			align-items: center;
+			gap: 0.75rem;
+		}
+
+		.hero-cta {
+			width: 100%;
+			max-width: 280px;
+			text-align: center;
+		}
+
+		.news-preview-section {
+			padding: 2rem 0;
+		}
+
+		.news-preview-content {
+			padding: 0 1rem;
+		}
+
+		.news-preview-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 
 		.digital-kanzlei-section {

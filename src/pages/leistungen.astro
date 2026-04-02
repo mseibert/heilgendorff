@@ -8,7 +8,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-		<BaseHead title="Leistungen - Steuerbüro Heilgendorff" description="Unser Steuerbüro hilft Ihnen schnell & zuverlässig bei steuerrechtlichen Fragen. Spezialisiert auf Steuerklärungsberatung, Steuerdurchsetzungsberatung und gestaltende Steuerberatung." />
+		<BaseHead title="Leistungen - Steuerbüro Heilgendorff Wiesbaden" description="Steuerberatung, Jahresabschlüsse, Lohnbuchhaltung und Existenzgründungsberatung in Wiesbaden. Persönlich, digital, zuverlässig. DATEV Digitale Kanzlei." />
 	</head>
 	<body>
 		<Header />
@@ -73,14 +73,22 @@ import CookieBanner from '../components/CookieBanner.astro';
 				<div class="container">
 					<h2 data-translate="servicesSpecializationsTitle">Fachgebiete</h2>
 					<p data-translate="servicesSpecializationsIntro">Unser Steuerbüro hat sich auf drei Fachgebiete spezialisiert:</p>
-					<ul class="fachgebiete-list">
-						<li>die Steuerklärungsberatung,</li>
-						<li>die Steuerdurchsetzungsberatung</li>
-						<li>und die gestaltende Steuerberatung.</li>
-					</ul>
-					
-					<div class="fachgebiete-content">
-						<p data-translate="servicesSpecializationsContent">Wir erstellen Jahresabschlüsse und Steuererklärungen für Unternehmen und übernehmen auch die Finanz- und Lohnbuchhaltung. Für Privatpersonen erstellen wir die jährlichen Steuererklärungen sowie Erbschafts- und Schenkungssteuererklärungen. Wir vertreten unsere Mandanten gegenüber den Finanz- und Verwaltungsbehörden i.R. von Betriebsprüfungen, Einsprüchen sowie Verfahren vor Finanzgerichten. Wir entwickeln unter wirtschaftlichen, rechtlichen (in Zusammenarbeit mit Rechtsanwälten) und steuerlichen Gesichtspunkten Unternehmens- und Unternehmerkonzepte und beraten und betreuen die Umsetzung unserer Konzepte. Dies umfasst z.B. Verträge zwischen Gesellschaft und Gesellschaftern oder den Aufbau von Kostenrechnungssystemen.</p>
+					<div class="fachgebiete-cards">
+						<div class="fachgebiet-card">
+							<div class="fachgebiet-icon">📋</div>
+							<h3 data-translate="servicesFachgebiet1Title">Steuererklärungsberatung</h3>
+							<p data-translate="servicesFachgebiet1Text">Jahresabschlüsse und Steuererklärungen für Unternehmen, Finanz- und Lohnbuchhaltung sowie jährliche Steuererklärungen für Privatpersonen — vollständig und fristgerecht.</p>
+						</div>
+						<div class="fachgebiet-card">
+							<div class="fachgebiet-icon">⚖️</div>
+							<h3 data-translate="servicesFachgebiet2Title">Steuerdurchsetzungsberatung</h3>
+							<p data-translate="servicesFachgebiet2Text">Vertretung gegenüber Finanz- und Verwaltungsbehörden bei Betriebsprüfungen, Einsprüchen sowie Verfahren vor Finanzgerichten — kompetent an Ihrer Seite.</p>
+						</div>
+						<div class="fachgebiet-card">
+							<div class="fachgebiet-icon">🔧</div>
+							<h3 data-translate="servicesFachgebiet3Title">Gestaltende Steuerberatung</h3>
+							<p data-translate="servicesFachgebiet3Text">Entwicklung von Unternehmens- und Unternehmerkonzepten unter wirtschaftlichen, rechtlichen und steuerlichen Gesichtspunkten — maßgeschneidert für Ihre Situation.</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -89,44 +97,68 @@ import CookieBanner from '../components/CookieBanner.astro';
 			<section class="spezialgebiete-section">
 				<div class="container">
 					<h2 data-translate="servicesExpertiseTitle">Spezialgebiete</h2>
-					<p data-translate="servicesExpertiseIntro">Als branchenübergreifendes Steuerberatungsunternehmen haben wir uns nicht auf einzelne Wirtschafts- oder Geschäftszweige spezialisiert. In einigen Bereichen haben wir im Laufe der Zeit jedoch besonders viel Erfahrung gesammelt und kennen uns mit der Materie ausnehmend gut aus.</p>
-					
-					<div class="spezialgebiete-content">
-						<div class="spezialgebiete-column">
-							<h3 data-translate="servicesExpertiseCasesTitle">Mit folgenden Sachverhalten haben wir uns näher beschäftigt:</h3>
-							<ul>
-								<li data-translate="servicesExpertiseCase1">Beschränkt Steuerpflichtige</li>
-								<li data-translate="servicesExpertiseCase2">Innengemeinschaftliche Reihengeschäfte</li>
-								<li data-translate="servicesExpertiseCase3">Verschmelzung</li>
-								<li data-translate="servicesExpertiseCase4">Spaltung von Kapitalgesellschaften</li>
-								<li data-translate="servicesExpertiseCase5">Umwandlung</li>
-								<li data-translate="servicesExpertiseCase6">Gemeinnützigkeit</li>
-								<li data-translate="servicesExpertiseCase7">Zweigniederlassungen und Tochterunternehmen ausländischer Unternehmen</li>
-							</ul>
+					<p data-translate="servicesExpertiseIntro">Als branchenübergreifendes Steuerberatungsunternehmen haben wir in einigen Bereichen besonders viel Erfahrung gesammelt.</p>
+
+					<div class="spezialgebiete-grid">
+						<div class="spezialgebiete-col">
+							<h3 data-translate="servicesExpertiseCasesTitle">Sachverhalte</h3>
+							<div class="tags-cloud">
+								<span class="tag" data-translate="servicesExpertiseCase1">Beschränkt Steuerpflichtige</span>
+								<span class="tag" data-translate="servicesExpertiseCase2">Innengemeinschaftliche Reihengeschäfte</span>
+								<span class="tag" data-translate="servicesExpertiseCase3">Verschmelzung</span>
+								<span class="tag" data-translate="servicesExpertiseCase4">Spaltung von Kapitalgesellschaften</span>
+								<span class="tag" data-translate="servicesExpertiseCase5">Umwandlung</span>
+								<span class="tag" data-translate="servicesExpertiseCase6">Gemeinnützigkeit</span>
+								<span class="tag" data-translate="servicesExpertiseCase7">Zweigniederlassungen ausländischer Unternehmen</span>
+							</div>
 						</div>
-						
-						<div class="spezialgebiete-column">
-							<h3 data-translate="servicesExpertiseProfessionsTitle">Mit folgenden Berufsgruppen haben wir uns näher befasst:</h3>
-							<ul>
-								<li data-translate="servicesExpertiseProf1">Internationalen und ausländischen Personen- und Kapitalgesellschaften</li>
-								<li data-translate="servicesExpertiseProf2">Tochterunternehmen internationaler Konzerne</li>
-								<li data-translate="servicesExpertiseProf3">Berufsverbänden</li>
-								<li data-translate="servicesExpertiseProf4">Bauunternehmen</li>
-								<li data-translate="servicesExpertiseProf5">EDV- und Internet-Dienstleistern</li>
-								<li data-translate="servicesExpertiseProf6">Gemeinnützige Unternehmen und Vereinen</li>
-								<li data-translate="servicesExpertiseProf7">Heilberufen</li>
-								<li data-translate="servicesExpertiseProf8">Freiberuflern</li>
-								<li data-translate="servicesExpertiseProf9">Produktionsunternehmen</li>
-								<li data-translate="servicesExpertiseProf10">Einzelhandel</li>
-								<li data-translate="servicesExpertiseProf11">Handwerk</li>
-								<li data-translate="servicesExpertiseProf12">Beratenden Ingenieuren</li>
-								<li data-translate="servicesExpertiseProf13">Start-Up Unternehmen</li>
-								<li data-translate="servicesExpertiseProf14">Onlinehandel</li>
-								<li data-translate="servicesExpertiseProf15">Kunsthandel</li>
-								<li data-translate="servicesExpertiseProf16">Rechtsanwälten</li>
-								<li data-translate="servicesExpertiseProf17">Piloten</li>
-								<li data-translate="servicesExpertiseProf18">Logistikunternehmen</li>
-							</ul>
+						<div class="spezialgebiete-col">
+							<h3 data-translate="servicesExpertiseProfessionsTitle">Branchen & Berufsgruppen</h3>
+							<div class="tags-cloud">
+								<span class="tag" data-translate="servicesExpertiseProf1">Internationale Kapitalgesellschaften</span>
+								<span class="tag" data-translate="servicesExpertiseProf2">Tochterunternehmen internationaler Konzerne</span>
+								<span class="tag" data-translate="servicesExpertiseProf3">Berufsverbände</span>
+								<span class="tag" data-translate="servicesExpertiseProf4">Bauunternehmen</span>
+								<span class="tag" data-translate="servicesExpertiseProf5">EDV- & Internet-Dienstleister</span>
+								<span class="tag" data-translate="servicesExpertiseProf6">Gemeinnützige Organisationen</span>
+								<span class="tag" data-translate="servicesExpertiseProf7">Heilberufe</span>
+								<span class="tag" data-translate="servicesExpertiseProf8">Freiberufler</span>
+								<span class="tag" data-translate="servicesExpertiseProf9">Produktionsunternehmen</span>
+								<span class="tag" data-translate="servicesExpertiseProf10">Einzelhandel & Handwerk</span>
+								<span class="tag" data-translate="servicesExpertiseProf13">Start-Ups</span>
+								<span class="tag" data-translate="servicesExpertiseProf14">Onlinehandel</span>
+								<span class="tag" data-translate="servicesExpertiseProf15">Kunsthandel</span>
+								<span class="tag" data-translate="servicesExpertiseProf16">Rechtsanwälte</span>
+								<span class="tag" data-translate="servicesExpertiseProf17">Piloten</span>
+								<span class="tag" data-translate="servicesExpertiseProf18">Logistikunternehmen</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		<!-- So starten Sie Section -->
+			<section class="onboarding-section">
+				<div class="container">
+					<h2>So starten Sie mit uns</h2>
+					<p class="onboarding-intro">Ob Privatperson oder Unternehmer — der Einstieg ist unkompliziert.</p>
+					<div class="onboarding-steps">
+						<div class="onboarding-step">
+							<div class="step-number">1</div>
+							<h3>Checkliste ausfüllen</h3>
+							<p>Laden Sie unsere Checkliste zur erstmaligen Erfassung herunter und füllen Sie sie vor dem Erstgespräch aus. Das spart Zeit und ermöglicht eine gezielte Beratung von Anfang an.</p>
+							<a href="/Checkliste-zur-erstmaligen-Erfassung-1.pdf" target="_blank" rel="noopener noreferrer" class="step-link">Checkliste herunterladen →</a>
+						</div>
+						<div class="onboarding-step">
+							<div class="step-number">2</div>
+							<h3>Kontakt aufnehmen</h3>
+							<p>Rufen Sie uns an oder nutzen Sie unser Kontaktformular. Wir melden uns zeitnah und vereinbaren einen Termin für ein kostenloses, unverbindliches Erstgespräch.</p>
+							<a href="/kontakt" class="step-link">Jetzt Kontakt aufnehmen →</a>
+						</div>
+						<div class="onboarding-step">
+							<div class="step-number">3</div>
+							<h3>Wir übernehmen</h3>
+							<p>Nach dem Erstgespräch kümmern wir uns um alles — von der laufenden Buchhaltung bis zur Steuererklärung. Sie konzentrieren sich auf das Wesentliche.</p>
+							<a href="/leistungen" class="step-link">Leistungen entdecken →</a>
 						</div>
 					</div>
 				</div>
@@ -280,31 +312,52 @@ import CookieBanner from '../components/CookieBanner.astro';
 			.fachgebiete-section h2 {
 				color: var(--accent);
 				font-size: 2.2rem;
-				margin-bottom: 1rem;
+				margin-bottom: 0.75rem;
 				font-family: "Merriweather", serif;
 			}
 
-			.fachgebiete-section > p {
-				font-size: 1.2rem;
-				margin-bottom: 2rem;
-				color: var(--black);
-			}
-
-			.fachgebiete-list {
+			.fachgebiete-section > .container > p {
 				font-size: 1.1rem;
+				color: var(--black);
 				margin-bottom: 2rem;
-				padding-left: 2rem;
 			}
 
-			.fachgebiete-list li {
-				margin-bottom: 0.5rem;
-				color: var(--black);
+			.fachgebiete-cards {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.5rem;
 			}
 
-			.fachgebiete-content p {
-				font-size: 1.1rem;
-				line-height: 1.8;
+			.fachgebiet-card {
+				background: var(--light-gray);
+				border-radius: 12px;
+				padding: 2rem 1.5rem;
+				border-top: 4px solid var(--accent);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.fachgebiet-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 24px rgba(3, 47, 154, 0.12);
+			}
+
+			.fachgebiet-icon {
+				font-size: 2rem;
+				margin-bottom: 1rem;
+			}
+
+			.fachgebiet-card h3 {
+				color: var(--accent);
+				font-size: 1.15rem;
+				font-family: "Merriweather", serif;
+				margin-bottom: 0.75rem;
+			}
+
+			.fachgebiet-card p {
 				color: var(--black);
+				font-size: 0.95rem;
+				line-height: 1.6;
+				margin: 0;
 			}
 
 			/* Spezialgebiete Section */
@@ -315,47 +368,168 @@ import CookieBanner from '../components/CookieBanner.astro';
 			.spezialgebiete-section h2 {
 				color: var(--accent);
 				font-size: 2.2rem;
-				margin-bottom: 1rem;
+				margin-bottom: 0.75rem;
 				font-family: "Merriweather", serif;
 			}
 
-			.spezialgebiete-section > p {
+			.spezialgebiete-section > .container > p {
 				font-size: 1.1rem;
-				line-height: 1.8;
-				margin-bottom: 2rem;
 				color: var(--black);
+				margin-bottom: 2rem;
 			}
 
-			.spezialgebiete-content {
+			.spezialgebiete-grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
-				gap: 3rem;
-				margin-top: 2rem;
+				gap: 2.5rem;
 			}
 
-			.spezialgebiete-column h3 {
+			.spezialgebiete-col h3 {
 				color: var(--accent);
-				font-size: 1.3rem;
-				margin-bottom: 1rem;
+				font-size: 1.1rem;
 				font-family: "Merriweather", serif;
+				margin-bottom: 1rem;
 			}
 
-			.spezialgebiete-column ul {
-				list-style: none;
-				padding: 0;
+			.tags-cloud {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
 			}
 
-			.spezialgebiete-column li {
-				padding: 0.5rem 0;
-				border-bottom: 1px solid #e0e0e0;
-				color: var(--black);
+			.tag {
+				display: inline-block;
+				background: white;
+				color: var(--accent);
+				border: 1.5px solid var(--accent);
+				border-radius: 999px;
+				padding: 0.35rem 0.9rem;
+				font-size: 0.85rem;
+				font-family: "IBM Plex Sans", sans-serif;
+				font-weight: 500;
+				transition: all 0.2s ease;
+				cursor: default;
 			}
 
-			.spezialgebiete-column li:last-child {
-				border-bottom: none;
+			.tag:hover {
+				background: var(--accent);
+				color: white;
 			}
 
-			/* Responsive Design */
+			/* Onboarding Section */
+			.onboarding-section {
+				background: var(--accent);
+				margin: 2.88rem calc(-45vw + 50%) 0 calc(-45vw + 50%);
+				padding: 3rem 1.44rem;
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				right: 50%;
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+			}
+
+			.onboarding-section h2 {
+				color: white;
+				font-size: 2rem;
+				font-family: "Merriweather", serif;
+				margin-bottom: 0.5rem;
+				text-align: center;
+			}
+
+			.onboarding-intro {
+				color: rgba(255,255,255,0.85);
+				text-align: center;
+				font-size: 1.1rem;
+				margin-bottom: 2.5rem;
+			}
+
+			.onboarding-steps {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 2rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.onboarding-step {
+				background: rgba(255,255,255,0.1);
+				border-radius: 12px;
+				padding: 2rem 1.5rem;
+				text-align: center;
+				border: 1px solid rgba(255,255,255,0.2);
+			}
+
+			.step-number {
+				width: 48px;
+				height: 48px;
+				background: white;
+				color: var(--accent);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.3rem;
+				font-weight: 700;
+				margin: 0 auto 1rem;
+			}
+
+			.onboarding-step h3 {
+				color: white;
+				font-size: 1.15rem;
+				font-family: "Merriweather", serif;
+				margin-bottom: 0.75rem;
+			}
+
+			.onboarding-step p {
+				color: rgba(255,255,255,0.85);
+				font-size: 0.95rem;
+				line-height: 1.6;
+				margin-bottom: 1rem;
+			}
+
+			.step-link {
+				color: white;
+				font-weight: 600;
+				text-decoration: none;
+				font-size: 0.9rem;
+				border-bottom: 1px solid rgba(255,255,255,0.5);
+				padding-bottom: 2px;
+				transition: border-color 0.2s;
+			}
+
+			.step-link:hover {
+				border-color: white;
+			}
+
+			@media (max-width: 1024px) and (min-width: 721px) {
+				.onboarding-section {
+					width: 100%;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 3rem 2rem;
+					box-sizing: border-box;
+				}
+			}
+
+			@media (max-width: 720px) {
+				.onboarding-section {
+					width: 100%;
+					left: 0;
+					right: 0;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 2rem 1rem;
+					box-sizing: border-box;
+				}
+
+				.onboarding-steps {
+					grid-template-columns: 1fr;
+					gap: 1.25rem;
+				}
+			}
 			@media (max-width: 1024px) and (min-width: 721px) {
 				.hero {
 					padding: 4rem 0 3rem 0;
@@ -396,7 +570,12 @@ import CookieBanner from '../components/CookieBanner.astro';
 					grid-template-columns: repeat(2, 1fr);
 				}
 				
-				.spezialgebiete-content {
+				.fachgebiete-cards {
+					grid-template-columns: 1fr;
+					gap: 1rem;
+				}
+
+				.spezialgebiete-grid {
 					grid-template-columns: 1fr;
 					gap: 2rem;
 				}
@@ -448,8 +627,12 @@ import CookieBanner from '../components/CookieBanner.astro';
 				.feature-card {
 					padding: 1.5rem;
 				}
+
+				.fachgebiete-cards {
+					grid-template-columns: 1fr;
+				}
 				
-				.spezialgebiete-content {
+				.spezialgebiete-grid {
 					grid-template-columns: 1fr;
 					gap: 1.5rem;
 				}

@@ -11,6 +11,12 @@ import { SITE_TITLE } from '../consts';
 			<p><a href="/impressum" data-translate="imprint">Impressum</a></p>
 			<p><a href="/datenschutz" data-translate="privacy">Datenschutz</a></p>
 			<p><a href="/cookie-richtlinie" data-translate="cookiePolicy">Cookie-Richtlinie (EU)</a></p>
+			<div class="opening-hours">
+				<h4>Öffnungszeiten</h4>
+				<p>Mo – Do: 9:00 – 16:00 Uhr</p>
+				<p>Fr: 9:00 – 14:00 Uhr</p>
+				<p><a href="tel:+4961139132000">+49 (0) 611 39 132 00</a></p>
+			</div>
 		</div>
 		<div class="footer-center">
 			<h4 data-translate="clientPortals">Portale für Mandanten</h4>
@@ -111,6 +117,21 @@ import { SITE_TITLE } from '../consts';
 		color: rgba(255, 255, 255, 0.9);
 		text-decoration: none;
 		font-family: "IBM Plex Sans", sans-serif;
+	}
+
+	.opening-hours {
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255,255,255,0.2);
+	}
+
+	.opening-hours h4 {
+		margin-bottom: 0.5rem;
+	}
+
+	.opening-hours p {
+		margin-bottom: 0.3rem;
+		font-size: 0.95rem;
 	}
 
 	.footer-left a:hover,
