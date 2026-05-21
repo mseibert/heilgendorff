@@ -165,8 +165,7 @@ ${message}
 
     return new Response(JSON.stringify({
       success: false,
-      message: 'Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter kanzlei@heilgendorff.de',
-      debug: error.message
+      message: 'Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt unter kanzlei@heilgendorff.de'
     }), {
       status: 500,
       headers: {
