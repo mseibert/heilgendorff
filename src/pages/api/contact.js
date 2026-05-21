@@ -4,7 +4,7 @@ export const prerender = false;
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Kontaktformular <onboarding@resend.dev>';
+const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Kontaktformular <kontakt@heilgendorff.de>';
 const TO_EMAIL = 'kontakt@heilgendorff.de';
 
 export async function POST({ request }) {
