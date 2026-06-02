@@ -10,6 +10,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <html lang="de">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<!-- Preload LCP hero image -->
+		<link rel="preload" as="image" href="/IMG_0053.jpeg" fetchpriority="high" />
 	</head>
 	<body>
 		<Header />
@@ -101,13 +103,13 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 						<h2 data-translate="testimonialsTitle">Unsere zufriedenen Mandanten</h2>
 							<div class="testimonial-container" role="region" aria-label="Kundenstimmen" aria-live="polite">
 								<div class="testimonial-controls" aria-label="Steuerung der Kundenstimmen">
-									<button type="button" class="testimonial-btn testimonial-pause" id="testimonialPause" aria-label="Automatischen Wechsel pausieren">
+									<button type="button" class="testimonial-btn testimonial-pause" id="testimonialPause">
 										Pause
 									</button>
-									<button type="button" class="testimonial-btn testimonial-prev" id="testimonialPrev" aria-label="Vorherige Stimme">
+									<button type="button" class="testimonial-btn testimonial-prev" id="testimonialPrev">
 										← Zurück
 									</button>
-									<button type="button" class="testimonial-btn testimonial-next" id="testimonialNext" aria-label="Nächste Stimme">
+									<button type="button" class="testimonial-btn testimonial-next" id="testimonialNext">
 										Weiter →
 									</button>
 								</div>
