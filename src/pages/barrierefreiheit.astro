@@ -1,0 +1,214 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+---
+
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<BaseHead
+			title="Barrierefreiheitserklärung - Steuerbüro Heilgendorff"
+			description="Erklärung zur Barrierefreiheit der Website des Steuerbüros Heilgendorff in Wiesbaden gemäß BFSG und WCAG 2.1."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="main-content">
+			<section class="hero">
+				<div class="hero-content">
+					<h1>Barrierefreiheitserklärung</h1>
+					<p class="hero-subtitle">Unser Engagement für eine zugängliche Website</p>
+				</div>
+			</section>
+
+			<section class="content-section">
+				<div class="container">
+
+					<div class="declaration-block">
+						<h2>Stand der Vereinbarkeit mit den Anforderungen</h2>
+						<p>Das Steuerbüro Heilgendorff ist bemüht, seine Website <strong>www.heilgendorff.de</strong> im Einklang mit den Anforderungen der <strong>Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong> zu gestalten und zugänglich zu machen.</p>
+						<p>Die Website ist teilweise mit diesen Anforderungen vereinbar. Bekannte Einschränkungen sind im Abschnitt „Nicht barrierefreie Inhalte" aufgeführt.</p>
+					</div>
+
+					<div class="declaration-block">
+						<h2>Nicht barrierefreie Inhalte</h2>
+						<p>Folgende Bereiche sind uns bekannt und werden sukzessive verbessert:</p>
+						<ul>
+							<li><strong>Externe Inhalte (DATEV):</strong> Eingebettete Videoplayer und Portale von DATEV unterliegen der Verantwortung des Drittanbieters. Wir haben auf deren Barrierefreiheit keinen direkten Einfluss.</li>
+							<li><strong>Ältere Dokumente (PDF):</strong> Einige herunterladbare Dokumente (z. B. Steuerformulare) wurden nicht für Barrierefreiheit optimiert. Diese liegen im Original der Finanzverwaltung vor.</li>
+							<li><strong>Bilder und Grafiken:</strong> Wir arbeiten kontinuierlich daran, alle Bilder mit aussagekräftigen Alternativtexten zu versehen.</li>
+						</ul>
+					</div>
+
+					<div class="declaration-block">
+						<h2>Erstellung dieser Erklärung</h2>
+						<p>Diese Erklärung wurde am <strong>2. Juni 2026</strong> erstellt. Die Einschätzung basiert auf einer Selbstbewertung durch das Steuerbüro Heilgendorff sowie dem Einsatz automatischer Prüfwerkzeuge (Lighthouse, WAVE).</p>
+					</div>
+
+					<div class="declaration-block">
+						<h2>Feedback und Kontakt</h2>
+						<p>Wenn Sie auf Barrieren auf unserer Website stoßen oder Verbesserungsvorschläge haben, wenden Sie sich bitte an uns:</p>
+						<div class="contact-info">
+							<p><strong>Steuerbüro Heilgendorff</strong><br />
+							Unter den Eichen 7 (Gebäude F)<br />
+							65195 Wiesbaden</p>
+							<p>Tel.: <a href="tel:+4961139132000">+49 (0) 611 39 132 00</a><br />
+							E-Mail: <a href="mailto:kontakt@heilgendorff.de">kontakt@heilgendorff.de</a></p>
+						</div>
+						<p>Wir werden Ihren Hinweis prüfen und uns schnellstmöglich bei Ihnen melden.</p>
+					</div>
+
+					<div class="declaration-block">
+						<h2>Schlichtungsverfahren</h2>
+						<p>Wenn auch nach Ihrem Feedback keine zufriedenstellende Lösung gefunden wurde, können Sie sich an die Schlichtungsstelle nach § 16 BGG wenden:</p>
+						<p>
+							<strong>Schlichtungsstelle nach dem Behindertengleichstellungsgesetz</strong><br />
+							Mauerstraße 53<br />
+							10117 Berlin<br />
+							Tel.: <a href="tel:+4930182641-0">030 18 241-0</a><br />
+							E-Mail: <a href="mailto:info@schlichtungsstelle-bgg.de">info@schlichtungsstelle-bgg.de</a><br />
+							Web: <a href="https://www.schlichtungsstelle-bgg.de" target="_blank" rel="noopener noreferrer">www.schlichtungsstelle-bgg.de</a>
+						</p>
+					</div>
+
+					<div class="declaration-block declaration-block--info">
+						<h2>Hinweis zum BFSG</h2>
+						<p>Das <strong>Barrierefreiheitsstärkungsgesetz (BFSG)</strong> gilt ab dem 28. Juni 2025 für neue digitale Produkte und Dienstleistungen privater Anbieter. Wir nehmen diese Anforderungen ernst und arbeiten kontinuierlich an der Verbesserung der Zugänglichkeit unserer Website — auch über gesetzliche Mindestanforderungen hinaus.</p>
+					</div>
+
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			.hero {
+				text-align: center;
+				background: white;
+				color: var(--black);
+				width: 100vw;
+				padding: 6rem 0 4rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
+				left: 50%;
+				right: 50%;
+				margin-left: -50vw;
+				margin-right: -50vw;
+			}
+
+			.hero h1 {
+				font-size: 2.8em;
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+				margin-bottom: 0.8rem;
+			}
+
+			.hero-subtitle {
+				font-size: 1.2em;
+				color: var(--black);
+				opacity: 0.8;
+				margin: 0;
+			}
+
+			.content-section {
+				padding: 3rem 0 5rem;
+				background: white;
+				margin: 0 calc(-45vw + 50%);
+				width: 90vw;
+				position: relative;
+				left: calc(50% - 10px);
+				margin-left: calc(-45vw - 10px);
+				margin-right: -45vw;
+			}
+
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			.declaration-block {
+				margin-bottom: 3rem;
+				padding-bottom: 2rem;
+				border-bottom: 1px solid #e5e7eb;
+			}
+
+			.declaration-block:last-child {
+				border-bottom: none;
+			}
+
+			.declaration-block h2 {
+				color: var(--accent);
+				font-family: "Merriweather", serif;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.declaration-block p {
+				font-size: 1rem;
+				line-height: 1.8;
+				color: var(--black);
+				margin-bottom: 1rem;
+			}
+
+			.declaration-block ul {
+				padding-left: 1.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.declaration-block li {
+				font-size: 1rem;
+				line-height: 1.8;
+				color: var(--black);
+				margin-bottom: 0.5rem;
+			}
+
+			.declaration-block a {
+				color: var(--accent);
+				text-decoration: underline;
+			}
+
+			.declaration-block a:hover {
+				opacity: 0.8;
+			}
+
+			.contact-info {
+				background: var(--light-gray);
+				padding: 1.5rem;
+				border-radius: 8px;
+				margin: 1rem 0;
+				border-left: 4px solid var(--accent);
+			}
+
+			.contact-info p {
+				margin-bottom: 0.5rem;
+			}
+
+			.declaration-block--info {
+				background: #eff6ff;
+				padding: 1.5rem;
+				border-radius: 8px;
+				border-left: 4px solid var(--accent);
+				border-bottom: none;
+			}
+
+			@media (max-width: 720px) {
+				.hero { padding: 4rem 1rem 2rem; }
+				.hero h1 { font-size: 2em; }
+				.content-section {
+					width: 100%;
+					left: 0;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 2rem 1rem;
+				}
+			}
+		</style>
+
+		<CookieBanner />
+	</body>
+</html>

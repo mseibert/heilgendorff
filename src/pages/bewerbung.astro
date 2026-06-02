@@ -158,6 +158,12 @@ const availablePositions = [
 								<p class="file-info" data-translate="applicationFormAttachmentsInfo">Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)</p>
 							</div>
 
+							<!-- Honeypot anti-spam field (hidden from users) -->
+							<div style="display:none" aria-hidden="true">
+								<label for="website">Website lassen Sie dieses Feld leer</label>
+								<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+							</div>
+
 							<button
 								type="submit"
 								id="submitBtn"
@@ -643,6 +649,12 @@ const availablePositions = [
 
 		form.addEventListener('submit', async function(e) {
 			e.preventDefault();
+
+			// Honeypot check — bots fill hidden fields
+			const honeypotField = document.getElementById('website');
+			if (honeypotField instanceof HTMLInputElement && honeypotField.value) {
+				return; // Silently ignore bots
+			}
 			
 			const formData = new FormData(form);
 			const name = formData.get('name');

@@ -15,6 +15,12 @@ export async function POST({ request }) {
     const email = String(formData.get('email') || '').trim();
     const phone = String(formData.get('phone') || '').trim();
     const message = String(formData.get('message') || 'Keine Nachricht angegeben').trim();
+    const honeypot = String(formData.get('website') || '').trim();
+
+    // Honeypot check — bots fill hidden fields
+    if (honeypot) {
+      return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
     const referrerURL = String(formData.get('referrerURL') || 'Direkt');
 
     const escapeHtml = (s) => String(s)

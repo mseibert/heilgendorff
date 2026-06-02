@@ -14,6 +14,12 @@ export async function POST({ request }) {
   try {
     const formData = await request.formData();
 
+    // Honeypot check — bots fill hidden fields
+    const honeypot = String(formData.get('website') || '').trim();
+    if (honeypot) {
+      return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
+
     // Formulardaten extrahieren
     const name = formData.get('name');
     const email = formData.get('email');
