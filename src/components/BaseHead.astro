@@ -28,7 +28,6 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Preconnect to external origins for faster loading -->
 <link rel="preconnect" href="https://www.datev-mymarketing.de" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://www.google.com" />
 <link rel="dns-prefetch" href="https://maps.googleapis.com" />
 <link
@@ -39,9 +38,9 @@ const { title, description, image = FallbackImage } = Astro.props;
 />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<!-- Font preloads — local hosting, no render-blocking -->
+<link rel="preload" href="/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/merriweather-400.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
