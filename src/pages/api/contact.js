@@ -3,12 +3,38 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Kontaktformular <kontakt@heilgendorff.de>';
 const TO_EMAIL = 'kontakt@heilgendorff.de';
 
-export async function POST({ request }) {
+// Rate limiting: max 5 requests per IP per 10 minutes
+const rateLimitMap = new Map();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip) || { count: 0, resetAt: now + RATE_WINDOW_MS };
+  if (now > entry.resetAt) { entry.count = 0; entry.resetAt = now + RATE_WINDOW_MS; }
+  entry.count++;
+  rateLimitMap.set(ip, entry);
+  return entry.count > RATE_LIMIT;
+}
+
+const escapeHtml = (s) => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
+
+export async function POST({ request, clientAddress }) {
   try {
+    // Rate limiting
+    const ip = clientAddress || 'unknown';
+    if (isRateLimited(ip)) {
+      return new Response(JSON.stringify({
+        success: false,
+        message: 'Zu viele Anfragen. Bitte versuchen Sie es später erneut.'
+      }), { status: 429, headers: { 'Content-Type': 'application/json' } });
+    }
+
     const formData = await request.formData();
 
     const name = String(formData.get('name') || '').trim();
