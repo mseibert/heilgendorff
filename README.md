@@ -153,6 +153,38 @@ Damit E-Mails von `bewerbung@heilgendorff.de` gesendet werden können:
 
 **Hinweis:** Bis zur Domain-Verifizierung werden E-Mails von `onboarding@resend.dev` gesendet.
 
+## 🛡️ Spam-Schutz Bewerbungsformular einrichten
+
+Das Bewerbungsformular (`/bewerbung`) ist gegen Spam-Bots abgesichert durch:
+- **Honeypot-Feld** (unsichtbares Feld, das nur Bots ausfüllen)
+- **Zeitcheck** (Formulare, die schneller als 3 Sekunden nach dem Laden abgesendet werden, gelten als Bot)
+- **Cloudflare Turnstile** (unsichtbares/interaktives Verifizierungswidget)
+
+### 1. Cloudflare Turnstile Account erstellen
+
+1. Kostenloses Konto unter [dash.cloudflare.com](https://dash.cloudflare.com/?to=/:account/turnstile) erstellen (kein bestehendes Cloudflare-Hosting nötig)
+2. Neue Turnstile-Site anlegen, Domain `heilgendorff.de` (und `localhost` für lokale Tests) eintragen
+3. Widget-Modus "Managed" wählen (empfohlen – meist unsichtbar für echte Nutzer)
+4. Site Key und Secret Key kopieren
+
+### 2. Umgebungsvariablen setzen
+
+**Lokal:** in `.env` ergänzen:
+
+```bash
+PUBLIC_TURNSTILE_SITE_KEY=dein_site_key
+TURNSTILE_SECRET_KEY=dein_secret_key
+```
+
+**Vercel:** Project Settings > Environment Variables:
+
+| Variable | Wert |
+|----------|------|
+| `PUBLIC_TURNSTILE_SITE_KEY` | Site Key aus dem Cloudflare-Dashboard |
+| `TURNSTILE_SECRET_KEY` | Secret Key aus dem Cloudflare-Dashboard |
+
+**Hinweis:** Ohne gesetzten `TURNSTILE_SECRET_KEY` wird die Verifizierung übersprungen (z. B. für lokale Entwicklung ohne eigenen Account) — für den Produktivbetrieb muss der Key gesetzt sein, sonst greift der Spam-Schutz nicht.
+
 ## 🛠️ Technologie-Stack
 
 - [Astro](https://astro.build) - Web Framework

@@ -27,12 +27,16 @@ const availablePositions = [
   { de: 'Lohnbuchhalter(in)', en: 'Payroll Accountant' },
   { de: 'Werkstudent(in) / Praktikum im Fachbereich Steuern/Jura/Finanzen/BWL', en: 'Working Student / Internship in Tax/Law/Finance/Business Administration' }
 ];
+
+// Cloudflare Turnstile Site Key (öffentlich, siehe .env / Vercel Env Vars)
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 ---
 
 <!DOCTYPE html>
 <html lang="de">
 	<head>
 		<BaseHead title="Bewerbung - Steuerbüro Heilgendorff Wiesbaden" description="Jetzt beim Steuerbüro Heilgendorff in Wiesbaden bewerben. Offene Stellen für Steuerfachangestellte, Lohnbuchhalter und Werkstudenten." />
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	</head>
 	<body>
 		<Header />
@@ -158,10 +162,18 @@ const availablePositions = [
 								<p class="file-info" data-translate="applicationFormAttachmentsInfo">Sie können mehrere Dateien auswählen (PDF, JPG, PNG, DOCX - max. 10 MB pro Datei)</p>
 							</div>
 
-							<!-- Honeypot anti-spam field (hidden from users) -->
-							<div style="display:none" aria-hidden="true">
+							<!-- Honeypot anti-spam field (visually hidden off-screen, not display:none — some bots specifically skip display:none/visibility:hidden fields) -->
+							<div class="hp-field" aria-hidden="true">
 								<label for="website">Website lassen Sie dieses Feld leer</label>
 								<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+							</div>
+
+							<!-- Timestamp for time-based bot detection (set via JS on load, checked server-side) -->
+							<input type="hidden" id="formLoadedAt" name="formLoadedAt" value="" />
+
+							<!-- Cloudflare Turnstile verification widget -->
+							<div class="form-group">
+								<div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-language="de"></div>
 							</div>
 
 							<button
@@ -409,6 +421,15 @@ const availablePositions = [
 		font-style: italic;
 	}
 
+	/* Honeypot: off-screen instead of display:none/visibility:hidden, which some bots explicitly detect and skip */
+	.hp-field {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
 	/* Toast Notification */
 	.toast {
 		display: none;
@@ -635,6 +656,12 @@ const availablePositions = [
 
 		if (!form || !submitBtn || !toast || !toastMessage || !toastClose) return;
 
+		// Zeitstempel beim Laden des Formulars setzen (für serverseitigen Zeitcheck)
+		const formLoadedAtField = document.getElementById('formLoadedAt');
+		if (formLoadedAtField instanceof HTMLInputElement) {
+			formLoadedAtField.value = String(Date.now());
+		}
+
 		function showMessage(message, isSuccess) {
 			toast.classList.remove('success', 'error', 'show');
 			toast.classList.add(isSuccess ? 'success' : 'error');
@@ -654,6 +681,14 @@ const availablePositions = [
 			const honeypotField = document.getElementById('website');
 			if (honeypotField instanceof HTMLInputElement && honeypotField.value) {
 				return; // Silently ignore bots
+			}
+
+			// Turnstile check — Widget muss vom Nutzer gelöst worden sein
+			const turnstileResponseField = form.querySelector('[name="cf-turnstile-response"]');
+			const turnstileToken = turnstileResponseField instanceof HTMLInputElement ? turnstileResponseField.value : '';
+			if (!turnstileToken) {
+				showMessage('Bitte bestätigen Sie die Sicherheitsabfrage, bevor Sie das Formular absenden.', false);
+				return;
 			}
 			
 			const formData = new FormData(form);
@@ -719,6 +754,8 @@ const availablePositions = [
 				requestFormData.append('formMailSubject', formMailSubject);
 				requestFormData.append('emailBodyText', emailBodyText);
 				requestFormData.append('customerEmailBodyText', customerEmailBodyText);
+				requestFormData.append('formLoadedAt', formLoadedAtField instanceof HTMLInputElement ? formLoadedAtField.value : '');
+				requestFormData.append('cf-turnstile-response', turnstileToken);
 				
 				// CV hinzufügen
 				if (cvFile.length > 0) {
@@ -743,6 +780,7 @@ const availablePositions = [
 					form.reset();
 				} else {
 					showMessage(result.message, false);
+					if (window.turnstile) window.turnstile.reset();
 				}
 				
 				// Option 2: Direkte E-Mail-Weiterleitung (auskommentiert)
@@ -763,6 +801,7 @@ Bitte beachten Sie, dass Anhänge über das Formular nicht per E-Mail übertrage
 				*/
 			} catch (error) {
 				showMessage('Es gab einen Fehler beim Senden Ihrer Bewerbung. Bitte versuchen Sie es später erneut.', false);
+				if (window.turnstile) window.turnstile.reset();
 			} finally {
 				submitBtn.disabled = false;
 				submitBtn.removeAttribute('aria-busy');

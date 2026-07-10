@@ -5,6 +5,31 @@ export const prerender = false;
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 const FROM_EMAIL = import.meta.env.RESEND_FROM_EMAIL || 'Bewerbungsformular <bewerbung@heilgendorff.de>';
 const TO_EMAIL = 'kanzlei@heilgendorff.de';
+const TURNSTILE_SECRET_KEY = import.meta.env.TURNSTILE_SECRET_KEY;
+
+// Mindestzeit zwischen Laden und Absenden des Formulars — Bots senden meist sofort
+const MIN_FILL_TIME_MS = 3000;
+
+async function verifyTurnstile(token, ip) {
+  if (!TURNSTILE_SECRET_KEY) {
+    // Kein Secret konfiguriert (z.B. lokale Entwicklung ohne .env) — Prüfung überspringen, aber warnen
+    console.warn('TURNSTILE_SECRET_KEY nicht gesetzt — Turnstile-Verifizierung wird übersprungen.');
+    return true;
+  }
+  if (!token) return false;
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ secret: TURNSTILE_SECRET_KEY, response: token, remoteip: ip }),
+    });
+    const data = await res.json();
+    return data.success === true;
+  } catch (err) {
+    console.error('Turnstile-Verifizierung fehlgeschlagen:', err);
+    return false;
+  }
+}
 
 // Rate limiting: max 5 requests per IP per 10 minutes
 const rateLimitMap = new Map();
@@ -60,6 +85,23 @@ export async function POST({ request, clientAddress }) {
     const honeypot = String(formData.get('website') || '').trim();
     if (honeypot) {
       return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
+
+    // Zeitcheck — Formular darf nicht schneller als MIN_FILL_TIME_MS ausgefüllt worden sein
+    const formLoadedAt = Number(formData.get('formLoadedAt') || 0);
+    if (formLoadedAt && (Date.now() - formLoadedAt) < MIN_FILL_TIME_MS) {
+      // Stiller Reject wie beim Honeypot, um Bots keine Rückmeldung zu geben
+      return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
+
+    // Turnstile-Verifizierung
+    const turnstileToken = String(formData.get('cf-turnstile-response') || '');
+    const turnstileValid = await verifyTurnstile(turnstileToken, ip);
+    if (!turnstileValid) {
+      return new Response(JSON.stringify({
+        success: false,
+        message: 'Sicherheitsüberprüfung fehlgeschlagen. Bitte laden Sie die Seite neu und versuchen Sie es erneut.'
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
     // Extract and validate fields
