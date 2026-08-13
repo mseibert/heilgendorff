@@ -29,13 +29,38 @@ const availablePositions = [
 ];
 
 // Cloudflare Turnstile Site Key (öffentlich, siehe .env / Vercel Env Vars)
+// Sitekeys haben immer das Format <Ziffer>x + 22 alphanumerische Zeichen.
+// Ein falscher Key lässt das Widget kommentarlos verschwinden — dann kann niemand
+// mehr absenden, ohne dass es auffällt. Deshalb im Build hart prüfen.
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+if (import.meta.env.PROD && !/^[0-9]x[A-Za-z0-9]{22}$/.test(turnstileSiteKey)) {
+  throw new Error(
+    'PUBLIC_TURNSTILE_SITE_KEY fehlt oder hat ein ungültiges Format ' +
+      `(erwartet: <Ziffer>x + 22 Zeichen, erhalten: ${turnstileSiteKey.length} Zeichen). ` +
+      'Ohne gültigen Site Key ist das Bewerbungsformular nicht absendbar.'
+  );
+}
 ---
 
 <!DOCTYPE html>
 <html lang="de">
 	<head>
 		<BaseHead title="Bewerbung - Steuerbüro Heilgendorff Wiesbaden" description="Jetzt beim Steuerbüro Heilgendorff in Wiesbaden bewerben. Offene Stellen für Steuerfachangestellte, Lohnbuchhalter und Werkstudenten." />
+		<!-- Muss vor api.js stehen: Turnstile schlägt den Callback beim Rendern
+		     unter window[name] nach. -->
+		<script is:inline>
+			window.onTurnstileError = function (code) {
+				var box = document.getElementById('turnstileError');
+				if (box) {
+					box.textContent =
+						'Die Sicherheitsabfrage konnte nicht geladen werden (Fehler ' +
+						code +
+						'). Bitte laden Sie die Seite neu oder senden Sie Ihre Bewerbung an bewerbung@heilgendorff.de.';
+					box.hidden = false;
+				}
+				console.error('Turnstile konnte nicht geladen werden:', code);
+			};
+		</script>
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	</head>
 	<body>
@@ -173,7 +198,14 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 
 							<!-- Cloudflare Turnstile verification widget -->
 							<div class="form-group">
-								<div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-language="de"></div>
+								<div
+									class="cf-turnstile"
+									data-sitekey={turnstileSiteKey}
+									data-theme="light"
+									data-language="de"
+									data-error-callback="onTurnstileError"
+								></div>
+								<p id="turnstileError" class="turnstile-error" role="alert" hidden></p>
 							</div>
 
 							<button
@@ -347,6 +379,15 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 		background-repeat: no-repeat;
 		background-size: 1.5em 1.5em;
 		padding-right: 2.5rem;
+	}
+
+	.turnstile-error {
+		margin-top: 0.5rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid #dc3545;
+		border-radius: 6px;
+		background: #f8d7da;
+		color: #721c24;
 	}
 
 	.file-upload {
