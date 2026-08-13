@@ -12,7 +12,14 @@ const MIN_FILL_TIME_MS = 3000;
 
 async function verifyTurnstile(token, ip) {
   if (!TURNSTILE_SECRET_KEY) {
-    // Kein Secret konfiguriert (z.B. lokale Entwicklung ohne .env) — Prüfung überspringen, aber warnen
+    if (import.meta.env.PROD) {
+      // Ohne Secret findet keine Bot-Prüfung statt. Sichtbar ablehnen ist besser,
+      // als jede Einsendung still durchzuwinken — ein fehlendes Secret fällt sonst
+      // niemandem auf, weil das Formular scheinbar normal funktioniert.
+      console.error('TURNSTILE_SECRET_KEY nicht gesetzt — Einsendung wird abgelehnt.');
+      return false;
+    }
+    // Lokale Entwicklung ohne .env — Prüfung überspringen, aber warnen
     console.warn('TURNSTILE_SECRET_KEY nicht gesetzt — Turnstile-Verifizierung wird übersprungen.');
     return true;
   }

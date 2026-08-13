@@ -185,6 +185,14 @@ TURNSTILE_SECRET_KEY=dein_secret_key
 
 **Hinweis:** Ohne gesetzten `TURNSTILE_SECRET_KEY` wird die Verifizierung übersprungen (z. B. für lokale Entwicklung ohne eigenen Account) — für den Produktivbetrieb muss der Key gesetzt sein, sonst greift der Spam-Schutz nicht.
 
+**Achtung, `PUBLIC_TURNSTILE_SITE_KEY` wird beim Build eingebacken:** Eine Änderung in Vercel wird erst nach einem Redeploy wirksam (`vercel redeploy <letzte-Production-URL>`).
+
+Ein falscher Site Key legt das Formular still lahm: Cloudflare rendert dann gar kein Widget, niemand kann absenden, und es gibt keine Fehlermeldung. Dagegen greifen drei Sicherungen:
+
+- Der Build bricht ab, wenn `PUBLIC_TURNSTILE_SITE_KEY` gesetzt ist, aber nicht dem in `src/lib/turnstile.js` geprüften Format entspricht. Ein *fehlender* Key bricht den Build nicht ab, damit Preview-Deployments ohne die Production-Variablen weiter bauen.
+- Lädt das Widget zur Laufzeit nicht (Key gesperrt, Domain nicht freigegeben, Adblocker), blendet das Formular einen sichtbaren Hinweis samt `mailto:`-Alternative ein.
+- Fehlt `TURNSTILE_SECRET_KEY` im Deployment, lehnt `/api/application` Einsendungen ab, statt sie ungeprüft durchzulassen. Lokal (`astro dev`) wird die Prüfung weiterhin übersprungen.
+
 ## 🛠️ Technologie-Stack
 
 - [Astro](https://astro.build) - Web Framework

@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import { isValidSiteKey } from '../lib/turnstile.js';
 
 // Bewerbungsformular-Komponente
 export interface Props {
@@ -29,13 +30,49 @@ const availablePositions = [
 ];
 
 // Cloudflare Turnstile Site Key (öffentlich, siehe .env / Vercel Env Vars)
+// Ein vertippter Key lässt Cloudflare das Widget kommentarlos weglassen — das
+// Formular ist dann nicht absendbar, ohne dass es jemandem auffällt. Ein gesetzter,
+// aber kaputter Wert ist deshalb immer ein Fehler und bricht den Build ab.
+// Ein fehlender Wert nicht: Preview-Builds laufen ohne die Production-Env und
+// sollen trotzdem bauen — dort greift der Laufzeit-Hinweis unten.
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+if (turnstileSiteKey && !isValidSiteKey(turnstileSiteKey)) {
+  throw new Error(
+    `PUBLIC_TURNSTILE_SITE_KEY hat ein ungültiges Format (${turnstileSiteKey.length} Zeichen). ` +
+      'Erwartet wird der unveränderte Wert aus dem Cloudflare-Dashboard.'
+  );
+}
 ---
 
 <!DOCTYPE html>
 <html lang="de">
 	<head>
 		<BaseHead title="Bewerbung - Steuerbüro Heilgendorff Wiesbaden" description="Jetzt beim Steuerbüro Heilgendorff in Wiesbaden bewerben. Offene Stellen für Steuerfachangestellte, Lohnbuchhalter und Werkstudenten." />
+		<!-- Muss vor api.js stehen: Turnstile schlägt den Callback beim Rendern
+		     unter window[name] nach. -->
+		<script is:inline>
+			(function () {
+				function reportTurnstileFailure(detail) {
+					var box = document.getElementById('turnstileError');
+					if (!box || !box.hidden) return;
+					box.hidden = false;
+					console.error('Turnstile nicht verfügbar:', detail);
+				}
+
+				window.onTurnstileError = function (code) {
+					reportTurnstileFailure('Fehlercode ' + code);
+				};
+
+				// Fängt den Fall ab, in dem api.js gar nicht erst lädt (Adblocker,
+				// gesperrtes Netz, CDN-Ausfall). Dann kennt Cloudflare den
+				// Error-Callback nie und würde stumm bleiben.
+				window.addEventListener('load', function () {
+					setTimeout(function () {
+						if (!window.turnstile) reportTurnstileFailure('api.js wurde nicht geladen');
+					}, 8000);
+				});
+			})();
+		</script>
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 	</head>
 	<body>
@@ -173,7 +210,19 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 
 							<!-- Cloudflare Turnstile verification widget -->
 							<div class="form-group">
-								<div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" data-language="de"></div>
+								<div
+									class="cf-turnstile"
+									data-sitekey={turnstileSiteKey}
+									data-theme="light"
+									data-language="de"
+									data-error-callback="onTurnstileError"
+								></div>
+								<p id="turnstileError" class="turnstile-error" role="alert" hidden>
+									Die Sicherheitsabfrage konnte nicht geladen werden, deshalb lässt sich das
+									Formular gerade nicht absenden. Bitte laden Sie die Seite neu — oder schicken
+									Sie uns Ihre Unterlagen direkt an
+									<a href="mailto:bewerbung@heilgendorff.de?subject=Bewerbung%20(Formular%20nicht%20verf%C3%BCgbar)">bewerbung@heilgendorff.de</a>.
+								</p>
 							</div>
 
 							<button
@@ -201,6 +250,13 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 </html>
 
 <style>
+	/* Fehlerfarben einmal definiert — Toast und Turnstile-Hinweis teilen sie sich. */
+	main {
+		--error-bg: #f8d7da;
+		--error-border: #dc3545;
+		--error-text: #721c24;
+	}
+
 	.hero {
 		text-align: center;
 		background: white;
@@ -349,6 +405,19 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 		padding-right: 2.5rem;
 	}
 
+	.turnstile-error {
+		margin-top: 0.5rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--error-border);
+		border-radius: 6px;
+		background: var(--error-bg);
+		color: var(--error-text);
+	}
+
+	.turnstile-error a {
+		color: inherit;
+	}
+
 	.file-upload {
 		position: relative;
 		display: inline-block;
@@ -453,9 +522,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 	}
 
 	.toast.error {
-		background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-		border: 1px solid #dc3545;
-		color: #721c24;
+		background: linear-gradient(135deg, var(--error-bg) 0%, #f5c6cb 100%);
+		border: 1px solid var(--error-border);
+		color: var(--error-text);
 	}
 
 	.toast-icon {
